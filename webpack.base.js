@@ -6,6 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const fs = require('fs');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const { extendDefaultPlugins } = require('svgo');
 
 const PATHS = {
 	src: path.join(__dirname, './src'),
@@ -55,7 +57,20 @@ module.exports = {
 		rules: [
 			{
 				test: /\.html$/,
-				use: ['html-loader'],
+				use: [
+					{
+						loader: 'html-loader',
+						options: {
+							minimize: true,
+							preprocessor: (content, loaderContext) =>
+								content.replace(/<include src="(.+)"\s*\/?>(?:<\/include>)?/gi, (m, src) => {
+									const filePath = path.resolve(loaderContext.context, src);
+									loaderContext.dependency(filePath);
+									return fs.readFileSync(filePath, 'utf8');
+								}),
+						},
+					},
+				],
 			},
 			{
 				test: /\.css$/,
@@ -127,6 +142,35 @@ module.exports = {
 	},
 
 	plugins: [
+		new ImageMinimizerPlugin({
+			minimizerOptions: {
+				// Lossless optimization with custom option
+				// Feel free to experiment with options for better result for you
+				plugins: [
+					['gifsicle', { interlaced: true }],
+					['mozjpeg', { progressive: true }],
+					['optipng', { optimizationLevel: 5 }],
+					// Svgo configuration here https://github.com/svg/svgo#configuration
+					[
+						'svgo',
+						{
+							plugins: extendDefaultPlugins([
+								{
+									name: 'removeViewBox',
+									active: false,
+								},
+								{
+									name: 'addAttributesToSVGElement',
+									params: {
+										attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }],
+									},
+								},
+							]),
+						},
+					],
+				],
+			},
+		}),
 		new webpack.ProvidePlugin({
 			$: 'jquery',
 			jQuery: 'jquery',

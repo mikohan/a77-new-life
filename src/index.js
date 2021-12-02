@@ -6,6 +6,5 @@
 // SCSS
 import './assets/scss/test.scss';
 
-jQuery(function () {
-	console.log('Its working');
-});
+// import header from './static-components/header.html';
+// import footer from './static-components/footer.html';
