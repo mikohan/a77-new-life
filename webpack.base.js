@@ -28,7 +28,8 @@ module.exports = {
 		path: PATHS.dist,
 		filename: `${PATHS.assets}js/[name].[hash].js`,
 		sourceMapFilename: '[name].[hash:8].map',
-		publicPath: '/',
+		assetModuleFilename: 'src/assets/images/[name].[ext]',
+		// publicPath: '/',
 	},
 
 	resolve: {
@@ -119,12 +120,12 @@ module.exports = {
 			},
 			{
 				test: /\.(png|jpg|gif|svg|jpeg)$/,
-				loader: 'file-loader',
-				options: {
-					name: '[name].[ext]',
-					outputPath: 'assets/images/',
-					publicPath: 'assets/images/',
-				},
+				type: 'asset/resource',
+				// options: {
+				// 	name: '[name].[ext]',
+				// 	outputPath: 'assets/images/',
+				// 	publicPath: 'assets/images/',
+				// },
 			},
 		],
 	},
@@ -159,12 +160,12 @@ module.exports = {
 				},
 			],
 		}),
-		// new HtmlWebpackPlugin({
-		// 	template: `${PAGES_DIR}/about.html`,
-		// 	filename: `./about.html`,
-		// 	inject: 'body',
-		// 	chunks: ['vends', 'about'],
-		// }),
+		new HtmlWebpackPlugin({
+			template: `${PAGES_DIR}/about.html`,
+			filename: `./about.html`,
+			inject: 'body',
+			chunks: ['vends', 'about'],
+		}),
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/index.html`,
 			filename: `./index.html`,
