@@ -20,7 +20,7 @@ module.exports = {
 		paths: PATHS,
 	},
 	entry: {
-		vends: path.join(PATHS.src, 'redparts/index.js'),
+		vends: path.join(PATHS.src, 'assets/index.js'),
 		app: PATHS.src,
 		about: path.join(PATHS.src, 'js/about.js'),
 	},
@@ -159,12 +159,12 @@ module.exports = {
 				},
 			],
 		}),
-		new HtmlWebpackPlugin({
-			template: `${PAGES_DIR}/about.html`,
-			filename: `./about.html`,
-			inject: 'body',
-			chunks: ['vends', 'about'],
-		}),
+		// new HtmlWebpackPlugin({
+		// 	template: `${PAGES_DIR}/about.html`,
+		// 	filename: `./about.html`,
+		// 	inject: 'body',
+		// 	chunks: ['vends', 'about'],
+		// }),
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/index.html`,
 			filename: `./index.html`,
