@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const fs = require('fs');
 const webpack = require('webpack');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const PATHS = {
 	src: path.join(__dirname, './src'),
@@ -111,12 +112,7 @@ module.exports = {
 			},
 			{
 				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'file-loader',
-				options: {
-					name: '[name].[ext]',
-					outputPath: 'assets/fonts/',
-					publicPath: 'assets/fonts/',
-				},
+				type: 'asset/resource',
 			},
 			{
 				test: /\.(png|jpg|gif|svg|jpeg)$/,
@@ -153,6 +149,10 @@ module.exports = {
 				{
 					from: `${PATHS.src}/${PATHS.assets}fonts`,
 					to: `${PATHS.assets}fonts`,
+				},
+				{
+					from: `${PATHS.src}/${PATHS.assets}images`,
+					to: `${PATHS.assets}images`,
 				},
 				// {
 				// 	from: `${PATHS.src}/static`,
