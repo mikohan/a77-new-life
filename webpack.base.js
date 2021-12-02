@@ -22,13 +22,13 @@ module.exports = {
 	entry: {
 		vends: path.join(PATHS.src, 'assets/index.js'),
 		app: PATHS.src,
-		about: path.join(PATHS.src, 'js/about.js'),
+		// about: path.join(PATHS.src, 'js/about.js'),
 	},
 	output: {
 		path: PATHS.dist,
 		filename: `${PATHS.assets}js/[name].[hash].js`,
 		sourceMapFilename: '[name].[hash:8].map',
-		assetModuleFilename: 'src/assets/images/[name].[ext]',
+		assetModuleFilename: 'assets/images/[name].[ext]',
 		// publicPath: '/',
 	},
 
@@ -154,10 +154,10 @@ module.exports = {
 					from: `${PATHS.src}/${PATHS.assets}fonts`,
 					to: `${PATHS.assets}fonts`,
 				},
-				{
-					from: `${PATHS.src}/static`,
-					to: '',
-				},
+				// {
+				// 	from: `${PATHS.src}/static`,
+				// 	to: '',
+				// },
 			],
 		}),
 		new HtmlWebpackPlugin({
