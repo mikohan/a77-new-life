@@ -1,0 +1,7 @@
+$h: color salmon;
+body {
+	background-color: thistle;
+	h1 {
+		color: $h;
+	}
+}
