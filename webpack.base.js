@@ -234,8 +234,8 @@ module.exports = {
 			chunks: ['allpages', 'app'],
 		}),
 		new HtmlWebpackPlugin({
-			template: `${PAGES_DIR}/templates/home.html`,
-			filename: `./templates/home.html`,
+			template: `${PAGES_DIR}/templates/home.html.php`,
+			filename: `./templates/home.html.php`,
 			inject: 'body',
 			chunks: ['mainpage'],
 		}),
