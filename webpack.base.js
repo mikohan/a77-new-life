@@ -8,6 +8,8 @@ const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const { extendDefaultPlugins } = require('svgo');
+const glob = require('glob');
+const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 
 const PATHS = {
 	src: path.join(__dirname, './src'),
@@ -23,7 +25,9 @@ module.exports = {
 		paths: PATHS,
 	},
 	entry: {
-		vends: path.join(PATHS.src, 'assets/index.js'),
+		mainpage: path.join(PATHS.src, 'assets/vendor/vendor.mainpage.js'),
+		allpages: path.join(PATHS.src, 'assets/vendor/vendor.allpages.js'),
+		about: path.join(PATHS.src, 'assets/js/about.page.js'),
 		app: PATHS.src,
 		// about: path.join(PATHS.src, 'js/about.js'),
 	},
@@ -32,7 +36,7 @@ module.exports = {
 		filename: `${PATHS.assets}js/[name].[hash].js`,
 		sourceMapFilename: '[name].[hash:8].map',
 		assetModuleFilename: 'assets/images/[name].[ext]',
-		// publicPath: '/',
+		publicPath: 'auto',
 	},
 
 	resolve: {
@@ -55,23 +59,23 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{
-				test: /\.html$/,
-				use: [
-					{
-						loader: 'html-loader',
-						options: {
-							minimize: true,
-							preprocessor: (content, loaderContext) =>
-								content.replace(/<include src="(.+)"\s*\/?>(?:<\/include>)?/gi, (m, src) => {
-									const filePath = path.resolve(loaderContext.context, src);
-									loaderContext.dependency(filePath);
-									return fs.readFileSync(filePath, 'utf8');
-								}),
-						},
-					},
-				],
-			},
+			// {
+			// 	test: /\.html$/,
+			// 	use: [
+			// 		{
+			// 			loader: 'html-loader',
+			// 			// options: {
+			// 			// 	minimize: true,
+			// 			// 	preprocessor: (content, loaderContext) =>
+			// 			// 		content.replace(/<include src="(.+)"\s*\/?>(?:<\/include>)?/gi, (m, src) => {
+			// 			// 			const filePath = path.resolve(loaderContext.context, src);
+			// 			// 			loaderContext.dependency(filePath);
+			// 			// 			return fs.readFileSync(filePath, 'utf8');
+			// 			// 		}),
+			// 			// },
+			// 		},
+			// 	],
+			// },
 			{
 				test: /\.css$/,
 				use: [
@@ -142,6 +146,12 @@ module.exports = {
 	},
 
 	plugins: [
+		new MiniCssExtractPlugin({
+			filename: '[name].css',
+		}),
+		new PurgeCSSPlugin({
+			paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+		}),
 		new ImageMinimizerPlugin({
 			minimizerOptions: {
 				// Lossless optimization with custom option
@@ -154,7 +164,7 @@ module.exports = {
 					[
 						'svgo',
 						{
-							plugins: extendDefaultPlugins([
+							plugins: [
 								{
 									name: 'removeViewBox',
 									active: false,
@@ -165,7 +175,7 @@ module.exports = {
 										attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }],
 									},
 								},
-							]),
+							],
 						},
 					],
 				],
@@ -198,9 +208,17 @@ module.exports = {
 					from: `${PATHS.src}/${PATHS.assets}images`,
 					to: `${PATHS.assets}images`,
 				},
+				{
+					from: `${PATHS.src}/snippets`,
+					to: `${PATHS.dist}/snippets`,
+				},
+				{
+					from: `${PATHS.src}/.htaccess`,
+					to: `${PATHS.dist}/`,
+				},
 				// {
-				// 	from: `${PATHS.src}/static`,
-				// 	to: '',
+				// 	from: `${PATHS.src}/templates`,
+				// 	to: `${PATHS.dist}/templates`,
 				// },
 			],
 		}),
@@ -208,13 +226,19 @@ module.exports = {
 			template: `${PAGES_DIR}/about.html`,
 			filename: `./about.html`,
 			inject: 'body',
-			chunks: ['vends', 'about'],
+			chunks: ['mainpage', 'about'],
 		}),
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/index.html`,
 			filename: `./index.html`,
 			inject: 'body',
 			chunks: ['vends', 'app'],
+		}),
+		new HtmlWebpackPlugin({
+			template: `${PAGES_DIR}/templates/del.html`,
+			filename: `./tpl/del.html`,
+			inject: 'body',
+			chunks: ['allpages', 'app'],
 		}),
 		// ...PAGES.map(
 		// 	(page) =>
