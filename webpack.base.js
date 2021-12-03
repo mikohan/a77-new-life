@@ -28,7 +28,7 @@ module.exports = {
 		mainpage: path.join(PATHS.src, 'assets/vendor/vendor.mainpage.js'),
 		allpages: path.join(PATHS.src, 'assets/vendor/vendor.allpages.js'),
 		about: path.join(PATHS.src, 'assets/js/about.page.js'),
-		app: PATHS.src,
+		app: path.join(PATHS.src, 'assets/js/app.js'),
 		// about: path.join(PATHS.src, 'js/about.js'),
 	},
 	output: {

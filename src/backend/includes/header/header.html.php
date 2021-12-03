@@ -416,7 +416,7 @@
                           }
                         };
                         const carId = id;
-                        xhttp.open("GET", `/new_includes/header/set_session.php?carname=${carName}&carid=${carId}`, true);
+                        xhttp.open("GET", `/backend/includes/header/set_session.php?carname=${carName}&carid=${carId}`, true);
                         xhttp.send();
 
                       }
