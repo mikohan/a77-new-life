@@ -147,7 +147,7 @@ module.exports = {
 
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: '[name].css',
+			filename: `${PATHS.assets}css/[name].[hash].css`,
 		}),
 		new PurgeCSSPlugin({
 			paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
@@ -187,13 +187,6 @@ module.exports = {
 			'window.jQuery': 'jquery',
 		}),
 		new CleanWebpackPlugin(),
-		new MiniCssExtractPlugin({
-			filename: `${PATHS.assets}css/[name].[hash].css`,
-		}),
-		new CleanWebpackPlugin(),
-		new MiniCssExtractPlugin({
-			filename: `${PATHS.assets}css/[name].[hash].css`,
-		}),
 		new CopyWebpackPlugin({
 			patterns: [
 				{
@@ -232,14 +225,21 @@ module.exports = {
 			template: `${PAGES_DIR}/index.html`,
 			filename: `./index.html`,
 			inject: 'body',
-			chunks: ['vends', 'app'],
+			chunks: ['app'],
 		}),
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/templates/del.html`,
-			filename: `./tpl/del.html`,
+			filename: `./templates/del.html`,
 			inject: 'body',
 			chunks: ['allpages', 'app'],
 		}),
+		new HtmlWebpackPlugin({
+			template: `${PAGES_DIR}/templates/home.html`,
+			filename: `./templates/home.html`,
+			inject: 'body',
+			chunks: ['mainpage'],
+		}),
+
 		// ...PAGES.map(
 		// 	(page) =>
 		// 		new HtmlWebpackPlugin({
