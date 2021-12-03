@@ -1,3 +1,3 @@
-import './number';
-import './main';
-import './shoppingCart';
+// import './number';
+// import './main';
+// import './shoppingCart';

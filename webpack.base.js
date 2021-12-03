@@ -27,8 +27,8 @@ module.exports = {
 	entry: {
 		mainpage: path.join(PATHS.src, 'assets/vendor/vendor.mainpage.js'),
 		allpages: path.join(PATHS.src, 'assets/vendor/vendor.allpages.js'),
-		about: path.join(PATHS.src, 'assets/js/about.page.js'),
 		app: path.join(PATHS.src, 'assets/js/app.js'),
+		about: path.join(PATHS.src, 'assets/js/about.page.js'),
 		// about: path.join(PATHS.src, 'js/about.js'),
 	},
 	output: {
@@ -237,7 +237,7 @@ module.exports = {
 			template: `${PAGES_DIR}/templates/home.html.php`,
 			filename: `./templates/home.html.php`,
 			inject: 'body',
-			chunks: ['mainpage'],
+			chunks: ['vendors', 'mainpage', 'app'],
 		}),
 
 		// ...PAGES.map(

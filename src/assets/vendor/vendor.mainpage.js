@@ -20,3 +20,5 @@ import './nouislider/nouislider.min.js';
 import './photoswipe/photoswipe.min.js';
 import './photoswipe/photoswipe-ui-default.min.js';
 import './select2/js/select2.min.js';
+import '../js/number';
+import '../js/main';

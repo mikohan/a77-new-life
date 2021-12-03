@@ -13,3 +13,5 @@ import '../css/style.mobile-header-variant-two.css'; //media="(max-width: 1199px
 // import './vendor/jquery/jquery.min.js';
 import './bootstrap/js/bootstrap.bundle.min.js';
 import './select2/js/select2.min.js';
+// import '../js/number';
+// import '../js/main';

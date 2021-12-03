@@ -122,9 +122,7 @@ function displayCart() {
                       </div>
                     </td>
                     <td class="cart-table__column cart-table__column--product">
-                      <a href="" class="cart-table__product-name">${
-							cartArray[i].name
-						}</a>
+                      <a href="" class="cart-table__product-name">${cartArray[i].name}</a>
                       <ul class="cart-table__options">
                       </ul>
                     </td>
@@ -136,12 +134,8 @@ function displayCart() {
                         <input class="form-control input-number__input" type="number" min="1" value="${
 							cartArray[i].count
 						}">
-                        <div class="input-number__add plus-item" data-name="${
-							cartArray[i].name
-						}"></div>
-                        <div class="input-number__sub substract-item" data-name="${
-							cartArray[i].name
-						}"></div>
+                        <div class="input-number__add plus-item" data-name="${cartArray[i].name}"></div>
+                        <div class="input-number__sub substract-item" data-name="${cartArray[i].name}"></div>
                       </div>
                     </td>
                     <td class="cart-table__column cart-table__column--total" data-title="Total">${
@@ -169,9 +163,7 @@ function displayCart() {
                 <div class="dropcart__item-image">
                   <a href="/cart/">
                     <img style="width: 70px;"  src="${
-						cartArray[i].image
-							? cartArray[i].image
-							: '/images/redparts/images/products/default-70.jpg'
+						cartArray[i].image ? cartArray[i].image : '/images/redparts/images/products/default-70.jpg'
 					}" alt="${cartArray[i].name}">
                   </a>
                 </div>
@@ -180,12 +172,8 @@ function displayCart() {
                     <a href="/cart/">${cartArray[i].name}</a>
                   </div>
                   <div class="dropcart__item-meta">
-                    <div class="dropcart__item-quantity">${
-						cartArray[i].count
-					}</div>
-                    <div class="dropcart__item-price">&#8381; ${
-						cartArray[i].price
-					}</div>
+                    <div class="dropcart__item-quantity">${cartArray[i].count}</div>
+                    <div class="dropcart__item-price">&#8381; ${cartArray[i].price}</div>
                   </div>
                 </div>
                 <button type="button" class="dropcart__item-remove delete-item" data-name="${
