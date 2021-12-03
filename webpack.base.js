@@ -209,10 +209,10 @@ module.exports = {
 					from: `${PATHS.src}/.htaccess`,
 					to: `${PATHS.dist}/`,
 				},
-				// {
-				// 	from: `${PATHS.src}/templates`,
-				// 	to: `${PATHS.dist}/templates`,
-				// },
+				{
+					from: `${PATHS.src}/backend`,
+					to: `${PATHS.dist}/backend`,
+				},
 			],
 		}),
 		new HtmlWebpackPlugin({
