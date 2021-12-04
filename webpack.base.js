@@ -31,6 +31,7 @@ module.exports = {
 		app: path.join(PATHS.src, 'assets/js/app.js'),
 		categoryPage: ['babel-polyfill', path.join(PATHS.src, 'assets/js/category.page.js')],
 		search: path.join(PATHS.src, 'assets/js/search.page.js'),
+		showCart: path.join(PATHS.src, 'assets/js/showCart.page.js'),
 	},
 	output: {
 		path: PATHS.dist,
@@ -256,6 +257,12 @@ module.exports = {
 			filename: `./templates/search.html.php`,
 			inject: 'body',
 			chunks: ['vendors', 'allpages', 'search'],
+		}),
+		new HtmlWebpackPlugin({
+			template: `${PAGES_DIR}/templates/cart.html.php`,
+			filename: `./templates/cart.html.php`,
+			inject: 'body',
+			chunks: ['vendors', 'allpages'],
 		}),
 
 		// ...PAGES.map(
