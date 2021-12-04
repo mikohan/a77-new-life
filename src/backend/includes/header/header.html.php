@@ -154,7 +154,7 @@
           </button>
           <div class="topbar__menu-body">
             <a class="topbar__menu-item" href="#">
-              <img src="/images/redparts/images/languages/language-4.png" alt="Russian"><span>Русский</span>
+              <img src="/assets/images/languages/language-4.png" alt="Russian"><span>Русский</span>
             </a>
           </div>
         </div>
@@ -192,7 +192,7 @@
                     <div class="departments__item-menu">
                       <div class="megamenu departments__megamenu departments__megamenu--size--xl">
                         <div class="megamenu__image">
-                          <?php $file = $_SERVER['DOCUMENT_ROOT'] . "/assets/images/departments/" . $all_car->slug . ".png";
+                          <?php $file =  "/assets/images/departments/" . $all_car->slug . ".png";
 
                           if (file_exists($file)) {
                             $file = '/assets/images/departments/' . $all_car->slug . '.png';
@@ -491,7 +491,7 @@
             <div class="account-menu__divider"></div>
             <a href="" class="account-menu__user">
               <div class="account-menu__user-avatar">
-                <img src="/assets/redparts/images/avatars/avatar-4.jpg" alt="avatar">
+                <img src="/assets/images/avatars/avatar-4.jpg" alt="avatar">
               </div>
               <div class="account-menu__user-info">
                 <div class="account-menu__user-name">Ryan Ford</div>

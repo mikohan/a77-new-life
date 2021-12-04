@@ -1,3 +1,10 @@
+import axios from 'axios';
+import Vue from '../vendor/vue/vue.min';
+/**
+ * Vie file
+ */
+//config part
+const server_url = 'https://angara77.ru';
 var app = new Vue({
 	el: '#app',
 	data() {
@@ -6,7 +13,7 @@ var app = new Vue({
 			apiUrl: {},
 			browserUrl: {},
 			// apiUrl: 'http://localhost:8000/api/product/jsontest-angara77',
-			defaultApiUrl: 'http://localhost:8000/api/product/jsontest-angara77?model=porter1&page_from=0&page_size=20',
+			defaultApiUrl: `${server_url}/api/product/jsontest-angara77?model=porter1&page_from=0&page_size=20`,
 
 			message: 'Hello Vue!',
 			model: 'porter1',
@@ -47,7 +54,7 @@ var app = new Vue({
 			// Initial setup for api url based on browser url
 
 			const browserUrl = new URL(window.location.href);
-			let apiUrl = new URL('http://localhost:8000/api/product/jsontest-angara77');
+			let apiUrl = new URL(`${server_url}/api/product/jsontest-angara77`);
 
 			// Setting up model and category slug
 			const [_a, _b, model, category] = browserUrl.pathname.split('/');

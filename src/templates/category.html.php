@@ -445,7 +445,7 @@
                           <div class="product-card__image">
                             <div class="image image--type--product">
                               <a :href="`/porter-${product._source.cat_number}-${product._source.one_c_id}/`" class="image__body">
-                                <img class="image__tag" v-bind:src="product._source.images.length ? product._source.images[0].img245 : '/images/redparts/images/products/default-245.jpg'" :alt="product._source.name">
+                                <img class="image__tag" v-bind:src="product._source.images.length ? product._source.images[0].img245 : '/assets/images/products/product-default-245.jpg'" :alt="product._source.name">
                               </a>
                             </div>
                             <div class="status-badge status-badge--style--success product-card__fit status-badge--has-icon status-badge--has-text">
@@ -614,14 +614,6 @@
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-  <!-- photoswipe / end -->
-  <!-- scripts -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
-  <script>
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <script src="/category/category.vue.js"></script> -->
 </body>
 
 </html>
