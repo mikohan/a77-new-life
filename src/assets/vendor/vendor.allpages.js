@@ -16,3 +16,4 @@ import './select2/js/select2.min.js';
 window.noUiSlider = require('./nouislider/nouislider.min');
 import '../js/number';
 import '../js/main';
+import '../js/shoppingCart';
