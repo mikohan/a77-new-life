@@ -163,7 +163,7 @@ var app = new Vue({
 			}
 
 			this.apiUrl = url;
-			localBrowserUrl = new URL(url);
+			let localBrowserUrl = new URL(url);
 			localBrowserUrl.searchParams.delete('category');
 			localBrowserUrl.searchParams.delete('model');
 

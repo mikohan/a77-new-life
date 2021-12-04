@@ -152,7 +152,10 @@ module.exports = {
 			filename: `${PATHS.assets}css/[name].[hash].css`,
 		}),
 		new PurgeCSSPlugin({
-			paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+			paths: () => glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+			safelist: {
+				standard: [/noUi-.*/],
+			},
 		}),
 		new ImageMinimizerPlugin({
 			minimizerOptions: {
@@ -224,12 +227,12 @@ module.exports = {
 			inject: 'body',
 			chunks: ['mainpage', 'about'],
 		}),
-		new HtmlWebpackPlugin({
-			template: `${PAGES_DIR}/index.html`,
-			filename: `./index.html`,
-			inject: 'body',
-			chunks: ['app'],
-		}),
+		// new HtmlWebpackPlugin({
+		// 	template: `${PAGES_DIR}/index.html`,
+		// 	filename: `./index.html`,
+		// 	inject: 'body',
+		// 	chunks: ['app'],
+		// }),
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/templates/del.html`,
 			filename: `./templates/del.html`,
