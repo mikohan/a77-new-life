@@ -1,114 +1,115 @@
-// Shoping cart functions
-//**************************************************************
-var shoppingCart = {};
-shoppingCart.cart = [];
-shoppingCart.Item = function (name, price, count, image, sku) {
-	this.name = name;
-	this.price = price;
-	this.count = count;
-	this.image = image;
-	this.sku = sku;
-};
-shoppingCart.addItemCart = function (name, price, count, image, sku) {
-	for (var i in this.cart) {
-		if (this.cart[i].name === name) {
-			this.cart[i].count += count;
-			this.saveCart();
-			//alert("Товар добавлен в корзину");
-			return;
-		}
-	}
-	var item = new this.Item(name, price, count, image, sku);
-	if (this.cart == null) {
-		this.cart = new Array();
-	}
-	this.cart.push(item);
-	this.saveCart();
-	//alert('Товар добавлен в корзину');
-};
-shoppingCart.removeItemFromCart = function (name) {
-	for (var i in this.cart) {
-		if (this.cart[i].name === name) {
-			this.cart[i].count--;
-			if (this.cart[i].count === 0) {
-				this.cart.splice(i, 1);
+(function ($) {
+	// Shoping cart functions
+	//**************************************************************
+	var shoppingCart = {};
+	shoppingCart.cart = [];
+	shoppingCart.Item = function (name, price, count, image, sku) {
+		this.name = name;
+		this.price = price;
+		this.count = count;
+		this.image = image;
+		this.sku = sku;
+	};
+	shoppingCart.addItemCart = function (name, price, count, image, sku) {
+		for (var i in this.cart) {
+			if (this.cart[i].name === name) {
+				this.cart[i].count += count;
+				this.saveCart();
+				//alert("Товар добавлен в корзину");
+				return;
 			}
-			break;
 		}
-	}
-	this.saveCart();
-};
-shoppingCart.removeItemFromCartAll = function (name) {
-	for (var i in this.cart) {
-		if (this.cart[i].name === name) {
-			this.cart.splice(i, 1);
-			break;
+		var item = new this.Item(name, price, count, image, sku);
+		if (this.cart == null) {
+			this.cart = new Array();
 		}
-	}
-	this.saveCart();
-};
-shoppingCart.clearCart = function () {
-	if (confirm('Удалить все товары из корзины?')) {
+		this.cart.push(item);
+		this.saveCart();
+		//alert('Товар добавлен в корзину');
+	};
+	shoppingCart.removeItemFromCart = function (name) {
+		for (var i in this.cart) {
+			if (this.cart[i].name === name) {
+				this.cart[i].count--;
+				if (this.cart[i].count === 0) {
+					this.cart.splice(i, 1);
+				}
+				break;
+			}
+		}
+		this.saveCart();
+	};
+	shoppingCart.removeItemFromCartAll = function (name) {
+		for (var i in this.cart) {
+			if (this.cart[i].name === name) {
+				this.cart.splice(i, 1);
+				break;
+			}
+		}
+		this.saveCart();
+	};
+	shoppingCart.clearCart = function () {
+		if (confirm('Удалить все товары из корзины?')) {
+			this.cart = [];
+			this.saveCart();
+		}
+	};
+	shoppingCart.clearCartSuccess = function () {
 		this.cart = [];
 		this.saveCart();
-	}
-};
-shoppingCart.clearCartSuccess = function () {
-	this.cart = [];
-	this.saveCart();
-};
-shoppingCart.countCart = function () {
-	var totalCount = 0;
-	for (var i in this.cart) {
-		totalCount += this.cart[i].count;
-	}
-	return totalCount;
-};
-shoppingCart.totalCart = function () {
-	var totalCost = 0;
-	for (var i in this.cart) {
-		totalCost += this.cart[i].price * this.cart[i].count;
-	}
-	return totalCost.toFixed(0);
-};
-shoppingCart.listCart = function () {
-	var cartCopy = [];
-	for (var i in this.cart) {
-		var item = this.cart[i];
-		var itemCopy = {};
-		for (var p in item) {
-			itemCopy[p] = item[p];
+	};
+	shoppingCart.countCart = function () {
+		var totalCount = 0;
+		for (var i in this.cart) {
+			totalCount += this.cart[i].count;
 		}
-		itemCopy.total = (item.price * item.count).toFixed(2);
-		cartCopy.push(itemCopy);
-	}
-	return cartCopy;
-};
-shoppingCart.saveCart = function () {
-	localStorage.setItem('shoppingCart', JSON.stringify(this.cart));
-};
-shoppingCart.loadCart = function () {
-	this.cart = JSON.parse(localStorage.getItem('shoppingCart'));
-	//return this.cart;
-};
-$('.add-to-cart').click(function (event) {
-	event.preventDefault();
-	var name = $(this).attr('data-name');
-	var price = Number($(this).attr('data-price'));
-	var image = $(this).attr('data-image');
-	var sku = $(this).attr('data-sku');
-	shoppingCart.addItemCart(name, price, 1, image, sku);
-	displayCart();
-});
-$('.clear-cart').click(function (event) {
-	shoppingCart.clearCart();
-	displayCart();
-});
-function displayCart() {
-	var cartArray = shoppingCart.listCart();
-	var output = '';
-	for (var i in cartArray) {
-		output += `
+		return totalCount;
+	};
+	shoppingCart.totalCart = function () {
+		var totalCost = 0;
+		for (var i in this.cart) {
+			totalCost += this.cart[i].price * this.cart[i].count;
+		}
+		return totalCost.toFixed(0);
+	};
+	shoppingCart.listCart = function () {
+		var cartCopy = [];
+		for (var i in this.cart) {
+			var item = this.cart[i];
+			var itemCopy = {};
+			for (var p in item) {
+				itemCopy[p] = item[p];
+			}
+			itemCopy.total = (item.price * item.count).toFixed(2);
+			cartCopy.push(itemCopy);
+		}
+		return cartCopy;
+	};
+	shoppingCart.saveCart = function () {
+		localStorage.setItem('shoppingCart', JSON.stringify(this.cart));
+	};
+	shoppingCart.loadCart = function () {
+		this.cart = JSON.parse(localStorage.getItem('shoppingCart'));
+		//return this.cart;
+	};
+	$('.add-to-cart').click(function (event) {
+		event.preventDefault();
+		var name = $(this).attr('data-name');
+		var price = Number($(this).attr('data-price'));
+		var image = $(this).attr('data-image');
+		var sku = $(this).attr('data-sku');
+		shoppingCart.addItemCart(name, price, 1, image, sku);
+		displayCart();
+	});
+	$('.clear-cart').click(function (event) {
+		shoppingCart.clearCart();
+		displayCart();
+	});
+	function displayCart() {
+		var cartArray = shoppingCart.listCart();
+		var output = '';
+		for (var i in cartArray) {
+			output += `
                   <tr class="cart-table__row">
                     <td class="cart-table__column cart-table__column--image">
                       <div class="image image--type--product">
@@ -154,11 +155,11 @@ function displayCart() {
                     </td>
                   </tr>
 `;
-	}
+		}
 
-	let mini_out = '';
-	for (var i in cartArray) {
-		mini_out += `
+		let mini_out = '';
+		for (var i in cartArray) {
+			mini_out += `
 							<li class="dropcart__item">
                 <div class="dropcart__item-image">
                   <a href="/cart/">
@@ -186,10 +187,10 @@ function displayCart() {
                 </button>
               </li>
 							`;
-	}
-	let order_items = '';
-	for (var i in cartArray) {
-		order_items += `
+		}
+		let order_items = '';
+		for (var i in cartArray) {
+			order_items += `
 		<tr>
 		  <td class="td-sku" data-sku="${cartArray[i].sku}">${cartArray[i].sku}</td>
 			<td>${cartArray[i].name}</td>
@@ -197,43 +198,44 @@ function displayCart() {
 		</tr>
 		
 		`;
+		}
+		$('.order-items').html(order_items);
+		$('#show-mini-cart').html(mini_out);
+		$('#mini-count').html(shoppingCart.countCart());
+		$('#mini-total').html(shoppingCart.totalCart());
+		$('.show-cart').html(output);
+		$('.count-cart').html(shoppingCart.countCart());
+		$('.total-cart').html(shoppingCart.totalCart());
+		$('.total-cart-input').val(shoppingCart.totalCart());
 	}
-	$('.order-items').html(order_items);
-	$('#show-mini-cart').html(mini_out);
-	$('#mini-count').html(shoppingCart.countCart());
-	$('#mini-total').html(shoppingCart.totalCart());
-	$('.show-cart').html(output);
-	$('.count-cart').html(shoppingCart.countCart());
-	$('.total-cart').html(shoppingCart.totalCart());
-	$('.total-cart-input').val(shoppingCart.totalCart());
-}
 
-$('.header').on('click', '.delete-item', function (event) {
-	var name = $(this).attr('data-name');
-	shoppingCart.removeItemFromCartAll(name);
+	$('.header').on('click', '.delete-item', function (event) {
+		var name = $(this).attr('data-name');
+		shoppingCart.removeItemFromCartAll(name);
+		displayCart();
+	});
+	$('.show-cart').on('click', '.delete-item', function (event) {
+		var name = $(this).attr('data-name');
+		shoppingCart.removeItemFromCartAll(name);
+		displayCart();
+	});
+	$('.show-cart-menu').on('click', '.delete-item', function (event) {
+		var name = $(this).attr('data-name');
+		shoppingCart.removeItemFromCartAll(name);
+		displayCart();
+	});
+	$('.show-cart').on('click', '.substract-item', function (event) {
+		var name = $(this).attr('data-name');
+		shoppingCart.removeItemFromCart(name);
+		displayCart();
+	});
+	$('.show-cart').on('click', '.plus-item', function (event) {
+		var name = $(this).attr('data-name');
+		shoppingCart.addItemCart(name, 0, 1);
+		displayCart();
+	});
+	//var load = [];
+	shoppingCart.loadCart();
 	displayCart();
-});
-$('.show-cart').on('click', '.delete-item', function (event) {
-	var name = $(this).attr('data-name');
-	shoppingCart.removeItemFromCartAll(name);
-	displayCart();
-});
-$('.show-cart-menu').on('click', '.delete-item', function (event) {
-	var name = $(this).attr('data-name');
-	shoppingCart.removeItemFromCartAll(name);
-	displayCart();
-});
-$('.show-cart').on('click', '.substract-item', function (event) {
-	var name = $(this).attr('data-name');
-	shoppingCart.removeItemFromCart(name);
-	displayCart();
-});
-$('.show-cart').on('click', '.plus-item', function (event) {
-	var name = $(this).attr('data-name');
-	shoppingCart.addItemCart(name, 0, 1);
-	displayCart();
-});
-//var load = [];
-shoppingCart.loadCart();
-displayCart();
-load = shoppingCart.listCart();
+	load = shoppingCart.listCart();
+})(jQuery);
