@@ -2,8 +2,9 @@
 <html lang="ru" dir="ltr">
 
 <head>
-  <title>Поиск запчастей ✰ в интернет магазине Запчастей в Москве ✈ <?= $data['cat_number'] ?> ✈ <?= $data['one_c_id'] ?></title>
+  <title>Поиск запчастей ✰ в интернет магазине Запчастей в Москве ✈ <?= $search ?> ☎ <?= TELEPHONE_FREE ?></title>
   <meta name="description" content="Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" />
   <style>
     .applied-filters__item {
       cursor: pointer;
@@ -971,12 +972,6 @@
       </div>
     </div>
   </div>
-  <!-- photoswipe / end -->
-  <!-- scripts -->
-  <?php require_once __DIR__ . '/new_includes/footer/scripts.php'; ?>
-  <script>
-
-  </script>
 </body>
 
 </html>

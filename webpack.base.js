@@ -30,7 +30,7 @@ module.exports = {
 		allpages: path.join(PATHS.src, 'assets/vendor/vendor.allpages.js'),
 		app: path.join(PATHS.src, 'assets/js/app.js'),
 		categoryPage: ['babel-polyfill', path.join(PATHS.src, 'assets/js/category.page.js')],
-		search: path.join(PATHS.src, 'js/search.js'),
+		search: path.join(PATHS.src, 'assets/js/search.page.js'),
 	},
 	output: {
 		path: PATHS.dist,
