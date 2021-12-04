@@ -30,7 +30,7 @@ module.exports = {
 		allpages: path.join(PATHS.src, 'assets/vendor/vendor.allpages.js'),
 		app: path.join(PATHS.src, 'assets/js/app.js'),
 		categoryPage: ['babel-polyfill', path.join(PATHS.src, 'assets/js/category.page.js')],
-		// about: path.join(PATHS.src, 'js/about.js'),
+		search: path.join(PATHS.src, 'js/search.js'),
 	},
 	output: {
 		path: PATHS.dist,
@@ -250,6 +250,12 @@ module.exports = {
 			filename: `./templates/category.html.php`,
 			inject: 'body',
 			chunks: ['vendors', 'allpages', 'categoryPage'],
+		}),
+		new HtmlWebpackPlugin({
+			template: `${PAGES_DIR}/templates/search.html.php`,
+			filename: `./templates/search.html.php`,
+			inject: 'body',
+			chunks: ['vendors', 'allpages', 'search'],
 		}),
 
 		// ...PAGES.map(
