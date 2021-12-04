@@ -13,10 +13,9 @@ import '../css/style.mobile-header-variant-two.css'; //media="(max-width: 1199px
 // import '@fortawesome/fontawesome-free/js/brands';
 // import './vendor/fontawesome/css/all.min.css';
 
-// import './vendor/jquery/jquery.min.js';
+// import './jquery/jquery.min.js';
 import './bootstrap/js/bootstrap.bundle.min.js';
 import './owl-carousel/owl.carousel.min.js';
-import './nouislider/nouislider.min.js';
 import './photoswipe/photoswipe.min.js';
 import './photoswipe/photoswipe-ui-default.min.js';
 import './select2/js/select2.min.js';

@@ -1,1 +1,9 @@
 AddType application/x-httpd-php .html
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks
+RewriteBase /
+RewriteEngine on
+RewriteRule car/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/category/index.php?model=$1&category=$2 [L]
+</IfModule>

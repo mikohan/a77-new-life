@@ -1,3 +1,4 @@
+require('babel-polyfill');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -28,7 +29,7 @@ module.exports = {
 		mainpage: path.join(PATHS.src, 'assets/vendor/vendor.mainpage.js'),
 		allpages: path.join(PATHS.src, 'assets/vendor/vendor.allpages.js'),
 		app: path.join(PATHS.src, 'assets/js/app.js'),
-		about: path.join(PATHS.src, 'assets/js/about.page.js'),
+		categoryPage: ['babel-polyfill', path.join(PATHS.src, 'assets/js/category.page.js')],
 		// about: path.join(PATHS.src, 'js/about.js'),
 	},
 	output: {
@@ -36,12 +37,13 @@ module.exports = {
 		filename: `${PATHS.assets}js/[name].[hash].js`,
 		sourceMapFilename: '[name].[hash:8].map',
 		assetModuleFilename: 'assets/images/[name].[ext]',
-		publicPath: 'auto',
+		publicPath: '/',
 	},
 
 	resolve: {
 		alias: {
 			'@': PATHS.src,
+			jquery: 'jquery/src/jquery',
 		},
 		extensions: ['*', '.js', '.json'],
 	},
@@ -185,6 +187,7 @@ module.exports = {
 			$: 'jquery',
 			jQuery: 'jquery',
 			'window.jQuery': 'jquery',
+			'window.$': 'jquery',
 		}),
 		new CleanWebpackPlugin(),
 		new CopyWebpackPlugin({
@@ -238,6 +241,12 @@ module.exports = {
 			filename: `./templates/home.html.php`,
 			inject: 'body',
 			chunks: ['vendors', 'mainpage', 'app'],
+		}),
+		new HtmlWebpackPlugin({
+			template: `${PAGES_DIR}/templates/category.html.php`,
+			filename: `./templates/category.html.php`,
+			inject: 'body',
+			chunks: ['vendors', 'allpages', 'categoryPage'],
 		}),
 
 		// ...PAGES.map(
