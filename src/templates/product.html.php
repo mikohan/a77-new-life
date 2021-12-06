@@ -2,8 +2,8 @@
 <html lang="ru" dir="ltr">
 
 <head>
-  <title>Купить <?= $data['name'] ?> для <?= mb_ucfirst($car) ?> ✰ интернет магазин Запчастей в Москве ✈ <?= $data['cat_number'] ?> ✈ <?= $data['one_c_id'] ?></title>
-  <meta name="description" content="<?= $data['name'] . ' ' . $data['name2'] ?> для <?= mb_ucfirst($car) ?> ✈ <?= $data['cat_number'] ?> ✰ <?= $data['one_c_id'] ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
+  <title>Купить <?= $product['name'] ?> для <?= mb_ucfirst($make) ?> ✰ интернет магазин Запчастей в Москве ✈ <?= $product['cat_number'] ?> ✈ <?= $product['one_c_id'] ?></title>
+  <meta name="description" content="<?= $product['name'] . ' ' . $product['name2'] ?> для <?= mb_ucfirst($make) ?> <?= mb_ucfirst($model) ?> ✈ <?= $product['cat_number'] ?> ✰ <?= $product['one_c_id'] ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
 </head>
 
 <body>
@@ -11,17 +11,17 @@
     {
       "@context": "https://schema.org/",
       "@type": "Product",
-      "mpn": "<?= $data['cat_number'] ?>",
-      "name": "<?= $data['name'] . ' ' . $data['name2'] ?>",
-      "image": "<?= PHOTO_API_URL . $data['product_image'][0]['img245'] ?>",
-      "description": "<?= $data['name'] . ' ' . $data['name2'] ?> от производителя <?= $data['brand']['brand'] ?> для автомобиля <?= $car ?> . На все запчасти есть сертификат соответсвия.",
-      "sku": "<?= $data['unit']['unit_name'] ?>",
-      "brand": "<?= $data['brand']['brand'] ?>",
+      "mpn": "<?= $product['cat_number'] ?>",
+      "name": "<?= $product['name'] . ' ' . $product['name2'] ?>",
+      "image": "<?= $product['product_image'][0]['img245'] ?>",
+      "description": "<?= $product['name'] . ' ' . $product['name2'] ?> от производителя <?= $product['brand']['brand'] ?> для автомобиля <?= $model->name ?> . На все запчасти есть сертификат соответсвия.",
+      "sku": "<?= $product['one_c_id'] ?>",
+      "brand": "<?= $product['brand']['brand'] ?>",
       "offers": {
         "@type": "Offer",
         "url": "<?= $actual_link ?>",
         "priceCurrency": "RUB",
-        "price": "<?= $old_data['price'] ?>",
+        "price": "<?= $product['price'] ?>",
         "priceValidUntil": "<?= date("Y-m-d") ?>",
         "itemCondition": "http://schema.org/NewCondition",
         "availability": "https://schema.org/InStock",
@@ -92,7 +92,7 @@
                     <!-- // Video -->
                   </div>
                   <div class="product__header">
-                    <h1 class="product__title"><?= mb_ucfirst($product['name'] . ' ' . $product['name2']) . ' ' . mb_ucfirst($model)  ?></h1>
+                    <h1 class="product__title"><?= mb_ucfirst($product['name'] . ' ' . $product['name2']) . ' ' .  mb_ucfirst($make) . ' ' . mb_ucfirst($model)  ?></h1>
                     <div class="product__subtitle">
                       <div class="status-badge status-badge--style--success product__fit status-badge--has-icon status-badge--has-text">
                         <div class="status-badge__body">
@@ -110,8 +110,8 @@
                       <div class="product__features ">
                         <div class="product__features-title">Характеристики:</div>
                         <ul>
-                          <?php foreach ($data['product_attribute'] as $attribute) : ?>
-                            <li><?= $attribute['attribute_name']['name'] ?> <span><?= $attribute['attribute_value'] ?></span></li>
+                          <?php foreach ($attributes as $attribute) : ?>
+                            <li><?= $attribute['attribute_name'] ?? '' ?> <span><?= $attribute['attribute_value'] ?? '' ?></span></li>
                           <?php endforeach ?>
                         </ul>
                       </div>

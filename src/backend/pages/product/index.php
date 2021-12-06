@@ -25,6 +25,8 @@ $make = count($product['model']) ? mb_strtolower($product['model'][0]['make']) :
 
 $analogs = count($product['analogs']) ? $product['analogs'] : [];
 
+$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$attributes = count($product['product_attribute']) ? $product['product_attribute'] : [];
 
 // //$product = new Product();
 // //$old_data = $product->getProduct($id);
@@ -32,7 +34,6 @@ $analogs = count($product['analogs']) ? $product['analogs'] : [];
 // $car = mb_strtolower($data['car_model'][0]['name'], 'UTF-8');
 // $catalogue_new = $product->getCatalogue($data['cat_number'], $car);
 
-// $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 // // Analogs part here
 // $url_analog = PHOTO_API_URL . '/api/product/analogs/' . $data['id'] . '/?cat_number=' . $data['cat_number'];
