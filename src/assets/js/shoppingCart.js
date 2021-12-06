@@ -92,8 +92,8 @@ shoppingCart.loadCart = function () {
 	this.cart = JSON.parse(localStorage.getItem('shoppingCart'));
 	//return this.cart;
 };
-$('.add-to-cart').click(function (event) {
-	event.preventDefault();
+$('.add-to-cart').on('click', function (event) {
+	// event.preventDefault();
 	var name = $(this).attr('data-name');
 	var price = Number($(this).attr('data-price'));
 	var image = $(this).attr('data-image');
@@ -101,7 +101,7 @@ $('.add-to-cart').click(function (event) {
 	shoppingCart.addItemCart(name, price, 1, image, sku);
 	displayCart();
 });
-$('.clear-cart').click(function (event) {
+$('.clear-cart').on('click', function (event) {
 	shoppingCart.clearCart();
 	displayCart();
 });
@@ -135,8 +135,12 @@ function displayCart() {
                         <input class="form-control input-number__input" type="number" min="1" value="${
 							cartArray[i].count
 						}">
-                        <div class="input-number__add plus-item" data-name="${cartArray[i].name}"></div>
-                        <div class="input-number__sub substract-item" data-name="${cartArray[i].name}"></div>
+                        <div class="input-number__add plus-item" data-name="${cartArray[i].name}" data-sku="${
+			cartArray[i].sku
+		}"></div>
+                        <div class="input-number__sub substract-item" data-name="${cartArray[i].name}" data-sku="${
+			cartArray[i].sku
+		}"></div>
                       </div>
                     </td>
                     <td class="cart-table__column cart-table__column--total" data-title="Total">${
@@ -225,13 +229,15 @@ $('.show-cart-menu').on('click', '.delete-item', function (event) {
 	displayCart();
 });
 $('.show-cart').on('click', '.substract-item', function (event) {
-	var sku = $(this).attr('data-name');
+	var sku = $(this).attr('data-sku');
 	shoppingCart.removeItemFromCart(sku);
 	displayCart();
 });
 $('.show-cart').on('click', '.plus-item', function (event) {
+	var name = $(this).attr('data-name');
 	var sku = $(this).attr('data-sku');
-	shoppingCart.addItemCart(sku, 0, 1);
+	var image = $(this).attr('data-image');
+	shoppingCart.addItemCart(name, 0, 1, image, sku);
 	displayCart();
 });
 //var load = [];

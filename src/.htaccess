@@ -10,4 +10,7 @@ RewriteEngine on
 
 RewriteRule ^$ /backend/home.php [L]
 RewriteRule car/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/category/index.php?model=$1&category=$2 [L]
+
+RewriteRule ^order/$ /backend/pages/order/ [L]
+RewriteRule ^cart/$ /backend/pages/cart/ [L]
 </IfModule>
