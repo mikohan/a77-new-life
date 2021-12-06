@@ -1,7 +1,7 @@
 <?php
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
-require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/core.php');
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+require_once(__DIR__ . '/../../lib/init.php');
 
 
 $lastname = isset($_GET['lastname']) ? $_GET['lastname'] : '';
@@ -11,5 +11,5 @@ $payment_method = $payment_method == 'offline' ? 'При получении' : '
 
 
 // Needed to implement saver orders to db logic
-$call_back_url = ANG_MAP . 'order/thank.php?paymentMethod=online';
-require_once('./order-success.html.php');
+$call_back_url = ANG_MAP . '/backend/pages/order/thank.php?paymentMethod=online';
+include(__DIR__ . '/../../../templates/order-success.html.php');

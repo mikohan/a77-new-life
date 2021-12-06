@@ -246,5 +246,4 @@ displayCart();
 const load = shoppingCart.listCart();
 // })(jQuery);
 // console.log(shoppingCart);
-export const pass = 'I am in the shopping cart';
 export { shoppingCart };

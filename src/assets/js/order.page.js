@@ -1,16 +1,15 @@
-import { pass, shoppingCart } from './shoppingCart';
+import { shoppingCart } from './shoppingCart';
 (function ($) {
 	var myCart = shoppingCart.listCart();
-	// console.log(myCart);
 	if (myCart.length === 0) {
 		$('#checkout-id').html(`<h2 style="margin: 0 auto !important;">Корзина пуста!</h2>`);
 	}
 
-	$('#send-order').click(function (e) {
+	$('#send-order').on('click', function (e) {
 		sendOrder(e);
 	});
 
-	$('#pay-online').click(function (e) {
+	$('#pay-online').on('click', function (e) {
 		var yandexPhone = $('#yandex-phone').val();
 		if (!yandexPhone) {
 			alert('Телефон обязателен!');
@@ -64,7 +63,7 @@ import { pass, shoppingCart } from './shoppingCart';
 			return;
 		}
 
-		var params = '/order/thank.php?';
+		var params = '/backend/pages/order/thank.php?';
 		$.each(toThank, (key, value) => {
 			if (value) {
 				params += `${key}=${value}&`;
@@ -74,7 +73,7 @@ import { pass, shoppingCart } from './shoppingCart';
 
 		// Send emails and store order and detalis to db
 		$.post(
-			'manage_order.php',
+			'/backend/pages/order/manage_order.php',
 			{
 				data: form,
 			},

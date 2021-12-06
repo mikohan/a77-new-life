@@ -1,7 +1,7 @@
 <?php
 // error_reporting(E_ALL);
 // ini_set("display_errors", 1);
-require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/core.php');
+require_once(__DIR__ . '/../../lib/init.php');
 
 //Customer
 $data = $_POST['data'];

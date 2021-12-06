@@ -33,6 +33,7 @@ module.exports = {
 		search: path.join(PATHS.src, 'assets/js/search.page.js'),
 		showCart: path.join(PATHS.src, 'assets/js/showCart.page.js'),
 		order: path.join(PATHS.src, 'assets/js/order.page.js'),
+		orderSuccess: path.join(PATHS.src, 'assets/js/order-success.page.js'),
 	},
 	output: {
 		path: PATHS.dist,
@@ -270,6 +271,12 @@ module.exports = {
 			filename: `./templates/order.html.php`,
 			inject: 'body',
 			chunks: ['vendors', 'allpages', 'order'],
+		}),
+		new HtmlWebpackPlugin({
+			template: `${PAGES_DIR}/templates/order-success.html.php`,
+			filename: `./templates/order.html.php`,
+			inject: 'body',
+			chunks: ['vendors', 'allpages', 'orderSuccess'],
 		}),
 
 		// ...PAGES.map(

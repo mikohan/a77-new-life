@@ -2,15 +2,20 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <title>Order Success — Red Parts</title>
-    <?php require_once __DIR__ . '/../new_includes/header/header_links.php' ?>
+    <title>Спасибо за заказ! | Angara Parts</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" />
 </head>
 
 <body>
     <!-- site -->
     <div class="site">
         <!-- site header / start  -->
-        <?php require_once __DIR__ . '/../new_includes/header/header_new.php' ?>
+        <?php include __DIR__ . '/../backend/includes/header/header.php' ?>
         <!-- site__header / end -->
         <!-- site__body -->
         <div class="site__body">
@@ -86,9 +91,8 @@
         </div>
         <!-- site__body / end -->
         <!-- site__footer -->
-        <?php require_once __DIR__ . '/../new_includes/footer/footer.php' ?>
+        <?php include __DIR__ . '/../backend/includes/footer/footer.php' ?>
         <!-- scripts -->
-        <?php require_once __DIR__ . '/../new_includes/footer/scripts.php' ?>
         <script>
             $(document).ready(function() {
                 var total_sum = shoppingCart.totalCart();
