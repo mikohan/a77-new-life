@@ -12,9 +12,10 @@ shoppingCart.Item = function (name, price, count, image, sku) {
 };
 shoppingCart.addItemCart = function (name, price, count, image, sku) {
 	for (var i in this.cart) {
-		if (this.cart[i].sku === sku) {
+		if (this.cart[i].sku == sku) {
 			this.cart[i].count += count;
 			this.saveCart();
+			console.log(this.cart);
 			//alert("Товар добавлен в корзину");
 			return;
 		}
@@ -29,7 +30,7 @@ shoppingCart.addItemCart = function (name, price, count, image, sku) {
 };
 shoppingCart.removeItemFromCart = function (sku) {
 	for (var i in this.cart) {
-		if (this.cart[i].sku === sku) {
+		if (this.cart[i].sku == sku) {
 			this.cart[i].count--;
 			if (this.cart[i].count === 0) {
 				this.cart.splice(i, 1);
@@ -41,7 +42,7 @@ shoppingCart.removeItemFromCart = function (sku) {
 };
 shoppingCart.removeItemFromCartAll = function (sku) {
 	for (var i in this.cart) {
-		if (this.cart[i].sku === sku) {
+		if (this.cart[i].sku == sku) {
 			this.cart.splice(i, 1);
 			break;
 		}
@@ -147,8 +148,8 @@ function displayCart() {
 						cartArray[i].total
 					}</td>
                     <td class="cart-table__column cart-table__column--remove">
-                      <button type="button" class="cart-table__remove btn btn-sm btn-icon btn-muted delete-item" data-name="${
-							cartArray[i].name
+                      <button type="button" class="cart-table__remove btn btn-sm btn-icon btn-muted delete-item" data-sku="${
+							cartArray[i].sku
 						}">
                         <svg width="12" height="12">
                           <path d="M10.8,10.8L10.8,10.8c-0.4,0.4-1,0.4-1.4,0L6,7.4l-3.4,3.4c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L4.6,6L1.2,2.6
@@ -246,4 +247,4 @@ displayCart();
 const load = shoppingCart.listCart();
 // })(jQuery);
 // console.log(shoppingCart);
-export { shoppingCart };
+export { shoppingCart, displayCart };

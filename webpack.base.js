@@ -252,7 +252,7 @@ module.exports = {
 			template: `${PAGES_DIR}/templates/category.html.php`,
 			filename: `./templates/category.html.php`,
 			inject: 'body',
-			chunks: ['vendors', 'allpages', 'categoryPage'],
+			chunks: ['vendors', 'categoryPage'],
 		}),
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/templates/search.html.php`,

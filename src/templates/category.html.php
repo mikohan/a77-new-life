@@ -486,7 +486,7 @@
                             <div class="product-card__prices">
                               <div class="product-card__price product-card__price--current">&#8381; {{product._source.stocks.length ? product._source.stocks[0].price : 'Звоните!' }}</div>
                             </div>
-                            <button class="product-card__addtocart-icon add-to-cart" type="button" aria-label="Add to cart" id="add_to_cart_GA" :data-sku="product._source.sku" :data-price="product._source.price" :data-name="product._source.name" :data-image="product._source.images.length ? product._source.images[0].img150 : '/images/redparts/images/products/default-160.jpg'">
+                            <button class="product-card__addtocart-icon add-to-cart" @click="addToCart(product._source.name, (product._source.length ?? product._source.stocks[0].price), (product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-160.jpg'), product._source.one_c_id)" type="button" aria-label="Add to cart" id="add_to_cart_GA" :data-sku="product._source.one_c_id" :data-price="product._source.price" :data-name="product._source.name" :data-image="product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-160.jpg'">
                               <svg width="20" height="20">
                                 <circle cx="7" cy="17" r="2" />
                                 <circle cx="15" cy="17" r="2" />
@@ -495,7 +495,7 @@
 	C17.9,5.2,17.7,5,17.5,5H9.4C9.2,5,9,4.8,9,4.6V3.4C9,3.2,9.2,3,9.4,3h9.2C19.4,3,20,3.6,20,4.4z" />
                               </svg>
                             </button>
-                            <button class="product-card__addtocart-full add-to-cart" type="button" id="add_to_cart_GA" :data-sku="product._source.sku" :data-price="product._source.price" :data-name="product._source.name" :data-image="product._source.images.length ? product._source.images[0].img150 : '/images/redparts/images/products/default-160.jpg'">
+                            <button class="product-card__addtocart-full add-to-cart" @click="addToCart(product._source.name, (product._source.length ?? product._source.stocks[0].price), (product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-160.jpg'), product._source.one_c_id)" type="button" id="add_to_cart_GA" :data-sku="product._source.sku" :data-price="product._source.price" :data-name="product._source.name" :data-image="product._source.images.length ? product._source.images[0].img150 : '/images/redparts/images/products/default-160.jpg'">
                               Add to cart
                             </button>
                             <button class="product-card__wishlist" type="button">

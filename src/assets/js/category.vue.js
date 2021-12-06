@@ -1,5 +1,7 @@
 import axios from 'axios';
 import Vue from '../vendor/vue/vue.min';
+import { shoppingCart } from './shoppingCart';
+import { displayCart } from './shoppingCart';
 /**
  * Vie file
  */
@@ -50,6 +52,11 @@ var app = new Vue({
 		};
 	},
 	methods: {
+		addToCart(name, price, image, sku) {
+			console.log(name, price, image, sku);
+			shoppingCart.addItemCart(name, price, 1, image, sku);
+			displayCart();
+		},
 		setUrl() {
 			// Initial setup for api url based on browser url
 
