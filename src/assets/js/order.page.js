@@ -1,5 +1,7 @@
+import { pass, shoppingCart } from './shoppingCart';
 (function ($) {
 	var myCart = shoppingCart.listCart();
+	// console.log(myCart);
 	if (myCart.length === 0) {
 		$('#checkout-id').html(`<h2 style="margin: 0 auto !important;">Корзина пуста!</h2>`);
 	}
