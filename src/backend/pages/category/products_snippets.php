@@ -20,7 +20,7 @@
   $attributes = $part['attributes'] ? $part['attributes'] : array();
   $price = count($part['stocks']) ? $part['stocks'][0]['price'] : 'Звоните!';
   $cat_number = $part['cat_number'] ? $part['cat_number'] : '/';
-  $link = "/porter-{$cat_number}-{$sku}/";
+  $link = "/product/{$part['slug']}/";
   $brand = $part['brand'] ? $part['brand']['name'] : '';
   $country = $part['brand'] ? $part['brand']['country'] : '';
   $data_array = '';
