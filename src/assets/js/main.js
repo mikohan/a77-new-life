@@ -1,3 +1,5 @@
+import PhotoSwipe from '../vendor/photoswipe/photoswipe.min.js';
+import PhotoSwipeUI_Default from '../vendor/photoswipe/photoswipe-ui-default.min';
 (function ($) {
 	'use strict';
 

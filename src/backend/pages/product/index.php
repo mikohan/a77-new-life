@@ -18,8 +18,12 @@ $product_model = new ProductModel;
 $slug = $_GET['slug'];
 // $id = 13;
 // $url = PHOTO_API_URL . "/api/product/onec/" . $id . "/";
-$api_data = $product_model->getDataFromAPI($slug);
-p($api_data);
+$product = $product_model->getDataFromAPI($slug);
+// p($product);
+$model = count($product['model']) ? mb_strtolower($product['model'][0]['name'], 'UTF-8') : '';
+$make = count($product['model']) ? mb_strtolower($product['model'][0]['make']) : '';
+
+$analogs = count($product['analogs']) ? $product['analogs'] : [];
 
 
 // //$product = new Product();

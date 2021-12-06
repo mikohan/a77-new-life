@@ -58,9 +58,9 @@
                         </svg>
                       </button>
                       <div class="owl-carousel">
-                        <?php foreach ($data['product_image'] as $img) : ?>
-                          <a href="<?= PHOTO_API_URL . $img['img800'] ?>" target="_blank">
-                            <img src="<?= PHOTO_API_URL . $img['img500'] ?>" alt="<?= $data['name'] ?>">
+                        <?php foreach ($product['product_image'] as $img) : ?>
+                          <a href="<?= $img['image'] ?>" target="_blank">
+                            <img src="<?= $img['image'] ?>" alt="<?= $product['name'] ?>">
                           </a>
                         <?php endforeach ?>
 
@@ -68,20 +68,20 @@
                     </div>
                     <div class="product-gallery__thumbnails">
                       <div class="owl-carousel">
-                        <?php foreach ($data['product_image'] as $thumb) : ?>
-                          <a href="<?= PHOTO_API_URL . $thumb['img150'] ?>" class="product-gallery__thumbnails-item" target="_blank">
+                        <?php foreach ($product['product_image'] as $thumb) : ?>
+                          <a href="<?= $thumb['img150'] ?>" class="product-gallery__thumbnails-item" target="_blank">
                             <?php if ($thumb['img150x150']) : ?>
-                              <img src="<?= PHOTO_API_URL . $thumb['img150x150'] ?>" alt="<?= $data['name'] ?>">
+                              <img src="<?= $thumb['img150x150'] ?>" alt="<?= $product['name'] ?>">
                             <?php else : ?>
-                              <img src="<?= PHOTO_API_URL . $thumb['img150'] ?>" alt="<?= $data['name'] ?>">
+                              <img src="<?= $thumb['img150'] ?>" alt="<?= $product['name'] ?>">
                             <?php endif ?>
                           </a>
                         <?php endforeach ?>
                       </div>
                     </div>
                     <!-- Video -->
-                    <?php if (!empty($data['product_video'])) : ?>
-                      <?php foreach ($data['product_video'] as $video) : ?>
+                    <?php if (!empty($product['product_video'])) : ?>
+                      <?php foreach ($product['product_video'] as $video) : ?>
                         <div class="product-gallery__thumbnails product-gallery__video">
                           <div class="embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?= $video['youtube_id'] ?>?rel=0" allowfullscreen></iframe>
@@ -92,7 +92,7 @@
                     <!-- // Video -->
                   </div>
                   <div class="product__header">
-                    <h1 class="product__title"><?= mb_ucfirst($data['name'] . ' ' . $data['name2']) . ' ' . mb_ucfirst($car)  ?></h1>
+                    <h1 class="product__title"><?= mb_ucfirst($product['name'] . ' ' . $product['name2']) . ' ' . mb_ucfirst($model)  ?></h1>
                     <div class="product__subtitle">
                       <div class="status-badge status-badge--style--success product__fit status-badge--has-icon status-badge--has-text">
                         <div class="status-badge__body">
@@ -132,8 +132,8 @@
                                       <?= mb_ucfirst($analog['name']) ?>
                                     </a>
                                   </td>
-                                  <td style="white-space: nowrap; font-size: 12px;"><?= mb_strtoupper($product->replaceMobis($analog['brand']['brand'])) ?></td>
-                                  <td style="white-space: nowrap; font-size: 12px; font-weight: bold;"><?= $product->getProduct($analog['one_c_id'])['price'] ? '₽ ' . $product->getProduct($analog['one_c_id'])['price'] : ''  ?></td>
+                                  <td style="white-space: nowrap; font-size: 12px;"><?= mb_strtoupper($analog['brand']['brand']) ?></td>
+                                  <td style="white-space: nowrap; font-size: 12px; font-weight: bold;"><?= $analog['price'] ? '₽ ' . $analog['price'] : ''  ?></td>
                                 </tr>
                               <?php endforeach ?>
                             </tbody>
@@ -184,7 +184,7 @@
                             </tr>
                             <tr>
                               <th>Бренд</th>
-                              <td><a href=""><?= mb_strtoupper($product->replaceMobis($data['brand']['brand'], 'UTF-8')) ?></a></td>
+                              <td><a href=""><?= mb_strtoupper($product['brand']['brand']) ?></a></td>
                             </tr>
                             <!-- <tr>
                                                             <th>Страна</th>
@@ -403,13 +403,13 @@
                     <div class="product__shop-features shop-features product__shop--cars">
                       <div class="tags__list">
                         <?php foreach ($all_cars as $car) : ?>
-                          <a href="/zapchasti-<?= $car['url'] ?>/<?= $car['id'] ?>/"><?= mb_strtoupper($car['model_rus'], 'UTF-8') ?></a>
+                          <a href="/zapchasti-<?= $car->name ?>"></a>
                         <?php endforeach ?>
                       </div>
                     </div>
                   </div>
 
-                  <div class="product__tabs product-tabs product-tabs--layout--full d-none d-md-block">
+                  <div class=" product__tabs product-tabs product-tabs--layout--full d-none d-md-block">
                     <ul class="product-tabs__list">
                       <li class="product-tabs__item product-tabs__item--active"><a href="#product-tab-description">Гарантии и Доставка</a></li>
                       <li class="product-tabs__item"><a href="#product-tab-opisanie">Описание</a></li>
@@ -426,7 +426,8 @@
                               <li>По телефону.</li>
                               <li>По Email.</li>
                               <li>На Сайте.</li>
-                              <li>А так же любым другим удобным для Вас способом. Wathsap, Viber Etc...</a></li>
+                              <li>А так же любым другим удобным для Вас способом. Wathsap, Viber Etc...
+                                </a></li>
                             </ul>
                             <hr class="product__tabs--hr">
                             <h4>Гарантия Возврата 1 Год!</h4>

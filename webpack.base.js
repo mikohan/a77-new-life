@@ -282,7 +282,7 @@ module.exports = {
 			template: `${PAGES_DIR}/templates/product.html.php`,
 			filename: `./templates/product.html.php`,
 			inject: 'body',
-			chunks: ['vendors', 'allpages'],
+			chunks: ['vendors', 'mainpage'],
 		}),
 
 		// ...PAGES.map(
