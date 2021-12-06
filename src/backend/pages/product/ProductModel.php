@@ -24,25 +24,22 @@ class ProductModel extends Connection
 
 
     $today = new DateTime();
+
     $product_db_q = "SELECT * from `ang_product_api` WHERE slug=?";
     $t = $m->prepare($product_db_q);
     $t->execute(array($slug));
 
     $mysql_result = $t->fetch(PDO::FETCH_ASSOC);
     if (!$mysql_result) {
-      echo ("No reslut");
       $this->insertOrUpdateProduct($mydata);
     } else {
-      p($result);
+      $past = new DateTime($mysql_result['updated']);
+      $interval = $today->diff($past)->days;
+      if ($interval > 1) {
+        $this->insertOrUpdateProduct($mydata);
+      }
+      $mydata = json_decode($mysql_result['product_json'], true);
     }
-
-
-    // if ($result['updated']) {
-    //   $updated = $result['updated'];
-    // } else {
-    //   $updated = '2021-10-10 20:21:10';
-    // }
-
 
     return $mydata;
   }
