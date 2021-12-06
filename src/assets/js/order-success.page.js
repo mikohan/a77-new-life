@@ -1,3 +1,4 @@
+import { shoppingCart } from './shoppingCart';
 (function () {
 	var total_sum = shoppingCart.totalCart();
 	var myCart = shoppingCart.listCart();

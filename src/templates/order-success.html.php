@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ru" dir="ltr">
 
 <head>
     <title>Спасибо за заказ! | Angara Parts</title>
@@ -40,15 +40,15 @@
                         <div class="card order-success__meta">
                             <ul class="order-success__meta-list">
                                 <li class="order-success__meta-item">
-                                    <span class="order-success__meta-title">Order number:</span>
+                                    <span class="order-success__meta-title">Номер Заказа:</span>
                                     <span class="order-success__meta-value">#9478</span>
                                 </li>
                                 <li class="order-success__meta-item">
-                                    <span class="order-success__meta-title">Created At:</span>
+                                    <span class="order-success__meta-title">Создан:</span>
                                     <span class="order-success__meta-value"><?= date('d / m / Y') ?></span>
                                 </li>
                                 <li class="order-success__meta-item">
-                                    <span class="order-success__meta-title">Total:</span>
+                                    <span class="order-success__meta-title">Всего:</span>
                                     <span class="order-success__meta-value total">$1596.00</span>
                                 </li>
                                 <li class="order-success__meta-item">
@@ -62,9 +62,9 @@
                                 <table>
                                     <thead class="order-list__header">
                                         <tr>
-                                            <th class="order-list__column-label" colspan="2">Product</th>
-                                            <th class="order-list__column-quantity">Quantity</th>
-                                            <th class="order-list__column-total">Total</th>
+                                            <th class="order-list__column-label" colspan="2">Продукт</th>
+                                            <th class="order-list__column-quantity">Количество</th>
+                                            <th class="order-list__column-total">Всего</th>
                                         </tr>
                                     </thead>
                                     <tbody class="order-list__products">
@@ -93,42 +93,6 @@
         <!-- site__footer -->
         <?php include __DIR__ . '/../backend/includes/footer/footer.php' ?>
         <!-- scripts -->
-        <script>
-            $(document).ready(function() {
-                var total_sum = shoppingCart.totalCart();
-                var myCart = shoppingCart.listCart();
-                var prods = ''
-                for (var i in myCart) {
-                    prods += `
-                                        <tr>
-                                            <td class="order-list__column-image">
-                                                <div class="image image--type--product">
-                                                    <a href="product-full.html" class="image__body">
-                                                        <img class="image__tag" src="${myCart[i].image}" alt="${myCart[i].name}">
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td class="order-list__column-product">
-                                                <a href="product-full.html">${myCart[i].name}</a>
-                                                <div class="order-list__options">
-                                                </div>
-                                            </td>
-                                            <td class="order-list__column-quantity" data-title="Quantity:">
-                                                ${myCart[i].count}
-                                            </td>
-                                            <td class="order-list__column-total">
-                                            &#8381; ${myCart[i].price}
-                                            </td>
-                                        </tr>
-                    `
-                }
-                $('.order-list__products').html(prods);
-                $('.total').html('&#8381; ' + total_sum)
-                // Clear cart
-                shoppingCart.clearCartSuccess();
-                $('.count-cart').text(0)
-            })
-        </script>
 </body>
 
 </html>

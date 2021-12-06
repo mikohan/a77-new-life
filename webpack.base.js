@@ -274,7 +274,7 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/templates/order-success.html.php`,
-			filename: `./templates/order.html.php`,
+			filename: `./templates/order-success.html.php`,
 			inject: 'body',
 			chunks: ['vendors', 'allpages', 'orderSuccess'],
 		}),
