@@ -36,7 +36,7 @@
           <!-- mobile-logo / end -->
         </a>
         <div class="mobile-header__search mobile-search">
-          <form name="mobile-search-parts" class="mobile-search__body" method="GET" action="/search-parts/">
+          <form name="mobile-search-parts" class="mobile-search__body" method="GET" action="/search/">
             <input onclick="this.select()" type="text" class="mobile-search__input" placeholder="Введите каталожный номер или название" name="search" value="<?= $_GET['search'] ?? '' ?>">
             <button aria-label="Выбрать машину" type="button" class="mobile-search__vehicle-picker" aria-label="Select Vehicle">
               <svg width="20" height="20">
@@ -365,7 +365,7 @@
     </div>
     <div class="header__search">
       <div class="search">
-        <form name="search-parts" class="search__body" action="/search-parts/" method="GET">
+        <form name="search-parts" class="search__body" action="/search/" method="GET">
           <div class="search__shadow"></div>
           <input onclick="this.select()" class="search__input" type="text" placeholder="Введите каталожный номер или название" name="search" value="<?= $_GET['search'] ?? '' ?>">
           <input type="hidden" name="cmn" value="<?= $_SESSION['carname'] ?? '' ?>">
