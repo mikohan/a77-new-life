@@ -3,6 +3,7 @@ import './select2/css/select2.min.css';
 import '../css/style.css';
 import '../css/style.header-classic-variant-two.css'; //media="(min-width: 1200px)">
 import '../css/style.mobile-header-variant-two.css'; //media="(max-width: 1199px)">
+import '../css/custom.css';
 
 // import '@fortawesome/fontawesome-free/js/fontawesome';
 // import '@fortawesome/fontawesome-free/js/solid';

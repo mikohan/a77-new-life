@@ -2,36 +2,11 @@
 <html lang="ru" dir="ltr">
 
 <head>
-  <title>Купить <?= $product['name'] ?> для <?= mb_ucfirst($make) ?> ✰ интернет магазин Запчастей в Москве ✈ <?= $product['cat_number'] ?> ✈ <?= $product['one_c_id'] ?></title>
-  <meta name="description" content="<?= $product['name'] . ' ' . $product['name2'] ?> для <?= mb_ucfirst($make) ?> <?= mb_ucfirst($model) ?> ✈ <?= $product['cat_number'] ?> ✰ <?= $product['one_c_id'] ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
+  <title>Купить запчасти для {car goes here} ✰ в интернет магазине Запчастей в Москве ✈ </title>
+  <meta name="description" content="Запчасти для <?= mb_ucfirst($make) ?> <?= mb_ucfirst($model) ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
 </head>
 
 <body>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "mpn": "<?= $product['cat_number'] ?>",
-      "name": "<?= $product['name'] . ' ' . $product['name2'] ?>",
-      "image": "<?= $product['product_image'][0]['img245'] ?>",
-      "description": "<?= $product['name'] . ' ' . $product['name2'] ?> от производителя <?= $product['brand']['brand'] ?> для автомобиля <?= $model->name ?> . На все запчасти есть сертификат соответсвия.",
-      "sku": "<?= $product['one_c_id'] ?>",
-      "brand": "<?= $product['brand']['brand'] ?>",
-      "offers": {
-        "@type": "Offer",
-        "url": "<?= $actual_link ?>",
-        "priceCurrency": "RUB",
-        "price": "<?= $product['price'] ?>",
-        "priceValidUntil": "<?= date("Y-m-d") ?>",
-        "itemCondition": "http://schema.org/NewCondition",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Angara77"
-        }
-      }
-    }
-  </script>
 
   <!-- site -->
   <div class="site" id="app">
@@ -39,27 +14,99 @@
     <?php include __DIR__ . '/../backend/includes/header/header.php' ?>
     <!-- site__header / end -->
     <!-- site__body -->
+    <!-- site__body -->
     <div class="site__body">
-      <div class="block-split" style="margin-top: 30px;">
-        <div class="container">
-          <div class="block-split__row row no-gutters">
-            <div class="block-split__item block-split__item-content col-auto">
-              <div class="product product--layout--full">
-                <div class="product__body">
-                  some stuff
+      <div class="block-space block-space--layout--spaceship-ledge-height"></div>
+      <div class="block faq">
+        <div class="container container--max--xl">
+          <div class="faq__header">
+            <h1 class="faq__header-title">Каталог на {Dummy}</h1>
+          </div>
+          <div class="faq__section">
+            <h3 class="faq__section-title">Выберите раздел</h3>
+            <div class="faq__section-body">
+              <?php foreach ($first as $f) : ?>
+                <div class="faq__question">
+                  <h5 class="faq__question-title"><?= $f['name'] ?></h5>
+                  <div class="faq__question-answer">
+                    <div class="typography">
+                      <p>
+                        <img src="/catalogue_images/porter1<?= $f['img'] ?>" alt="<?= $f['name'] ?>" />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              <?php endforeach ?>
+            </div>
+          </div>
+          <div class="faq__section">
+            <h3 class="faq__section-title">Payment Information</h3>
+            <div class="faq__section-body">
+              <div class="faq__question">
+                <h5 class="faq__question-title">What payments methods are available?</h5>
+                <div class="faq__question-answer">
+                  <div class="typography">
+                    <p>
+                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                      aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div class="block-space block-space--layout--divider-nl"></div>
-
-              <!-- product carousel component -->
-
-
+              <div class="faq__question">
+                <h5 class="faq__question-title">Can I split my payment?</h5>
+                <div class="faq__question-answer">
+                  <div class="typography">
+                    <p>
+                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                      aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="faq__section">
+            <h3 class="faq__section-title">Orders and Returns</h3>
+            <div class="faq__section-body">
+              <div class="faq__question">
+                <h5 class="faq__question-title">How do I return or exchange an item?</h5>
+                <div class="faq__question-answer">
+                  <div class="typography">
+                    <p>
+                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                      aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="faq__question">
+                <h5 class="faq__question-title">How do I cancel an order?</h5>
+                <div class="faq__question-answer">
+                  <div class="typography">
+                    <p>
+                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                      aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="faq__footer">
+            <div class="faq__footer-title">Still Have A Questions?</div>
+            <div class="faq__footer-subtitle">We will be happy to answer any questions you may have.</div>
+            <a href="contact-us-v1.html" class="btn btn-primary">Contact Us</a>
           </div>
         </div>
       </div>
       <div class="block-space block-space--layout--before-footer"></div>
     </div>
+    <!-- site__body / end -->
     <!-- site__body / end -->
     <!-- site__footer -->
     <?php require_once __DIR__ . '/../backend/includes/footer/footer.php' ?>

@@ -222,10 +222,10 @@ module.exports = {
 					from: `${PATHS.src}/backend`,
 					to: `${PATHS.dist}/backend`,
 				},
-				// {
-				// 	from: `${PATHS.src}/catalogue_images`,
-				// 	to: `${PATHS.dist}/catalogue_images`,
-				// },
+				{
+					from: `${PATHS.src}/catalogue_images`,
+					to: `${PATHS.dist}/catalogue_images`,
+				},
 			],
 		}),
 		new HtmlWebpackPlugin({

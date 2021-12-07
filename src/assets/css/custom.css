@@ -1,3 +1,17 @@
 .product__expert--side--item3 {
 	text-align: center;
 }
+.faq__section-body {
+	justify-content: space-around;
+}
+.faq__question {
+	width: calc(33% - 30px);
+	margin: 0;
+}
+.faq__question h5 {
+	text-align: center;
+}
+.faq__question p {
+	display: flex;
+	justify-content: center;
+}
