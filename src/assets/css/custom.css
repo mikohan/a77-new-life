@@ -7,11 +7,29 @@
 .faq__question {
 	width: calc(33% - 30px);
 	margin: 0;
+	border: 1px solid #f4f4f4;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	padding: 0.5rem;
+	margin: 0.5rem;
 }
 .faq__question h5 {
 	text-align: center;
 }
-.faq__question p {
+.faq__question a {
 	display: flex;
 	justify-content: center;
+	text-decoration: none;
+	color: inherit;
+}
+.schema__item-body {
+	border: 1px solid blue;
+}
+.schema__item-container {
+	border: 1px solid pink;
+	display: flex;
+	justify-content: space-between;
 }

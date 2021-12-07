@@ -7,10 +7,11 @@ include __DIR__ . '/../../lib/init.php';
 require_once __DIR__ . '/../catalogue/CatalogueModel.php';
 
 $car_slug = $_GET['car'] ?? '';
+$parent = $_GET['parent'] ?? '';
 
 $catalogue_model = new CatalogueModel;
 $car = $catalogue_model->getCar($car_slug);
-$first = $catalogue_model->getCatalogue($car_slug);
+$first = $catalogue_model->getCatalogueSubcat($car_slug, $parent);
 
 
 

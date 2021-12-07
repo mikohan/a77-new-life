@@ -14,4 +14,29 @@ class Connection
     }
     return $pdo;
   }
+
+  public function getCar($slug)
+  {
+    /**
+     * Gegging all cars for specific make for side snippet
+     */
+
+    $m = $this->db();
+    $q = "SELECT car_json FROM ang_cars_api WHERE JSON_EXTRACT(car_json, '$.slug') = ?";
+    $t = $m->prepare($q);
+    $t->execute(array($slug));
+    $result = $t->fetch(PDO::FETCH_ASSOC);
+    $i = null;
+    if ($result) {
+      $i = json_decode($result['car_json'], true);
+      unset($i['categories']);
+      unset($i['model_to']);
+      unset($i['model_to']);
+      unset($i['model_hostory']);
+      unset($i['model_liquids']);
+      unset($i['brands']);
+      unset($i['engines']);
+    }
+    return $i;
+  }
 }

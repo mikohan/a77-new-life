@@ -288,6 +288,12 @@ module.exports = {
 			inject: 'body',
 			chunks: ['vendors', 'allpages'],
 		}),
+		new HtmlWebpackPlugin({
+			template: `${PAGES_DIR}/templates/catalogue_schema.html.php`,
+			filename: `./templates/catalogue_schema.html.php`,
+			inject: 'body',
+			chunks: ['vendors', 'allpages'],
+		}),
 
 		// ...PAGES.map(
 		// 	(page) =>
