@@ -222,6 +222,10 @@ module.exports = {
 					from: `${PATHS.src}/backend`,
 					to: `${PATHS.dist}/backend`,
 				},
+				{
+					from: `${PATHS.src}/catalogue`,
+					to: `${PATHS.dist}/catalogue`,
+				},
 			],
 		}),
 		new HtmlWebpackPlugin({

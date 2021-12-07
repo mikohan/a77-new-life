@@ -33,11 +33,34 @@ $product_tmb = count($product['product_image']) ? $product['product_image'][0]['
 $product_cross = count($product['product_cross']) ? $product['product_cross'] : [];
 
 $related = count($product['related']) ? $product['related'] : [];
-// //$product = new Product();
-// //$old_data = $product->getProduct($id);
-// //$all_cars = $product->GetCars(0);
-// $car = mb_strtolower($data['car_model'][0]['name'], 'UTF-8');
-// $catalogue_new = $product->getCatalogue($data['cat_number'], $car);
+
+$slug = count($product['model']) ? $product['model'][0]['make_slug'] : null;
+$all_cars = [];
+if ($slug) {
+  $all_cars = $product_model->GetCars($slug);
+}
+
+// Making array of product images if product have not have images than make array from default image
+
+$product_images = [];
+$product_tmbs = [];
+if (!count($product['product_image'])) {
+  foreach (range(0, 5) as $i) {
+    $product_images[] = "/assets/images/products/product-default-800.jpg";
+    $product_tmbs[] = "/assets/images/products/product-default-160.jpg";
+  }
+} else {
+  foreach ($product['product_image'] as $item) {
+    $product_images[] = $item['image'];
+    $product_tmbs[] = $item['img150'];
+  }
+}
+
+
+$catalogue_new = null;
+if (count($product['model'])) {
+  $catalogue_new = $product_model->getCatalogue($product['cat_number'], $product['model'][0]['slug']);
+}
 
 
 // // Analogs part here

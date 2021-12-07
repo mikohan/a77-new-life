@@ -49,9 +49,9 @@ function makeSubCategoreies($car)
   return $zerro;
 }
 
-$articles = $header->getArticlesByCar();
+//$articles = $header->getArticlesByCar();
 
-$catalogues = $header->catalogues();
+//$catalogues = $header->catalogues();
 
 // p($_SESSION['carname']);
 

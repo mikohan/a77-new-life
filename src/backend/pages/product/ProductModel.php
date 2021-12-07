@@ -72,4 +72,119 @@ class ProductModel extends Connection
     $t = $m->prepare($q);
     $t->execute(array($slug, $product_json, $updated));
   }
+  /////////////////////////////////////////////////////////////////////////
+  public function getCatalogue($cat_number, $car)
+  {
+    /**
+     * Function get data from catalogue fro product card
+     */
+    $prefix = $this->prfixes[mb_strtolower($car, 'UTF-8')] ?? NULL;
+    $m = $this->db();
+    $table = 'ang_catalogue_' .  $prefix . '_h3';
+    $table2 = 'ang_catalogue_' . $prefix . '_h4';
+    $table3 = 'ang_catalogue_' . $prefix . '_h5';
+    //$q = 'SELECT * FROM '.$table.' WHERE `id_h3` = ?';
+    $q = 'SELECT DISTINCT a.*,b.img as img2 FROM ' . $table . ' a
+           JOIN ' . $table2 . ' b ON a.id=b.id_h3
+           JOIN ' . $table3 . ' c ON b.id=c.id_h4
+           WHERE c.numer LIKE ?';
+    $t = $m->prepare($q);
+    try {
+      $t->execute(array($cat_number));
+      $data = $t->fetch(PDO::FETCH_ASSOC);
+      // $car_id = $this->car_id[mb_strtolower($car, 'UTF-8')];
+      return ['data' => $data, 'prefix' => $prefix];
+    } catch (Exception $e) {
+      return false;
+    }
+  } //Конец функции
+
+  public function getCars($make_slug)
+  {
+    /**
+     * Gegging all cars for specific make for side snippet
+     */
+
+    $m = $this->db();
+    $q = "SELECT car_json FROM ang_cars_api WHERE JSON_EXTRACT(car_json, '$.make.slug') = ?";
+    $t = $m->prepare($q);
+    $t->execute(array($make_slug));
+    $result = $t->fetchAll(PDO::FETCH_ASSOC);
+    $cars = [];
+    if ($result) {
+      foreach ($result as $item) {
+        $i = json_decode($item['car_json'], true);
+        unset($i['categories']);
+        unset($i['model_to']);
+        unset($i['model_to']);
+        unset($i['model_hostory']);
+        unset($i['model_liquids']);
+        $cars[] = $i;
+      }
+    }
+    return $cars;
+  }
+
+  private $car_id = [
+    'портер1' => '1',
+    'hd' => '2',
+    'hd72' => '2',
+    'hd78' => '2',
+    'hd160' => '2',
+    'hd170' => '2',
+    'hd260' => '2',
+    'hd270' => '2',
+    'hd450' => '2',
+    'hd500' => '2',
+    'старекс' => '3',
+    'Ман' => '4',
+    'портер2' => '5',
+    'транзит' => '6',
+    'транспортер' => '7',
+    'боксер' => '8',
+    'скания' => '9',
+    'дукато' => '10',
+    'джампер' => '11',
+    'вольво' => '12',
+    'ивеко' => '13',
+    'солярис' => '14',
+    'истана' => '16',
+    'кайрон' => '17',
+    'оптима' => '18',
+    'рекстон' => '19',
+    'рио' => '20',
+    'сантафе' => '21',
+    'соната' => '22',
+    'соренто' => '23',
+    'спортейдж' => '24',
+    'сид' => '25',
+    'актион' => '26',
+    'солярис' => '12',
+    'solaris' => '12'
+  ];
+
+  private $prfixes = [
+    'porter1' => 'porter1',
+    'porter2' => 'porter2',
+    'hd65' => 'hd',
+    'hd120' => 'hd',
+    'bogdan' => 'hd',
+    'county' => 'hd',
+    'hd72' => 'hd',
+    'hd78' => 'hd',
+    'hd160' => 'hd',
+    'hd170' => 'hd',
+    'hd260' => 'hd',
+    'hd270' => 'hd',
+    'hd450' => 'hd',
+    'hd500' => 'hd',
+    'starex' => 'starex',
+    'optima' => 'optima',
+    'santafe' => 'santafe',
+    'sonata' => 'sonata',
+    'sorento' => 'sorento',
+    'sporta' => 'sportage',
+    'ceed' => 'ceed',
+    'solaris' => 'solaris'
+  ];
 }

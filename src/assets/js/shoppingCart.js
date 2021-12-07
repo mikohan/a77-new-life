@@ -118,7 +118,7 @@ function displayCart() {
                           <img class="image__tag" src="${
 								cartArray[i].image
 									? cartArray[i].image
-									: '/images/redparts/images/products/default-160.jpg'
+									: '/assets/images/products/product-default-160.jpg'
 							}" alt="${cartArray[i].name}">
                         </a>
                       </div>
@@ -169,7 +169,7 @@ function displayCart() {
                 <div class="dropcart__item-image">
                   <a href="/cart/">
                     <img style="width: 70px;"  src="${
-						cartArray[i].image ? cartArray[i].image : '/images/redparts/images/products/default-70.jpg'
+						cartArray[i].image ? cartArray[i].image : '/assets/images/products/product-default-70.jpg'
 					}" alt="${cartArray[i].name}">
                   </a>
                 </div>

@@ -495,15 +495,15 @@
 	C17.9,5.2,17.7,5,17.5,5H9.4C9.2,5,9,4.8,9,4.6V3.4C9,3.2,9.2,3,9.4,3h9.2C19.4,3,20,3.6,20,4.4z" />
                               </svg>
                             </button>
-                            <button class="product-card__addtocart-full add-to-cart" @click="addToCart(product._source.name, (product._source.length ?? product._source.stocks[0].price), (product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-160.jpg'), product._source.one_c_id)" type="button" id="add_to_cart_GA" :data-sku="product._source.sku" :data-price="product._source.price" :data-name="product._source.name" :data-image="product._source.images.length ? product._source.images[0].img150 : '/images/redparts/images/products/default-160.jpg'">
-                              Add to cart
+                            <button class="product-card__addtocart-full add-to-cart" @click="addToCart(product._source.name, (product._source.length ?? product._source.stocks[0].price), (product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-160.jpg'), product._source.one_c_id)" type="button" id="add_to_cart_GA" :data-sku="product._source.sku" :data-price="product._source.price" :data-name="product._source.name" :data-image="product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-160.jpg'">
+                              Добавить в Корзину
                             </button>
                             <button class="product-card__wishlist" type="button">
                               <svg width="16" height="16">
                                 <path d="M13.9,8.4l-5.4,5.4c-0.3,0.3-0.7,0.3-1,0L2.1,8.4c-1.5-1.5-1.5-3.8,0-5.3C2.8,2.4,3.8,2,4.8,2s1.9,0.4,2.6,1.1L8,3.7
 	l0.6-0.6C9.3,2.4,10.3,2,11.3,2c1,0,1.9,0.4,2.6,1.1C15.4,4.6,15.4,6.9,13.9,8.4z" />
                               </svg>
-                              <span>Add to wishlist</span>
+                              <span>В Избранное</span>
                             </button>
                             <button class="product-card__compare" type="button">
                               <svg width="16" height="16">
@@ -511,7 +511,7 @@
                                 <path d="M1,9h2c0.6,0,1,0.4,1,1v4c0,0.6-0.4,1-1,1H1c-0.6,0-1-0.4-1-1v-4C0,9.4,0.4,9,1,9z" />
                                 <path d="M15,5h-2c-0.6,0-1,0.4-1,1v8c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V6C16,5.4,15.6,5,15,5z" />
                               </svg>
-                              <span>Add to compare</span>
+                              <span>К Сравнению</span>
                             </button>
                           </div>
                         </div>

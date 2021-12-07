@@ -58,9 +58,9 @@
                         </svg>
                       </button>
                       <div class="owl-carousel">
-                        <?php foreach ($product['product_image'] as $img) : ?>
-                          <a href="<?= $img['image'] ?>" target="_blank">
-                            <img src="<?= $img['image'] ?>" alt="<?= $product['name'] ?>">
+                        <?php foreach ($product_images as $img) : ?>
+                          <a href="<?= $img ?>" target="_blank">
+                            <img src="<?= $img ?>" alt="<?= $product['name'] ?>">
                           </a>
                         <?php endforeach ?>
 
@@ -68,13 +68,9 @@
                     </div>
                     <div class="product-gallery__thumbnails">
                       <div class="owl-carousel">
-                        <?php foreach ($product['product_image'] as $thumb) : ?>
-                          <a href="<?= $thumb['img150'] ?>" class="product-gallery__thumbnails-item" target="_blank">
-                            <?php if ($thumb['img150x150']) : ?>
-                              <img src="<?= $thumb['img150x150'] ?>" alt="<?= $product['name'] ?>">
-                            <?php else : ?>
-                              <img src="<?= $thumb['img150'] ?>" alt="<?= $product['name'] ?>">
-                            <?php endif ?>
+                        <?php foreach ($product_tmbs as $thumb) : ?>
+                          <a href="<?= $thumb ?>" class="product-gallery__thumbnails-item" target="_blank">
+                            <img src="<?= $thumb ?>" alt="<?= $product['name'] ?>">
                           </a>
                         <?php endforeach ?>
                       </div>
@@ -82,7 +78,7 @@
                     <!-- Video -->
                     <?php if (!empty($product['product_video'])) : ?>
                       <?php foreach ($product['product_video'] as $video) : ?>
-                        <div class="product-gallery__thumbnails product-gallery__video">
+                        <div class="product-gallery__thumbnails product-gallery__video" style="margin-top: 1rem;">
                           <div class="embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?= $video['youtube_id'] ?>?rel=0" allowfullscreen></iframe>
                           </div>
@@ -128,7 +124,7 @@
                               <?php foreach ($analogs as $analog) : ?>
                                 <tr>
                                   <td>
-                                    <a href="/porter-<?= str_replace('-', '', $analog['cat_number']) ?>-<?= $analog['one_c_id'] ?>/">
+                                    <a href="/product/<?= $analog['slug'] ?>/">
                                       <?= mb_ucfirst($analog['name']) ?>
                                     </a>
                                   </td>
@@ -401,9 +397,9 @@
                       </ul>
                     </div>
                     <div class="product__shop-features shop-features product__shop--cars">
-                      <div class="tags__list">
+                      <div class="tags__list" style="padding: 1rem;">
                         <?php foreach ($all_cars as $car) : ?>
-                          <a href="/zapchasti-<?= $car->name ?>"></a>
+                          <a href="/zapchasti/<?= $car->slug ? $car->slug : 'porter1' ?>/"><?= $car->name ?></a>
                         <?php endforeach ?>
                       </div>
                     </div>
@@ -541,6 +537,7 @@
                 </div>
               </div>
               <div class="block-space block-space--layout--divider-nl"></div>
+
               <!-- product carousel component -->
 
               <!-- Product Carousel Block -->
@@ -614,7 +611,7 @@
                                       </svg>
                                     </div>
                                     <div class="status-badge__text">
-                                      Part Fit for 2011 Ford Focus S
+                                      Fit for 2011 Ford Focus S
                                     </div>
                                     <div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="Part&#x20;Fit&#x20;for&#x20;2011&#x20;Ford&#x20;Focus&#x20;S"></div>
                                   </div>
@@ -632,7 +629,11 @@
                                       <div class="tag-badge tag-badge--new">new</div>
                                       <div class="tag-badge tag-badge--hot">hot</div>
                                     </div>
-                                    <a href="/porter-<?= str_replace('-', '', $related_product['cat_number']) ?>-<?= $related_product['one_c_id'] ?>/"><?= $related_product['name'] ?></a>
+                                    <?php
+                                    $rel_make = count($related_product['car_model']) ? $related_product['car_model'][0]['make'] : '';
+                                    $rel_model = count($related_product['car_model']) ? $related_product['car_model'][0]['name'] : '';
+                                    ?>
+                                    <a href="/product/<?= $related_product['slug'] ?>/"><?= "{$related_product['name']} {$rel_make} {$rel_model}" ?></a>
                                   </div>
                                 </div>
                                 <div class="product-card__rating">
@@ -642,19 +643,19 @@
                                       <div class="rating__star rating__star--active"></div>
                                       <div class="rating__star rating__star--active"></div>
                                       <div class="rating__star rating__star--active"></div>
-                                      <div class="rating__star"></div>
+                                      <div class="rating__star rating__star--active"></div>
                                     </div>
                                   </div>
-                                  <div class="product-card__rating-label">4 on 3 reviews</div>
+                                  <div class="product-card__rating-label">5 из <?php echo rand(4, 50) ?> оценок</div>
                                 </div>
                               </div>
                               <div class="product-card__footer">
                                 <div class="product-card__prices">
                                   <div class="product-card__price product-card__price--current">
-                                    ₽ <?= $product->getProduct($related_product['one_c_id'])['price'] ?>
+                                    ₽ <?= $related_product['price'] ?>
                                   </div>
                                 </div>
-                                <button class="product-card__addtocart-icon add-to-cart" type="button" aria-label="Add to cart">
+                                <button class="product-card__addtocart-icon add-to-cart" type="button" aria-label="Add to cart" data-name="<?= $related_product['name'] ?>" data-price="<?= $related_product['price'] ?>" data-image="<?= count($related_product['images']) ? $related_product['images'][0]['img245'] : '/assets/images/products/product-default-245.jpg' ?>" data-sku="<?= $related_product['one_c_id'] ?>">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
                                     <circle cx="7" cy="17" r="2" />
                                     <circle cx="15" cy="17" r="2" />
