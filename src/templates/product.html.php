@@ -166,7 +166,7 @@
                         <div class="product__prices-stock">
                           <div class="product__prices">
                             <?php setlocale(LC_MONETARY, 'ru_RU'); ?>
-                            <div class="product__price product__price--current">₽ <?= number_format($old_data['price'], 0, ',', ' ')  ?>
+                            <div class="product__price product__price--current">₽ <?= number_format($product['price'], 0, ',', ' ')  ?>
                             </div>
                           </div>
                           <div class="status-badge status-badge--style--success product__stock status-badge--has-text">
@@ -180,7 +180,7 @@
                           <table>
                             <tr>
                               <th>Каталожный номер</th>
-                              <td><?= mb_strtoupper($data['cat_number'], 'UTF-8') ?></td>
+                              <td><?= mb_strtoupper($product['cat_number'], 'UTF-8') ?></td>
                             </tr>
                             <tr>
                               <th>Бренд</th>
@@ -192,7 +192,7 @@
                                                         </tr> -->
                             <tr>
                               <th>SKU</th>
-                              <td><?= $data['one_c_id'] ?></td>
+                              <td><?= $product['one_c_id'] ?></td>
                             </tr>
                           </table>
                         </div>
@@ -200,7 +200,7 @@
 
                       <div class="product__actions">
                         <div class="product__actions-item product__actions-item--addtocart">
-                          <button class="btn btn-primary btn-lg btn-block add-to-cart" id="add_to_cart_GA" data-price="<?= $old_data['price'] ?>" data-name="<?= $data['name'] ?>" data-image="<?= $thumb ? PHOTO_API_URL . $thumb['img150x150'] : '/images/redparts/images/products/default-160.jpg' ?>" data-sku="<?= $data['one_c_id'] ?>">В
+                          <button class="btn btn-primary btn-lg btn-block add-to-cart" id="add_to_cart_GA" data-price="<?= $product['price'] ?>" data-name="<?= $product['name'] ?>" data-image="<?= $product_tmb ?>" data-sku="<?= $product['one_c_id'] ?>">В
                             Корзину</button>
                         </div>
 
@@ -216,7 +216,7 @@
                           <div class="product__features-title">Подходит на:</div>
                           <div class="tags__list">
 
-                            <?php foreach ($data['car_model'] as $car) : ?>
+                            <?php foreach ($product['model'] as $car) : ?>
                               <a href=""><?= mb_strtoupper($car['name'], 'UTF-8') ?></a>
                             <?php endforeach ?>
 
