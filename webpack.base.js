@@ -237,12 +237,6 @@ module.exports = {
 		// 	chunks: ['app'],
 		// }),
 		new HtmlWebpackPlugin({
-			template: `${PAGES_DIR}/templates/del.html`,
-			filename: `./templates/del.html`,
-			inject: 'body',
-			chunks: ['allpages', 'app'],
-		}),
-		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/templates/home.html.php`,
 			filename: `./templates/home.html.php`,
 			inject: 'body',
