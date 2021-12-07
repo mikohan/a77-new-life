@@ -6,7 +6,8 @@ class ProductModel extends Connection
   public function getDataFromAPI($slug)
   {
     $m = $this->db();
-    $url = "http://localhost:8000/api/product/get-product-by-slug/{$slug}/";
+    $server_url = PHOTO_API_URL;
+    $url = "{$server_url}/api/product/get-product-by-slug/{$slug}/";
 
     //  Initiate curl
     $ch = curl_init($url);

@@ -15,4 +15,5 @@ RewriteRule ^product/([a-zA-Z0-9-]+)/$ /backend/pages/product/index.php?slug=$1 
 
 RewriteRule ^order/$ /backend/pages/order/ [L]
 RewriteRule ^cart/$ /backend/pages/cart/ [L]
+RewriteRule ^catalogue/([a-zAZ0-9-]+)/$ /backend/pages/catalogue/index.php?car=$1 [L]
 </IfModule>
