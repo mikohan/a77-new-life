@@ -140,7 +140,7 @@
                       <?php endif ?>
                       <div class="product__tabs--hr--full product__expert--side--item2"></div>
                       <?php if (!empty($catalogue_new['data'])) : ?>
-                        <div class="product__expert--side--item product__expert--side--item3">
+                        <div class="product__expert--side--item product__expert--side--item3" style="text-align: center;">
                           <div class="product__features-title">Посмотреть на схеме</div>
                           <a href="/schema/<?= $catalogue_new['data']['id'] ?>/<?= $catalogue_new['car_id'] ?>/">
                             <img src="/catalogue/<?= $catalogue_new['prefix'] ?>/<?= $catalogue_new['data']['img2'] ?>" alt="<?= $catalogue_new['data']['name'] ?>" title="<?= $catalogue_new['data']['name'] ?>" class="img-responsive" style="width: 60%;">
