@@ -38,6 +38,8 @@
                       foreach ($tooltip as $tool) {
                         $show_tp .= '<div>' . $tool['name'] . ' ' . $tool['brand'] . ' ' . $tool['price'] . '</div>';
                       }
+                    } else {
+                      $show_tp .= '<div>Out of stock!</div>';
                     }
 
                     ?>
