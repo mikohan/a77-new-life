@@ -7,20 +7,25 @@ include __DIR__ . '/../../lib/init.php';
 require_once __DIR__ . '/../catalogue/CatalogueModel.php';
 
 $car_slug = $_GET['car'] ?? '';
-$parent = $_GET['schema'] ?? '';
+$parent = $_GET['schema'] ?? ''; // Var current shcema id
 
 $catalogue_model = new CatalogueModel;
 $car = $catalogue_model->getCar($car_slug);
 $schema = $catalogue_model->getCatalogueSchema($car_slug, $parent);
 $image = $schema['0']['img'];
-$h3 = $catalogue_model->getSchemaTitle($car_slug, $parent);
+$h3_table = $catalogue_model->getSchemaTitle($car_slug, $parent);
+
+// product getting here
+
+$numbers = array('5177044024', '581904BA20');
+$products = $catalogue_model->getProductsByCatNumbers($parent, $car_slug, $numbers);
 // p($schema);
 
 
 
 $make = $car ? $car['make']['name'] : '';
 $model = $car ? $car['name'] : '';
-$page_title = !empty($h3) ? $h3['name'] : '';
+$page_title = !empty($h3_table) ? $h3_table['name'] : '';
 
 
 

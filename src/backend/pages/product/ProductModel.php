@@ -6,41 +6,38 @@ class ProductModel extends Connection
   public function getDataFromAPI($slug)
   {
     $m = $this->db();
-    $server_url = PHOTO_API_URL;
-    $url = "{$server_url}/api/product/get-product-by-slug/{$slug}/";
-
-    //  Initiate curl
-    $ch = curl_init($url);
-
-    $options = array(
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_HTTPHEADER => array('Content-type: application/json')
-    );
-    curl_setopt_array($ch, $options);
-
-    $result = curl_exec($ch);
-
-    $mydata = json_decode($result, true);
-    curl_close($ch);
-
-
     $today = new DateTime();
-
     $product_db_q = "SELECT * from `ang_product_api` WHERE slug=?";
     $t = $m->prepare($product_db_q);
     $t->execute(array($slug));
-
     $mysql_result = $t->fetch(PDO::FETCH_ASSOC);
-    if (!$mysql_result) {
+
+    $past = new DateTime($mysql_result['updated'] ?? null);
+    $interval = $today->diff($past)->days;
+
+    if (!$mysql_result || $interval > 1) {
+      echo "data from curl";
+      $server_url = PHOTO_API_URL;
+      $url = "{$server_url}/api/product/get-product-by-slug/{$slug}/";
+      //  Initiate curl
+      $ch = curl_init($url);
+      $options = array(
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => array('Content-type: application/json')
+      );
+      curl_setopt_array($ch, $options);
+      $result = curl_exec($ch);
+      $mydata = json_decode($result, true);
+      curl_close($ch);
+
       $this->insertOrUpdateProduct($mydata);
     } else {
-      $past = new DateTime($mysql_result['updated']);
-      $interval = $today->diff($past)->days;
-      if ($interval > 1) {
-        $this->insertOrUpdateProduct($mydata);
-      }
+      echo "data from mysql";
       $mydata = json_decode($mysql_result['product_json'], true);
     }
+
+
+
 
     return $mydata;
   }

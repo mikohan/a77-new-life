@@ -40,7 +40,6 @@ class CatalogueModel extends Connection
     $t = $m->prepare($q);
     $t->execute(array($id));
     $result = $t->fetch(PDO::FETCH_ASSOC);
-    p($result);
     return $result;
   }
   public function getCatalogueSchema($car_slug, $schema)
@@ -62,4 +61,83 @@ class CatalogueModel extends Connection
     $result = $t->fetchAll(PDO::FETCH_ASSOC);
     return $result;
   }
+  public function getProductsByCatNumbers($schema_id, $car_slug, $cat_numbers)
+  {
+    /**
+     * Getting cat numbers from API for catalogue page schema
+     */
+
+    //Get data from mysql
+
+    $today = new DateTime();
+    $m = $this->db();
+    $product_db_q = "SELECT * from `ang_api_catalogue_cache` WHERE car_slug=? AND sch_id=?";
+    $t = $m->prepare($product_db_q);
+    $t->execute(array($car_slug, $schema_id));
+    $mysql_result = $t->fetch(PDO::FETCH_ASSOC);
+
+
+    $past = new DateTime($mysql_result['updated'] ?? null);
+    $interval = $today->diff($past)->days;
+
+    if (!$mysql_result || $interval > 1) {
+      echo "In no mysql result or interfal fucks";
+      $params = '';
+      foreach ($cat_numbers as $number) {
+        $params .= "numbers=" . $number . "&";
+      }
+      $params = rtrim($params, '&');
+
+      $server_url = PHOTO_API_URL;
+      // Needs to refactor url
+      // $url = "{$server_url}/api/product/get-products-by-numbers/?{$params}";
+      $url = "http://localhost:8000/api/product/get-products-by-numbers/?{$params}";
+
+      //  Initiate curl
+      $ch = curl_init($url);
+      $options = array(
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => array('Content-type: application/json')
+      );
+      curl_setopt_array($ch, $options);
+      $result = curl_exec($ch);
+      $mydata = json_decode($result, true);
+      curl_close($ch);
+      $this->insertOrUpdateCatalogue($mydata, $car_slug, $schema_id);
+    } else {
+      echo "Data from mysql";
+      $mydata = json_decode($mysql_result['products_json'], true);
+    }
+
+    return $mydata;
+  }
+
+  private function insertOrUpdateCatalogue($product,  $car_slug, $schema_id)
+  {
+    /**
+     * Insetting product for cache into mysql or 
+     * updates it if exists,
+     * changes once a day
+     */
+
+    $m = $this->db();
+
+    $updated = date("Y-m-d H:i:s");
+    $product_json = json_encode($product);
+
+    $q = "INSERT INTO ang_api_catalogue_cache
+    (sch_id, products_json, updated, car_slug)
+     VALUES
+     (?, ?, ?, ?)
+     AS new
+    ON DUPLICATE KEY UPDATE
+    sch_id = new.sch_id,
+    products_json = new.products_json,
+    updated = new.updated,
+    car_slug = new.car_slug
+    ";
+    $t = $m->prepare($q);
+    $t->execute(array($schema_id, $product_json, $updated, $car_slug));
+  }
+  /////////////////////////////////////////////////////////////////////////
 }

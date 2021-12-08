@@ -18,7 +18,7 @@
       "mpn": "<?= $product['cat_number'] ?>",
       "name": "<?= $product['name'] . ' ' . $product['name2'] ?>",
       "image": "<?= $product['product_image'][0]['img245'] ?>",
-      "description": "<?= $product['name'] . ' ' . $product['name2'] ?> от производителя <?= $product['brand']['brand'] ?> для автомобиля <?= $model->name ?> . На все запчасти есть сертификат соответсвия.",
+      "description": "<?= $product['name'] . ' ' . $product['name2'] ?> от производителя <?= $product['brand']['brand'] ?> для автомобиля <?= $make ?> <?= $model ?>. На все запчасти есть сертификат соответсвия.",
       "sku": "<?= $product['one_c_id'] ?>",
       "brand": "<?= $product['brand']['brand'] ?>",
       "offers": {
@@ -126,13 +126,22 @@
                             </thead>
                             <tbody>
                               <?php foreach ($analogs as $analog) : ?>
+                                <?php
+                                $brand = '';
+                                if ($analog['brand'] ?? false) {
+                                  if (array_key_exists('brand', $analog)) {
+                                    $brand = mb_strtoupper($analog['brand']['brand']);
+                                  }
+                                }
+
+                                ?>
                                 <tr>
                                   <td>
                                     <a href="/product/<?= $analog['slug'] ?>/">
                                       <?= mb_ucfirst($analog['name']) ?>
                                     </a>
                                   </td>
-                                  <td style="white-space: nowrap; font-size: 12px;"><?= mb_strtoupper($analog['brand']['brand']) ?></td>
+                                  <td style="white-space: nowrap; font-size: 12px;"><?= $brand ?></td>
                                   <td style="white-space: nowrap; font-size: 12px; font-weight: bold;"><?= $analog['price'] ? '₽ ' . $analog['price'] : ''  ?></td>
                                 </tr>
                               <?php endforeach ?>
