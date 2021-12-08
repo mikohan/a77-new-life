@@ -16,7 +16,6 @@ class ProductModel extends Connection
     $interval = $today->diff($past)->days;
 
     if (!$mysql_result || $interval > 1) {
-      echo "data from curl";
       $server_url = PHOTO_API_URL;
       $url = "{$server_url}/api/product/get-product-by-slug/{$slug}/";
       //  Initiate curl
@@ -32,7 +31,6 @@ class ProductModel extends Connection
 
       $this->insertOrUpdateProduct($mydata);
     } else {
-      echo "data from mysql";
       $mydata = json_decode($mysql_result['product_json'], true);
     }
 

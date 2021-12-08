@@ -81,7 +81,6 @@ class CatalogueModel extends Connection
     $interval = $today->diff($past)->days;
 
     if (!$mysql_result || $interval > 1) {
-      echo "In no mysql result or interfal fucks";
       $params = '';
       foreach ($cat_numbers as $number) {
         $params .= "numbers=" . $number . "&";
@@ -105,7 +104,6 @@ class CatalogueModel extends Connection
       curl_close($ch);
       $this->insertOrUpdateCatalogue($mydata, $car_slug, $schema_id);
     } else {
-      echo "Data from mysql";
       $mydata = json_decode($mysql_result['products_json'], true);
     }
 
