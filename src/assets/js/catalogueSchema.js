@@ -13,8 +13,7 @@ import '../vendor/imagemapster/jquery.imagemapster.min';
 		.mapster({
 			fillColor: 'ff0000',
 			showToolTip: true,
-			toolTipContainer:
-				'<div style="max-width: 400px; border: 1px solid #f5f5f5; background-color: #f9f9f9; min-height: 200px; font-size: 90%; padding: 2rem;"></div>',
+			toolTipContainer: '<div class="catalogue__tooltip-container"></div>',
 			fillOpacity: 0.3,
 			stroke: true,
 			singleSelect: true,
