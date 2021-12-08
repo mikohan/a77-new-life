@@ -27,17 +27,27 @@
           </div>
           <div class="faq__section">
             <div class="schema__item-container">
-              <div class="schema__item-item">
+              <div id="schema-id" class="schema__item-item">
                 <img usemap="#schema" src="/catalogue_images/<?= $car_slug ?><?= $image ?>" alt="<?= $page_title ?>" />
                 <map name="schema">
                   <?php foreach ($schema as $item) : ?>
-                    <area shape="rect" coords="<?= $item['coords'] ?>" href="" />
+                    <?php
+                    $tooltip = $item['products'] ?? [];
+                    $show_tp = '';
+                    if (count($tooltip)) {
+                      foreach ($tooltip as $tool) {
+                        $show_tp .= '<div>' . $tool['name'] . ' ' . $tool['brand'] . ' ' . $tool['price'] . '</div>';
+                      }
+                    }
+
+                    ?>
+                    <area data-full="<?= $show_tp ?>" data-key="<?= $item['h5_cat_number'] ?>" shape="rect" coords="<?= $item['coords'] ?>" href="" />
                   <?php endforeach ?>
                 </map>
               </div>
-              <div class="schema__item-item" style="border: 1px dotted blue;">
+              <div class="schema__item-item">
                 <div class="typography">
-                  <ul style="font-size: 80%; list-style: none;">
+                  <ul class="catalogue__ul">
                     <?php foreach ($products as $product) : ?>
                       <?php
                       $chk_br = $product['brand'] ?? false;
@@ -45,7 +55,7 @@
                       $spl = array_slice(explode(' ',  $product['name']), 0, 4);
                       $name = implode(' ', $spl);
                       ?>
-                      <li><a href="/product/<?= $product['slug'] ?>/"><span class="catalogue__span-name"><?= $name ?></span> <span class="catalogue__span-brand"><?= $brand ?> </span> <span class="catalogue__span-price">&#8381;<?= $product['price'] ?></span></a></li>
+                      <li class="side-<?= $product['cat_number'] ?>"><a href="/product/<?= $product['slug'] ?>/"><span class="catalogue__span-name"><?= $name ?></span> <span class="catalogue__span-brand"><?= $brand ?> </span> <span class="catalogue__span-price">&#8381;<?= $product['price'] ?></span></a></li>
                     <?php endforeach ?>
                   </ul>
                 </div>
@@ -84,7 +94,7 @@
                                 </div>
                                 <div class="product-card__image">
                                   <div class="image image--type--product">
-                                    <a href="product-full.html" class="image__body">
+                                    <a href="/product/<?= $prod['slug'] ?>/" class="image__body">
                                       <img class="image__tag" src="<?= $prod_image ?>" alt="<?= $prod_name ?>">
                                     </a>
                                   </div>
@@ -100,7 +110,7 @@
                                       <a href="product-full.html"><?= $prod_name ?></a>
                                     </div>
                                   </div>
-                                  <div class="product-card__rating">
+                                  <div class="product-card__rating mr-2">
                                     <?= $prod_cat_number ?>
                                     <div class="product-card__rating-label"><?= $prod_brand ?></div>
                                   </div>

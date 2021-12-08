@@ -42,7 +42,7 @@ class CatalogueModel extends Connection
     $result = $t->fetch(PDO::FETCH_ASSOC);
     return $result;
   }
-  public function getCatalogueSchema($car_slug, $schema)
+  private function getCatalogueSchema($car_slug, $schema)
   {
     /**
      * Getting second level of catalogues
@@ -59,8 +59,76 @@ class CatalogueModel extends Connection
     $t = $m->prepare($q);
     $t->execute(array($schema));
     $result = $t->fetchAll(PDO::FETCH_ASSOC);
+    // Second part adding data to return if exists on catalogue
     return $result;
   }
+
+  public function getSchemaWithProducts($car_slug, $schema_id)
+  {
+    /**
+     * Merge arrays to return all data with prices and names
+     */
+
+    $cat_array = $this->getCatalogueSchema($car_slug, $schema_id);
+    $res = [];
+    $cat_numbers = [];
+    foreach ($cat_array as $ca) {
+      $cat_numbers[] = $ca['h5_cat_number'];
+    }
+
+    $json = $this->getJson($car_slug, $schema_id);
+    if ($json) {
+      foreach ($cat_array as $c) {
+        foreach ($json as $j) {
+          if ($c['h5_cat_number'] == $j['cat_number']) {
+            $c['products'][] = $j;
+          }
+        }
+        $res[] = $c;
+      }
+      return $res;
+    } else {
+      $res = [];
+      $products = $this->getProductsByCatNumbers($schema_id, $car_slug, $cat_numbers);
+      foreach ($cat_array as $c) {
+        $cat_numbers[] = $c['h5_cat_number'];
+        foreach ($products as $j) {
+          if ($c['h5_cat_number'] == $j['cat_number']) {
+            $c['products'][] = $j;
+          }
+        }
+        $res[] = $c;
+      }
+      return $res;
+    }
+  }
+
+  private function getJson($car_slug, $shema_id)
+  {
+    /**
+     * Getting cached data from mysql json 
+     */
+    $m = $this->db();
+    $q = "SELECT b.name, b.price, b.brand, b.cat_number FROM ang_api_catalogue_cache a
+    CROSS JOIN JSON_TABLE(a.products_json, '$[*]' COLUMNS
+                      (`name` VARCHAR(50) PATH '$.name',
+                      price VARCHAR(50) PATH '$.price',
+                      cat_number VARCHAR(50) PATH '$.cat_number',
+                      NESTED PATH '$.brand'
+                      COLUMNS (brand VARCHAR(30) PATH '$.brand')
+                      )) b
+    WHERE car_slug = ? AND sch_id=?";
+
+    $t = $m->prepare($q);
+    $t->execute(array($car_slug, $shema_id));
+    $data = $t->fetchAll(PDO::FETCH_ASSOC);
+    if ($data) {
+      return $data;
+    } else {
+      return false;
+    }
+  }
+
   public function getProductsByCatNumbers($schema_id, $car_slug, $cat_numbers)
   {
     /**

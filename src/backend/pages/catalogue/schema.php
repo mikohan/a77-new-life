@@ -11,11 +11,12 @@ $parent = $_GET['schema'] ?? ''; // Var current shcema id
 
 $catalogue_model = new CatalogueModel;
 $car = $catalogue_model->getCar($car_slug);
-$schema = $catalogue_model->getCatalogueSchema($car_slug, $parent);
+$schema = $catalogue_model->getSchemaWithProducts($car_slug, $parent);
 $image = $schema['0']['img'];
 $h3_table = $catalogue_model->getSchemaTitle($car_slug, $parent);
 
 // make array of numbers
+// p($schema);
 
 $numbers = [];
 foreach ($schema as $s) {
@@ -25,7 +26,8 @@ foreach ($schema as $s) {
 
 // product getting here
 $products = $catalogue_model->getProductsByCatNumbers($parent, $car_slug, $numbers);
-// p($products);
+// p($json);
+
 
 $products_chunks = $catalogue_model->splitArray($products, 3);
 // p($products[0]);

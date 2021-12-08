@@ -44,3 +44,7 @@
 	color: #2e7d32;
 	font-weight: bold;
 }
+.catalogue__ul {
+	font-size: 80%;
+	list-style: none;
+}
