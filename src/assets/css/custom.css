@@ -31,5 +31,16 @@
 .schema__item-container {
 	border: 1px solid pink;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
+}
+.catalogue__span-name {
+	color: #0c61db;
+}
+.catalogue__span-brand {
+	color: #bf360c;
+}
+.catalogue__span-price {
+	color: #2e7d32;
+	font-weight: bold;
 }

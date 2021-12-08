@@ -35,74 +35,95 @@
                   <?php endforeach ?>
                 </map>
               </div>
-              <div class="schema__item-item">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum tenetur vero illo et! Necessitatibus nostrum architecto provident repellat voluptas veniam.
-              </div>
-            </div>
-          </div>
-          <div class="faq__section">
-            <h3 class="faq__section-title">Payment Information</h3>
-            <div class="faq__section-body">
-              <div class="faq__question">
-                <h5 class="faq__question-title">What payments methods are available?</h5>
-                <div class="faq__question-answer">
-                  <div class="typography">
-                    <p>
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                      aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="faq__question">
-                <h5 class="faq__question-title">Can I split my payment?</h5>
-                <div class="faq__question-answer">
-                  <div class="typography">
-                    <p>
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                      aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
-                    </p>
-                  </div>
+              <div class="schema__item-item" style="border: 1px dotted blue;">
+                <div class="typography">
+                  <ul style="font-size: 80%; list-style: none;">
+                    <?php foreach ($products as $product) : ?>
+                      <?php
+                      $chk_br = $product['brand'] ?? false;
+                      $brand = $chk_br ? mb_strtoupper($product['brand']['brand']) : '';
+                      $spl = array_slice(explode(' ',  $product['name']), 0, 4);
+                      $name = implode(' ', $spl);
+                      ?>
+                      <li><a href="/product/<?= $product['slug'] ?>/"><span class="catalogue__span-name"><?= $name ?></span> <span class="catalogue__span-brand"><?= $brand ?> </span> <span class="catalogue__span-price">&#8381;<?= $product['price'] ?></span></a></li>
+                    <?php endforeach ?>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
           <div class="faq__section">
-            <h3 class="faq__section-title">Orders and Returns</h3>
             <div class="faq__section-body">
-              <div class="faq__question">
-                <h5 class="faq__question-title">How do I return or exchange an item?</h5>
-                <div class="faq__question-answer">
-                  <div class="typography">
-                    <p>
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                      aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="faq__question">
-                <h5 class="faq__question-title">How do I cancel an order?</h5>
-                <div class="faq__question-answer">
-                  <div class="typography">
-                    <p>
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                      aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
-                    </p>
+              <div class="block block-products-columns">
+                <div class="container">
+                  <div class="row">
+                    <?php foreach ($products_chunks as $pc) : ?>
+                      <div class="col-4">
+                        <div class="block-products-columns__title"></div>
+                        <div class="block-products-columns__list">
+                          <?php foreach ($pc as $prod) : ?>
+                            <?php
+                            $prod_image = count($prod['product_image']) ? $prod['product_image'][0]['img150'] : '/assets/images/products/product-default-160.jpg';
+                            $chk_brand = $prod['brand'] ?? false;
+                            $prod_brand = $chk_brand ? mb_strtoupper($prod['brand']['brand']) : '';
+                            $chk_price = $prod['price'] ?? false;
+                            $prod_price = $chk_price ? $prod['price'] : 'Звоните';
+                            $prod_price =  $prod_price ? $prod_price : 'Звоните';
+                            $prod_cat_number = $prod['cat_number'];
+                            $prod_name = $prod['name'];
+                            ?>
+                            <div class="block-products-columns__list-item">
+                              <div class="product-card">
+                                <div class="product-card__actions-list">
+                                  <button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
+                                    <svg width="16" height="16">
+                                      <path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
+	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
+                                    </svg>
+                                  </button>
+                                </div>
+                                <div class="product-card__image">
+                                  <div class="image image--type--product">
+                                    <a href="product-full.html" class="image__body">
+                                      <img class="image__tag" src="<?= $prod_image ?>" alt="<?= $prod_name ?>">
+                                    </a>
+                                  </div>
+                                </div>
+                                <div class="product-card__info">
+                                  <div class="product-card__name">
+                                    <div>
+                                      <div class="product-card__badges">
+                                        <div class="tag-badge tag-badge--hot">hot</div>
+                                        <!-- <div class="tag-badge tag-badge--sale">sale</div>
+                                        <div class="tag-badge tag-badge--new">new</div> -->
+                                      </div>
+                                      <a href="product-full.html"><?= $prod_name ?></a>
+                                    </div>
+                                  </div>
+                                  <div class="product-card__rating">
+                                    <?= $prod_cat_number ?>
+                                    <div class="product-card__rating-label"><?= $prod_brand ?></div>
+                                  </div>
+                                </div>
+                                <div class="product-card__footer">
+                                  <div class="product-card__prices">
+                                    <div class="product-card__price product-card__price--current">&#8381; <?= $prod_price ?></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          <?php endforeach ?>
+
+                        </div>
+                      </div>
+                    <?php endforeach ?>
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="faq__footer">
-            <div class="faq__footer-title">Still Have A Questions?</div>
-            <div class="faq__footer-subtitle">We will be happy to answer any questions you may have.</div>
-            <a href="contact-us-v1.html" class="btn btn-primary">Contact Us</a>
-          </div>
+
         </div>
       </div>
       <div class="block-space block-space--layout--before-footer"></div>

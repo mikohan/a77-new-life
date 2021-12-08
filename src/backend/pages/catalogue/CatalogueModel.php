@@ -138,4 +138,15 @@ class CatalogueModel extends Connection
     $t->execute(array($schema_id, $product_json, $updated, $car_slug));
   }
   /////////////////////////////////////////////////////////////////////////
+
+  function splitArray(array $input_array, int $size, $preserve_keys = null): array
+  {
+    $nr = (int)ceil(count($input_array) / $size);
+
+    if ($nr > 0) {
+      return array_chunk($input_array, $nr, $preserve_keys);
+    }
+
+    return $input_array;
+  }
 }

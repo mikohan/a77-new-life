@@ -34,6 +34,7 @@ module.exports = {
 		showCart: path.join(PATHS.src, 'assets/js/showCart.page.js'),
 		order: path.join(PATHS.src, 'assets/js/order.page.js'),
 		orderSuccess: path.join(PATHS.src, 'assets/js/order-success.page.js'),
+		catalogueSchema: path.join(PATHS.src, 'assets/js/catalogueSchema.js'),
 	},
 	output: {
 		path: PATHS.dist,
@@ -292,7 +293,7 @@ module.exports = {
 			template: `${PAGES_DIR}/templates/catalogue_schema.html.php`,
 			filename: `./templates/catalogue_schema.html.php`,
 			inject: 'body',
-			chunks: ['vendors', 'allpages'],
+			chunks: ['vendors', 'allpages', 'catalogueSchema'],
 		}),
 
 		// ...PAGES.map(

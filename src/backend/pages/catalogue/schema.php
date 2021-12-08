@@ -15,13 +15,20 @@ $schema = $catalogue_model->getCatalogueSchema($car_slug, $parent);
 $image = $schema['0']['img'];
 $h3_table = $catalogue_model->getSchemaTitle($car_slug, $parent);
 
+// make array of numbers
+
+$numbers = [];
+foreach ($schema as $s) {
+  $numbers[] = $s['h5_cat_number'];
+}
+
+
 // product getting here
-
-$numbers = array('5177044024', '581904BA20');
 $products = $catalogue_model->getProductsByCatNumbers($parent, $car_slug, $numbers);
-// p($schema);
+// p($products);
 
-
+$products_chunks = $catalogue_model->splitArray($products, 3);
+// p($products[0]);
 
 $make = $car ? $car['make']['name'] : '';
 $model = $car ? $car['name'] : '';
