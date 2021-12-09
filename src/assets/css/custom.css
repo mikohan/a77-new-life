@@ -26,36 +26,111 @@
 	color: inherit;
 }
 .schema__item-body {
-	border: 1px solid blue;
 }
 .schema__item-container {
-	border: 1px solid pink;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
-.catalogue__span-name {
-	color: #0c61db;
-}
-.catalogue__span-brand {
-	color: #bf360c;
-}
-.catalogue__span-price {
-	color: #2e7d32;
-	font-weight: bold;
-}
+/* Side ul styles start  */
 .catalogue__ul {
 	font-size: 80%;
+	font-weight: 500;
 	list-style: none;
+	display: flex;
+	gap: 0.1rem;
+	flex-direction: column;
 }
-.catalogue__tooltip-container {
-	max-width: 400px;
-	border: 1px solid #f5f5f5;
-	background-color: #f9f9f9;
-	min-height: 200px;
+
+.catalogue__ul span {
+	display: block;
+}
+.catalogue__ul li {
+	border-radius: 3px;
+	padding: 0.2rem;
+	border-bottom: #1a79ff 1px solid;
+}
+
+.catalogue__ul li:hover {
+	background-color: #1a79ff;
+	color: #fff;
+}
+.catalogue__ul_li_hovered {
+	background-color: #1a79ff;
+	color: #fff;
+}
+
+.catalogue__ul a {
+	text-decoration: none;
+	display: flex;
+	justify-content: flex-start;
+	gap: 0.2rem;
+	color: inherit;
+}
+.catalogue__ul a:hover {
+	color: inherit;
+}
+.catalogue__span-name {
+	width: 50%;
+}
+.catalogue__span-brand {
+	text-align: left;
+	width: 30%;
+}
+/* Styles Ul styles ends */
+
+/* Catalogue tooltip start */
+.catalogue__tooltip-item-container {
 	font-size: 90%;
-	padding: 2rem;
+	min-width: 200px;
+	min-height: 150px;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 1rem;
+	background-color: #1a79ff;
+	color: #fff;
+	opacity: 0.8;
+	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+		0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
-.catalogue__tooltip-container > div {
-	color: blueviolet;
+
+.catalogue__tooltip-item-header {
+	display: flex;
+	gap: 16px;
+	justify-content: space-around;
+	padding-bottom: 1rem;
 }
+.catalogue__tooltip-col-name {
+	flex: 1;
+	font-weight: 600;
+}
+.catalogue__toltip-item-inner-container {
+	display: flex;
+	gap: 1rem;
+	flex-direction: column;
+}
+.catalogue__tooltip-inner-item-row {
+	display: flex;
+	gap: 1rem;
+	justify-content: flex-start;
+}
+.catalogue__tooltip-inner-item-col {
+	display: flex;
+	align-items: center;
+}
+.catalogue__tooltip-inner-item-col img {
+	width: 70px;
+}
+.catalogue__tooltip-inner-item-col-name {
+	flex: 1;
+}
+.catalogue__tooltip-inner-item-col-brand {
+	text-transform: uppercase;
+	font-weight: 600;
+}
+.catalogue__tooltip-inner-item-col-price {
+	font-weight: 600;
+}
+/* Catalogue tooltip end */

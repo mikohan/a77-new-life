@@ -109,11 +109,12 @@ class CatalogueModel extends Connection
      * Getting cached data from mysql json 
      */
     $m = $this->db();
-    $q = "SELECT b.name, b.price, b.brand, b.cat_number FROM ang_api_catalogue_cache a
+    $q = "SELECT b.name, b.price, b.brand, b.cat_number, b.tmb FROM ang_api_catalogue_cache a
     CROSS JOIN JSON_TABLE(a.products_json, '$[*]' COLUMNS
                       (`name` VARCHAR(50) PATH '$.name',
                       price VARCHAR(50) PATH '$.price',
                       cat_number VARCHAR(50) PATH '$.cat_number',
+                      tmb VARCHAR(255) PATH '$.tmb',
                       NESTED PATH '$.brand'
                       COLUMNS (brand VARCHAR(30) PATH '$.brand')
                       )) b
@@ -149,6 +150,7 @@ class CatalogueModel extends Connection
     $interval = $today->diff($past)->days;
 
     if (!$mysql_result || $interval > 1) {
+      echo ('Getting from API');
       $params = '';
       foreach ($cat_numbers as $number) {
         $params .= "numbers=" . $number . "&";
@@ -172,6 +174,8 @@ class CatalogueModel extends Connection
       curl_close($ch);
       $this->insertOrUpdateCatalogue($mydata, $car_slug, $schema_id);
     } else {
+
+      echo ('Getting from Mysql');
       $mydata = json_decode($mysql_result['products_json'], true);
     }
 

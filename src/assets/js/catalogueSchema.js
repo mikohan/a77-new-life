@@ -3,12 +3,55 @@ import '../vendor/imagemapster/jquery.imagemapster.min';
 (function () {
 	var image = $('img[usemap]');
 	var areas = $.map($('area[data-key]'), function (el) {
+		var data = $(el).attr('data-full');
+		var cls = $(el).attr('data-class');
+		var tt_data = JSON.parse(data);
+		let products_rows = '';
+		if (tt_data.hasOwnProperty('products') && tt_data.products.length) {
+			tt_data.products.forEach((product) => {
+				products_rows += `
+      <div class="catalogue__tooltip-inner-item-row">
+          <div class="catalogue__tooltip-inner-item-col catalogue__tooltip-inner-item-col-img">
+            <img src="${product.tmb ?? '/assets/images/products/product-default-70.jpg'}" alt="${product.name}" />
+          </div>
+          <div class="catalogue__tooltip-inner-item-col catalogue__tooltip-inner-item-col-name">
+            ${product.name}
+          </div>
+          <div class="catalogue__tooltip-inner-item-col catalogue__tooltip-inner-item-col-brand">
+            ${product.brand}
+          </div>
+          <div class="catalogue__tooltip-inner-item-col catalogue__tooltip-inner-item-col-price">
+            &#8381; ${product.price}
+          </div>
+        </div>
+        `;
+			});
+		}
+		const tooltip = `
+    <div class="catalogue__tooltip-item-container">
+      <div class="catalogue__tooltip-item-header">
+        <div class="catalogue__tooltip-col">
+          ${tt_data.h5_cat_number}
+        </div>
+        <div class="catalogue__tooltip-col catalogue__tooltip-col-name">
+          ${tt_data.h4_title}
+        </div>
+        <div class="catalogue__tooltip-col">
+          ${tt_data.count} штук на машине
+        </div>  
+      </div>
+      <div class="catalogue__toltip-item-inner-container">
+        ${products_rows}
+        
+      </div>
+    </div> 
+    `;
+
 		return {
 			key: $(el).attr('data-key'),
-			toolTip: $(el).attr('data-full'),
+			toolTip: tooltip, //$(el).attr('data-class'),
 		};
 	});
-	console.log(areas);
 	image
 		.mapster({
 			fillColor: 'ff0000',
@@ -20,11 +63,11 @@ import '../vendor/imagemapster/jquery.imagemapster.min';
 			mapKey: 'data-key',
 			onMouseover: function (e) {
 				var item = $('.side-' + e.key);
-				item.css('background-color', 'red');
+				item.addClass('catalogue__ul_li_hovered');
 			},
 			onMouseout: function (e) {
 				var item = $('.side-' + e.key);
-				item.css('background-color', '');
+				item.removeClass('catalogue__ul_li_hovered');
 			},
 			areas: areas,
 		})

@@ -32,18 +32,9 @@
                 <map name="schema">
                   <?php foreach ($schema as $item) : ?>
                     <?php
-                    $tooltip = $item['products'] ?? [];
-                    $show_tp = '';
-                    if (count($tooltip)) {
-                      foreach ($tooltip as $tool) {
-                        $show_tp .= '<div>' . $tool['name'] . ' ' . $tool['brand'] . ' ' . $tool['price'] . '</div>';
-                      }
-                    } else {
-                      $show_tp .= '<div>Out of stock!</div>';
-                    }
-
+                    $data_tt = json_encode($item);
                     ?>
-                    <area data-full="<?= $show_tp ?>" data-key="<?= $item['h5_cat_number'] ?>" shape="rect" coords="<?= $item['coords'] ?>" href="" />
+                    <area data-full='<?= $data_tt ?>' data-key="<?= $item['h5_cat_number'] ?>" data-class="catalogue__tooltip-item" shape="rect" coords="<?= $item['coords'] ?>" href="" />
                   <?php endforeach ?>
                 </map>
               </div>
