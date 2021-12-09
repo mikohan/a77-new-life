@@ -4,36 +4,35 @@ error_reporting(E_ALL);
 
 
 include __DIR__ . '/../../lib/init.php';
-require_once __DIR__ . '/../catalogue/CatalogueModel.php';
+//require_once __DIR__ . '/../catalogue/CatalogueModel.php';
+require_once __DIR__ . '/../catalogue/CatalogueModelRefactor.php';
 
 $car_slug = $_GET['car'] ?? '';
-$parent = $_GET['schema'] ?? ''; // Var current shcema id
+$schema_id = $_GET['schema'] ?? ''; // Var current shcema id
 
-$catalogue_model = new CatalogueModel;
-$car = $catalogue_model->getCar($car_slug);
-$schema = $catalogue_model->getSchemaWithProducts($car_slug, $parent);
-$image = $schema['0']['img'];
-$h3_table = $catalogue_model->getSchemaTitle($car_slug, $parent);
+// $catalogue_model = new CatalogueModel;
+$catalogue_model_refactor = new CatalogueModelRefactor;
 
-// make array of numbers
-// p($schema);
-
-$numbers = [];
-foreach ($schema as $s) {
-  $numbers[] = $s['h5_cat_number'];
-}
-
-
-// product getting here
-$products = $catalogue_model->getProductsByCatNumbers($parent, $car_slug, $numbers);
-// p($json);
-
-
-$products_chunks = $catalogue_model->splitArray($products, 3);
-// p($products[0]);
-
+$car = $catalogue_model_refactor->getCar($car_slug);
 $make = $car ? $car['make']['name'] : '';
 $model = $car ? $car['name'] : '';
+
+
+$parent = $schema_id;
+
+$get_page_data = $catalogue_model_refactor->getPageData($car_slug, $schema_id);
+$schema = $get_page_data['merged_data'];
+$products = $get_page_data['product_data'];
+
+// $schema = $catalogue_model->getSchemaWithProducts($car_slug, $parent);
+$image = $schema['0']['img'];
+$h3_table = $catalogue_model_refactor->getSchemaTitle($car_slug, $schema_id);
+
+
+
+$products_chunks = $catalogue_model_refactor->splitArray($products, 3);
+// p($products[0]);
+
 $page_title = !empty($h3_table) ? $h3_table['name'] : '';
 
 

@@ -26,12 +26,6 @@
 	color: inherit;
 }
 
-.catalogue__schema-img {
-	width: 100%;
-	height: auto;
-	object-fit: cover;
-	object-position: bottom;
-}
 .schema__item-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -143,10 +137,17 @@
 .catalogue__tooltip-inner-item-col-price {
 	font-weight: 600;
 }
+
 /* Catalogue tooltip end */
 @media screen and (min-width: 0px) and (max-width: 400px) {
 	.catalogue__tooltip-item-container {
 		display: none;
+	}
+	.catalogue__schema-img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		object-position: bottom;
 	}
 }
 

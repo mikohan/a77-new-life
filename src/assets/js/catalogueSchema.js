@@ -10,6 +10,10 @@ import '../vendor/imagemapster/jquery.imagemapster.min';
 			let products_rows = '';
 			if (tt_data.hasOwnProperty('products') && tt_data.products.length) {
 				tt_data.products.forEach((product) => {
+					let brand = '';
+					if (product.hasOwnProperty('brand') && product.brand) {
+						brand = product.brand.brand;
+					}
 					products_rows += `
       <div class="catalogue__tooltip-inner-item-row">
           <div class="catalogue__tooltip-inner-item-col catalogue__tooltip-inner-item-col-img">
@@ -19,7 +23,7 @@ import '../vendor/imagemapster/jquery.imagemapster.min';
             ${product.name}
           </div>
           <div class="catalogue__tooltip-inner-item-col catalogue__tooltip-inner-item-col-brand">
-            ${product.brand}
+            ${brand}
           </div>
           <div class="catalogue__tooltip-inner-item-col catalogue__tooltip-inner-item-col-price">
             &#8381; ${product.price}
