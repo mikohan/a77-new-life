@@ -310,9 +310,9 @@
               </a>
               <div class="main-menu__submenu">
                 <ul class="menu">
-                  <?php foreach ($catalogues as $catalogue) : ?>
+                  <?php foreach (CATALOGUES as $catalogue) : ?>
                     <li class="menu__item">
-                      <a href="<?= $catalogue['url'] ?>" class="menu__link">
+                      <a href="/catalogue/<?= $catalogue['slug'] ?>/" class="menu__link">
                         <?= $catalogue['name'] ?>
                       </a>
                     </li>
