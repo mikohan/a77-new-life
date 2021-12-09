@@ -150,7 +150,6 @@ class CatalogueModel extends Connection
     $interval = $today->diff($past)->days;
 
     if (!$mysql_result || $interval > 1) {
-      echo ('Getting from API');
       $params = '';
       foreach ($cat_numbers as $number) {
         $params .= "numbers=" . $number . "&";
@@ -175,7 +174,6 @@ class CatalogueModel extends Connection
       $this->insertOrUpdateCatalogue($mydata, $car_slug, $schema_id);
     } else {
 
-      echo ('Getting from Mysql');
       $mydata = json_decode($mysql_result['products_json'], true);
     }
 

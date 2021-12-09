@@ -15,7 +15,7 @@
   <!-- site -->
   <div class="site" id="app">
     <!-- site__header -->
-    <?php include __DIR__ . '/../backend/includes/header/header.php' ?>
+
     <!-- site__header / end -->
     <!-- site__body -->
     <div class="site__body">
@@ -28,13 +28,13 @@
           <div class="faq__section">
             <div class="schema__item-container">
               <div id="schema-id" class="schema__item-item">
-                <img usemap="#schema" src="/catalogue_images/<?= $car_slug ?><?= $image ?>" alt="<?= $page_title ?>" />
+                <img class="catalogue__schema-img" usemap="#schema" src="/catalogue_images/<?= $car_slug ?><?= $image ?>" alt="<?= $page_title ?>" />
                 <map name="schema">
                   <?php foreach ($schema as $item) : ?>
                     <?php
                     $data_tt = json_encode($item);
                     ?>
-                    <area data-full='<?= $data_tt ?>' data-key="<?= $item['h5_cat_number'] ?>" data-class="catalogue__tooltip-item" shape="rect" coords="<?= $item['coords'] ?>" href="" />
+                    <area data-full='<?= $data_tt ?>' data-key="<?= $item['h5_cat_number'] ?>" data-class="catalogue__tooltip-item" shape="rect" coords="<?= $item['coords'] ?>" href="/search/?search=<?= $item['h5_cat_number'] ?>" />
                   <?php endforeach ?>
                 </map>
               </div>

@@ -25,7 +25,12 @@
 	text-decoration: none;
 	color: inherit;
 }
-.schema__item-body {
+
+.catalogue__schema-img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	object-position: bottom;
 }
 .schema__item-container {
 	display: flex;
@@ -80,6 +85,7 @@
 /* Styles Ul styles ends */
 
 /* Catalogue tooltip start */
+
 .catalogue__tooltip-item-container {
 	font-size: 90%;
 	min-width: 200px;
@@ -134,3 +140,14 @@
 	font-weight: 600;
 }
 /* Catalogue tooltip end */
+@media screen and (min-width: 0px) and (max-width: 400px) {
+	.catalogue__tooltip-item-container {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 401px) and (max-width: 3840px) {
+	.catalogue__tooltip-item-container {
+		display: block;
+	}
+}

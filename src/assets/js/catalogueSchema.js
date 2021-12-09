@@ -1,15 +1,16 @@
 import '../vendor/imagemapster/jquery.imagemapster.min';
 
 (function () {
-	var image = $('img[usemap]');
-	var areas = $.map($('area[data-key]'), function (el) {
-		var data = $(el).attr('data-full');
-		var cls = $(el).attr('data-class');
-		var tt_data = JSON.parse(data);
-		let products_rows = '';
-		if (tt_data.hasOwnProperty('products') && tt_data.products.length) {
-			tt_data.products.forEach((product) => {
-				products_rows += `
+	if (window.innerWidth > 400) {
+		var image = $('img[usemap]');
+		var areas = $.map($('area[data-key]'), function (el) {
+			var data = $(el).attr('data-full');
+			var cls = $(el).attr('data-class');
+			var tt_data = JSON.parse(data);
+			let products_rows = '';
+			if (tt_data.hasOwnProperty('products') && tt_data.products.length) {
+				tt_data.products.forEach((product) => {
+					products_rows += `
       <div class="catalogue__tooltip-inner-item-row">
           <div class="catalogue__tooltip-inner-item-col catalogue__tooltip-inner-item-col-img">
             <img src="${product.tmb ?? '/assets/images/products/product-default-70.jpg'}" alt="${product.name}" />
@@ -25,9 +26,9 @@ import '../vendor/imagemapster/jquery.imagemapster.min';
           </div>
         </div>
         `;
-			});
-		}
-		const tooltip = `
+				});
+			}
+			const tooltip = `
     <div class="catalogue__tooltip-item-container">
       <div class="catalogue__tooltip-item-header">
         <div class="catalogue__tooltip-col">
@@ -47,13 +48,12 @@ import '../vendor/imagemapster/jquery.imagemapster.min';
     </div> 
     `;
 
-		return {
-			key: $(el).attr('data-key'),
-			toolTip: tooltip, //$(el).attr('data-class'),
-		};
-	});
-	image
-		.mapster({
+			return {
+				key: $(el).attr('data-key'),
+				toolTip: tooltip, //$(el).attr('data-class'),
+			};
+		});
+		image.mapster({
 			fillColor: 'ff0000',
 			showToolTip: true,
 			toolTipContainer: '<div class="catalogue__tooltip-container"></div>',
@@ -70,6 +70,6 @@ import '../vendor/imagemapster/jquery.imagemapster.min';
 				item.removeClass('catalogue__ul_li_hovered');
 			},
 			areas: areas,
-		})
-		.mapster('set', true, '551004B700');
+		});
+	}
 })(jQuery);
