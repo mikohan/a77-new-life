@@ -65,6 +65,10 @@
 	color: #fff;
 }
 
+.catalogue__ul_li_hovered_two {
+	background-color: #1a79ff;
+	color: #fff;
+}
 .catalogue__ul a {
 	text-decoration: none;
 	display: flex;

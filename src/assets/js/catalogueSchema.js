@@ -69,6 +69,15 @@ import '../vendor/imagemapster/jquery.imagemapster.min';
 				var item = $('.side-' + e.key);
 				item.removeClass('catalogue__ul_li_hovered');
 			},
+			onClick: function (e) {
+				var item = $('.side-' + e.key);
+				$('li').removeClass('catalogue__ul_li_hovered_two');
+				if (e.selected) {
+					item.addClass('catalogue__ul_li_hovered_two');
+				} else {
+					item.removeClass('catalogue__ul_li_hovered_two');
+				}
+			},
 			areas: areas,
 		});
 	}
