@@ -220,10 +220,10 @@ module.exports = {
 					to: `${PATHS.dist}/backend`,
 				},
 				// Uncomment on production
-				// {
-				// 	from: `${PATHS.src}/catalogue_images`,
-				// 	to: `${PATHS.dist}/catalogue_images`,
-				// },
+				{
+					from: `${PATHS.src}/catalogue_images`,
+					to: `${PATHS.dist}/catalogue_images`,
+				},
 			],
 		}),
 		new HtmlWebpackPlugin({
