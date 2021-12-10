@@ -45,7 +45,7 @@ class CatalogueModel extends Connection
   private function getCatalogueSchema($car_slug, $schema)
   {
     /**
-     * Getting second level of catalogues
+     * Getting catalogue schema lets call it cat_data
      */
     $m = $this->db();
     $table = "ang_catalogue_" . $car_slug . "_h4";
@@ -63,154 +63,161 @@ class CatalogueModel extends Connection
     return $result;
   }
 
-  public function getSchemaWithProducts($car_slug, $schema_id)
+
+
+  private function getProductDataFromApi($car_slug, $cat_numbers)
   {
     /**
-     * Merge arrays to return all data with prices and names
+     * Getting product_data from API by cat numbers array
      */
-
-    $cat_array = $this->getCatalogueSchema($car_slug, $schema_id);
-    $res = [];
-    $cat_numbers = [];
-    foreach ($cat_array as $ca) {
-      $cat_numbers[] = $ca['h5_cat_number'];
+    $params = '';
+    foreach ($cat_numbers as $number) {
+      $params .= "numbers=" . $number . "&";
     }
+    $params = rtrim($params, '&');
 
-    $json = $this->getJson($car_slug, $schema_id);
-    if ($json) {
-      foreach ($cat_array as $c) {
-        foreach ($json as $j) {
-          if ($c['h5_cat_number'] == $j['cat_number']) {
-            $c['products'][] = $j;
-          }
-        }
-        $res[] = $c;
-      }
-      return $res;
-    } else {
-      $res = [];
-      $products = $this->getProductsByCatNumbers($schema_id, $car_slug, $cat_numbers);
-      foreach ($cat_array as $c) {
-        $cat_numbers[] = $c['h5_cat_number'];
-        foreach ($products as $j) {
-          if ($c['h5_cat_number'] == $j['cat_number']) {
-            $c['products'][] = $j;
-          }
-        }
-        $res[] = $c;
-      }
-      return $res;
-    }
-  }
+    $server_url = PHOTO_API_URL;
+    // Needs to refactor url
+    //$url = "{$server_url}/api/product/get-products-by-numbers/?{$params}";
+    $url = "http://localhost:8000/api/product/get-products-by-numbers/?{$params}";
 
-  private function getJson($car_slug, $shema_id)
-  {
-    /**
-     * Getting cached data from mysql json 
-     */
-    $m = $this->db();
-    $q = "SELECT b.name, b.price, b.brand, b.cat_number, b.tmb FROM ang_api_catalogue_cache a
-    CROSS JOIN JSON_TABLE(a.products_json, '$[*]' COLUMNS
-                      (`name` VARCHAR(50) PATH '$.name',
-                      price VARCHAR(50) PATH '$.price',
-                      cat_number VARCHAR(50) PATH '$.cat_number',
-                      tmb VARCHAR(255) PATH '$.tmb',
-                      NESTED PATH '$.brand'
-                      COLUMNS (brand VARCHAR(30) PATH '$.brand')
-                      )) b
-    WHERE car_slug = ? AND sch_id=?";
-
-    $t = $m->prepare($q);
-    $t->execute(array($car_slug, $shema_id));
-    $data = $t->fetchAll(PDO::FETCH_ASSOC);
-    if ($data) {
-      return $data;
-    } else {
-      return false;
-    }
-  }
-
-  public function getProductsByCatNumbers($schema_id, $car_slug, $cat_numbers)
-  {
-    /**
-     * Getting cat numbers from API for catalogue page schema
-     */
-
-    //Get data from mysql
-
-    $today = new DateTime();
-    $m = $this->db();
-    $product_db_q = "SELECT * from `ang_api_catalogue_cache` WHERE car_slug=? AND sch_id=?";
-    $t = $m->prepare($product_db_q);
-    $t->execute(array($car_slug, $schema_id));
-    $mysql_result = $t->fetch(PDO::FETCH_ASSOC);
-
-
-    $past = new DateTime($mysql_result['updated'] ?? null);
-    $interval = $today->diff($past)->days;
-
-    if (!$mysql_result || $interval > 1) {
-      $params = '';
-      foreach ($cat_numbers as $number) {
-        $params .= "numbers=" . $number . "&";
-      }
-      $params = rtrim($params, '&');
-
-      $server_url = PHOTO_API_URL;
-      // Needs to refactor url
-      $url = "{$server_url}/api/product/get-products-by-numbers/?{$params}";
-      // $url = "http://localhost:8000/api/product/get-products-by-numbers/?{$params}";
-
-      //  Initiate curl
-      $ch = curl_init($url);
-      $options = array(
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HTTPHEADER => array('Content-type: application/json')
-      );
-      curl_setopt_array($ch, $options);
-      $result = curl_exec($ch);
-      $mydata = json_decode($result, true);
-      curl_close($ch);
-      $this->insertOrUpdateCatalogue($mydata, $car_slug, $schema_id);
-    } else {
-
-      $mydata = json_decode($mysql_result['products_json'], true);
-    }
-
+    //  Initiate curl
+    $ch = curl_init($url);
+    $options = array(
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_HTTPHEADER => array('Content-type: application/json')
+    );
+    curl_setopt_array($ch, $options);
+    $result = curl_exec($ch);
+    $mydata = json_decode($result, true);
+    curl_close($ch);
     return $mydata;
   }
 
-  private function insertOrUpdateCatalogue($product,  $car_slug, $schema_id)
+  private function mergeData($cat_data, $product_data)
   {
     /**
-     * Insetting product for cache into mysql or 
-     * updates it if exists,
-     * changes once a day
+     * Merging data from cat and from API
+     * returns merged array
+     */
+
+    foreach ($cat_data as $c) {
+      foreach ($product_data as $j) {
+        if ($c['h5_cat_number'] == $j['cat_number']) {
+          if (count($j)) {
+            $c['products'][] = $j;
+          }
+        }
+      }
+      $res[] = $c;
+    }
+    return $res;
+  }
+
+  private function makeCatNumberArray($cat_data)
+  {
+    /**
+     * Return array of cat numbers present on the current scheme
+     */
+    $cat_numbers = array_map(function ($item) {
+      return $item['h5_cat_number'];
+    }, $cat_data);
+    $return = array_unique(array_filter($cat_numbers, fn ($value) => !is_null($value) && $value !== ''));
+    return $return;
+  }
+
+
+
+  private function insertOrUpdateMergedData(string $car_slug, int $schema_id, array $merged_data, array $product_data): void
+  {
+    /**
+     * Insetting of updating merged data into a chache table
      */
 
     $m = $this->db();
 
     $updated = date("Y-m-d H:i:s");
-    $product_json = json_encode($product);
+    $product_json = json_encode($product_data);
+    $merged_json = json_encode($merged_data);
 
     $q = "INSERT INTO ang_api_catalogue_cache
-    (sch_id, products_json, updated, car_slug)
+    (sch_id, products_json, merged_json, updated, car_slug)
      VALUES
-     (?, ?, ?, ?)
+     (?, ?, ?, ?, ?)
      AS new
     ON DUPLICATE KEY UPDATE
     sch_id = new.sch_id,
     products_json = new.products_json,
+    merged_json = new.merged_json,
     updated = new.updated,
     car_slug = new.car_slug
     ";
     $t = $m->prepare($q);
-    $t->execute(array($schema_id, $product_json, $updated, $car_slug));
+    $t->execute(array($schema_id, $product_json, $merged_json, $updated, $car_slug));
   }
-  /////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+  public function getPageData($car_slug, $schema_id)
+  {
+    /**
+     * 1)Check data in mysql cache table by schema id and car slug
+     * 2) If there is a chahe in the table return it
+     * 3) If not data in the table 
+     * a)Retreive data from h4 and g5 table
+     * b) Making cat_numbers array
+     * c) Call API and retreive product data
+     * d) Merge data return merged data
+     * e) Save data to cache table
+     * f) Return data to page
+     */
+    $m = $this->db();
+    $chk_q = "SELECT sch_id,products_json,merged_json, updated FROM ang_api_catalogue_cache WHERE car_slug=? AND sch_id=?";
+    $t = $m->prepare($chk_q);
+    $t->execute(array($car_slug, $schema_id));
+    $mysql_result = $t->fetch(PDO::FETCH_ASSOC);
+
+    if ($mysql_result) {
+      // Making interval
+      $today = new DateTime();
+      $past = new DateTime($mysql_result['updated'] ?? null);
+      $interval = $today->diff($past)->days;
+      // Checking interval
+      if ($interval < CATALOUGE_CACHE_LIFETIME) {
+        // Return data from cache table
+        // echo ('Got data from MysQl');
+        return array(
+          'merged_data' => json_decode($mysql_result['merged_json'], true), 'product_data' =>
+          json_decode($mysql_result['products_json'], true)
+        );
+      }
+    } else {
+      // Start chain of getting and saving data to cahche
+      // echo ('Got data from API');
+      // Getting cat_data from mysql
+      $cat_data = $this->getCatalogueSchema($car_slug, $schema_id);
+      // Getting cat_number array
+      $cat_numbers = $this->makeCatNumberArray($cat_data);
+      // Call API for product_data
+      $product_data = $this->getProductDataFromApi($car_slug, $cat_numbers);
+      // Merging product_data to cat_data
+      $merged_data = $this->mergeData($cat_data, $product_data);
+      // Saving data into cache table
+      $this->insertOrUpdateMergedData($car_slug, $schema_id, $merged_data, $product_data);
+      return array('merged_data' => $merged_data, 'product_data' => $product_data);
+    }
+  }
+
+
 
   function splitArray(array $input_array, int $size, $preserve_keys = null): array
+
   {
+    /**
+     * Function for getting chunks for bottom section with product cards
+     */
     $nr = (int)ceil(count($input_array) / $size);
 
     if ($nr > 0) {

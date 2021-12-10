@@ -4,16 +4,18 @@
 
 
 include __DIR__ . '/../../lib/init.php';
-//require_once __DIR__ . '/../catalogue/CatalogueModel.php';
-require_once __DIR__ . '/../catalogue/CatalogueModelRefactor.php';
+require_once __DIR__ . '/../catalogue/CatalogueModel.php';
 
 $car_slug = $_GET['car'] ?? '';
 $schema_id = $_GET['schema'] ?? ''; // Var current shcema id
 
 // Refactored model goes here 
-$catalogue_model_refactor = new CatalogueModelRefactor;
-
-$car = $catalogue_model_refactor->getCar($car_slug);
+$catalogue_model_refactor = new CatalogueModel;
+$car_title = $car_slug;
+if ($car_slug == 'hd') {
+  $car_title = 'hd78';
+}
+$car = $catalogue_model_refactor->getCar($car_title);
 $make = $car ? $car['make']['name'] : '';
 $model = $car ? $car['name'] : '';
 
