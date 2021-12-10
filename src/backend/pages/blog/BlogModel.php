@@ -5,7 +5,7 @@ ini_set("display_errors", 1);
 class BlogModel extends Connection
 {
 
-  private function incrementView($slug)
+  public function incrementView($slug)
   {
     /**
      * Increment veiws count on select from table
@@ -27,11 +27,25 @@ class BlogModel extends Connection
      * Increment veiws count on select from table
      */
     $m = $this->db();
-    $q = "SELECT id, view, `date`, author, mini_img, title, search_frase, `description`, slug ,`text` FROM ang_blog_articles WHERE slug = ?";
+    $q = "SELECT id, view, `date`, author, mini_img, title, search_frase, `description`, slug ,`text`, meta_k FROM ang_blog_articles WHERE slug = ?";
     $t = $m->prepare($q);
     $t->execute(array($slug));
     $res = $t->fetch(PDO::FETCH_ASSOC);
-    return $res;
+
+    $q_next = "SELECT * FROM ang_blog_articles WHERE id = (SELECT MIN(id) from ang_blog_articles WHERE id > ?)";
+    $q_prev = "SELECT * FROM ang_blog_articles WHERE id = (SELECT MAX(id) from ang_blog_articles WHERE id < ?)";
+
+    $n = $m->prepare($q_next);
+
+    $p = $m->prepare($q_prev);
+
+    $n->execute(array($res['id']));
+    $next = $n->fetch(PDO::FETCH_ASSOC);
+    $p->execute(array($res['id']));
+    $previous = $p->fetch(PDO::FETCH_ASSOC);
+
+    $ret = array($res, $previous, $next);
+    return $ret;
   }
 
   public function getAllArticles()

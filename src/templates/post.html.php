@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no" />
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
-  <title>Post Full Width — Red Parts</title>
+  <title><?= $post['title'] ?> - Ангара77 Запчасти</title>
+  <meta name="description" content="<?= mb_ucfirst($post['title']) ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
   <!-- fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
 </head>
@@ -20,21 +21,21 @@
     <div class="site__body">
       <div class="block post-view">
         <div class="post-view__header post-header post-header--has-image">
-          <div class="post-header__image" style="background-image: url('images/posts/post-1-1903x500.jpg');"></div>
+          <div class="post-header__image" style="background-image: url('/assets/images/posts/post-default-1903x500.jpg');"></div>
           <div class="post-header__body">
             <div class="post-header__categories">
               <ul class="post-header__categories-list">
                 <li class="post-header__categories-item">
-                  <a href="" class="post-header__categories-link">Latest News</a>
+                  <a href="/blog/" class="post-header__categories-link">Последние Новости</a>
                 </li>
               </ul>
             </div>
-            <h1 class="post-header__title">Morbi Interdum Velit Quis Magna Placerat Lobortis Eget</h1>
+            <h1 class="post-header__title"><?= $post['title'] ?></h1>
             <div class="post-header__meta">
               <ul class="post-header__meta-list">
-                <li class="post-header__meta-item">By <a href="" class="post-header__meta-link">Jessica Moore</a></li>
-                <li class="post-header__meta-item">November 30, 2018</li>
-                <li class="post-header__meta-item"><a href="" class="post-header__meta-link">4 Comments</a></li>
+                <li class="post-header__meta-item">Автор <a href="" class="post-header__meta-link"><?= $post['author'] ?? 'Angara Parts' ?></a></li>
+                <li class="post-header__meta-item"><?= $post_date ?></li>
+                <li class="post-header__meta-item"><a href="" class="post-header__meta-link"><?= $post['view'] ?> Просмотров</a></li>
               </ul>
             </div>
           </div>
@@ -68,10 +69,9 @@
                 <div class="post__footer">
                   <div class="post__tags tags tags--sm">
                     <div class="tags__list">
-                      <a href="">Promotion</a>
-                      <a href="">Power Tool</a>
-                      <a href="">Wrench</a>
-                      <a href="">Electrodes</a>
+                      <?php foreach ($tags as $tag) : ?>
+                        <a href="">Promotion</a>
+                      <?php endforeach ?>
                     </div>
                   </div>
                   <div class="post__share-links share-links">
@@ -85,24 +85,23 @@
                 </div>
                 <div class="post__author">
                   <div class="post__author-avatar">
-                    <img src="images/avatars/avatar-4-70x70.jpg" alt="">
+                    <img src="/assets/images/avatars/avatar-4-70x70.jpg" alt="">
                   </div>
                   <div class="post__author-info">
                     <div class="post__author-name">
-                      Ryan Ford
+                      <?= $post['author'] ?>
                     </div>
                     <div class="post__author-about">
-                      Aliquam ullamcorper elementum sagittis. Etiam lacus lacus, mollis in mattis in, vehicula eu nulla. Nulla nec tellus
-                      pellentesque.
+                      <?= $post['title'] ?>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="post-view__card post-navigation">
                 <div class="post-navigation__body">
-                  <a class="post-navigation__item post-navigation__item--prev" href="">
+                  <a class="post-navigation__item post-navigation__item--prev" href="<?= $prev_link ?>">
                     <div class="post-navigation__item-image">
-                      <img src="images/posts/post-2-80x80.jpg" alt="">
+                      <img src="/assets/images/posts/post-2-80x80.jpg" alt="<?= $prev_title ?>">
                     </div>
                     <div class="post-navigation__item-info">
                       <div class="post-navigation__direction">
@@ -112,19 +111,19 @@
                           </svg>
                         </div>
                         <div class="post-navigation__direction-title">
-                          Previous post
+                          Предыдущий пост
                         </div>
                       </div>
                       <div class="post-navigation__item-title">
-                        Logic Is The Study Of Reasoning And Argument Part 2
+                        <?= $prev_title ?>
                       </div>
                     </div>
                   </a>
-                  <a class="post-navigation__item post-navigation__item--next" href="">
+                  <a class="post-navigation__item post-navigation__item--next" href="<?= $next_link ?>">
                     <div class="post-navigation__item-info">
                       <div class="post-navigation__direction">
                         <div class="post-navigation__direction-title">
-                          Next post
+                          Следущий пост
                         </div>
                         <div class="post-navigation__direction-arrow">
                           <svg width="7" height="11">
@@ -134,11 +133,11 @@
                         </div>
                       </div>
                       <div class="post-navigation__item-title">
-                        Some Philosophers Specialize In One Or More Historical Periods
+                        <?= $next_title ?>
                       </div>
                     </div>
                     <div class="post-navigation__item-image">
-                      <img src="images/posts/post-3-80x80.jpg" alt="">
+                      <img src="/assets/images/posts/post-3-80x80.jpg" alt="<?= $next_title ?>">
                     </div>
                   </a>
                 </div>
@@ -151,7 +150,7 @@
                       <div class="comment">
                         <div class="comment__body">
                           <div class="comment__avatar">
-                            <img src="images/avatars/avatar-1-38x38.jpg" alt="">
+                            <img src="/assets/images/avatars/avatar-1-38x38.jpg" alt="">
                           </div>
                           <div class="comment__meta">
                             <div class="comment__author">
@@ -175,7 +174,7 @@
                             <div class="comment">
                               <div class="comment__body">
                                 <div class="comment__avatar">
-                                  <img src="images/avatars/avatar-2-38x38.jpg" alt="">
+                                  <img src="/assets/images/avatars/avatar-2-38x38.jpg" alt="">
                                 </div>
                                 <div class="comment__meta">
                                   <div class="comment__author">
@@ -198,7 +197,7 @@
                             <div class="comment">
                               <div class="comment__body">
                                 <div class="comment__avatar">
-                                  <img src="images/avatars/avatar-3-38x38.jpg" alt="">
+                                  <img src="/assets/images/avatars/avatar-3-38x38.jpg" alt="">
                                 </div>
                                 <div class="comment__meta">
                                   <div class="comment__author">
@@ -224,7 +223,7 @@
                       <div class="comment">
                         <div class="comment__body">
                           <div class="comment__avatar">
-                            <img src="images/avatars/avatar-4-38x38.jpg" alt="">
+                            <img src="/assets/images/avatars/avatar-4-38x38.jpg" alt="">
                           </div>
                           <div class="comment__meta">
                             <div class="comment__author">
@@ -247,7 +246,7 @@
                       <div class="comment">
                         <div class="comment__body">
                           <div class="comment__avatar">
-                            <img src="images/avatars/avatar-3-38x38.jpg" alt="">
+                            <img src="/assets/images/avatars/avatar-3-38x38.jpg" alt="">
                           </div>
                           <div class="comment__meta">
                             <div class="comment__author">
@@ -304,16 +303,16 @@
                 </div>
               </div>
               <div class="post-view__card">
-                <h2 class="post-view__card-title">Write A Comment</h2>
+                <h2 class="post-view__card-title">Комментарии отключены</h2>
                 <form class="post-view__card-body">
                   <div class="form-row">
                     <div class="form-group col-md-4">
-                      <label for="comment-first-name">First Name</label>
-                      <input type="text" class="form-control" id="comment-first-name" placeholder="First Name">
+                      <label for="comment-first-name">Имя</label>
+                      <input type="text" class="form-control" id="comment-first-name" placeholder="Имя">
                     </div>
                     <div class="form-group col-md-4">
-                      <label for="comment-last-name">Last Name</label>
-                      <input type="text" class="form-control" id="comment-last-name" placeholder="Last Name">
+                      <label for="comment-last-name">Фамилия</label>
+                      <input type="text" class="form-control" id="comment-last-name" placeholder="Фамилия">
                     </div>
                     <div class="form-group col-md-4">
                       <label for="comment-email">Email Address</label>
@@ -321,11 +320,11 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="comment-content">Comment</label>
+                    <label for="comment-content">Комментарий</label>
                     <textarea class="form-control" id="comment-content" rows="6"></textarea>
                   </div>
                   <div class="form-group mb-0">
-                    <button type="submit" class="btn btn-primary mt-md-4 mt-2">Post Comment</button>
+                    <button type="submit" class="btn btn-primary mt-md-4 mt-2">Комментировать</button>
                   </div>
                 </form>
               </div>
