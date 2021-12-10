@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ru" dir="ltr">
 
 <head>
   <meta charset="UTF-8" />
@@ -38,7 +38,7 @@
                 <li class="breadcrumb__title-safe-area" role="presentation"></li>
               </ol>
             </nav>
-            <h1 class="block-header__title">Latest News</h1>
+            <h1 class="block-header__title">Полезная информация</h1>
           </div>
         </div>
       </div>
@@ -49,306 +49,45 @@
               <div class="block posts-view">
                 <div class="posts-view__list posts-list posts-list--layout--grid-2">
                   <div class="posts-list__body">
-                    <div class="posts-list__item">
-                      <div class="post-card post-card--layout--grid-sm">
-                        <div class="post-card__image">
-                          <a href="post-full-width.html">
-                            <img src="/assets/images/posts/post-1-730x485.jpg" alt="">
-                          </a>
-                        </div>
-                        <div class="post-card__content">
-                          <div class="post-card__category">
-                            <a href="blog-classic-right-sidebar.html">Special Offers</a>
+                    <?php foreach ($articles as $article) : ?>
+                      <?php
+                      $date_obj = new DateTime($article['date']);
+                      $date = $date_obj->format('Y F d');
+                      $mark = 'Запчасти';
+                      if ($article['search_frase']) {
+                        $mark = mb_strtoupper($article['search_frase']);
+                      }
+
+                      ?>
+                      <div class="posts-list__item">
+                        <div class="post-card post-card--layout--grid-sm">
+                          <div class="post-card__image">
+                            <a href="post-full-width.html">
+                              <img src="/assets/images/posts/post-1-730x485.jpg" alt="">
+                            </a>
                           </div>
-                          <div class="post-card__title">
-                            <h2><a href="post-full-width.html">Philosophy That Addresses Topics Such As Goodness</a></h2>
-                          </div>
-                          <div class="post-card__date">
-                            By <a href="">Jessica Moore</a> on October 19, 2019
-                          </div>
-                          <div class="post-card__excerpt">
-                            <div class="typography">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus fermentum, ac pretium
-                              nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse tempor orci non sapien ullamcorper dapibus.
-                              Suspendisse at velit diam. Donec pharetra nec enim blandit vulputate.
+                          <div class="post-card__content">
+                            <div class="post-card__category">
+                              <a href="/search/?search=<?= $mark ?>"><?= $mark ?></a>
                             </div>
-                          </div>
-                          <div class="post-card__more">
-                            <a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
+                            <div class="post-card__title">
+                              <h2><a href="/blog/<?= $article['slug'] ?>/"><?= $article['title'] ?></a></h2>
+                            </div>
+                            <div class="post-card__date">
+                              Автор <a href=""><?= $article['author'] ?></a> on <?= $date ?>
+                            </div>
+                            <div class="post-card__excerpt">
+                              <div class="typography">
+                                <!-- tilte goes herer -->
+                              </div>
+                            </div>
+                            <div class="post-card__more">
+                              <a href="/blog/<?= $article['slug'] ?>/" class="btn btn-secondary btn-sm">Читать далее...</a>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="posts-list__item">
-                      <div class="post-card post-card--layout--grid-sm">
-                        <div class="post-card__image">
-                          <a href="post-full-width.html">
-                            <img src="/assets/images/posts/post-2-730x485.jpg" alt="">
-                          </a>
-                        </div>
-                        <div class="post-card__content">
-                          <div class="post-card__category">
-                            <a href="blog-classic-right-sidebar.html">Latest News</a>
-                          </div>
-                          <div class="post-card__title">
-                            <h2><a href="post-full-width.html">Logic Is The Study Of Reasoning And Argument Part 2</a></h2>
-                          </div>
-                          <div class="post-card__date">
-                            By <a href="">Jessica Moore</a> on September 5, 2019
-                          </div>
-                          <div class="post-card__excerpt">
-                            <div class="typography">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus fermentum, ac pretium
-                              nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse tempor orci non sapien ullamcorper dapibus.
-                              Suspendisse at velit diam. Donec pharetra nec enim blandit vulputate.
-                            </div>
-                          </div>
-                          <div class="post-card__more">
-                            <a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="posts-list__item">
-                      <div class="post-card post-card--layout--grid-sm">
-                        <div class="post-card__image">
-                          <a href="post-full-width.html">
-                            <img src="/assets/images/posts/post-3-730x485.jpg" alt="">
-                          </a>
-                        </div>
-                        <div class="post-card__content">
-                          <div class="post-card__category">
-                            <a href="blog-classic-right-sidebar.html">New Arrivals</a>
-                          </div>
-                          <div class="post-card__title">
-                            <h2><a href="post-full-width.html">Some Philosophers Specialize In One Or More Historical Periods</a></h2>
-                          </div>
-                          <div class="post-card__date">
-                            By <a href="">Jessica Moore</a> on August 12, 2019
-                          </div>
-                          <div class="post-card__excerpt">
-                            <div class="typography">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus fermentum, ac pretium
-                              nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse tempor orci non sapien ullamcorper dapibus.
-                              Suspendisse at velit diam. Donec pharetra nec enim blandit vulputate.
-                            </div>
-                          </div>
-                          <div class="post-card__more">
-                            <a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="posts-list__item">
-                      <div class="post-card post-card--layout--grid-sm">
-                        <div class="post-card__image">
-                          <a href="post-full-width.html">
-                            <img src="/assets/images/posts/post-4-730x485.jpg" alt="">
-                          </a>
-                        </div>
-                        <div class="post-card__content">
-                          <div class="post-card__category">
-                            <a href="blog-classic-right-sidebar.html">Special Offers</a>
-                          </div>
-                          <div class="post-card__title">
-                            <h2><a href="post-full-width.html">A Variety Of Other Academic And Non-Academic Approaches Have Been Explored</a></h2>
-                          </div>
-                          <div class="post-card__date">
-                            By <a href="">Jessica Moore</a> on Jule 30, 2019
-                          </div>
-                          <div class="post-card__excerpt">
-                            <div class="typography">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus fermentum, ac pretium
-                              nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse tempor orci non sapien ullamcorper dapibus.
-                              Suspendisse at velit diam. Donec pharetra nec enim blandit vulputate.
-                            </div>
-                          </div>
-                          <div class="post-card__more">
-                            <a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="posts-list__item">
-                      <div class="post-card post-card--layout--grid-sm">
-                        <div class="post-card__image">
-                          <a href="post-full-width.html">
-                            <img src="/assets/images/posts/post-5-730x485.jpg" alt="">
-                          </a>
-                        </div>
-                        <div class="post-card__content">
-                          <div class="post-card__category">
-                            <a href="blog-classic-right-sidebar.html">New Arrivals</a>
-                          </div>
-                          <div class="post-card__title">
-                            <h2><a href="post-full-width.html">Germany Was The First Country To Professionalize Philosophy</a></h2>
-                          </div>
-                          <div class="post-card__date">
-                            By <a href="">Jessica Moore</a> on June 12, 2019
-                          </div>
-                          <div class="post-card__excerpt">
-                            <div class="typography">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus fermentum, ac pretium
-                              nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse tempor orci non sapien ullamcorper dapibus.
-                              Suspendisse at velit diam. Donec pharetra nec enim blandit vulputate.
-                            </div>
-                          </div>
-                          <div class="post-card__more">
-                            <a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="posts-list__item">
-                      <div class="post-card post-card--layout--grid-sm">
-                        <div class="post-card__image">
-                          <a href="post-full-width.html">
-                            <img src="/assets/images/posts/post-6-730x485.jpg" alt="">
-                          </a>
-                        </div>
-                        <div class="post-card__content">
-                          <div class="post-card__category">
-                            <a href="blog-classic-right-sidebar.html">Special Offers</a>
-                          </div>
-                          <div class="post-card__title">
-                            <h2><a href="post-full-width.html">Logic Is The Study Of Reasoning And Argument Part 1</a></h2>
-                          </div>
-                          <div class="post-card__date">
-                            By <a href="">Jessica Moore</a> on May 21, 2019
-                          </div>
-                          <div class="post-card__excerpt">
-                            <div class="typography">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus fermentum, ac pretium
-                              nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse tempor orci non sapien ullamcorper dapibus.
-                              Suspendisse at velit diam. Donec pharetra nec enim blandit vulputate.
-                            </div>
-                          </div>
-                          <div class="post-card__more">
-                            <a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="posts-list__item">
-                      <div class="post-card post-card--layout--grid-sm">
-                        <div class="post-card__image">
-                          <a href="post-full-width.html">
-                            <img src="/assets/images/posts/post-7-730x485.jpg" alt="">
-                          </a>
-                        </div>
-                        <div class="post-card__content">
-                          <div class="post-card__category">
-                            <a href="blog-classic-right-sidebar.html">Special Offers</a>
-                          </div>
-                          <div class="post-card__title">
-                            <h2><a href="post-full-width.html">Many Inquiries Outside Of Academia Are Philosophical In The Broad Sense</a></h2>
-                          </div>
-                          <div class="post-card__date">
-                            By <a href="">Jessica Moore</a> on April 3, 2019
-                          </div>
-                          <div class="post-card__excerpt">
-                            <div class="typography">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus fermentum, ac pretium
-                              nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse tempor orci non sapien ullamcorper dapibus.
-                              Suspendisse at velit diam. Donec pharetra nec enim blandit vulputate.
-                            </div>
-                          </div>
-                          <div class="post-card__more">
-                            <a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="posts-list__item">
-                      <div class="post-card post-card--layout--grid-sm">
-                        <div class="post-card__image">
-                          <a href="post-full-width.html">
-                            <img src="/assets/images/posts/post-8-730x485.jpg" alt="">
-                          </a>
-                        </div>
-                        <div class="post-card__content">
-                          <div class="post-card__category">
-                            <a href="blog-classic-right-sidebar.html">Latest News</a>
-                          </div>
-                          <div class="post-card__title">
-                            <h2><a href="post-full-width.html">An Advantage Of Digital Circuits When Compared To Analog Circuits</a></h2>
-                          </div>
-                          <div class="post-card__date">
-                            By <a href="">Jessica Moore</a> on Mart 29, 2019
-                          </div>
-                          <div class="post-card__excerpt">
-                            <div class="typography">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus fermentum, ac pretium
-                              nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse tempor orci non sapien ullamcorper dapibus.
-                              Suspendisse at velit diam. Donec pharetra nec enim blandit vulputate.
-                            </div>
-                          </div>
-                          <div class="post-card__more">
-                            <a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="posts-list__item">
-                      <div class="post-card post-card--layout--grid-sm">
-                        <div class="post-card__image">
-                          <a href="post-full-width.html">
-                            <img src="/assets/images/posts/post-9-730x485.jpg" alt="">
-                          </a>
-                        </div>
-                        <div class="post-card__content">
-                          <div class="post-card__category">
-                            <a href="blog-classic-right-sidebar.html">New Arrivals</a>
-                          </div>
-                          <div class="post-card__title">
-                            <h2><a href="post-full-width.html">A Digital Circuit Is Typically Constructed From Small Electronic Circuits</a></h2>
-                          </div>
-                          <div class="post-card__date">
-                            By <a href="">Jessica Moore</a> on February 10, 2019
-                          </div>
-                          <div class="post-card__excerpt">
-                            <div class="typography">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus fermentum, ac pretium
-                              nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse tempor orci non sapien ullamcorper dapibus.
-                              Suspendisse at velit diam. Donec pharetra nec enim blandit vulputate.
-                            </div>
-                          </div>
-                          <div class="post-card__more">
-                            <a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="posts-list__item">
-                      <div class="post-card post-card--layout--grid-sm">
-                        <div class="post-card__image">
-                          <a href="post-full-width.html">
-                            <img src="/assets/images/posts/post-10-730x485.jpg" alt="">
-                          </a>
-                        </div>
-                        <div class="post-card__content">
-                          <div class="post-card__category">
-                            <a href="blog-classic-right-sidebar.html">Special Offers</a>
-                          </div>
-                          <div class="post-card__title">
-                            <h2><a href="post-full-width.html">Engineers Use Many Methods To Minimize Logic Functions</a></h2>
-                          </div>
-                          <div class="post-card__date">
-                            By <a href="">Jessica Moore</a> on January 1, 2019
-                          </div>
-                          <div class="post-card__excerpt">
-                            <div class="typography">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus fermentum, ac pretium
-                              nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse tempor orci non sapien ullamcorper dapibus.
-                              Suspendisse at velit diam. Donec pharetra nec enim blandit vulputate.
-                            </div>
-                          </div>
-                          <div class="post-card__more">
-                            <a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <?php endforeach ?>
                   </div>
                 </div>
                 <div class="posts-view__pagination">
@@ -402,38 +141,32 @@
               </div>
               <div class="card widget widget-about-us">
                 <div class="widget__header">
-                  <h4>About Blog</h4>
+                  <h4>О Блоге</h4>
                 </div>
                 <div class="widget-about-us__body">
                   <div class="widget-about-us__text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus,
-                    eget viverra nulla sem vitae neque. Quisque id sodales libero.
+                    В нашем блоге мы публикуем статьи по ремонту и эксплуатации автомобилей а так же руководства по ремонту и полезные советы для автовладельцев.
                   </div>
                   <div class="widget-about-us__social-links social-links">
                     <ul class="social-links__list">
-                      <li class="social-links__item social-links__item--rss">
-                        <a href="https://themeforest.net/user/kos9" target="_blank">
-                          <i class="widget-social__icon fas fa-rss"></i>
-                        </a>
-                      </li>
                       <li class="social-links__item social-links__item--youtube">
-                        <a href="https://themeforest.net/user/kos9" target="_blank">
+                        <a href="http://www.youtube.com/channel/UCJ97RljnqyAdKKmAc8mvHZw" target="_blank">
                           <i class="widget-social__icon fab fa-youtube"></i>
                         </a>
                       </li>
                       <li class="social-links__item social-links__item--facebook">
-                        <a href="https://themeforest.net/user/kos9" target="_blank">
+                        <a href="https://www.facebook.com/groups/angara77/media/" target="_blank">
                           <i class="widget-social__icon fab fa-facebook-f"></i>
                         </a>
                       </li>
                       <li class="social-links__item social-links__item--twitter">
-                        <a href="https://themeforest.net/user/kos9" target="_blank">
+                        <a href="https://twitter.com/angara_digital" target="_blank">
                           <i class="widget-social__icon fab fa-twitter"></i>
                         </a>
                       </li>
                       <li class="social-links__item social-links__item--instagram">
-                        <a href="https://themeforest.net/user/kos9" target="_blank">
-                          <i class="widget-social__icon fab fa-instagram"></i>
+                        <a href="https://vk.com/angara772018" target="_blank">
+                          <i class="widget-social__icon fab fa-vk"></i>
                         </a>
                       </li>
                     </ul>
@@ -620,18 +353,9 @@
                 </div>
                 <div class="widget-tags__body tags">
                   <div class="tags__list">
-                    <a href="">Promotion</a>
-                    <a href="">Power Tool</a>
-                    <a href="">New Arrivals</a>
-                    <a href="">Screwdriver</a>
-                    <a href="">Wrench</a>
-                    <a href="">Mounts</a>
-                    <a href="">Electrodes</a>
-                    <a href="">Chainsaws</a>
-                    <a href="">Manometers</a>
-                    <a href="">Nails</a>
-                    <a href="">Air Guns</a>
-                    <a href="">Cutting Discs</a>
+                    <?php foreach ($tags as $tag) : ?>
+                      <a href=""><?= $tag ?></a>
+                    <?php endforeach ?>
                   </div>
                 </div>
               </div>

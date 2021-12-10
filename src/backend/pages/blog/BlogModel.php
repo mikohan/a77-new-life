@@ -27,7 +27,7 @@ class BlogModel extends Connection
      * Increment veiws count on select from table
      */
     $m = $this->db();
-    $q = "SELECT id, view, date, author, mini_img, title, search_frase FROM ang_blog_articles WHERE slug = ?";
+    $q = "SELECT id, view, `date`, author, mini_img, title, search_frase, `description`, slug FROM ang_blog_articles WHERE slug = ?";
     $t = $m->prepare($q);
     $t->execute(array($slug));
     $res = $t->fetch(PDO::FETCH_ASSOC);
@@ -41,7 +41,7 @@ class BlogModel extends Connection
      */
 
     $m = $this->db();
-    $q = "SELECT id, view, date, author, mini_img, title, search_frase FROM ang_blog_articles";
+    $q = "SELECT id, view, `date`, author, mini_img, title, search_frase, `description`, slug FROM ang_blog_articles ORDER BY date DESC";
     $t = $m->prepare($q);
     $t->execute();
     $result = $t->fetchAll(PDO::FETCH_ASSOC);

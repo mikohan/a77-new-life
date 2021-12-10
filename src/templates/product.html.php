@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no" />
   <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
   <title>Купить <?= $product['name'] ?> для <?= mb_ucfirst($make) ?> ✰ интернет магазин Запчастей в Москве ✈ <?= $product['cat_number'] ?> ✈ <?= $product['one_c_id'] ?></title>
   <meta name="description" content="<?= $product['name'] . ' ' . $product['name2'] ?> для <?= mb_ucfirst($make) ?> <?= mb_ucfirst($model) ?> ✈ <?= $product['cat_number'] ?> ✰ <?= $product['one_c_id'] ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
 </head>
