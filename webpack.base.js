@@ -212,10 +212,6 @@ module.exports = {
 					to: `${PATHS.assets}images`,
 				},
 				{
-					from: `${PATHS.src}/snippets`,
-					to: `${PATHS.dist}/snippets`,
-				},
-				{
 					from: `${PATHS.src}/.htaccess`,
 					to: `${PATHS.dist}/`,
 				},
