@@ -9,7 +9,12 @@ require_once __DIR__ . '/../catalogue/CatalogueModel.php';
 $car_slug = $_GET['car'] ?? '';
 
 $catalogue_model = new CatalogueModel;
-$car = $catalogue_model->getCar($car_slug);
+
+$car_title = $car_slug;
+if ($car_slug == 'hd') {
+  $car_title = 'hd78';
+}
+$car = $catalogue_model->getCar($car_title);
 $first = $catalogue_model->getCatalogue($car_slug);
 
 

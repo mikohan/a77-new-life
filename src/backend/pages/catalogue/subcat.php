@@ -10,7 +10,11 @@ $car_slug = $_GET['car'] ?? '';
 $parent = $_GET['parent'] ?? '';
 
 $catalogue_model = new CatalogueModel;
-$car = $catalogue_model->getCar($car_slug);
+$car_title = $car_slug;
+if ($car_slug == 'hd') {
+  $car_title = 'hd78';
+}
+$car = $catalogue_model->getCar($car_title);
 $first = $catalogue_model->getCatalogueSubcat($car_slug, $parent);
 
 
