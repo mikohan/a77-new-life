@@ -223,10 +223,11 @@ module.exports = {
 					from: `${PATHS.src}/backend`,
 					to: `${PATHS.dist}/backend`,
 				},
-				{
-					from: `${PATHS.src}/catalogue_images`,
-					to: `${PATHS.dist}/catalogue_images`,
-				},
+				// Uncomment on production
+				// {
+				// 	from: `${PATHS.src}/catalogue_images`,
+				// 	to: `${PATHS.dist}/catalogue_images`,
+				// },
 			],
 		}),
 		new HtmlWebpackPlugin({
@@ -295,6 +296,12 @@ module.exports = {
 			inject: 'body',
 			chunks: ['vendors', 'allpages', 'catalogueSchema'],
 			minify: false,
+		}),
+		new HtmlWebpackPlugin({
+			template: `${PAGES_DIR}/templates/blog.html.php`,
+			filename: `./templates/blog.html.php`,
+			inject: 'body',
+			chunks: ['vendors', 'allpages'],
 		}),
 
 		// ...PAGES.map(

@@ -9,7 +9,7 @@ import '../css/custom.css';
 // import '@fortawesome/fontawesome-free/js/solid';
 // import '@fortawesome/fontawesome-free/js/regular';
 // import '@fortawesome/fontawesome-free/js/brands';
-// import './vendor/fontawesome/css/all.min.css';
+import '../vendor/fontawesome/css/all.min.css';
 
 // import './vendor/jquery/jquery.min.js';
 import './bootstrap/js/bootstrap.bundle.min.js';
