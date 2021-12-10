@@ -155,8 +155,8 @@
                       <?php if (!empty($catalogue_new['data'])) : ?>
                         <div class="product__expert--side--item product__expert--side--item3">
                           <div class="product__features-title">Посмотреть на схеме</div>
-                          <a href="/schema/<?= $catalogue_new['data']['id'] ?>/<?= $catalogue_new['car_id'] ?>/">
-                            <img src="/catalogue/<?= $catalogue_new['prefix'] ?>/<?= $catalogue_new['data']['img2'] ?>" alt="<?= $catalogue_new['data']['name'] ?>" title="<?= $catalogue_new['data']['name'] ?>" class="img-responsive" style="width: 60%;">
+                          <a href="/catalogue/schema/<?= $catalogue_new['prefix'] ?>/<?= $catalogue_new['data']['id'] ?>/">
+                            <img src="/catalogue_images/<?= $catalogue_new['prefix'] ?><?= $catalogue_new['data']['img2'] ?>" alt="<?= $catalogue_new['data']['name'] ?>" title="<?= $catalogue_new['data']['name'] ?>" class="img-responsive" style="width: 60%;">
                           </a>
                         </div>
                       <?php endif ?>

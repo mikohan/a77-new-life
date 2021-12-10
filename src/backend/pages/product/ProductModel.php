@@ -69,13 +69,20 @@ class ProductModel extends Connection
     $t->execute(array($slug, $product_json, $updated));
   }
   /////////////////////////////////////////////////////////////////////////
-  public function getCatalogue($cat_number, $car)
+  public function getCatalogue($cat_number, $car_slug)
+
   {
     /**
      * Function get data from catalogue fro product card
      */
-    $prefix = $this->prfixes[mb_strtolower($car, 'UTF-8')] ?? NULL;
+    $prefix = $this->prfixes[mb_strtolower($car_slug, 'UTF-8')] ?? NULL;
+    if (strpos($car_slug, 'hd')) {
+      $prefix = 'hd';
+    }
     $m = $this->db();
+
+
+
     $table = 'ang_catalogue_' .  $prefix . '_h3';
     $table2 = 'ang_catalogue_' . $prefix . '_h4';
     $table3 = 'ang_catalogue_' . $prefix . '_h5';
