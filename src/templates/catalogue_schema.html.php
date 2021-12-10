@@ -26,7 +26,7 @@
           <div class="faq__header">
             <h1 class="faq__header-title"><?= mb_ucfirst($page_title) ?> на <?= "{$make} {$model}" ?></h1>
           </div>
-          <div class="faq__section">
+          <div class="faq__section" style="padding: 5px;">
             <div class="schema__item-container">
               <div id="schema-id" class="schema__item-item">
                 <img class="catalogue__schema-img" usemap="#schema" src="/catalogue_images/<?= $car_slug ?><?= $image ?>" alt="<?= $page_title ?>" />
@@ -55,7 +55,7 @@
                   <?php endforeach ?>
                 </map>
               </div>
-              <div class="schema__item-item">
+              <div class="schema__item-item" style="padding-top: 1rem; padding-right: 0.5rem;">
                 <div class="typography">
                   <ul class="catalogue__ul">
                     <?php foreach ($products as $product) : ?>
@@ -117,7 +117,7 @@
                                         <!-- <div class="tag-badge tag-badge--sale">sale</div>
                                         <div class="tag-badge tag-badge--new">new</div> -->
                                       </div>
-                                      <a href="product-full.html"><?= $prod_name ?></a>
+                                      <a href="/product/<?= $prod['slug'] ?>/"><?= $prod_name ?></a>
                                     </div>
                                   </div>
                                   <div class="product-card__rating mr-2">
