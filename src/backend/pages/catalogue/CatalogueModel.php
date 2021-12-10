@@ -78,8 +78,8 @@ class CatalogueModel extends Connection
 
     $server_url = PHOTO_API_URL;
     // Needs to refactor url
-    //$url = "{$server_url}/api/product/get-products-by-numbers/?{$params}";
-    $url = "http://localhost:8000/api/product/get-products-by-numbers/?{$params}";
+    $url = "{$server_url}/api/product/get-products-by-numbers/?{$params}";
+    // $url = "http://localhost:8000/api/product/get-products-by-numbers/?{$params}";
 
     //  Initiate curl
     $ch = curl_init($url);
