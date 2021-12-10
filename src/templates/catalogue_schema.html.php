@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no" />
-  <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <title>Купить запчасти для <?= $make ?> <?= $model ?> ✰ в интернет магазине Запчастей в Москве ✈ </title>
   <meta name="description" content="Запчасти для <?= mb_ucfirst($make) ?> <?= mb_ucfirst($model) ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
 </head>
@@ -33,7 +33,23 @@
                 <map name="schema">
                   <?php foreach ($schema as $item) : ?>
                     <?php
-                    $data_tt = json_encode($item);
+                    $prod = array();
+                    $prod['h5_cat_number'] = $item['h5_cat_number'];
+                    $prod['h4_title'] = $item['h4_title'];
+                    $prod['h4_title'] = $item['h4_title'];
+                    $prod['count'] = $item['count'];
+                    if ($item['products'] ?? false) {
+                      $array_products = [];
+                      foreach ($item['products'] as $p) {
+                        $array_products['name'] =  $p['name'];
+                        $array_products['brand'] = $p['brand']['brand'] ?? 'original';
+                        $array_products['tmb'] = $p['tmb'] ?? null;
+                        $array_products['price'] =  $p['price'] ?? null;
+                        $prod['products'][] = $array_products;
+                      }
+                    }
+                    $data_tt = json_encode($prod, JSON_UNESCAPED_UNICODE);
+                    // p($data_tt);
                     ?>
                     <area data-full='<?= $data_tt ?>' data-key="<?= $item['h5_cat_number'] ?>" data-class="catalogue__tooltip-item" shape="rect" coords="<?= $item['coords'] ?>" href="/search/?search=<?= $item['h5_cat_number'] ?>" />
                   <?php endforeach ?>

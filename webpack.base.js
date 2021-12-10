@@ -294,6 +294,7 @@ module.exports = {
 			filename: `./templates/catalogue_schema.html.php`,
 			inject: 'body',
 			chunks: ['vendors', 'allpages', 'catalogueSchema'],
+			minify: false,
 		}),
 
 		// ...PAGES.map(
