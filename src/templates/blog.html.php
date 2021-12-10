@@ -59,7 +59,7 @@
                       <div class="posts-list__item">
                         <div class="post-card post-card--layout--grid-sm">
                           <div class="post-card__image">
-                            <a href="post-full-width.html">
+                            <a href="/blog/<?= $article['slug'] ?>/">
                               <img src="/assets/images/posts/post-1-730x485.jpg" alt="">
                             </a>
                           </div>
