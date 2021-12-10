@@ -750,7 +750,7 @@ import PhotoSwipeUI_Default from '../vendor/photoswipe/photoswipe-ui-default.min
 			// timeout ONLY_FOR_DEMO!
 			const timeout = setTimeout(function () {
 				xhr = $.ajax({
-					url: '/quickview.php',
+					url: '/ajax/quickview/',
 					data: {
 						name: name,
 						images: images,
