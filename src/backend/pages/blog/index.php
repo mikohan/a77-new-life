@@ -11,6 +11,8 @@ $articles = $blog_model->getAllArticles();
 $tags = array_map(fn ($tag) => $tag['search_frase'], $articles);
 $tags = array_filter($tags, fn ($tag) => $tag && $tag !== '');
 $categories_tmp = array_slice($tags, 0, 8);
+
+$latest_posts = array_slice($articles, 0, 4);
 // p($tags);
 
 

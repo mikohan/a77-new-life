@@ -27,13 +27,10 @@
               <ol class="breadcrumb__list">
                 <li class="breadcrumb__spaceship-safe-area" role="presentation"></li>
                 <li class="breadcrumb__item breadcrumb__item--parent breadcrumb__item--first">
-                  <a href="index.html" class="breadcrumb__item-link">Home</a>
-                </li>
-                <li class="breadcrumb__item breadcrumb__item--parent">
-                  <a href="" class="breadcrumb__item-link">Breadcrumb</a>
+                  <a href="index.html" class="breadcrumb__item-link">Главная</a>
                 </li>
                 <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
-                  <span class="breadcrumb__item-link">Current Page</span>
+                  <span class="breadcrumb__item-link">Блог</span>
                 </li>
                 <li class="breadcrumb__title-safe-area" role="presentation"></li>
               </ol>
@@ -175,153 +172,67 @@
               </div>
               <div class="card widget widget-categories">
                 <div class="widget__header">
-                  <h4>Categories</h4>
+                  <h4>Категории</h4>
                 </div>
                 <ul class="widget-categories__list widget-categories__list--root" data-collapse data-collapse-opened-class="widget-categories__item--open">
-                  <li class="widget-categories__item" data-collapse-item>
-                    <a href="" class="widget-categories__link">
-                      Latest News
-                    </a>
-                  </li>
-                  <li class="widget-categories__item" data-collapse-item>
-                    <a href="" class="widget-categories__link">
-                      Special Offers
-                    </a>
-                    <button class="widget-categories__expander" type="button" data-collapse-trigger></button>
-                    <div class="widget-categories__container" data-collapse-content>
-                      <ul class="widget-categories__list widget-categories__list--child">
-                        <li class="widget-categories__item">
-                          <a href="" class="widget-categories__link">Spring Sales</a>
-                        </li>
-                        <li class="widget-categories__item">
-                          <a href="" class="widget-categories__link">Summer Sales</a>
-                        </li>
-                        <li class="widget-categories__item">
-                          <a href="" class="widget-categories__link">Autumn Sales</a>
-                        </li>
-                        <li class="widget-categories__item">
-                          <a href="" class="widget-categories__link">Christmas Sales</a>
-                        </li>
-                        <li class="widget-categories__item">
-                          <a href="" class="widget-categories__link">Other Sales</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="widget-categories__item" data-collapse-item>
-                    <a href="" class="widget-categories__link">
-                      New Arrivals
-                    </a>
-                  </li>
-                  <li class="widget-categories__item" data-collapse-item>
-                    <a href="" class="widget-categories__link">
-                      Reviews
-                    </a>
-                  </li>
-                  <li class="widget-categories__item" data-collapse-item>
-                    <a href="" class="widget-categories__link">
-                      Wheels & Tires
-                    </a>
-                  </li>
-                  <li class="widget-categories__item" data-collapse-item>
-                    <a href="" class="widget-categories__link">
-                      Engine & Drivetrain
-                    </a>
-                  </li>
-                  <li class="widget-categories__item" data-collapse-item>
-                    <a href="" class="widget-categories__link">
-                      Transmission
-                    </a>
-                  </li>
-                  <li class="widget-categories__item" data-collapse-item>
-                    <a href="" class="widget-categories__link">
-                      Performance
-                    </a>
-                  </li>
+                  <?php foreach ($categories_tmp as $cat) : ?>
+                    <li class="widget-categories__item" data-collapse-item>
+                      <a href="/search/?search=<?= $cat ?>" class="widget-categories__link">
+                        <?= mb_strtoupper($cat) ?>
+                      </a>
+                    </li>
+                  <?php endforeach ?>
                 </ul>
               </div>
               <div class="card widget widget-posts">
                 <div class="widget__header">
-                  <h4>Latest Posts</h4>
+                  <h4>Последние посты</h4>
                 </div>
                 <ul class="widget-posts__list">
-                  <li class="widget-posts__item">
-                    <div class="widget-posts__image">
-                      <a href="">
-                        <img src="/assets/images/posts/post-1-70x70.jpg" alt="">
-                      </a>
-                    </div>
-                    <div class="widget-posts__info">
-                      <div class="widget-posts__name">
-                        <a href="">Philosophy That Addresses Topics Such As Goodness</a>
+                  <?php foreach ($latest_posts as $latest_post) : ?>
+                    <?php
+                    $lp_date_obj = new DateTime($latest_post['date']);
+                    $lp_date = $lp_date_obj->format('Y F d');
+                    ?>
+                    <li class="widget-posts__item">
+                      <div class="widget-posts__image">
+                        <a href="">
+                          <img src="/assets/images/posts/post-1-70x70.jpg" alt="<?= $latest_post['title'] ?>">
+                        </a>
                       </div>
-                      <div class="widget-posts__date">October 19, 2019</div>
-                    </div>
-                  </li>
-                  <li class="widget-posts__item">
-                    <div class="widget-posts__image">
-                      <a href="">
-                        <img src="/assets/images/posts/post-2-70x70.jpg" alt="">
-                      </a>
-                    </div>
-                    <div class="widget-posts__info">
-                      <div class="widget-posts__name">
-                        <a href="">Logic Is The Study Of Reasoning And Argument Part 2</a>
+                      <div class="widget-posts__info">
+                        <div class="widget-posts__name">
+                          <a href="/blog/<?= $latest_post['slug'] ?>/"><?= $latest_post['title'] ?></a>
+                        </div>
+                        <div class="widget-posts__date"><?= $lp_date ?></div>
                       </div>
-                      <div class="widget-posts__date">September 5, 2019</div>
-                    </div>
-                  </li>
-                  <li class="widget-posts__item">
-                    <div class="widget-posts__image">
-                      <a href="">
-                        <img src="/assets/images/posts/post-3-70x70.jpg" alt="">
-                      </a>
-                    </div>
-                    <div class="widget-posts__info">
-                      <div class="widget-posts__name">
-                        <a href="">Some Philosophers Specialize In One Or More Historical Periods</a>
-                      </div>
-                      <div class="widget-posts__date">August 12, 2019</div>
-                    </div>
-                  </li>
-                  <li class="widget-posts__item">
-                    <div class="widget-posts__image">
-                      <a href="">
-                        <img src="/assets/images/posts/post-4-70x70.jpg" alt="">
-                      </a>
-                    </div>
-                    <div class="widget-posts__info">
-                      <div class="widget-posts__name">
-                        <a href="">A Variety Of Other Academic And Non-Academic Approaches Have Been Explored</a>
-                      </div>
-                      <div class="widget-posts__date">Jule 30, 2019</div>
-                    </div>
-                  </li>
+                    </li>
+                  <?php endforeach ?>
+
                 </ul>
               </div>
               <div class="widget widget-newsletter">
                 <div class="widget-newsletter__title">
-                  <h4>Newsletter</h4>
+                  <h4>Подписка</h4>
                 </div>
                 <div class="widget-newsletter__form">
                   <form action="">
                     <div class="widget-newsletter__text">
-                      Enter your email address below to subscribe to our newsletter
-                      and keep up to date with the latest news, discounts and special offers.
+                      Устаревшая тема, оставим для красоты
                     </div>
-                    <input type="text" class="widget-newsletter__email" placeholder="Email Address...">
-                    <button type="button" class="widget-newsletter__button">Subscribe</button>
+                    <input type="text" class="widget-newsletter__email" placeholder="Мыло...">
+                    <button type="button" class="widget-newsletter__button">Подписаться</button>
                   </form>
                 </div>
               </div>
               <div class="card widget widget-comments">
                 <div class="widget__header">
-                  <h4>Latest Comments</h4>
+                  <h4>Последние комментарии</h4>
                 </div>
                 <div class="widget-comments__body">
                   <ul class="widget-comments__list">
                     <li class="widget-comments__item">
-                      <div class="widget-comments__author"><a href="">Emma Williams</a></div>
+                      <div class="widget-comments__author"><a href="">Брюс Вилис</a></div>
                       <div class="widget-comments__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge...</div>
                       <div class="widget-comments__meta">
                         <div class="widget-comments__date">3 minutes ago</div>
@@ -329,7 +240,7 @@
                       </div>
                     </li>
                     <li class="widget-comments__item">
-                      <div class="widget-comments__author"><a href="">Airic Ford</a></div>
+                      <div class="widget-comments__author"><a href="">Анжелина Джоли</a></div>
                       <div class="widget-comments__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge...</div>
                       <div class="widget-comments__meta">
                         <div class="widget-comments__date">25 minutes ago</div>
@@ -337,7 +248,7 @@
                       </div>
                     </li>
                     <li class="widget-comments__item">
-                      <div class="widget-comments__author"><a href="">Loyd Walker</a></div>
+                      <div class="widget-comments__author"><a href="">Джони Деп</a></div>
                       <div class="widget-comments__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge...</div>
                       <div class="widget-comments__meta">
                         <div class="widget-comments__date">2 hours ago</div>
@@ -349,7 +260,7 @@
               </div>
               <div class="card widget-tags widget">
                 <div class="widget__header">
-                  <h4>Tags Cloud</h4>
+                  <h4>Облако тегов</h4>
                 </div>
                 <div class="widget-tags__body tags">
                   <div class="tags__list">
