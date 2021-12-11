@@ -166,3 +166,7 @@ h1 {
 .faq__question-answer-account {
 	padding-left: 1rem;
 }
+.contacts__phones {
+	display: flex;
+	flex-direction: column;
+}

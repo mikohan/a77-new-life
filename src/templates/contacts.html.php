@@ -63,37 +63,31 @@
                         Воскресенье: <?= COMPANY_INFO['working_hours_weekends'][0] ?> - <?= COMPANY_INFO['working_hours_weekends'][1] ?>
                       </p>
                       <p>
-                        <strong>Comment</strong><br>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur suscipit suscipit mi, non
-                        tempor nulla finibus eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        <strong>Комментарий</strong><br>
+                        Запчасти можно забрать со склада по адресу <?= COMPANY_INFO['address'] ?>.
+                        Или воспользоваться услугой <a href="/delivery/">доставки</a>.
                       </p>
                     </div>
                   </div>
                 </div>
                 <div class="col-12 col-lg-6">
                   <div class="ml-1">
-                    <h4 class="contact-us__header card-title">Leave us a Message</h4>
-                    <form>
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="form-name">Your Name</label>
-                          <input type="text" id="form-name" class="form-control" placeholder="Your Name">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="form-email">Email</label>
-                          <input type="email" id="form-email" class="form-control" placeholder="Email Address">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="form-subject">Subject</label>
-                        <input type="text" id="form-subject" class="form-control" placeholder="Subject">
-                      </div>
-                      <div class="form-group">
-                        <label for="form-message">Message</label>
-                        <textarea id="form-message" class="form-control" rows="4"></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+                    <h4 class="contact-us__header card-title">Контактные данные</h4>
+                    <div class="contact-us__address">
+                      <p class="contacts__phones">
+                        <a href="tel:<?= COMPANY_INFO['phone_free'][1] ?>"> <?= COMPANY_INFO['phone_free'][0] ?></a>
+                        <a href="tel:<?= COMPANY_INFO['phone_one'][1] ?>"> <?= COMPANY_INFO['phone_one'][0] ?></a>
+                        <a href="tel:<?= COMPANY_INFO['phone_two'][1] ?>"> <?= COMPANY_INFO['phone_two'][0] ?></a>
+                        <a href="tel:<?= COMPANY_INFO['phone_mobile_one'][1] ?>"> <?= COMPANY_INFO['phone_mobile_one'][0] ?></a>
+                        <a href="tel:<?= COMPANY_INFO['phone_free'][1] ?>"> <?= COMPANY_INFO['phone_free'][0] ?></a>
+                        Email: <a href="mailto:<?= COMPANY_INFO['email'] ?>"><?= COMPANY_INFO['email'] ?></a>
+                      </p>
+                      <p>
+                        <strong>Реквизиты</strong><br>
+                        <?= COMPANY_INFO['company_details'] ?>
+                      </p>
+                    </div>
+
                   </div>
                 </div>
               </div>
