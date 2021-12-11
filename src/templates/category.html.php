@@ -75,15 +75,17 @@
               <ol class="breadcrumb__list">
                 <li class="breadcrumb__spaceship-safe-area" role="presentation"></li>
                 <li class="breadcrumb__item breadcrumb__item--parent breadcrumb__item--first">
-                  <a href="index.html" class="breadcrumb__item-link">Home</a>
+                  <a href="index.html" class="breadcrumb__item-link">Главная</a>
                 </li>
-                <li class="breadcrumb__item breadcrumb__item--parent">
-                  <a href="" class="breadcrumb__item-link">Breadcrumb</a>
-                </li>
-                <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
-                  <span class="breadcrumb__item-link">Current Page</span>
-                </li>
-                <li class="breadcrumb__title-safe-area" role="presentation"></li>
+                <?php foreach ($parents as $parent) : ?>
+                  <li class="breadcrumb__item breadcrumb__item--parent">
+                    <a href="/car/<?= $current_car->make->slug ?>/<?= $current_car->slug ?>/<?= $parent['slug'] ?>/" class="breadcrumb__item-link"><?= $parent['name'] ?></a>
+                  <li>
+                  <?php endforeach ?>
+                  <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
+                    <span class="breadcrumb__item-link"><?= $page_category['name'] ?></span>
+                  </li>
+                  <li class="breadcrumb__title-safe-area" role="presentation"></li>
               </ol>
             </nav>
             <h1 class="block-header__title"><?= "{$page_category['name']} для {$current_car->make->name} {$current_car->name}" ?? '' ?></h1>

@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
 require_once(__DIR__ . '/../../lib/init.php');
 require_once(__DIR__ . '/../category/CategoryModel.php');
 $categoryModel = new CategoryModel;
@@ -68,10 +68,6 @@ $parents = par($page_category, $categories);
 usort($parents, function ($item1, $item2) {
   return $item1['id'] <=> $item2['id'];
 });
-// p($parents);
-
-
-
 
 if (!$page_category['parent']) {
   $neighbors = [];
