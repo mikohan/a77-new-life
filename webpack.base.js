@@ -331,8 +331,8 @@ module.exports = {
 			chunks: ['vendors', 'mainpage'],
 		}),
 		new HtmlWebpackPlugin({
-			template: `${PAGES_DIR}/templates/payment.html.php`,
-			filename: `./templates/payment.html.php`,
+			template: `${PAGES_DIR}/templates/delivery.html.php`,
+			filename: `./templates/delivery.html.php`,
 			inject: 'body',
 			chunks: ['vendors', 'mainpage'],
 		}),

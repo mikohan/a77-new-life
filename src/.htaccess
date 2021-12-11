@@ -28,7 +28,6 @@ RewriteRule ^blog/([a-zAZ0-9-]+)/$ /backend/pages/blog/post.php?slug=$1 [L]
 
 #Static pages goes here
 RewriteRule ^about/$ /backend/pages/about/ [L]
-RewriteRule ^payment/$ /backend/pages/payment/ [L]
 RewriteRule ^garrany/$ /backend/pages/garranty/ [L]
 RewriteRule ^policy/$ /backend/pages/policy/ [L]
 RewriteRule ^contacts/$ /backend/pages/contacts/ [L]
