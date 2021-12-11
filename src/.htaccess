@@ -25,6 +25,14 @@ RewriteRule ^catalogue/([a-zAZ0-9-]+)/([a-zA-Z0-9-]+)/$ /backend/pages/catalogue
 RewriteRule ^catalogue/schema/([a-zAZ0-9-]+)/([a-zA-Z0-9-]+)/$ /backend/pages/catalogue/schema.php?car=$1&schema=$2 [L]
 RewriteRule ^blog/$ /backend/pages/blog/ [L]
 RewriteRule ^blog/([a-zAZ0-9-]+)/$ /backend/pages/blog/post.php?slug=$1 [L]
+
+#Static pages goes here
+RewriteRule ^about/$ /backend/pages/about/ [L]
+RewriteRule ^payment/$ /backend/pages/payment/ [L]
+RewriteRule ^garrany/$ /backend/pages/garranty/ [L]
+RewriteRule ^policy/$ /backend/pages/policy/ [L]
+RewriteRule ^contacts/$ /backend/pages/contacts/ [L]
+RewriteRule ^delivery/$ /backend/pages/delivery/ [L]
 #Ajax Quiq preview of product
 RewriteRule ^ajax/quickview/$ /backend/includes/quickview.php [L]
 # Home redirect last

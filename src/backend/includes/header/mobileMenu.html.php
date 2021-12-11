@@ -16,7 +16,7 @@
           <div class="mobile-menu__setting" data-mobile-menu-item>
             <button class="mobile-menu__setting-button" title="Language" data-mobile-menu-trigger>
               <span class="mobile-menu__setting-icon">
-                <img src="/images/redparts/images/languages/language-4.png" alt="">
+                <img src="/assets/images/languages/language-4.png" alt="">
               </span>
               <span class="mobile-menu__setting-title">Русский</span>
               <span class="mobile-menu__setting-arrow"><svg width="6px" height="9px">
