@@ -64,54 +64,25 @@
       <div class="block block-teammates">
         <div class="container container--max--xl">
           <div class="block-teammates__title">Профессиональная команда</div>
-          <div class="block-teammates__subtitle">Meet this is our professional team.</div>
+          <div class="block-teammates__subtitle">Познакомтесь с нашей профессиональной командой.</div>
           <div class="block-teammates__list">
             <div class="owl-carousel">
-              <div class="block-teammates__item teammate">
-                <div class="teammate__avatar">
-                  <img src="/assets/images/teammates/teammate1-206x206.jpg" alt="">
+              <?php foreach ($staff as $man) : ?>
+                <?php
+                $image = base64_encode($man['img206']);
+                $img = $man['img206'] ? "data:image/jpeg;base64,{$image}" : '/assets/images/teammates/teammate-default-206x206.jpg';
+                ?>
+                <div class="block-teammates__item teammate">
+                  <div class="teammate__avatar">
+                    <img src="<?= $img ?>" alt="<?= $man['firstname'] ?>">
+                  </div>
+                  <div class="teammate__info">
+                    <div class="teammate__name"><?= $man['firstname'] ?></div>
+                    <div class="teammate__position"><?= $man['position'] ?></div>
+                  </div>
                 </div>
-                <div class="teammate__info">
-                  <div class="teammate__name">Michael Russo</div>
-                  <div class="teammate__position">Chief Executive Officer</div>
-                </div>
-              </div>
-              <div class="block-teammates__item teammate">
-                <div class="teammate__avatar">
-                  <img src="/assets/images/teammates/teammate2-206x206.jpg" alt="">
-                </div>
-                <div class="teammate__info">
-                  <div class="teammate__name">Samantha Smith</div>
-                  <div class="teammate__position">Account Manager</div>
-                </div>
-              </div>
-              <div class="block-teammates__item teammate">
-                <div class="teammate__avatar">
-                  <img src="/assets/images/teammates/teammate3-206x206.jpg" alt="">
-                </div>
-                <div class="teammate__info">
-                  <div class="teammate__name">Anthony Harris</div>
-                  <div class="teammate__position">Finance Director</div>
-                </div>
-              </div>
-              <div class="block-teammates__item teammate">
-                <div class="teammate__avatar">
-                  <img src="/assets/images/teammates/teammate4-206x206.jpg" alt="">
-                </div>
-                <div class="teammate__info">
-                  <div class="teammate__name">Katherine Miller</div>
-                  <div class="teammate__position">Marketing Officer</div>
-                </div>
-              </div>
-              <div class="block-teammates__item teammate">
-                <div class="teammate__avatar">
-                  <img src="/assets/images/teammates/teammate5-206x206.jpg" alt="">
-                </div>
-                <div class="teammate__info">
-                  <div class="teammate__name">Boris Gilmore</div>
-                  <div class="teammate__position">Engineer</div>
-                </div>
-              </div>
+              <?php endforeach ?>
+
             </div>
           </div>
         </div>
@@ -119,82 +90,28 @@
       <div class="block-space block-space--layout--divider-xl"></div>
       <div class="block block-reviews">
         <div class="container">
-          <div class="block-reviews__title">Testimonials</div>
-          <div class="block-reviews__subtitle">During our work we have accumulated<br>hundreds of positive reviews.</div>
-          <div class="block-reviews__list">
-            <div class="owl-carousel">
-              <div class="block-reviews__item">
-                <div class="block-reviews__item-avatar">
-                  <img src="/assets/images/testimonials/testimonial-1-190x190.jpg" alt="">
-                </div>
-                <div class="block-reviews__item-content">
-                  <div class="block-reviews__item-text">This division is not obsolete but has changed. Natural philosophy has split into the various natural sciences, especially astronomy, and cosmology. Moral philosophy has birthed the social sciences, but still includes value theory.</div>
-                  <div class="block-reviews__item-meta">
-                    <div class="block-reviews__item-rating">
-                      <div class="rating">
-                        <div class="rating__body">
-                          <div class="rating__star rating__star--active"></div>
-                          <div class="rating__star rating__star--active"></div>
-                          <div class="rating__star rating__star--active"></div>
-                          <div class="rating__star rating__star--active"></div>
-                          <div class="rating__star"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="block-reviews__item-author">
-                      Jessica Moore, CEO Meblya
-                    </div>
+          <div class="block-reviews__title">Отзывы</div>
+          <div class="block-reviews__subtitle">За время нашей работы мы получили<br>сотни положительных отзывов.</div>
+          <div class="faq__section">
+            <h3 class="faq__section-title">Отзывы в поисковиках</h3>
+            <div class="faq__section-body">
+              <div class="faq__question_review">
+                <h5 class="faq__question-title">Отзывы в Гугл</h5>
+                <div class="faq__question-answer">
+                  <div class="typography">
+                    <img src="/assets/images/testimonials/google.png" alt="Google testimonials" />
                   </div>
                 </div>
               </div>
-              <div class="block-reviews__item">
-                <div class="block-reviews__item-avatar">
-                  <img src="/assets/images/testimonials/testimonial-2-190x190.jpg" alt="">
-                </div>
-                <div class="block-reviews__item-content">
-                  <div class="block-reviews__item-text">Philosophical questions can be grouped into categories. These groupings allow philosophers. The groupings also make philosophy easier for students to approach.</div>
-                  <div class="block-reviews__item-meta">
-                    <div class="block-reviews__item-rating">
-                      <div class="rating">
-                        <div class="rating__body">
-                          <div class="rating__star rating__star--active"></div>
-                          <div class="rating__star rating__star--active"></div>
-                          <div class="rating__star rating__star--active"></div>
-                          <div class="rating__star rating__star--active"></div>
-                          <div class="rating__star rating__star--active"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="block-reviews__item-author">
-                      Pete Bridges, Truck driver
-                    </div>
+              <div class="faq__question faq__question_review">
+                <h5 class="faq__question-title">Отзывы в Яндекс</h5>
+                <div class="faq__question-answer">
+                  <div class="typography">
+                    <img src="/assets/images/testimonials/yandex.png" alt="Yandex testimonials" />
                   </div>
                 </div>
               </div>
-              <div class="block-reviews__item">
-                <div class="block-reviews__item-avatar">
-                  <img src="/assets/images/testimonials/testimonial-3-190x190.jpg" alt="">
-                </div>
-                <div class="block-reviews__item-content">
-                  <div class="block-reviews__item-text">The ideas conceived by a society have profound repercussions on what actions the society performs. Philosophy yields applications such as those in ethics – applied ethics in particular – and political philosophy.</div>
-                  <div class="block-reviews__item-meta">
-                    <div class="block-reviews__item-rating">
-                      <div class="rating">
-                        <div class="rating__body">
-                          <div class="rating__star rating__star--active"></div>
-                          <div class="rating__star rating__star--active"></div>
-                          <div class="rating__star rating__star--active"></div>
-                          <div class="rating__star rating__star--active"></div>
-                          <div class="rating__star"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="block-reviews__item-author">
-                      Jeff Kowalski, CEO Stroyka
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

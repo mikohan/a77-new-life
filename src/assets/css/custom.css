@@ -4,10 +4,10 @@ h1 {
 .product__expert--side--item3 {
 	text-align: center;
 }
-.faq__section-body {
+.faq__section-body_catalogue {
 	justify-content: space-around;
 }
-.faq__question {
+.faq__question_catalogue {
 	width: calc(33% - 30px);
 	margin: 0;
 	border: 1px solid #f4f4f4;
@@ -19,14 +19,18 @@ h1 {
 	padding: 0.5rem;
 	margin: 0.5rem;
 }
-.faq__question h5 {
+.faq__question_catalogue h5 {
 	text-align: center;
 }
-.faq__question a {
+.faq__question_catalogue a {
 	display: flex;
 	justify-content: center;
 	text-decoration: none;
 	color: inherit;
+}
+
+.faq__question_review {
+	width: calc(50% - 40px);
 }
 
 .schema__item-container {

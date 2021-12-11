@@ -73,7 +73,7 @@
             </div>
           </div>
           <div class="faq__section">
-            <div class="faq__section-body">
+            <div class="faq__section-body faq__section-body_catalogue">
               <div class="block block-products-columns">
                 <div class="container">
                   <div class="row">
