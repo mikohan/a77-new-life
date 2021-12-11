@@ -15,7 +15,6 @@ shoppingCart.addItemCart = function (name, price, count, image, sku) {
 		if (this.cart[i].sku == sku) {
 			this.cart[i].count += count;
 			this.saveCart();
-			console.log(this.cart);
 			//alert("Товар добавлен в корзину");
 			return;
 		}

@@ -18,7 +18,4 @@
 		$('#id-filter-form')[0].reset();
 		$('#id-filter-form').trigger('submit');
 	});
-	$('.add-to-cart').on('click', function () {
-		console.log('Clicked');
-	});
 })(jQuery);

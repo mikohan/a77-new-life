@@ -56,9 +56,7 @@ var app = new Vue({
 			shoppingCart.addItemCart(name, price, 1, image, sku);
 			displayCart();
 		},
-		quickView(id) {
-			console.log(id);
-		},
+		quickView(id) {},
 		setUrl() {
 			// Initial setup for api url based on browser url
 
