@@ -1,12 +1,14 @@
 <?php
 $name = $_GET['name'];
 $images = count($_GET['images']) ? $_GET['images'] : ['/assets/images/products/product-default-800.jpg'];
+$tmbs = count($_GET['tmbs']) ? $_GET['tmbs'] : ['/assets/images/products/product-default-160.jpg'];
 $catNubmer = $_GET['catNumber'];
 $rating = $_GET['rating'];
 $price = $_GET['price'];
 $brand = $_GET['brand'];
 $country = $_GET['country'];
 $sku = $_GET['sku'];
+$tmb = count($_GET['images']) ? $_GET['images'][0] : '/assets/images/products/product-default-160.jpg';
 ?>
 <div class="quickview modal-dialog modal-dialog-centered">
 	<div class="modal-content">
@@ -50,38 +52,17 @@ $sku = $_GET['sku'];
 				</div>
 				<div class="product-gallery__thumbnails">
 					<div class="owl-carousel">
-						<div class="
+						<?php foreach ($tmbs as $tmb) : ?>
+							<div class="
 								product-gallery__thumbnails-item
 								image image--type--product
 							">
-							<div class="image__body">
-								<img class="image__tag" src="images/products/product-2-70x70.jpg" alt="" />
+								<div class="image__body">
+									<img class="image__tag" src="<?= $tmb ?>" alt="<?= $name ?>" />
+								</div>
 							</div>
-						</div>
-						<div class="
-								product-gallery__thumbnails-item
-								image image--type--product
-							">
-							<div class="image__body">
-								<img class="image__tag" src="images/products/product-1-70x70.jpg" alt="" />
-							</div>
-						</div>
-						<div class="
-								product-gallery__thumbnails-item
-								image image--type--product
-							">
-							<div class="image__body">
-								<img class="image__tag" src="images/products/product-3-70x70.jpg" alt="" />
-							</div>
-						</div>
-						<div class="
-								product-gallery__thumbnails-item
-								image image--type--product
-							">
-							<div class="image__body">
-								<img class="image__tag" src="images/products/product-4-70x70.jpg" alt="" />
-							</div>
-						</div>
+						<?php endforeach ?>
+
 					</div>
 				</div>
 			</div>
@@ -209,7 +190,7 @@ $sku = $_GET['sku'];
 							quickview__product-actions-item
 							quickview__product-actions-item--addtocart
 						">
-						<button class="btn btn-primary btn-block add-to-cart" id="add_to_cart_GA" data-price="<?= $price ?>" data-name="<?= $name ?>">
+						<button class="btn btn-primary btn-block add-to-cart" id="add_to_cart_GA" data-price="<?= $price ?>" data-name="<?= $name ?>" data-sku=<?= $sku ?> data-image="<?= $tmb ?>">
 							Добавить в корзину
 						</button>
 					</div>

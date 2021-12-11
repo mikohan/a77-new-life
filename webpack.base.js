@@ -255,6 +255,7 @@ module.exports = {
 			filename: `./templates/search.html.php`,
 			inject: 'body',
 			chunks: ['vendors', 'mainpage', 'search'],
+			minify: false,
 		}),
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/templates/cart.html.php`,

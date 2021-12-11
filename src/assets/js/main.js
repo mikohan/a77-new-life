@@ -737,6 +737,7 @@ import PhotoSwipeUI_Default from '../vendor/photoswipe/photoswipe-ui-default.min
 			const brand = $(this).data('brand');
 			const country = $(this).data('country');
 			const sku = $(this).data('sku');
+			const tmbs = $(this).data('tmbs');
 
 			quickview.cancelPreviousModal();
 
@@ -760,11 +761,11 @@ import PhotoSwipeUI_Default from '../vendor/photoswipe/photoswipe-ui-default.min
 						brand: brand,
 						country: country,
 						sku: sku,
+						tmbs: tmbs,
 					},
 					success: function (data) {
 						quickview.cancelPreviousModal = function () {};
 						button.removeClass('product-card__action--loading');
-						console.log(data);
 
 						modal.html(data);
 						modal.find('.quickview__close').on('click', function () {
