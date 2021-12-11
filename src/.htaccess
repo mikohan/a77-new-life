@@ -7,8 +7,13 @@ RewriteBase /
 RewriteEngine on
 
 
+ErrorDocument 404 /backend/pages/404/
+RewriteRule ^404/$ /backend/pages/404/index.php [L]
 
-RewriteRule ^$ /backend/home.php [L]
+ErrorDocument 500 /backend/pages/500/
+RewriteRule ^500/$ /backend/pages/500/index.php [L]
+
+
 RewriteRule car/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/category/index.php?model=$1&category=$2 [L]
 RewriteRule ^search/$ /backend/pages/search/ [L]
 RewriteRule ^product/([a-zA-Z0-9-]+)/$ /backend/pages/product/index.php?slug=$1 [L]
@@ -22,4 +27,6 @@ RewriteRule ^blog/$ /backend/pages/blog/ [L]
 RewriteRule ^blog/([a-zAZ0-9-]+)/$ /backend/pages/blog/post.php?slug=$1 [L]
 #Ajax Quiq preview of product
 RewriteRule ^ajax/quickview/$ /backend/includes/quickview.php [L]
+# Home redirect last
+RewriteRule ^$ /backend/home.php [L]
 </IfModule>

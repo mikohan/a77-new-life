@@ -31,6 +31,9 @@ class BlogModel extends Connection
     $t = $m->prepare($q);
     $t->execute(array($slug));
     $res = $t->fetch(PDO::FETCH_ASSOC);
+    if (!$res) {
+      throw new Error("No data found in database");
+    }
 
     $q_next = "SELECT * FROM ang_blog_articles WHERE id = (SELECT MIN(id) from ang_blog_articles WHERE id > ?)";
     $q_prev = "SELECT * FROM ang_blog_articles WHERE id = (SELECT MAX(id) from ang_blog_articles WHERE id < ?)";

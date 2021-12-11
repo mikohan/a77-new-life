@@ -8,7 +8,14 @@ $blog_model = new BlogModel;
 $slug = $_GET['slug'];
 
 
-[$post, $prev, $next] = $blog_model->getArticle($slug);
+try {
+  [$post, $prev, $next] = $blog_model->getArticle($slug);
+} catch (Throwable  $e) {
+  http_response_code(404);
+  header("Location: /404/");
+  exit();
+}
+
 $prev_link = "blog/{$prev['slug']}/" ?? '/blog/';
 $prev_title = $prev['title'] ?? 'Блог';
 

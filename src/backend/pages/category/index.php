@@ -1,6 +1,6 @@
 <?php
-// error_reporting(E_ALL);
-// ini_set("display_errors", 1);
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 require_once(__DIR__ . '/../../lib/init.php');
 require_once(__DIR__ . '/../category/CategoryModel.php');
 $categoryModel = new CategoryModel;
@@ -11,12 +11,21 @@ $get_category = $_GET['category'];
 $current_car = $categoryModel->getCar($get_model);
 
 
+
 /**
  * Getting data from server 
  */
 $site_url = PHOTO_API_URL;
 $url = "{$site_url}/api/product/jsontest?model={$get_model}&page_size=20&category={$get_category}";
+
+// Trying get data from api if not raise 404
 $remote_data = $categoryModel->getDataFromAPILocal($url);
+// If doc count equal to zerro raise 404
+if (!$remote_data['hits'] ?? false || !$remote_data['hits']['total']['value']) {
+  http_response_code(404);
+  header("Location: /404/");
+  exit();
+}
 
 // Products
 $products = $remote_data['hits']['hits'];
