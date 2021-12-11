@@ -118,10 +118,49 @@
       </div>
       <div class="block-space block-space--layout--before-footer"></div>
     </div>
-    <!-- site__body / end -->
-    <!-- site__footer -->
-    <?php include __DIR__ . '/../backend/includes/footer/footer.php' ?>
-    <!-- site__footer / end -->
+    <div class="block-space block-space--layout--divider-xl"></div>
+    <div class="block block-reviews">
+      <div class="container">
+        <div class="faq__section">
+          <h3 class="faq__section-title">Еще о Компании</h3>
+          <div class="faq__section-body">
+            <div class="faq__question_review">
+              <h5 class="faq__question-title"></h5>
+              <div class="faq__question-answer faq__question-answer-account">
+                <div class="typography">
+                  <div class="row">
+                    <div class="col-md-12 requisite">
+                      <h3>Реквизиты компании</h3>
+                      <div>Общество с ограниченной ответсвенностью "АНГАРА"</div>
+                      <div>ИНН 7733607590</div>
+                      <div>КПП 773301001</div>
+                      <div>БИК 044525555</div>
+                      <div>ОГРН 5077746795418</div>
+                      <div>Номер счета 40702810170030424301</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="faq__question faq__question_review">
+              <h5 class="faq__question-title"></h5>
+              <div class="faq__question-answer">
+                <div class="typography">
+                  <img src="/assets/images/testimonials/ang_sert.jpg" alt="Yandex testimonials" />
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block-space block-space--layout--before-footer"></div>
+  </div>
+  <!-- site__body / end -->
+  <!-- site__footer -->
+  <?php include __DIR__ . '/../backend/includes/footer/footer.php' ?>
+  <!-- site__footer / end -->
   </div>
   <!-- site / end -->
   <!-- mobile-menu -->

@@ -27,9 +27,9 @@
           </div>
           <div class="faq__section">
             <h3 class="faq__section-title">Выберите раздел</h3>
-            <div class="faq__section-body">
+            <div class="faq__section-body faq__section-body_catalogue">
               <?php foreach ($first as $f) : ?>
-                <div class="faq__question">
+                <div class="faq__question faq__question_catalogue">
                   <h5 class="faq__question-title"><?= $f['name'] ?></h5>
                   <div class="faq__question-answer">
                     <div class="typography">
