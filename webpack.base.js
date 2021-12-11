@@ -220,10 +220,10 @@ module.exports = {
 					to: `${PATHS.dist}/backend`,
 				},
 				// Uncomment on production
-				{
-					from: `${PATHS.src}/catalogue_images`,
-					to: `${PATHS.dist}/catalogue_images`,
-				},
+				// {
+				// 	from: `${PATHS.src}/catalogue_images`,
+				// 	to: `${PATHS.dist}/catalogue_images`,
+				// },
 			],
 		}),
 		new HtmlWebpackPlugin({
@@ -321,6 +321,12 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/templates/about.html.php`,
 			filename: `./templates/about.html.php`,
+			inject: 'body',
+			chunks: ['vendors', 'mainpage'],
+		}),
+		new HtmlWebpackPlugin({
+			template: `${PAGES_DIR}/templates/contacts.html.php`,
+			filename: `./templates/contacts.html.php`,
 			inject: 'body',
 			chunks: ['vendors', 'mainpage'],
 		}),
