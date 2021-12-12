@@ -19,6 +19,25 @@
     <?php include __DIR__ . '/../backend/includes/header/header.php' ?>
     <!-- site__header / end -->
     <div class="site__body">
+      <div class="block-header block-header--has-breadcrumb block-header--has-title">
+        <div class="container">
+          <div class="block-header__body">
+            <nav class="breadcrumb block-header__breadcrumb" aria-label="breadcrumb">
+              <ol class="breadcrumb__list">
+                <li class="breadcrumb__spaceship-safe-area" role="presentation"></li>
+                <li class="breadcrumb__item breadcrumb__item--parent breadcrumb__item--first">
+                  <a href="/" class="breadcrumb__item-link">Главная</a>
+                </li>
+                <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
+                  <span class="breadcrumb__item-link">Доставка и оплата</span>
+                </li>
+                <li class="breadcrumb__title-safe-area" role="presentation"></li>
+              </ol>
+            </nav>
+            <h1 class="block-header__title">Контакты компании <?= COMPANY_INFO['company_name'] ?></h1>
+          </div>
+        </div>
+      </div>
       <div class="block-space block-space--layout--spaceship-ledge-height"></div>
       <div class="block faq">
         <div class="container container--max--xl">

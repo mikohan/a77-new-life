@@ -269,12 +269,17 @@
                     </a>
                   </li>
                   <li class="menu__item">
-                    <a href="/payment/" class="menu__link">
-                      Способы Оплаты
+                    <a href="/contacts/" class="menu__link">
+                      Контакты
                     </a>
                   </li>
                   <li class="menu__item">
-                    <a href="/policy.php/" class="menu__link">
+                    <a href="/delivery/" class="menu__link">
+                      Доставка и Оплата
+                    </a>
+                  </li>
+                  <li class="menu__item">
+                    <a href="/policy/" class="menu__link">
                       Политика Конфиденциальности
                     </a>
                   </li>
