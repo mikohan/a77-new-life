@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>Контакты Компании <?= COMPANY_INFO['company_name'] ?></title>
+  <title>Доставка и Оплата <?= COMPANY_INFO['company_name'] ?></title>
   <link rel="icon" type="image/png" href="/assets/images/favicon.png">
   <!-- fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
@@ -65,8 +65,15 @@
                   <div class="typography">
                     <p>
                       Работаем по безналу с Юр лицами. Система налогобложения - УСН (без НДС).
-                      Юрлицам так-же доступны любые другие способы оплаты. Карта, онлайн, превод, наличиными.
+                      Юрлицам так-же доступны любые другие способы оплаты.
                     </p>
+                    <ul>
+                      <li>Наличные</li>
+                      <li>Все карты</li>
+                      <li>На сайте онлайн</li>
+                      <li>Превод на карту</li>
+                      <li>Сбербанк Онлайн</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -91,9 +98,9 @@
           </div>
 
           <div class="faq__footer">
-            <div class="faq__footer-title">Still Have A Questions?</div>
-            <div class="faq__footer-subtitle">We will be happy to answer any questions you may have.</div>
-            <a href="contact-us-v1.html" class="btn btn-primary">Contact Us</a>
+            <div class="faq__footer-title">Остались вопросы?</div>
+            <div class="faq__footer-subtitle">Наши менеджеры с удовольствием ответят на них!</div>
+            <a href="/contacts/" class="btn btn-primary">Позвоните нам!</a>
           </div>
         </div>
       </div>
