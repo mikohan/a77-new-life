@@ -40,8 +40,6 @@
       </div>
       <div class="block faq">
         <div class="container container--max--xl">
-          <div class="faq__header">
-          </div>
           <div class="faq__section">
             <h3 class="faq__section-title">Политика конфиденциальности</h3>
             <div class="faq__section-body">
