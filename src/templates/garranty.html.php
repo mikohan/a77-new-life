@@ -81,41 +81,24 @@
             </div>
           </div>
           <div class="faq__section">
-            <h3 class="faq__section-title">Оплата</h3>
-            <div class="faq__section-body">
-              <div class="faq__question">
-                <h5 class="faq__question-title">Организации</h5>
+            <h3 class="faq__section-title">Примеры работы</h3>
+            <div class="faq__section-body faq__section-body_warranty">
+              <div class="faq__question faq__question_warratny">
+                <h5 class="faq__question-title"></h5>
                 <div class="faq__question-answer">
-                  <div class="typography">
-                    <p>
-                      Работаем по безналу с Юр лицами. Система налогобложения - УСН (без НДС).
-                      Юрлицам так-же доступны любые другие способы оплаты.
-                    </p>
-                    <ul>
-                      <li>Наличные</li>
-                      <li>Все карты</li>
-                      <li>На сайте онлайн</li>
-                      <li>Превод на карту</li>
-                      <li>Сбербанк Онлайн</li>
-                    </ul>
-                  </div>
+                  <img src="/assets/images/testimonials/whatsup1.jpg" alt="Whatsup1" />
                 </div>
               </div>
-              <div class="faq__question">
-                <h5 class="faq__question-title">Физлица</h5>
+              <div class="faq__question faq__question_warratny">
+                <h5 class="faq__question-title"></h5>
                 <div class="faq__question-answer">
-                  <div class="typography">
-                    <p>
-                      Принимаем все доступные способы оплаты:
-                    </p>
-                    <ul>
-                      <li>Наличные</li>
-                      <li>Все карты</li>
-                      <li>На сайте онлайн</li>
-                      <li>Превод на карту</li>
-                      <li>Сбербанк Онлайн</li>
-                    </ul>
-                  </div>
+                  <img src="/assets/images/testimonials/whatsup2.jpg" alt="Whatsup2" />
+                </div>
+              </div>
+              <div class="faq__question faq__question_warratny">
+                <h5 class="faq__question-title"></h5>
+                <div class="faq__question-answer">
+                  <img src="/assets/images/testimonials/whatsup3.jpg" alt="Whatsup3" />
                 </div>
               </div>
             </div>
