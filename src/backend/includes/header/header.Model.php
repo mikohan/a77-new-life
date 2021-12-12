@@ -172,7 +172,6 @@ class ApiHeader extends Connection
     // If interval less than one day update table
     try {
       if ($interval > 1) {
-        echo 'Saving data to table';
         $this->saveCarsFromApiToMysql();
       }
     } catch (Exception $e) {
@@ -197,7 +196,6 @@ class ApiHeader extends Connection
       foreach ($results as $result) {
         $return[] = json_decode($result['car_json']);
       }
-      echo 'Get cars ffom Mysql';
       return $return;
     }
   }

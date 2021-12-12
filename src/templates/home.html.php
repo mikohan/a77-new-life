@@ -121,8 +121,8 @@
 								<div class="category-card__body">
 									<div class="category-card__content">
 										<div class="category-card__image image image--type--category">
-											<a href="" class="image__body">
-												<img class="image__tag" src="/assets/images/categories/fary-osveschenie-signalizatsija.jpg" alt="" />
+											<a href="/category/fary-osveschenie-signalizatsija/" class="image__body">
+												<img class="image__tag" src="/assets/images/categories/fary-osveschenie-signalizatsija.jpg" alt="Lamps and headlights" />
 											</a>
 										</div>
 										<div class="category-card__info">
@@ -130,13 +130,11 @@
 												<a href="/category/fary-osveschenie-signalizatsija/">Фары и освещение</a>
 											</div>
 											<ul class="category-card__children">
-												<li><a href="">Фары и осву
-
-													</a></li>
-												<li><a href="">tail lights</a></li>
-												<li><a href="">fog lights</a></li>
-												<li><a href="">turn signals</a></li>
-												<li><a href="">switches & relays</a></li>
+												<li><a href="/category/fary-osveschenie-signalizatsija/">Фары и освещение</a></li>
+												<li><a href="/category/fonari-i-signalizatsija/">Фонари и сигнализация</a></li>
+												<li><a href="/category/fary-raznye/">Фары разные</a></li>
+												<li><a href="/category/lampy-far-i-podsvetki/">Лампы фар</a></li>
+												<li><a href="/category/povorotniki-povtoriteli/">Поворотники</a></li>
 											</ul>
 											<div class="category-card__actions">
 												<a href="/category/fary-osveschenie-signalizatsija/" class="category-card__link">Перейти в категорию</a>
@@ -149,23 +147,23 @@
 								<div class="category-card__body">
 									<div class="category-card__content">
 										<div class="category-card__image image image--type--category">
-											<a href="" class="image__body">
-												<img class="image__tag" src="../assets/images/categories/category-2-160x160.jpg" alt="" />
+											<a href="/category/filtry-i-korpusy-filtrov/" class="image__body">
+												<img class="image__tag" src="/assets/images/categories/filtry-i-korpusy-filtrov.jpg" alt="Filters and parts" />
 											</a>
 										</div>
 										<div class="category-card__info">
 											<div class="category-card__name">
-												<a href="">fuel system</a>
+												<a href="/category/filtry-i-korpusy-filtrov/">Фильтры</a>
 											</div>
 											<ul class="category-card__children">
-												<li><a href="">fuel pumps</a></li>
-												<li><a href="">motor oil</a></li>
-												<li><a href="">spark plugs</a></li>
-												<li><a href="">fuel injector</a></li>
-												<li><a href="">control motor</a></li>
+												<li><a href="/category/filtr-toplivnyj/">Фильтр топливный</a></li>
+												<li><a href="/category/filtr-masljanyj/">Фильтр масляный</a></li>
+												<li><a href="/category/filtr-vozdushnyj/">Фильтр воздушный </a></li>
+												<li><a href="/category/filtr-salonnyj/">Фильтр салонный</a></li>
+												<li><a href="/category/filtry-i-korpusy-filtrov/">Фильтры</a></li>
 											</ul>
 											<div class="category-card__actions">
-												<a href="" class="category-card__link">Перейти в категорию</a>
+												<a href="/category/filtry-i-korpusy-filtrov/" class="category-card__link">Перейти в категорию</a>
 											</div>
 										</div>
 									</div>
@@ -175,23 +173,23 @@
 								<div class="category-card__body">
 									<div class="category-card__content">
 										<div class="category-card__image image image--type--category">
-											<a href="" class="image__body">
-												<img class="image__tag" src="../assets/images/categories/category-3-160x160.jpg" alt="" />
+											<a href="/category/transmissija/" class="image__body">
+												<img class="image__tag" src="/assets/images/categories/transmissija.jpg" alt="Transmission" />
 											</a>
 										</div>
 										<div class="category-card__info">
 											<div class="category-card__name">
-												<a href="">body parts</a>
+												<a href="/category/transmissija/">Трансмиссия</a>
 											</div>
 											<ul class="category-card__children">
-												<li><a href="">bumpers</a></li>
-												<li><a href="">hoods</a></li>
-												<li><a href="">grilles</a></li>
-												<li><a href="">fog lights</a></li>
-												<li><a href="">door handles</a></li>
+												<li><a href="/category/ressory-puruzhiny-torsiony/">Пружины Рессоры</a></li>
+												<li><a href="/category/korobka-peredach-i-zapchasti/">Коробка</a></li>
+												<li><a href="/category/stupitsy-i-zapchasti/">Ступицы</a></li>
+												<li><a href="/category/reduktor-mosta/">Редуктор</a></li>
+												<li><a href="/category/stseplenie-i-zapchasti/">Сцепление</a></li>
 											</ul>
 											<div class="category-card__actions">
-												<a href="" class="category-card__link">Перейти в категорию</a>
+												<a href="/category/transmissija/" class="category-card__link">Перейти в категорию</a>
 											</div>
 										</div>
 									</div>
@@ -201,23 +199,23 @@
 								<div class="category-card__body">
 									<div class="category-card__content">
 										<div class="category-card__image image image--type--category">
-											<a href="" class="image__body">
-												<img class="image__tag" src="../assets/images/categories/category-4-160x160.jpg" alt="" />
+											<a href="/category/salon-interer/" class="image__body">
+												<img class="image__tag" src="/assets/images/categories/category-4-160x160.jpg" alt="Inrerior" />
 											</a>
 										</div>
 										<div class="category-card__info">
 											<div class="category-card__name">
-												<a href="">interior parts</a>
+												<a href="/category/salon-interer/">Интерьер</a>
 											</div>
 											<ul class="category-card__children">
-												<li><a href="">dashboards</a></li>
-												<li><a href="">seat covers</a></li>
-												<li><a href="">floor mats</a></li>
-												<li><a href="">sun shades</a></li>
-												<li><a href="">visors</a></li>
+												<li><a href="/category/dveri-i-detali-dverej/">Двери</a></li>
+												<li><a href="/category/detali-salona-raznye/">салонный</a></li>
+												<li><a href="/category/kovriki-salona/">Коврики</a></li>
+												<li><a href="/category/sistema-multimedia/">Мультимедиа</a></li>
+												<li><a href="/category//vozduhozabornik/">Воздуховод</a></li>
 											</ul>
 											<div class="category-card__actions">
-												<a href="" class="category-card__link">Перейти в категорию</a>
+												<a href="/category/salon-interer/" class="category-card__link">Перейти в категорию</a>
 											</div>
 										</div>
 									</div>
@@ -227,23 +225,23 @@
 								<div class="category-card__body">
 									<div class="category-card__content">
 										<div class="category-card__image image image--type--category">
-											<a href="" class="image__body">
-												<img class="image__tag" src="../assets/images/categories/category-5-160x160.jpg" alt="" />
+											<a href="/category/podveska/" class="image__body">
+												<img class="image__tag" src="/assets/images/categories/podveska.jpg" alt="Podveska" />
 											</a>
 										</div>
 										<div class="category-card__info">
 											<div class="category-card__name">
-												<a href="">wheels & tires</a>
+												<a href="/category/podveska/">Подвеска</a>
 											</div>
 											<ul class="category-card__children">
-												<li><a href="">wheel covers</a></li>
-												<li><a href="">brake kits</a></li>
-												<li><a href="">tire chains</a></li>
-												<li><a href="">wheel disks</a></li>
-												<li><a href="">tires</a></li>
+												<li><a href="/category/rychagi-podveski/">Рычаги</a></li>
+												<li><a href="/category/amortizator-podveski/">Амортизаторы</a></li>
+												<li><a href="/category/sharovye-opory/">Опоры шаровые</a></li>
+												<li><a href="/category/stabilizator-podveski/">Стабилизатор</a></li>
+												<li><a href="/category/sajlentbloki-podveski/">Сайлентблоки</a></li>
 											</ul>
 											<div class="category-card__actions">
-												<a href="" class="category-card__link">Перейти в категорию</a>
+												<a href="/category/podveska/" class="category-card__link">Перейти в категорию</a>
 											</div>
 										</div>
 									</div>
@@ -253,23 +251,23 @@
 								<div class="category-card__body">
 									<div class="category-card__content">
 										<div class="category-card__image image image--type--category">
-											<a href="" class="image__body">
-												<img class="image__tag" src="../assets/images/categories/category-6-160x160.jpg" alt="" />
+											<a href="/category/tormoznaja-sistema/" class="image__body">
+												<img class="image__tag" src="/assets/images/categories/tormoznaja-sistema.jpg" alt="Tormoznaya systema" />
 											</a>
 										</div>
 										<div class="category-card__info">
 											<div class="category-card__name">
-												<a href="">engine & drivetrain</a>
+												<a href="/category/tormoznaja-sistema/">Тормозная Система</a>
 											</div>
 											<ul class="category-card__children">
-												<li><a href="">air filters</a></li>
-												<li><a href="">oxygen sensors</a></li>
-												<li><a href="">heating</a></li>
-												<li><a href="">exhaust</a></li>
-												<li><a href="">cranks & pistons</a></li>
+												<li><a href="/category//kolodki-tormoznye-nakladki/">Колодки</a></li>
+												<li><a href="/category/support-tormoznoj/">Суппорт</a></li>
+												<li><a href="/category/diski-barabany-tormoznye/">Диски</a></li>
+												<li><a href="/category/ruchnik-tormoz-stojanochnyj/">Ручник</a></li>
+												<li><a href="/category/tormoznye-zapchasti-raznye/">Разное</a></li>
 											</ul>
 											<div class="category-card__actions">
-												<a href="" class="category-card__link">Перейти в категорию</a>
+												<a href="/category/tormoznaja-sistema/" class="category-card__link">Перейти в категорию</a>
 											</div>
 										</div>
 									</div>
@@ -284,7 +282,7 @@
 				<div class="container">
 					<div class="section-header">
 						<div class="section-header__body">
-							<h2 class="section-header__title">featured products</h2>
+							<h2 class="section-header__title">Новые поступления</h2>
 							<div class="section-header__spring"></div>
 							<ul class="section-header__groups">
 								<li class="section-header__groups-item">
@@ -1239,23 +1237,23 @@
 					<div class="block-banners__list">
 						<a href="" class="block-banners__item block-banners__item--style--one">
 							<span class="block-banners__item-image"><img src="../assets/images/banners/banner1.jpg" alt="" /></span>
-							<span class="block-banners__item-image block-banners__item-image--blur"><img src="../assets/images/banners/banner1.jpg" alt="" /></span>
-							<span class="block-banners__item-title">Motor Oils</span>
+							<span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner1.jpg" alt="Motor oils" /></span>
+							<span class="block-banners__item-title">Моторные Масла</span>
 							<span class="block-banners__item-details">
-								Synthetic motor oil with free shipping<br />
-								Friction free life guaranteed
+								Синтетические масла с доставкой<br />
+								Высокое качество
 							</span>
-							<span class="block-banners__item-button btn btn-primary btn-sm"> Shop Now </span>
+							<span class="block-banners__item-button btn btn-primary btn-sm"> Перейти </span>
 						</a>
 						<a href="" class="block-banners__item block-banners__item--style--two">
-							<span class="block-banners__item-image"><img src="../assets/images/banners/banner2.jpg" alt="" /></span>
-							<span class="block-banners__item-image block-banners__item-image--blur"><img src="../assets/images/banners/banner2.jpg" alt="" /></span>
-							<span class="block-banners__item-title">Save up to $40</span>
+							<span class="block-banners__item-image"><img src="assets/images/banners/banner2.jpg" alt="Acsessores" /></span>
+							<span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner2.jpg" alt="Acsessores" /></span>
+							<span class="block-banners__item-title">Аксесуары</span>
 							<span class="block-banners__item-details">
-								Luxurious interior part for real aesthetes<br />
-								Leather, fabric, ivory and more.
+								Полезные принадлежности и расходники для машин<br />
+								Щетки, электроприборы, электроинка ...
 							</span>
-							<span class="block-banners__item-button btn btn-primary btn-sm"> Shop Now </span>
+							<span class="block-banners__item-button btn btn-primary btn-sm"> Перейти </span>
 						</a>
 					</div>
 				</div>
@@ -1264,28 +1262,28 @@
 			<div class="block block-sale">
 				<div class="block-sale__content">
 					<div class="block-sale__header">
-						<div class="block-sale__title">Attention! Deal Zone</div>
-						<div class="block-sale__subtitle">Hurry up! Discounts up to 70%</div>
+						<div class="block-sale__title">Товары со скидкой!</div>
+						<div class="block-sale__subtitle">Товары с скидками и распродажа.</div>
 						<div class="block-sale__timer">
 							<div class="timer">
 								<div class="timer__part">
 									<div class="timer__part-value timer__part-value--days">02</div>
-									<div class="timer__part-label">Days</div>
+									<div class="timer__part-label">Дней</div>
 								</div>
 								<div class="timer__dots"></div>
 								<div class="timer__part">
 									<div class="timer__part-value timer__part-value--hours">23</div>
-									<div class="timer__part-label">Hrs</div>
+									<div class="timer__part-label">Часов</div>
 								</div>
 								<div class="timer__dots"></div>
 								<div class="timer__part">
 									<div class="timer__part-value timer__part-value--minutes">07</div>
-									<div class="timer__part-label">Mins</div>
+									<div class="timer__part-label">Минут</div>
 								</div>
 								<div class="timer__dots"></div>
 								<div class="timer__part">
 									<div class="timer__part-value timer__part-value--seconds">54</div>
-									<div class="timer__part-label">Secs</div>
+									<div class="timer__part-label">Секунд</div>
 								</div>
 							</div>
 						</div>
@@ -1297,7 +1295,7 @@
 									</svg>
 								</button>
 							</div>
-							<div class="block-sale__link"><a href="">View All Available Offers</a></div>
+							<div class="block-sale__link"><a href="">Посмотреть все доступные предложения</a></div>
 							<div class="arrow block-sale__arrow block-sale__arrow--next arrow--next">
 								<button class="arrow__button" type="button">
 									<svg width="7" height="11">
