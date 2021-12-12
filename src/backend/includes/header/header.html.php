@@ -455,31 +455,31 @@
 	C26,18.5,30,23.8,30,30h-2C28,23.4,22.6,18,16,18z M22,10c0-3.3-2.7-6-6-6s-6,2.7-6,6s2.7,6,6,6S22,13.3,22,10z" />
             </svg>
           </span>
-          <span class="indicator__title">Hello, Log In</span>
-          <span class="indicator__value">My Account</span>
+          <span class="indicator__title">Логин</span>
+          <span class="indicator__value">Мой Аккаунт</span>
         </a>
         <div class="indicator__content">
           <div class="account-menu">
             <form class="account-menu__form">
               <div class="account-menu__form-title">
-                Log In to Your Account
+                Войти в Аккаунт
               </div>
               <div class="form-group">
-                <label for="header-signin-email" class="sr-only">Email address</label>
+                <label for="header-signin-email" class="sr-only">Емейл</label>
                 <input id="header-signin-email" type="email" class="form-control form-control-sm" placeholder="Email address">
               </div>
               <div class="form-group">
-                <label for="header-signin-password" class="sr-only">Password</label>
+                <label for="header-signin-password" class="sr-only">Пароль</label>
                 <div class="account-menu__form-forgot">
-                  <input id="header-signin-password" type="password" class="form-control form-control-sm" placeholder="Password">
-                  <a href="" class="account-menu__form-forgot-link">Forgot?</a>
+                  <input id="header-signin-password" type="password" class="form-control form-control-sm" placeholder="Пароль">
+                  <a href="" class="account-menu__form-forgot-link">Забыли пароль?</a>
                 </div>
               </div>
               <div class="form-group account-menu__form-button">
-                <button type="submit" class="btn btn-primary btn-sm">Login</button>
+                <button type="submit" class="btn btn-primary btn-sm">Логин</button>
               </div>
               <div class="account-menu__form-link">
-                <a href="account-login.html">Create An Account</a>
+                <a href="account-login.html">Создать Аккаунт</a>
               </div>
             </form>
             <div class="account-menu__divider"></div>

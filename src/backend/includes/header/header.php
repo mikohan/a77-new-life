@@ -17,7 +17,7 @@ $header_categories = $apiHeader->getCategoriesFromMysql();
 
 // Getting all cars and stuff
 $get_all_cars = $apiHeader->getCarsFromApi();
-$all_cars = array_slice($get_all_cars, 0, 20);
+$all_cars = array_slice($get_all_cars, 0, 24);
 usort($all_cars, function ($a, $b) {
   return $b->priority <=> $a->priority;
 });

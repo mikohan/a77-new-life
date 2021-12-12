@@ -5,8 +5,8 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="format-detection" content="telephone=no" />
-	<title>Home Two — Red Parts</title>
-	<link rel="icon" type="image/png" href="../assets/images/favicon.png" />
+	<title>Запчасти для автомобилей и спецтехники - <?= COMPANY_INFO['comany_name'] ?></title>
+	<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
 	<!-- fonts -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" />
 </head>
@@ -75,118 +75,19 @@
 			<div class="block block-brands block-brands--layout--columns-8-full">
 				<div class="container">
 					<ul class="block-brands__list">
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-1.png" alt="" />
-								<span class="block-brands__item-name">aimparts</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-2.png" alt="" />
-								<span class="block-brands__item-name">windengine</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-3.png" alt="" />
-								<span class="block-brands__item-name">turboelectric</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-4.png" alt="" />
-								<span class="block-brands__item-name">startone</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-5.png" alt="" />
-								<span class="block-brands__item-name">brandix</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-6.png" alt="" />
-								<span class="block-brands__item-name">abs-brand</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-7.png" alt="" />
-								<span class="block-brands__item-name">greatcircle</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-8.png" alt="" />
-								<span class="block-brands__item-name">justromb</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-9.png" alt="" />
-								<span class="block-brands__item-name">fastwheels</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-10.png" alt="" />
-								<span class="block-brands__item-name">stroyka-x</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-11.png" alt="" />
-								<span class="block-brands__item-name">mission-51</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-12.png" alt="" />
-								<span class="block-brands__item-name">fuelcorp</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-13.png" alt="" />
-								<span class="block-brands__item-name">redgate</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-14.png" alt="" />
-								<span class="block-brands__item-name">blocks</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-15.png" alt="" />
-								<span class="block-brands__item-name">blackbox</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
-						<li class="block-brands__item">
-							<a href="" class="block-brands__item-link">
-								<img src="../assets/images/brands/brand-16.png" alt="" />
-								<span class="block-brands__item-name">squaregarage</span>
-							</a>
-						</li>
-						<li class="block-brands__divider" role="presentation"></li>
+						<?php foreach ($all_cars as $car) : ?>
+							<?php
+							$img = $car->image ?? '/assets/images/cars/car-default-96x96.png';
+							?>
+							<li class="block-brands__item">
+								<a href="" class="block-brands__item-link">
+									<img src="<?= $img ?>" alt="<?= $car->name ?>" />
+									<span class="block-brands__item-name"><?= $car->name ?></span>
+								</a>
+							</li>
+							<li class="block-brands__divider" role="presentation"></li>
+						<?php endforeach ?>
+
 					</ul>
 				</div>
 			</div>
@@ -195,7 +96,7 @@
 				<div class="container">
 					<div class="block-categories__header">
 						<div class="block-categories__title">
-							popular categories
+							Популярные категории
 							<div class="decor block-categories__title-decor decor--type--center">
 								<div class="decor__body">
 									<div class="decor__start"></div>
@@ -221,22 +122,24 @@
 									<div class="category-card__content">
 										<div class="category-card__image image image--type--category">
 											<a href="" class="image__body">
-												<img class="image__tag" src="../assets/images/categories/category-1-160x160.jpg" alt="" />
+												<img class="image__tag" src="/assets/images/categories/fary-osveschenie-signalizatsija.jpg" alt="" />
 											</a>
 										</div>
 										<div class="category-card__info">
 											<div class="category-card__name">
-												<a href="">headlights</a>
+												<a href="/category/fary-osveschenie-signalizatsija/">Фары и освещение</a>
 											</div>
 											<ul class="category-card__children">
-												<li><a href="">headlights</a></li>
+												<li><a href="">Фары и осву
+
+													</a></li>
 												<li><a href="">tail lights</a></li>
 												<li><a href="">fog lights</a></li>
 												<li><a href="">turn signals</a></li>
 												<li><a href="">switches & relays</a></li>
 											</ul>
 											<div class="category-card__actions">
-												<a href="" class="category-card__link">shop all</a>
+												<a href="/category/fary-osveschenie-signalizatsija/" class="category-card__link">Перейти в категорию</a>
 											</div>
 										</div>
 									</div>
@@ -262,7 +165,7 @@
 												<li><a href="">control motor</a></li>
 											</ul>
 											<div class="category-card__actions">
-												<a href="" class="category-card__link">shop all</a>
+												<a href="" class="category-card__link">Перейти в категорию</a>
 											</div>
 										</div>
 									</div>
@@ -288,7 +191,7 @@
 												<li><a href="">door handles</a></li>
 											</ul>
 											<div class="category-card__actions">
-												<a href="" class="category-card__link">shop all</a>
+												<a href="" class="category-card__link">Перейти в категорию</a>
 											</div>
 										</div>
 									</div>
@@ -314,7 +217,7 @@
 												<li><a href="">visors</a></li>
 											</ul>
 											<div class="category-card__actions">
-												<a href="" class="category-card__link">shop all</a>
+												<a href="" class="category-card__link">Перейти в категорию</a>
 											</div>
 										</div>
 									</div>
@@ -340,7 +243,7 @@
 												<li><a href="">tires</a></li>
 											</ul>
 											<div class="category-card__actions">
-												<a href="" class="category-card__link">shop all</a>
+												<a href="" class="category-card__link">Перейти в категорию</a>
 											</div>
 										</div>
 									</div>
@@ -366,7 +269,7 @@
 												<li><a href="">cranks & pistons</a></li>
 											</ul>
 											<div class="category-card__actions">
-												<a href="" class="category-card__link">shop all</a>
+												<a href="" class="category-card__link">Перейти в категорию</a>
 											</div>
 										</div>
 									</div>

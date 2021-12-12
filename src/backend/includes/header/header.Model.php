@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 class ApiHeader extends Connection
 {
@@ -174,8 +171,8 @@ class ApiHeader extends Connection
     $interval = $today->diff($past)->days;
     // If interval less than one day update table
     try {
-
       if ($interval > 1) {
+        echo 'Saving data to table';
         $this->saveCarsFromApiToMysql();
       }
     } catch (Exception $e) {
@@ -191,7 +188,7 @@ class ApiHeader extends Connection
       $return = json_decode($result['car_json']);
       return $return;
     } else {
-      // Return all categories
+      // Return all cars
       $q = "SELECT * FROM `ang_cars_api`";
       $t = $m->prepare($q);
       $t->execute();
@@ -200,6 +197,7 @@ class ApiHeader extends Connection
       foreach ($results as $result) {
         $return[] = json_decode($result['car_json']);
       }
+      echo 'Get cars ffom Mysql';
       return $return;
     }
   }

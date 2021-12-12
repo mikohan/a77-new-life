@@ -35,5 +35,5 @@ RewriteRule ^delivery/$ /backend/pages/delivery/ [L]
 #Ajax Quiq preview of product
 RewriteRule ^ajax/quickview/$ /backend/includes/quickview.php [L]
 # Home redirect last
-RewriteRule ^$ /backend/home.php [L]
+RewriteRule ^$ /backend/pages/home/home.php [L]
 </IfModule>
