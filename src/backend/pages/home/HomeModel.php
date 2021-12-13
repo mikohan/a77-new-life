@@ -38,11 +38,10 @@ class HomeModel extends Connection
 
 
     $m = $this->db();
-    $q = "SELECT * FROM ang_home_page";
+    $q = "SELECT * FROM ang_home_page WHERE id = 1";
     $t = $m->prepare($q);
     $t->execute();
     $res = $t->fetch(PDO::FETCH_ASSOC);
-    // p($res);
     if ($res) {
       $today = new DateTime();
       $past = new DateTime($res['updated'] ?? null);
