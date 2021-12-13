@@ -79,7 +79,7 @@
                 </li>
                 <?php foreach ($parents as $parent) : ?>
                   <li class="breadcrumb__item breadcrumb__item--parent">
-                    <a href="/car/<?= $current_car->make->slug ?>/<?= $current_car->slug ?>/<?= $parent['slug'] ?>/" class="breadcrumb__item-link"><?= $parent['name'] ?></a>
+                    <a href="/category/<?= $parent['slug'] ?>/" class="breadcrumb__item-link"><?= $parent['name'] ?></a>
                   <li>
                   <?php endforeach ?>
                   <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
@@ -139,7 +139,7 @@
 	C6.1,7.8,6.1,8.4,5.7,8.7z" />
                                           </svg>
                                         </span>
-                                        <a href="/car/<?= $get_model ?>/<?= $par_cat['slug'] ?>/"><?= $par_cat['name'] ?></a>
+                                        <a href="/category/<?= $par_cat['slug'] ?>/"><?= $par_cat['name'] ?></a>
                                         <div class="filter-categories__counter"><?= $par_cat['count'] ?></div>
                                       </li>
                                     <?php endforeach ?>
@@ -150,7 +150,7 @@
                                     <!-- Children cats start -->
                                     <?php foreach (findChildren($page_category, $categories) as $ct) : ?>
                                       <li class="filter-categories__item filter-categories__item--child">
-                                        <a id="drils" href="/car/<?= $get_model ?>/<?= $ct['slug'] ?>/"><?= mb_ucfirst($ct['name']) ?></a>
+                                        <a id="drils" href="/category/<?= $ct['slug'] ?>/"><?= mb_ucfirst($ct['name']) ?></a>
                                         <div class="filter-categories__counter"><?= $ct['count'] ?></div>
                                       </li>
                                     <?php endforeach ?>

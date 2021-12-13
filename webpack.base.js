@@ -30,6 +30,7 @@ module.exports = {
 		allpages: path.join(PATHS.src, 'assets/vendor/vendor.allpages.js'),
 		app: path.join(PATHS.src, 'assets/js/app.js'),
 		categoryPage: ['babel-polyfill', path.join(PATHS.src, 'assets/js/category.page.js')],
+		categoryPageNoCar: ['babel-polyfill', path.join(PATHS.src, 'assets/js/category_no_car.page.js')],
 		search: path.join(PATHS.src, 'assets/js/search.page.js'),
 		showCart: path.join(PATHS.src, 'assets/js/showCart.page.js'),
 		order: path.join(PATHS.src, 'assets/js/order.page.js'),
@@ -249,6 +250,12 @@ module.exports = {
 			filename: `./templates/category.html.php`,
 			inject: 'body',
 			chunks: ['vendors', 'categoryPage'],
+		}),
+		new HtmlWebpackPlugin({
+			template: `${PAGES_DIR}/templates/category_no_car.html.php`,
+			filename: `./templates/category_no_car.html.php`,
+			inject: 'body',
+			chunks: ['vendors', 'categoryPageNoCar'],
 		}),
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/templates/search.html.php`,

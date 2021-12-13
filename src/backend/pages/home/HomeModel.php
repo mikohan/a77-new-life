@@ -9,8 +9,8 @@ class HomeModel extends Connection
   private function getFeaturesFromApi()
   {
     $host = PHOTO_API_URL;
-    // $url = "{$host}/api/product/get-home-page-features/";
-    $url = 'http://localhost:8000/api/product/get-home-page-features/';
+    $url = "{$host}/api/product/get-home-page-features/";
+    // $url = 'http://localhost:8000/api/product/get-home-page-features/';
     $ch = curl_init();
     $options = array(
       CURLOPT_URL => $url,
@@ -85,10 +85,8 @@ class HomeModel extends Connection
      */
     $products = $this->getFeaturesFromMysql();
     if ($products) {
-      echo ('Data from Mysql');
       return json_decode($products, true);
     } else {
-      echo ('Data from API');
       $products = $this->getFeaturesFromApi();
       $this->insertOrUpdateMysqlHomePage($products);
       return json_decode($products, true);
