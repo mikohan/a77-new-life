@@ -25,47 +25,47 @@
 				<div class="container">
 					<div class="block-slideshow__carousel">
 						<div class="owl-carousel">
-							<a class="block-slideshow__item" href="">
+							<a class="block-slideshow__item" href="/category/zhidkosti-avtohimija/">
 								<span class="block-slideshow__item-image block-slideshow__item-image--desktop" style="background-image: url('../assets/images/slides/slide-3.jpg')"></span>
 								<span class="block-slideshow__item-image block-slideshow__item-image--mobile" style="background-image: url('../assets/images/slides/slide-3-mobile.jpg')"></span>
-								<span class="block-slideshow__item-offer"> 30% off </span>
+								<span class="block-slideshow__item-offer"> 100% оригинал </span>
 								<span class="block-slideshow__item-title">
-									when buying parts <br />
-									with installation
+									Масло и жидкости <br />
+									с доставкой
 								</span>
 								<span class="block-slideshow__item-details">
-									installation of parts in the services of<br />
-									our partners.
+									Всегда в наличии<br />
+									Комплекты для ТО
 								</span>
-								<span class="block-slideshow__item-button"> shop now </span>
+								<span class="block-slideshow__item-button"> В Каталог </span>
 							</a>
-							<a class="block-slideshow__item" href="">
+							<a class="block-slideshow__item" href="/category/zapchasti/">
 								<span class="block-slideshow__item-image block-slideshow__item-image--desktop" style="background-image: url('../assets/images/slides/slide-2.jpg')"></span>
 								<span class="block-slideshow__item-image block-slideshow__item-image--mobile" style="background-image: url('../assets/images/slides/slide-2-mobile.jpg')"></span>
 								<span class="block-slideshow__item-title">
-									not enough<br />
-									spare parts?
+									Еще нужны<br />
+									запчасти?
 								</span>
 								<span class="block-slideshow__item-details">
-									we have everything you need – replacement parts,<br />
-									performance parts, accessories, oil & fluids,<br />
-									tools and much more...
+									У нас есть все что нужно - Детали,<br />
+									Расходники, Жидкости, Кузовные, Подвеска,<br />
+									Инструменты и многое другое...
 								</span>
-								<span class="block-slideshow__item-button"> shop now </span>
+								<span class="block-slideshow__item-button"> В Каталог </span>
 							</a>
-							<a class="block-slideshow__item" href="">
+							<a class="block-slideshow__item" href="/category/filtry/">
 								<span class="block-slideshow__item-image block-slideshow__item-image--desktop" style="background-image: url('../assets/images/slides/slide-1.jpg')"></span>
 								<span class="block-slideshow__item-image block-slideshow__item-image--mobile" style="background-image: url('../assets/images/slides/slide-1-mobile.jpg')"></span>
-								<span class="block-slideshow__item-offer"> 30% off </span>
+								<span class="block-slideshow__item-offer"> 100% Гарантия </span>
 								<span class="block-slideshow__item-title">
-									big choice of<br />
-									wheel tires
+									Большой выбор<br />
+									Расходников
 								</span>
 								<span class="block-slideshow__item-details">
-									any size and diameter, with or without spikes,<br />
-									summer or winter, rain or snow.
+									Всегда на складе,<br />
+									Есть самовывоз и доставка
 								</span>
-								<span class="block-slideshow__item-button"> shop now </span>
+								<span class="block-slideshow__item-button"> В Каталог </span>
 							</a>
 						</div>
 					</div>
