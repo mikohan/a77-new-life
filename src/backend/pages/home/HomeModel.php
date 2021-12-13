@@ -94,4 +94,22 @@ class HomeModel extends Connection
       return json_decode($products, true);
     }
   }
+
+  public function getLatestPosts()
+  {
+    /**
+     * Getting 6 latest posts from db
+     */
+
+    $m = $this->db();
+
+    $q = "SELECT ab.*, bc.name as blog_category_name FROM ang_blog_articles ab
+    LEFT JOIN ang_blog_category bc
+    ON ab.blog_category = bc.id
+     ORDER BY date DESC LIMIT 6";
+    $t = $m->prepare($q);
+    $t->execute();
+    $res = $t->fetchAll(PDO::FETCH_ASSOC);
+    return $res;
+  }
 }

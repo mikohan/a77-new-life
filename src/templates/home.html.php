@@ -323,12 +323,12 @@
 					<div class="block-products-carousel__carousel">
 						<div class="block-products-carousel__carousel-loader"></div>
 						<div class="owl-carousel">
-							<?php foreach ($fetures['latest'] as $latest) : ?>
+							<?php foreach ($features['latest'] as $latest) : ?>
 								<?php
 								$img = count($latest['product_image']) ? $latest['product_image'][0]['img245'] : '/assets/images/products/product-default-245.jpg';
 								$link = $latest['slug'] ? "/product/{$latest['slug']}/" : '';
 
-								$brand = $latest['brand'] ? $latest['brand']['brand'] : 'ORIGINAL';
+								$brand = $latest['brand'] ? mb_strtoupper($latest['brand']['brand']) : 'ORIGINAL';
 
 								?>
 								<div class="block-products-carousel__column">
@@ -394,7 +394,7 @@
 													</div>
 												</div>
 												<div class="product-card__rating">
-													<div class="rating product-card__rating-stars">
+													<div class="rating product-card__rating-stars_" style="margin-right: 1rem;">
 														<?= $brand ?>
 													</div>
 													<div class="product-card__rating-label"><?= $latest['cat_number'] ?></div>
@@ -403,10 +403,10 @@
 											<div class="product-card__footer">
 												<div class="product-card__prices">
 													<div class="product-card__price product-card__price--current">
-														$19.00
+														&#8381; <?= $latest['price'] ?>
 													</div>
 												</div>
-												<button class="product-card__addtocart-icon" type="button" aria-label="Add to cart">
+												<button class="product-card__addtocart-icon add-to-cart" type="button" aria-label="В Корзину" data-sku="<?= $latest['one_c_id'] ?>" data-name="<?= $latest['name'] ?>" data-image="<?= $latest['tmb'] ?>" $data-price="<?= $latest['price'] ?>">
 													<svg width="20" height="20">
 														<circle cx="7" cy="17" r="2" />
 														<circle cx="15" cy="17" r="2" />
@@ -520,716 +520,105 @@
 						<div class="container">
 							<div class="block-sale__carousel">
 								<div class="owl-carousel">
-									<div class="block-sale__item">
-										<div class="product-card">
-											<div class="product-card__actions-list">
-												<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-													<svg width="16" height="16">
-														<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
+									<?php foreach ($features['sale'] as $sale) : ?>
+										<?php
+										$img = count($sale['product_image']) ? $sale['product_image'][0]['img245'] : '/assets/images/products/product-default-245.jpg';
+										$brand = $sale['brand'] ? mb_strtoupper($sale['brand']['brand']) : 'ORIGINAL';
+										$sku = $sale['one_c_id'];
+										$price = $sale['price'];
+										$name = $sale['name'];
+										$tmb = $sale['tmb'];
+										$link = "/product/{$sale['slug']}/";
+
+										?>
+										<div class="block-sale__item">
+											<div class="product-card">
+												<div class="product-card__actions-list">
+													<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
+														<svg width="16" height="16">
+															<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
 	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--wishlist" type="button" aria-label="Add to wish list">
-													<svg width="16" height="16">
-														<path d="M13.9,8.4l-5.4,5.4c-0.3,0.3-0.7,0.3-1,0L2.1,8.4c-1.5-1.5-1.5-3.8,0-5.3C2.8,2.4,3.8,2,4.8,2s1.9,0.4,2.6,1.1L8,3.7
+														</svg>
+													</button>
+													<button class="product-card__action product-card__action--wishlist" type="button" aria-label="Add to wish list">
+														<svg width="16" height="16">
+															<path d="M13.9,8.4l-5.4,5.4c-0.3,0.3-0.7,0.3-1,0L2.1,8.4c-1.5-1.5-1.5-3.8,0-5.3C2.8,2.4,3.8,2,4.8,2s1.9,0.4,2.6,1.1L8,3.7
 	l0.6-0.6C9.3,2.4,10.3,2,11.3,2c1,0,1.9,0.4,2.6,1.1C15.4,4.6,15.4,6.9,13.9,8.4z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--compare" type="button" aria-label="Add to compare">
-													<svg width="16" height="16">
-														<path d="M9,15H7c-0.6,0-1-0.4-1-1V2c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v12C10,14.6,9.6,15,9,15z" />
-														<path d="M1,9h2c0.6,0,1,0.4,1,1v4c0,0.6-0.4,1-1,1H1c-0.6,0-1-0.4-1-1v-4C0,9.4,0.4,9,1,9z" />
-														<path d="M15,5h-2c-0.6,0-1,0.4-1,1v8c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V6C16,5.4,15.6,5,15,5z" />
-													</svg>
-												</button>
-											</div>
-											<div class="product-card__image">
-												<div class="image image--type--product">
-													<a href="product-full.html" class="image__body">
-														<img class="image__tag" src="../assets/images/products/product-1-245x245.jpg" alt="" />
-													</a>
+														</svg>
+													</button>
+													<button class="product-card__action product-card__action--compare" type="button" aria-label="Add to compare">
+														<svg width="16" height="16">
+															<path d="M9,15H7c-0.6,0-1-0.4-1-1V2c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v12C10,14.6,9.6,15,9,15z" />
+															<path d="M1,9h2c0.6,0,1,0.4,1,1v4c0,0.6-0.4,1-1,1H1c-0.6,0-1-0.4-1-1v-4C0,9.4,0.4,9,1,9z" />
+															<path d="M15,5h-2c-0.6,0-1,0.4-1,1v8c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V6C16,5.4,15.6,5,15,5z" />
+														</svg>
+													</button>
 												</div>
-												<div class="
+												<div class="product-card__image">
+													<div class="image image--type--product">
+														<a href="<?= $link ?>" class="image__body">
+															<img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" />
+														</a>
+													</div>
+													<div class="
 															status-badge status-badge--style--success
 															product-card__fit
 															status-badge--has-icon status-badge--has-text
 														">
-													<div class="status-badge__body">
-														<div class="status-badge__icon">
-															<svg width="13" height="13">
-																<path d="M12,4.4L5.5,11L1,6.5l1.4-1.4l3.1,3.1L10.6,3L12,4.4z" />
-															</svg>
-														</div>
-														<div class="status-badge__text">
-															Part Fit for 2011 Ford Focus S
-														</div>
-														<div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="Part&#x20;Fit&#x20;for&#x20;2011&#x20;Ford&#x20;Focus&#x20;S"></div>
-													</div>
-												</div>
-											</div>
-											<div class="product-card__info">
-												<div class="product-card__meta">
-													<span class="product-card__meta-title">SKU:</span> 140-10440-B
-												</div>
-												<div class="product-card__name">
-													<div>
-														<div class="product-card__badges">
-															<div class="tag-badge tag-badge--sale">sale</div>
-															<div class="tag-badge tag-badge--new">new</div>
-															<div class="tag-badge tag-badge--hot">hot</div>
-														</div>
-														<a href="product-full.html">Brandix Spark Plug Kit ASR-400</a>
-													</div>
-												</div>
-												<div class="product-card__rating">
-													<div class="rating product-card__rating-stars">
-														<div class="rating__body">
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star"></div>
+														<div class="status-badge__body">
+															<div class="status-badge__icon">
+																<svg width="13" height="13">
+																	<path d="M12,4.4L5.5,11L1,6.5l1.4-1.4l3.1,3.1L10.6,3L12,4.4z" />
+																</svg>
+															</div>
+															<div class="status-badge__text">
+																Part Fit for 2011 Ford Focus S
+															</div>
+															<div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="Part&#x20;Fit&#x20;for&#x20;2011&#x20;Ford&#x20;Focus&#x20;S"></div>
 														</div>
 													</div>
-													<div class="product-card__rating-label">4 on 3 reviews</div>
 												</div>
-											</div>
-											<div class="product-card__footer">
-												<div class="product-card__prices">
-													<div class="product-card__price product-card__price--current">
-														$19.00
+												<div class="product-card__info">
+													<div class="product-card__meta">
+														<span class="product-card__meta-title">SKU:</span> <?= $sku ?>
+													</div>
+													<div class="product-card__name">
+														<div>
+															<div class="product-card__badges">
+																<div class="tag-badge tag-badge--sale">sale</div>
+																<div class="tag-badge tag-badge--new">new</div>
+																<div class="tag-badge tag-badge--hot">hot</div>
+															</div>
+															<a href="<?= $link ?>"><?= $name ?></a>
+														</div>
+													</div>
+													<div class="product-card__rating">
+														<div class="rating product-card__rating-stars">
+															<?= $brand ?>
+														</div>
+														<div class="product-card__rating-label"><?= $sale['cat_number'] ?></div>
 													</div>
 												</div>
-												<button class="product-card__addtocart-icon" type="button" aria-label="Add to cart">
-													<svg width="20" height="20">
-														<circle cx="7" cy="17" r="2" />
-														<circle cx="15" cy="17" r="2" />
-														<path d="M20,4.4V5l-1.8,6.3c-0.1,0.4-0.5,0.7-1,0.7H6.7c-0.4,0-0.8-0.3-1-0.7L3.3,3.9C3.1,3.3,2.6,3,2.1,3H0.4C0.2,3,0,2.8,0,2.6
+												<div class="product-card__footer">
+													<div class="product-card__prices">
+														<div class="product-card__price product-card__price--current">
+															&#8381; <?= $price ?>
+														</div>
+													</div>
+													<button class="product-card__addtocart-icon add-to-cart" type="button" aria-label="Add to cart" data-sku="<?= $sku ?>" data-price="<?= $price ?>" data-name="<?= $name ?>" data-img="<?= $img ?>">
+														<svg width="20" height="20">
+															<circle cx="7" cy="17" r="2" />
+															<circle cx="15" cy="17" r="2" />
+															<path d="M20,4.4V5l-1.8,6.3c-0.1,0.4-0.5,0.7-1,0.7H6.7c-0.4,0-0.8-0.3-1-0.7L3.3,3.9C3.1,3.3,2.6,3,2.1,3H0.4C0.2,3,0,2.8,0,2.6
 	V1.4C0,1.2,0.2,1,0.4,1h2.5c1,0,1.8,0.6,2.1,1.6L5.1,3l2.3,6.8c0,0.1,0.2,0.2,0.3,0.2h8.6c0.1,0,0.3-0.1,0.3-0.2l1.3-4.4
 	C17.9,5.2,17.7,5,17.5,5H9.4C9.2,5,9,4.8,9,4.6V3.4C9,3.2,9.2,3,9.4,3h9.2C19.4,3,20,3.6,20,4.4z" />
-													</svg>
-												</button>
+														</svg>
+													</button>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="block-sale__item">
-										<div class="product-card">
-											<div class="product-card__actions-list">
-												<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-													<svg width="16" height="16">
-														<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--wishlist" type="button" aria-label="Add to wish list">
-													<svg width="16" height="16">
-														<path d="M13.9,8.4l-5.4,5.4c-0.3,0.3-0.7,0.3-1,0L2.1,8.4c-1.5-1.5-1.5-3.8,0-5.3C2.8,2.4,3.8,2,4.8,2s1.9,0.4,2.6,1.1L8,3.7
-	l0.6-0.6C9.3,2.4,10.3,2,11.3,2c1,0,1.9,0.4,2.6,1.1C15.4,4.6,15.4,6.9,13.9,8.4z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--compare" type="button" aria-label="Add to compare">
-													<svg width="16" height="16">
-														<path d="M9,15H7c-0.6,0-1-0.4-1-1V2c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v12C10,14.6,9.6,15,9,15z" />
-														<path d="M1,9h2c0.6,0,1,0.4,1,1v4c0,0.6-0.4,1-1,1H1c-0.6,0-1-0.4-1-1v-4C0,9.4,0.4,9,1,9z" />
-														<path d="M15,5h-2c-0.6,0-1,0.4-1,1v8c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V6C16,5.4,15.6,5,15,5z" />
-													</svg>
-												</button>
-											</div>
-											<div class="product-card__image">
-												<div class="image image--type--product">
-													<a href="product-full.html" class="image__body">
-														<img class="image__tag" src="../assets/images/products/product-2-245x245.jpg" alt="" />
-													</a>
-												</div>
-												<div class="
-															status-badge status-badge--style--success
-															product-card__fit
-															status-badge--has-icon status-badge--has-text
-														">
-													<div class="status-badge__body">
-														<div class="status-badge__icon">
-															<svg width="13" height="13">
-																<path d="M12,4.4L5.5,11L1,6.5l1.4-1.4l3.1,3.1L10.6,3L12,4.4z" />
-															</svg>
-														</div>
-														<div class="status-badge__text">
-															Part Fit for 2011 Ford Focus S
-														</div>
-														<div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="Part&#x20;Fit&#x20;for&#x20;2011&#x20;Ford&#x20;Focus&#x20;S"></div>
-													</div>
-												</div>
-											</div>
-											<div class="product-card__info">
-												<div class="product-card__meta">
-													<span class="product-card__meta-title">SKU:</span> 573-23743-C
-												</div>
-												<div class="product-card__name">
-													<div>
-														<a href="product-full.html">Brandix Brake Kit BDX-750Z370-S</a>
-													</div>
-												</div>
-												<div class="product-card__rating">
-													<div class="rating product-card__rating-stars">
-														<div class="rating__body">
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-														</div>
-													</div>
-													<div class="product-card__rating-label">5 on 22 reviews</div>
-												</div>
-											</div>
-											<div class="product-card__footer">
-												<div class="product-card__prices">
-													<div class="product-card__price product-card__price--current">
-														$224.00
-													</div>
-												</div>
-												<button class="product-card__addtocart-icon" type="button" aria-label="Add to cart">
-													<svg width="20" height="20">
-														<circle cx="7" cy="17" r="2" />
-														<circle cx="15" cy="17" r="2" />
-														<path d="M20,4.4V5l-1.8,6.3c-0.1,0.4-0.5,0.7-1,0.7H6.7c-0.4,0-0.8-0.3-1-0.7L3.3,3.9C3.1,3.3,2.6,3,2.1,3H0.4C0.2,3,0,2.8,0,2.6
-	V1.4C0,1.2,0.2,1,0.4,1h2.5c1,0,1.8,0.6,2.1,1.6L5.1,3l2.3,6.8c0,0.1,0.2,0.2,0.3,0.2h8.6c0.1,0,0.3-0.1,0.3-0.2l1.3-4.4
-	C17.9,5.2,17.7,5,17.5,5H9.4C9.2,5,9,4.8,9,4.6V3.4C9,3.2,9.2,3,9.4,3h9.2C19.4,3,20,3.6,20,4.4z" />
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="block-sale__item">
-										<div class="product-card">
-											<div class="product-card__actions-list">
-												<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-													<svg width="16" height="16">
-														<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--wishlist" type="button" aria-label="Add to wish list">
-													<svg width="16" height="16">
-														<path d="M13.9,8.4l-5.4,5.4c-0.3,0.3-0.7,0.3-1,0L2.1,8.4c-1.5-1.5-1.5-3.8,0-5.3C2.8,2.4,3.8,2,4.8,2s1.9,0.4,2.6,1.1L8,3.7
-	l0.6-0.6C9.3,2.4,10.3,2,11.3,2c1,0,1.9,0.4,2.6,1.1C15.4,4.6,15.4,6.9,13.9,8.4z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--compare" type="button" aria-label="Add to compare">
-													<svg width="16" height="16">
-														<path d="M9,15H7c-0.6,0-1-0.4-1-1V2c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v12C10,14.6,9.6,15,9,15z" />
-														<path d="M1,9h2c0.6,0,1,0.4,1,1v4c0,0.6-0.4,1-1,1H1c-0.6,0-1-0.4-1-1v-4C0,9.4,0.4,9,1,9z" />
-														<path d="M15,5h-2c-0.6,0-1,0.4-1,1v8c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V6C16,5.4,15.6,5,15,5z" />
-													</svg>
-												</button>
-											</div>
-											<div class="product-card__image">
-												<div class="image image--type--product">
-													<a href="product-full.html" class="image__body">
-														<img class="image__tag" src="../assets/images/products/product-3-245x245.jpg" alt="" />
-													</a>
-												</div>
-												<div class="
-															status-badge status-badge--style--success
-															product-card__fit
-															status-badge--has-icon status-badge--has-text
-														">
-													<div class="status-badge__body">
-														<div class="status-badge__icon">
-															<svg width="13" height="13">
-																<path d="M12,4.4L5.5,11L1,6.5l1.4-1.4l3.1,3.1L10.6,3L12,4.4z" />
-															</svg>
-														</div>
-														<div class="status-badge__text">
-															Part Fit for 2011 Ford Focus S
-														</div>
-														<div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="Part&#x20;Fit&#x20;for&#x20;2011&#x20;Ford&#x20;Focus&#x20;S"></div>
-													</div>
-												</div>
-											</div>
-											<div class="product-card__info">
-												<div class="product-card__meta">
-													<span class="product-card__meta-title">SKU:</span> 009-50078-Z
-												</div>
-												<div class="product-card__name">
-													<div>
-														<div class="product-card__badges">
-															<div class="tag-badge tag-badge--sale">sale</div>
-														</div>
-														<a href="product-full.html">Left Headlight Of Brandix Z54</a>
-													</div>
-												</div>
-												<div class="product-card__rating">
-													<div class="rating product-card__rating-stars">
-														<div class="rating__body">
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star"></div>
-															<div class="rating__star"></div>
-														</div>
-													</div>
-													<div class="product-card__rating-label">3 on 14 reviews</div>
-												</div>
-											</div>
-											<div class="product-card__footer">
-												<div class="product-card__prices">
-													<div class="product-card__price product-card__price--new">
-														$349.00
-													</div>
-													<div class="product-card__price product-card__price--old">
-														$415.00
-													</div>
-												</div>
-												<button class="product-card__addtocart-icon" type="button" aria-label="Add to cart">
-													<svg width="20" height="20">
-														<circle cx="7" cy="17" r="2" />
-														<circle cx="15" cy="17" r="2" />
-														<path d="M20,4.4V5l-1.8,6.3c-0.1,0.4-0.5,0.7-1,0.7H6.7c-0.4,0-0.8-0.3-1-0.7L3.3,3.9C3.1,3.3,2.6,3,2.1,3H0.4C0.2,3,0,2.8,0,2.6
-	V1.4C0,1.2,0.2,1,0.4,1h2.5c1,0,1.8,0.6,2.1,1.6L5.1,3l2.3,6.8c0,0.1,0.2,0.2,0.3,0.2h8.6c0.1,0,0.3-0.1,0.3-0.2l1.3-4.4
-	C17.9,5.2,17.7,5,17.5,5H9.4C9.2,5,9,4.8,9,4.6V3.4C9,3.2,9.2,3,9.4,3h9.2C19.4,3,20,3.6,20,4.4z" />
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="block-sale__item">
-										<div class="product-card">
-											<div class="product-card__actions-list">
-												<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-													<svg width="16" height="16">
-														<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--wishlist" type="button" aria-label="Add to wish list">
-													<svg width="16" height="16">
-														<path d="M13.9,8.4l-5.4,5.4c-0.3,0.3-0.7,0.3-1,0L2.1,8.4c-1.5-1.5-1.5-3.8,0-5.3C2.8,2.4,3.8,2,4.8,2s1.9,0.4,2.6,1.1L8,3.7
-	l0.6-0.6C9.3,2.4,10.3,2,11.3,2c1,0,1.9,0.4,2.6,1.1C15.4,4.6,15.4,6.9,13.9,8.4z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--compare" type="button" aria-label="Add to compare">
-													<svg width="16" height="16">
-														<path d="M9,15H7c-0.6,0-1-0.4-1-1V2c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v12C10,14.6,9.6,15,9,15z" />
-														<path d="M1,9h2c0.6,0,1,0.4,1,1v4c0,0.6-0.4,1-1,1H1c-0.6,0-1-0.4-1-1v-4C0,9.4,0.4,9,1,9z" />
-														<path d="M15,5h-2c-0.6,0-1,0.4-1,1v8c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V6C16,5.4,15.6,5,15,5z" />
-													</svg>
-												</button>
-											</div>
-											<div class="product-card__image">
-												<div class="image image--type--product">
-													<a href="product-full.html" class="image__body">
-														<img class="image__tag" src="../assets/images/products/product-4-245x245.jpg" alt="" />
-													</a>
-												</div>
-												<div class="
-															status-badge status-badge--style--success
-															product-card__fit
-															status-badge--has-icon status-badge--has-text
-														">
-													<div class="status-badge__body">
-														<div class="status-badge__icon">
-															<svg width="13" height="13">
-																<path d="M12,4.4L5.5,11L1,6.5l1.4-1.4l3.1,3.1L10.6,3L12,4.4z" />
-															</svg>
-														</div>
-														<div class="status-badge__text">
-															Part Fit for 2011 Ford Focus S
-														</div>
-														<div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="Part&#x20;Fit&#x20;for&#x20;2011&#x20;Ford&#x20;Focus&#x20;S"></div>
-													</div>
-												</div>
-											</div>
-											<div class="product-card__info">
-												<div class="product-card__meta">
-													<span class="product-card__meta-title">SKU:</span> A43-44328-B
-												</div>
-												<div class="product-card__name">
-													<div>
-														<div class="product-card__badges">
-															<div class="tag-badge tag-badge--hot">hot</div>
-														</div>
-														<a href="product-full.html">Glossy Gray 19" Aluminium Wheel AR-19</a>
-													</div>
-												</div>
-												<div class="product-card__rating">
-													<div class="rating product-card__rating-stars">
-														<div class="rating__body">
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star"></div>
-														</div>
-													</div>
-													<div class="product-card__rating-label">4 on 26 reviews</div>
-												</div>
-											</div>
-											<div class="product-card__footer">
-												<div class="product-card__prices">
-													<div class="product-card__price product-card__price--current">
-														$589.00
-													</div>
-												</div>
-												<button class="product-card__addtocart-icon" type="button" aria-label="Add to cart">
-													<svg width="20" height="20">
-														<circle cx="7" cy="17" r="2" />
-														<circle cx="15" cy="17" r="2" />
-														<path d="M20,4.4V5l-1.8,6.3c-0.1,0.4-0.5,0.7-1,0.7H6.7c-0.4,0-0.8-0.3-1-0.7L3.3,3.9C3.1,3.3,2.6,3,2.1,3H0.4C0.2,3,0,2.8,0,2.6
-	V1.4C0,1.2,0.2,1,0.4,1h2.5c1,0,1.8,0.6,2.1,1.6L5.1,3l2.3,6.8c0,0.1,0.2,0.2,0.3,0.2h8.6c0.1,0,0.3-0.1,0.3-0.2l1.3-4.4
-	C17.9,5.2,17.7,5,17.5,5H9.4C9.2,5,9,4.8,9,4.6V3.4C9,3.2,9.2,3,9.4,3h9.2C19.4,3,20,3.6,20,4.4z" />
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="block-sale__item">
-										<div class="product-card">
-											<div class="product-card__actions-list">
-												<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-													<svg width="16" height="16">
-														<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--wishlist" type="button" aria-label="Add to wish list">
-													<svg width="16" height="16">
-														<path d="M13.9,8.4l-5.4,5.4c-0.3,0.3-0.7,0.3-1,0L2.1,8.4c-1.5-1.5-1.5-3.8,0-5.3C2.8,2.4,3.8,2,4.8,2s1.9,0.4,2.6,1.1L8,3.7
-	l0.6-0.6C9.3,2.4,10.3,2,11.3,2c1,0,1.9,0.4,2.6,1.1C15.4,4.6,15.4,6.9,13.9,8.4z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--compare" type="button" aria-label="Add to compare">
-													<svg width="16" height="16">
-														<path d="M9,15H7c-0.6,0-1-0.4-1-1V2c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v12C10,14.6,9.6,15,9,15z" />
-														<path d="M1,9h2c0.6,0,1,0.4,1,1v4c0,0.6-0.4,1-1,1H1c-0.6,0-1-0.4-1-1v-4C0,9.4,0.4,9,1,9z" />
-														<path d="M15,5h-2c-0.6,0-1,0.4-1,1v8c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V6C16,5.4,15.6,5,15,5z" />
-													</svg>
-												</button>
-											</div>
-											<div class="product-card__image">
-												<div class="image image--type--product">
-													<a href="product-full.html" class="image__body">
-														<img class="image__tag" src="../assets/images/products/product-5-245x245.jpg" alt="" />
-													</a>
-												</div>
-												<div class="
-															status-badge status-badge--style--success
-															product-card__fit
-															status-badge--has-icon status-badge--has-text
-														">
-													<div class="status-badge__body">
-														<div class="status-badge__icon">
-															<svg width="13" height="13">
-																<path d="M12,4.4L5.5,11L1,6.5l1.4-1.4l3.1,3.1L10.6,3L12,4.4z" />
-															</svg>
-														</div>
-														<div class="status-badge__text">
-															Part Fit for 2011 Ford Focus S
-														</div>
-														<div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="Part&#x20;Fit&#x20;for&#x20;2011&#x20;Ford&#x20;Focus&#x20;S"></div>
-													</div>
-												</div>
-											</div>
-											<div class="product-card__info">
-												<div class="product-card__meta">
-													<span class="product-card__meta-title">SKU:</span> 729-51203-B
-												</div>
-												<div class="product-card__name">
-													<div>
-														<a href="product-full.html">Twin Exhaust Pipe From Brandix Z54</a>
-													</div>
-												</div>
-												<div class="product-card__rating">
-													<div class="rating product-card__rating-stars">
-														<div class="rating__body">
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star"></div>
-														</div>
-													</div>
-													<div class="product-card__rating-label">4 on 9 reviews</div>
-												</div>
-											</div>
-											<div class="product-card__footer">
-												<div class="product-card__prices">
-													<div class="product-card__price product-card__price--current">
-														$749.00
-													</div>
-												</div>
-												<button class="product-card__addtocart-icon" type="button" aria-label="Add to cart">
-													<svg width="20" height="20">
-														<circle cx="7" cy="17" r="2" />
-														<circle cx="15" cy="17" r="2" />
-														<path d="M20,4.4V5l-1.8,6.3c-0.1,0.4-0.5,0.7-1,0.7H6.7c-0.4,0-0.8-0.3-1-0.7L3.3,3.9C3.1,3.3,2.6,3,2.1,3H0.4C0.2,3,0,2.8,0,2.6
-	V1.4C0,1.2,0.2,1,0.4,1h2.5c1,0,1.8,0.6,2.1,1.6L5.1,3l2.3,6.8c0,0.1,0.2,0.2,0.3,0.2h8.6c0.1,0,0.3-0.1,0.3-0.2l1.3-4.4
-	C17.9,5.2,17.7,5,17.5,5H9.4C9.2,5,9,4.8,9,4.6V3.4C9,3.2,9.2,3,9.4,3h9.2C19.4,3,20,3.6,20,4.4z" />
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="block-sale__item">
-										<div class="product-card">
-											<div class="product-card__actions-list">
-												<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-													<svg width="16" height="16">
-														<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--wishlist" type="button" aria-label="Add to wish list">
-													<svg width="16" height="16">
-														<path d="M13.9,8.4l-5.4,5.4c-0.3,0.3-0.7,0.3-1,0L2.1,8.4c-1.5-1.5-1.5-3.8,0-5.3C2.8,2.4,3.8,2,4.8,2s1.9,0.4,2.6,1.1L8,3.7
-	l0.6-0.6C9.3,2.4,10.3,2,11.3,2c1,0,1.9,0.4,2.6,1.1C15.4,4.6,15.4,6.9,13.9,8.4z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--compare" type="button" aria-label="Add to compare">
-													<svg width="16" height="16">
-														<path d="M9,15H7c-0.6,0-1-0.4-1-1V2c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v12C10,14.6,9.6,15,9,15z" />
-														<path d="M1,9h2c0.6,0,1,0.4,1,1v4c0,0.6-0.4,1-1,1H1c-0.6,0-1-0.4-1-1v-4C0,9.4,0.4,9,1,9z" />
-														<path d="M15,5h-2c-0.6,0-1,0.4-1,1v8c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V6C16,5.4,15.6,5,15,5z" />
-													</svg>
-												</button>
-											</div>
-											<div class="product-card__image">
-												<div class="image image--type--product">
-													<a href="product-full.html" class="image__body">
-														<img class="image__tag" src="../assets/images/products/product-6-245x245.jpg" alt="" />
-													</a>
-												</div>
-												<div class="
-															status-badge status-badge--style--success
-															product-card__fit
-															status-badge--has-icon status-badge--has-text
-														">
-													<div class="status-badge__body">
-														<div class="status-badge__icon">
-															<svg width="13" height="13">
-																<path d="M12,4.4L5.5,11L1,6.5l1.4-1.4l3.1,3.1L10.6,3L12,4.4z" />
-															</svg>
-														</div>
-														<div class="status-badge__text">
-															Part Fit for 2011 Ford Focus S
-														</div>
-														<div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="Part&#x20;Fit&#x20;for&#x20;2011&#x20;Ford&#x20;Focus&#x20;S"></div>
-													</div>
-												</div>
-											</div>
-											<div class="product-card__info">
-												<div class="product-card__meta">
-													<span class="product-card__meta-title">SKU:</span> 573-49386-C
-												</div>
-												<div class="product-card__name">
-													<div>
-														<a href="product-full.html">Motor Oil Level 5</a>
-													</div>
-												</div>
-												<div class="product-card__rating">
-													<div class="rating product-card__rating-stars">
-														<div class="rating__body">
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-														</div>
-													</div>
-													<div class="product-card__rating-label">5 on 2 reviews</div>
-												</div>
-											</div>
-											<div class="product-card__footer">
-												<div class="product-card__prices">
-													<div class="product-card__price product-card__price--current">
-														$23.00
-													</div>
-												</div>
-												<button class="product-card__addtocart-icon" type="button" aria-label="Add to cart">
-													<svg width="20" height="20">
-														<circle cx="7" cy="17" r="2" />
-														<circle cx="15" cy="17" r="2" />
-														<path d="M20,4.4V5l-1.8,6.3c-0.1,0.4-0.5,0.7-1,0.7H6.7c-0.4,0-0.8-0.3-1-0.7L3.3,3.9C3.1,3.3,2.6,3,2.1,3H0.4C0.2,3,0,2.8,0,2.6
-	V1.4C0,1.2,0.2,1,0.4,1h2.5c1,0,1.8,0.6,2.1,1.6L5.1,3l2.3,6.8c0,0.1,0.2,0.2,0.3,0.2h8.6c0.1,0,0.3-0.1,0.3-0.2l1.3-4.4
-	C17.9,5.2,17.7,5,17.5,5H9.4C9.2,5,9,4.8,9,4.6V3.4C9,3.2,9.2,3,9.4,3h9.2C19.4,3,20,3.6,20,4.4z" />
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="block-sale__item">
-										<div class="product-card">
-											<div class="product-card__actions-list">
-												<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-													<svg width="16" height="16">
-														<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--wishlist" type="button" aria-label="Add to wish list">
-													<svg width="16" height="16">
-														<path d="M13.9,8.4l-5.4,5.4c-0.3,0.3-0.7,0.3-1,0L2.1,8.4c-1.5-1.5-1.5-3.8,0-5.3C2.8,2.4,3.8,2,4.8,2s1.9,0.4,2.6,1.1L8,3.7
-	l0.6-0.6C9.3,2.4,10.3,2,11.3,2c1,0,1.9,0.4,2.6,1.1C15.4,4.6,15.4,6.9,13.9,8.4z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--compare" type="button" aria-label="Add to compare">
-													<svg width="16" height="16">
-														<path d="M9,15H7c-0.6,0-1-0.4-1-1V2c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v12C10,14.6,9.6,15,9,15z" />
-														<path d="M1,9h2c0.6,0,1,0.4,1,1v4c0,0.6-0.4,1-1,1H1c-0.6,0-1-0.4-1-1v-4C0,9.4,0.4,9,1,9z" />
-														<path d="M15,5h-2c-0.6,0-1,0.4-1,1v8c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V6C16,5.4,15.6,5,15,5z" />
-													</svg>
-												</button>
-											</div>
-											<div class="product-card__image">
-												<div class="image image--type--product">
-													<a href="product-full.html" class="image__body">
-														<img class="image__tag" src="../assets/images/products/product-7-245x245.jpg" alt="" />
-													</a>
-												</div>
-												<div class="
-															status-badge status-badge--style--success
-															product-card__fit
-															status-badge--has-icon status-badge--has-text
-														">
-													<div class="status-badge__body">
-														<div class="status-badge__icon">
-															<svg width="13" height="13">
-																<path d="M12,4.4L5.5,11L1,6.5l1.4-1.4l3.1,3.1L10.6,3L12,4.4z" />
-															</svg>
-														</div>
-														<div class="status-badge__text">
-															Part Fit for 2011 Ford Focus S
-														</div>
-														<div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="Part&#x20;Fit&#x20;for&#x20;2011&#x20;Ford&#x20;Focus&#x20;S"></div>
-													</div>
-												</div>
-											</div>
-											<div class="product-card__info">
-												<div class="product-card__meta">
-													<span class="product-card__meta-title">SKU:</span> 753-38573-B
-												</div>
-												<div class="product-card__name">
-													<div>
-														<a href="product-full.html">Brandix Engine Block Z4</a>
-													</div>
-												</div>
-												<div class="product-card__rating">
-													<div class="rating product-card__rating-stars">
-														<div class="rating__body">
-															<div class="rating__star"></div>
-															<div class="rating__star"></div>
-															<div class="rating__star"></div>
-															<div class="rating__star"></div>
-															<div class="rating__star"></div>
-														</div>
-													</div>
-													<div class="product-card__rating-label">0 on 0 reviews</div>
-												</div>
-											</div>
-											<div class="product-card__footer">
-												<div class="product-card__prices">
-													<div class="product-card__price product-card__price--current">
-														$452.00
-													</div>
-												</div>
-												<button class="product-card__addtocart-icon" type="button" aria-label="Add to cart">
-													<svg width="20" height="20">
-														<circle cx="7" cy="17" r="2" />
-														<circle cx="15" cy="17" r="2" />
-														<path d="M20,4.4V5l-1.8,6.3c-0.1,0.4-0.5,0.7-1,0.7H6.7c-0.4,0-0.8-0.3-1-0.7L3.3,3.9C3.1,3.3,2.6,3,2.1,3H0.4C0.2,3,0,2.8,0,2.6
-	V1.4C0,1.2,0.2,1,0.4,1h2.5c1,0,1.8,0.6,2.1,1.6L5.1,3l2.3,6.8c0,0.1,0.2,0.2,0.3,0.2h8.6c0.1,0,0.3-0.1,0.3-0.2l1.3-4.4
-	C17.9,5.2,17.7,5,17.5,5H9.4C9.2,5,9,4.8,9,4.6V3.4C9,3.2,9.2,3,9.4,3h9.2C19.4,3,20,3.6,20,4.4z" />
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="block-sale__item">
-										<div class="product-card">
-											<div class="product-card__actions-list">
-												<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-													<svg width="16" height="16">
-														<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--wishlist" type="button" aria-label="Add to wish list">
-													<svg width="16" height="16">
-														<path d="M13.9,8.4l-5.4,5.4c-0.3,0.3-0.7,0.3-1,0L2.1,8.4c-1.5-1.5-1.5-3.8,0-5.3C2.8,2.4,3.8,2,4.8,2s1.9,0.4,2.6,1.1L8,3.7
-	l0.6-0.6C9.3,2.4,10.3,2,11.3,2c1,0,1.9,0.4,2.6,1.1C15.4,4.6,15.4,6.9,13.9,8.4z" />
-													</svg>
-												</button>
-												<button class="product-card__action product-card__action--compare" type="button" aria-label="Add to compare">
-													<svg width="16" height="16">
-														<path d="M9,15H7c-0.6,0-1-0.4-1-1V2c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v12C10,14.6,9.6,15,9,15z" />
-														<path d="M1,9h2c0.6,0,1,0.4,1,1v4c0,0.6-0.4,1-1,1H1c-0.6,0-1-0.4-1-1v-4C0,9.4,0.4,9,1,9z" />
-														<path d="M15,5h-2c-0.6,0-1,0.4-1,1v8c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V6C16,5.4,15.6,5,15,5z" />
-													</svg>
-												</button>
-											</div>
-											<div class="product-card__image">
-												<div class="image image--type--product">
-													<a href="product-full.html" class="image__body">
-														<img class="image__tag" src="../assets/images/products/product-8-245x245.jpg" alt="" />
-													</a>
-												</div>
-												<div class="
-															status-badge status-badge--style--success
-															product-card__fit
-															status-badge--has-icon status-badge--has-text
-														">
-													<div class="status-badge__body">
-														<div class="status-badge__icon">
-															<svg width="13" height="13">
-																<path d="M12,4.4L5.5,11L1,6.5l1.4-1.4l3.1,3.1L10.6,3L12,4.4z" />
-															</svg>
-														</div>
-														<div class="status-badge__text">
-															Part Fit for 2011 Ford Focus S
-														</div>
-														<div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="Part&#x20;Fit&#x20;for&#x20;2011&#x20;Ford&#x20;Focus&#x20;S"></div>
-													</div>
-												</div>
-											</div>
-											<div class="product-card__info">
-												<div class="product-card__meta">
-													<span class="product-card__meta-title">SKU:</span> 472-67382-Z
-												</div>
-												<div class="product-card__name">
-													<div>
-														<a href="product-full.html">Brandix Clutch Discs Z175</a>
-													</div>
-												</div>
-												<div class="product-card__rating">
-													<div class="rating product-card__rating-stars">
-														<div class="rating__body">
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star rating__star--active"></div>
-															<div class="rating__star"></div>
-															<div class="rating__star"></div>
-														</div>
-													</div>
-													<div class="product-card__rating-label">3 on 7 reviews</div>
-												</div>
-											</div>
-											<div class="product-card__footer">
-												<div class="product-card__prices">
-													<div class="product-card__price product-card__price--current">
-														$345.00
-													</div>
-												</div>
-												<button class="product-card__addtocart-icon" type="button" aria-label="Add to cart">
-													<svg width="20" height="20">
-														<circle cx="7" cy="17" r="2" />
-														<circle cx="15" cy="17" r="2" />
-														<path d="M20,4.4V5l-1.8,6.3c-0.1,0.4-0.5,0.7-1,0.7H6.7c-0.4,0-0.8-0.3-1-0.7L3.3,3.9C3.1,3.3,2.6,3,2.1,3H0.4C0.2,3,0,2.8,0,2.6
-	V1.4C0,1.2,0.2,1,0.4,1h2.5c1,0,1.8,0.6,2.1,1.6L5.1,3l2.3,6.8c0,0.1,0.2,0.2,0.3,0.2h8.6c0.1,0,0.3-0.1,0.3-0.2l1.3-4.4
-	C17.9,5.2,17.7,5,17.5,5H9.4C9.2,5,9,4.8,9,4.6V3.4C9,3.2,9.2,3,9.4,3h9.2C19.4,3,20,3.6,20,4.4z" />
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
+									<?php endforeach ?>
+
 								</div>
 							</div>
 						</div>
@@ -1241,17 +630,17 @@
 				<div class="container">
 					<div class="section-header">
 						<div class="section-header__body">
-							<h2 class="section-header__title">Latest News</h2>
+							<h2 class="section-header__title">Последние новости</h2>
 							<div class="section-header__spring"></div>
 							<ul class="section-header__links">
 								<li class="section-header__links-item">
-									<a href="" class="section-header__links-link">Special Offers</a>
+									<a href="" class="section-header__links-link">Спецпредложения</a>
 								</li>
 								<li class="section-header__links-item">
-									<a href="" class="section-header__links-link">New Arrivals</a>
+									<a href="" class="section-header__links-link">Новые поступления</a>
 								</li>
 								<li class="section-header__links-item">
-									<a href="" class="section-header__links-link">Reviews</a>
+									<a href="" class="section-header__links-link">Обзоры</a>
 								</li>
 							</ul>
 							<div class="section-header__arrows">
@@ -1276,212 +665,47 @@
 					</div>
 					<div class="block-posts-carousel__carousel">
 						<div class="owl-carousel">
-							<div class="block-posts-carousel__item">
-								<div class="post-card">
-									<div class="post-card__image">
-										<a href="post-full-width.html">
-											<img src="../assets/images/posts/post-1-730x485.jpg" alt="" />
-										</a>
-									</div>
-									<div class="post-card__content">
-										<div class="post-card__category">
-											<a href="blog-classic-right-sidebar.html">Special Offers</a>
+							<?php foreach ($posts as $post) : ?>
+								<?php
+								$img_chk = $post['img'] ?? false;
+								$img = $img_chk ? $post['img'] : '/assets/images/posts/post-1-730x485.jpg';
+								$link = "/blog/{$post['slug']}/";
+								$date_obj = new DateTime($post['date']);
+								$date = $date_obj->format('Y F d');
+
+								?>
+								<div class="block-posts-carousel__item">
+									<div class="post-card">
+										<div class="post-card__image">
+											<a href="<?= $link ?>">
+												<img src="<?= $img ?>" alt="<?= $name ?>" />
+											</a>
 										</div>
-										<div class="post-card__title">
-											<h2>
-												<a href="post-full-width.html">Philosophy That Addresses Topics Such As Goodness</a>
-											</h2>
-										</div>
-										<div class="post-card__date">
-											By <a href="">Jessica Moore</a> on October 19, 2019
-										</div>
-										<div class="post-card__excerpt">
-											<div class="typography">
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-												facilisis neque ut purus fermentum, ac pretium nibh facilisis.
-												Vivamus venenatis viverra iaculis. Suspendisse tempor orci non
-												sapien ullamcorper dapibus. Suspendisse at velit diam. Donec
-												pharetra nec enim blandit vulputate.
+										<div class="post-card__content">
+											<div class="post-card__category">
+												<a href="<?= $link ?>"><?= $post['blog_category_name'] ?></a>
 											</div>
-										</div>
-										<div class="post-card__more">
-											<a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
+											<div class="post-card__title">
+												<h2>
+													<a href="<?= $link ?>"><?= $post['title'] ?></a>
+												</h2>
+											</div>
+											<div class="post-card__date">
+												Автор <a href=""><?= $post['author'] ?></a> <?= $date ?>
+											</div>
+											<div class="post-card__excerpt">
+												<div class="typography">
+													<?= $post['title'] ?>
+												</div>
+											</div>
+											<div class="post-card__more">
+												<a href="<?= $link ?>" class="btn btn-secondary btn-sm">Читать далее...</a>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="block-posts-carousel__item">
-								<div class="post-card">
-									<div class="post-card__image">
-										<a href="post-full-width.html">
-											<img src="../assets/images/posts/post-2-730x485.jpg" alt="" />
-										</a>
-									</div>
-									<div class="post-card__content">
-										<div class="post-card__category">
-											<a href="blog-classic-right-sidebar.html">Latest News</a>
-										</div>
-										<div class="post-card__title">
-											<h2>
-												<a href="post-full-width.html">Logic Is The Study Of Reasoning And Argument Part 2</a>
-											</h2>
-										</div>
-										<div class="post-card__date">
-											By <a href="">Jessica Moore</a> on September 5, 2019
-										</div>
-										<div class="post-card__excerpt">
-											<div class="typography">
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-												facilisis neque ut purus fermentum, ac pretium nibh facilisis.
-												Vivamus venenatis viverra iaculis. Suspendisse tempor orci non
-												sapien ullamcorper dapibus. Suspendisse at velit diam. Donec
-												pharetra nec enim blandit vulputate.
-											</div>
-										</div>
-										<div class="post-card__more">
-											<a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="block-posts-carousel__item">
-								<div class="post-card">
-									<div class="post-card__image">
-										<a href="post-full-width.html">
-											<img src="../assets/images/posts/post-3-730x485.jpg" alt="" />
-										</a>
-									</div>
-									<div class="post-card__content">
-										<div class="post-card__category">
-											<a href="blog-classic-right-sidebar.html">New Arrivals</a>
-										</div>
-										<div class="post-card__title">
-											<h2>
-												<a href="post-full-width.html">Some Philosophers Specialize In One Or More Historical
-													Periods</a>
-											</h2>
-										</div>
-										<div class="post-card__date">
-											By <a href="">Jessica Moore</a> on August 12, 2019
-										</div>
-										<div class="post-card__excerpt">
-											<div class="typography">
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-												facilisis neque ut purus fermentum, ac pretium nibh facilisis.
-												Vivamus venenatis viverra iaculis. Suspendisse tempor orci non
-												sapien ullamcorper dapibus. Suspendisse at velit diam. Donec
-												pharetra nec enim blandit vulputate.
-											</div>
-										</div>
-										<div class="post-card__more">
-											<a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="block-posts-carousel__item">
-								<div class="post-card">
-									<div class="post-card__image">
-										<a href="post-full-width.html">
-											<img src="../assets/images/posts/post-4-730x485.jpg" alt="" />
-										</a>
-									</div>
-									<div class="post-card__content">
-										<div class="post-card__category">
-											<a href="blog-classic-right-sidebar.html">Special Offers</a>
-										</div>
-										<div class="post-card__title">
-											<h2>
-												<a href="post-full-width.html">A Variety Of Other Academic And Non-Academic Approaches Have
-													Been Explored</a>
-											</h2>
-										</div>
-										<div class="post-card__date">
-											By <a href="">Jessica Moore</a> on Jule 30, 2019
-										</div>
-										<div class="post-card__excerpt">
-											<div class="typography">
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-												facilisis neque ut purus fermentum, ac pretium nibh facilisis.
-												Vivamus venenatis viverra iaculis. Suspendisse tempor orci non
-												sapien ullamcorper dapibus. Suspendisse at velit diam. Donec
-												pharetra nec enim blandit vulputate.
-											</div>
-										</div>
-										<div class="post-card__more">
-											<a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="block-posts-carousel__item">
-								<div class="post-card">
-									<div class="post-card__image">
-										<a href="post-full-width.html">
-											<img src="../assets/images/posts/post-5-730x485.jpg" alt="" />
-										</a>
-									</div>
-									<div class="post-card__content">
-										<div class="post-card__category">
-											<a href="blog-classic-right-sidebar.html">New Arrivals</a>
-										</div>
-										<div class="post-card__title">
-											<h2>
-												<a href="post-full-width.html">Germany Was The First Country To Professionalize Philosophy</a>
-											</h2>
-										</div>
-										<div class="post-card__date">
-											By <a href="">Jessica Moore</a> on June 12, 2019
-										</div>
-										<div class="post-card__excerpt">
-											<div class="typography">
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-												facilisis neque ut purus fermentum, ac pretium nibh facilisis.
-												Vivamus venenatis viverra iaculis. Suspendisse tempor orci non
-												sapien ullamcorper dapibus. Suspendisse at velit diam. Donec
-												pharetra nec enim blandit vulputate.
-											</div>
-										</div>
-										<div class="post-card__more">
-											<a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="block-posts-carousel__item">
-								<div class="post-card">
-									<div class="post-card__image">
-										<a href="post-full-width.html">
-											<img src="../assets/images/posts/post-6-730x485.jpg" alt="" />
-										</a>
-									</div>
-									<div class="post-card__content">
-										<div class="post-card__category">
-											<a href="blog-classic-right-sidebar.html">Special Offers</a>
-										</div>
-										<div class="post-card__title">
-											<h2>
-												<a href="post-full-width.html">Logic Is The Study Of Reasoning And Argument Part 1</a>
-											</h2>
-										</div>
-										<div class="post-card__date">
-											By <a href="">Jessica Moore</a> on May 21, 2019
-										</div>
-										<div class="post-card__excerpt">
-											<div class="typography">
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-												facilisis neque ut purus fermentum, ac pretium nibh facilisis.
-												Vivamus venenatis viverra iaculis. Suspendisse tempor orci non
-												sapien ullamcorper dapibus. Suspendisse at velit diam. Donec
-												pharetra nec enim blandit vulputate.
-											</div>
-										</div>
-										<div class="post-card__more">
-											<a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
-										</div>
-									</div>
-								</div>
-							</div>
+							<?php endforeach ?>
+
 						</div>
 					</div>
 				</div>
@@ -1491,437 +715,178 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-4">
-							<div class="block-products-columns__title">Top Rated Products</div>
+							<div class="block-products-columns__title">Выбор Покупателей</div>
 							<div class="block-products-columns__list">
-								<div class="block-products-columns__list-item">
-									<div class="product-card">
-										<div class="product-card__actions-list">
-											<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-												<svg width="16" height="16">
-													<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
+								<?php foreach ($features['top'] as $top) : ?>
+									<?php
+									$img = count($top['product_image']) ? $top['product_image'][0]['img245'] : '/assets/images/products/product-default-245.jpg';
+									$brand = $top['brand'] ? mb_strtoupper($top['brand']['brand']) : 'ORIGINAL';
+									$sku = $top['one_c_id'];
+									$price = $top['price'];
+									$name = $top['name'];
+									$tmb = $top['tmb'];
+									$link = "/product/{$top['slug']}/";
+
+									?>
+									<div class="block-products-columns__list-item">
+										<div class="product-card">
+											<div class="product-card__actions-list">
+												<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
+													<svg width="16" height="16">
+														<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
 	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-												</svg>
-											</button>
-										</div>
-										<div class="product-card__image">
-											<div class="image image--type--product">
-												<a href="product-full.html" class="image__body">
-													<img class="image__tag" src="../assets/images/products/product-1-245x245.jpg" alt="" />
-												</a>
+													</svg>
+												</button>
 											</div>
-										</div>
-										<div class="product-card__info">
-											<div class="product-card__name">
-												<div>
-													<div class="product-card__badges">
-														<div class="tag-badge tag-badge--sale">sale</div>
-														<div class="tag-badge tag-badge--new">new</div>
-														<div class="tag-badge tag-badge--hot">hot</div>
-													</div>
-													<a href="product-full.html">Brandix Spark Plug Kit ASR-400</a>
+											<div class="product-card__image">
+												<div class="image image--type--product">
+													<a href="<?= $link ?>" class="image__body">
+														<img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" />
+													</a>
 												</div>
 											</div>
-											<div class="product-card__rating">
-												<div class="rating product-card__rating-stars">
-													<div class="rating__body">
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star"></div>
+											<div class="product-card__info">
+												<div class="product-card__name">
+													<div>
+														<div class="product-card__badges">
+															<div class="tag-badge tag-badge--sale">sale</div>
+															<div class="tag-badge tag-badge--new">new</div>
+															<div class="tag-badge tag-badge--hot">hot</div>
+														</div>
+														<a href="<?= $link ?>"><?= $top['name'] ?></a>
 													</div>
 												</div>
-												<div class="product-card__rating-label">4 on 3 reviews</div>
+												<div class="product-card__rating">
+													<div class="rating product-card__rating-stars_" style="margin-right: 1rem;">
+														<?= $brand ?>
+													</div>
+													<div class="product-card__rating-label"><?= $top['cat_number'] ?></div>
+												</div>
 											</div>
-										</div>
-										<div class="product-card__footer">
-											<div class="product-card__prices">
-												<div class="product-card__price product-card__price--current">
-													$19.00
+											<div class="product-card__footer">
+												<div class="product-card__prices">
+													<div class="product-card__price product-card__price--current">
+														&#8381; <?= $top['price'] ?>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="block-products-columns__list-item">
-									<div class="product-card">
-										<div class="product-card__actions-list">
-											<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-												<svg width="16" height="16">
-													<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-												</svg>
-											</button>
-										</div>
-										<div class="product-card__image">
-											<div class="image image--type--product">
-												<a href="product-full.html" class="image__body">
-													<img class="image__tag" src="../assets/images/products/product-2-245x245.jpg" alt="" />
-												</a>
-											</div>
-										</div>
-										<div class="product-card__info">
-											<div class="product-card__name">
-												<div>
-													<a href="product-full.html">Brandix Brake Kit BDX-750Z370-S</a>
-												</div>
-											</div>
-											<div class="product-card__rating">
-												<div class="rating product-card__rating-stars">
-													<div class="rating__body">
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-													</div>
-												</div>
-												<div class="product-card__rating-label">5 on 22 reviews</div>
-											</div>
-										</div>
-										<div class="product-card__footer">
-											<div class="product-card__prices">
-												<div class="product-card__price product-card__price--current">
-													$224.00
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="block-products-columns__list-item">
-									<div class="product-card">
-										<div class="product-card__actions-list">
-											<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-												<svg width="16" height="16">
-													<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-												</svg>
-											</button>
-										</div>
-										<div class="product-card__image">
-											<div class="image image--type--product">
-												<a href="product-full.html" class="image__body">
-													<img class="image__tag" src="../assets/images/products/product-3-245x245.jpg" alt="" />
-												</a>
-											</div>
-										</div>
-										<div class="product-card__info">
-											<div class="product-card__name">
-												<div>
-													<div class="product-card__badges">
-														<div class="tag-badge tag-badge--sale">sale</div>
-													</div>
-													<a href="product-full.html">Left Headlight Of Brandix Z54</a>
-												</div>
-											</div>
-											<div class="product-card__rating">
-												<div class="rating product-card__rating-stars">
-													<div class="rating__body">
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star"></div>
-														<div class="rating__star"></div>
-													</div>
-												</div>
-												<div class="product-card__rating-label">3 on 14 reviews</div>
-											</div>
-										</div>
-										<div class="product-card__footer">
-											<div class="product-card__prices">
-												<div class="product-card__price product-card__price--new">
-													$349.00
-												</div>
-												<div class="product-card__price product-card__price--old">
-													$415.00
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								<?php endforeach ?>
 							</div>
 						</div>
 						<div class="col-4">
-							<div class="block-products-columns__title">Special Offers</div>
+							<div class="block-products-columns__title">Спецпредложения</div>
 							<div class="block-products-columns__list">
-								<div class="block-products-columns__list-item">
-									<div class="product-card">
-										<div class="product-card__actions-list">
-											<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-												<svg width="16" height="16">
-													<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
+								<?php foreach ($features['special'] as $spec) : ?>
+									<?php
+									$img = count($spec['product_image']) ? $spec['product_image'][0]['img245'] : '/assets/images/products/product-default-245.jpg';
+									$brand = $spec['brand'] ? mb_strtoupper($spec['brand']['brand']) : 'ORIGINAL';
+									$sku = $spec['one_c_id'];
+									$price = $spec['price'];
+									$name = $spec['name'];
+									$tmb = $spec['tmb'];
+									$link = "/product/{$spec['slug']}/";
+									?>
+									<div class="block-products-columns__list-item">
+										<div class="product-card">
+											<div class="product-card__actions-list">
+												<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
+													<svg width="16" height="16">
+														<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
 	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-												</svg>
-											</button>
-										</div>
-										<div class="product-card__image">
-											<div class="image image--type--product">
-												<a href="product-full.html" class="image__body">
-													<img class="image__tag" src="../assets/images/products/product-4-245x245.jpg" alt="" />
-												</a>
+													</svg>
+												</button>
 											</div>
-										</div>
-										<div class="product-card__info">
-											<div class="product-card__name">
-												<div>
-													<div class="product-card__badges">
-														<div class="tag-badge tag-badge--hot">hot</div>
-													</div>
-													<a href="product-full.html">Glossy Gray 19" Aluminium Wheel AR-19</a>
+											<div class="product-card__image">
+												<div class="image image--type--product">
+													<a href="<?= $link ?>" class="image__body">
+														<img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" />
+													</a>
 												</div>
 											</div>
-											<div class="product-card__rating">
-												<div class="rating product-card__rating-stars">
-													<div class="rating__body">
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star"></div>
+											<div class="product-card__info">
+												<div class="product-card__name">
+													<div>
+														<div class="product-card__badges">
+															<div class="tag-badge tag-badge--hot">hot</div>
+														</div>
+														<a href="<?= $link ?>"><?= $name ?></a>
 													</div>
 												</div>
-												<div class="product-card__rating-label">4 on 26 reviews</div>
+												<div class="product-card__rating">
+													<div class="rating product-card__rating-stars_" style="margin-right: 1rem;">
+														<?= $brand ?>
+													</div>
+													<div class="product-card__rating-label"><?= $spec['cat_number'] ?></div>
+												</div>
 											</div>
-										</div>
-										<div class="product-card__footer">
-											<div class="product-card__prices">
-												<div class="product-card__price product-card__price--current">
-													$589.00
+											<div class="product-card__footer">
+												<div class="product-card__prices">
+													<div class="product-card__price product-card__price--current">
+														&#8381; <?= $price ?>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="block-products-columns__list-item">
-									<div class="product-card">
-										<div class="product-card__actions-list">
-											<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-												<svg width="16" height="16">
-													<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-												</svg>
-											</button>
-										</div>
-										<div class="product-card__image">
-											<div class="image image--type--product">
-												<a href="product-full.html" class="image__body">
-													<img class="image__tag" src="../assets/images/products/product-5-245x245.jpg" alt="" />
-												</a>
-											</div>
-										</div>
-										<div class="product-card__info">
-											<div class="product-card__name">
-												<div>
-													<a href="product-full.html">Twin Exhaust Pipe From Brandix Z54</a>
-												</div>
-											</div>
-											<div class="product-card__rating">
-												<div class="rating product-card__rating-stars">
-													<div class="rating__body">
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star"></div>
-													</div>
-												</div>
-												<div class="product-card__rating-label">4 on 9 reviews</div>
-											</div>
-										</div>
-										<div class="product-card__footer">
-											<div class="product-card__prices">
-												<div class="product-card__price product-card__price--current">
-													$749.00
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="block-products-columns__list-item">
-									<div class="product-card">
-										<div class="product-card__actions-list">
-											<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-												<svg width="16" height="16">
-													<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-												</svg>
-											</button>
-										</div>
-										<div class="product-card__image">
-											<div class="image image--type--product">
-												<a href="product-full.html" class="image__body">
-													<img class="image__tag" src="../assets/images/products/product-6-245x245.jpg" alt="" />
-												</a>
-											</div>
-										</div>
-										<div class="product-card__info">
-											<div class="product-card__name">
-												<div>
-													<a href="product-full.html">Motor Oil Level 5</a>
-												</div>
-											</div>
-											<div class="product-card__rating">
-												<div class="rating product-card__rating-stars">
-													<div class="rating__body">
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-													</div>
-												</div>
-												<div class="product-card__rating-label">5 on 2 reviews</div>
-											</div>
-										</div>
-										<div class="product-card__footer">
-											<div class="product-card__prices">
-												<div class="product-card__price product-card__price--current">
-													$23.00
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								<?php endforeach ?>
+
 							</div>
 						</div>
 						<div class="col-4">
-							<div class="block-products-columns__title">Bestsellers</div>
+							<div class="block-products-columns__title">Бестселлеры</div>
 							<div class="block-products-columns__list">
-								<div class="block-products-columns__list-item">
-									<div class="product-card">
-										<div class="product-card__actions-list">
-											<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-												<svg width="16" height="16">
-													<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
+								<?php foreach ($features['best'] as $best) : ?>
+									<?php
+									$img = count($best['product_image']) ? $best['product_image'][0]['img245'] : '/assets/images/products/product-default-245.jpg';
+									$brand = $best['brand'] ? mb_strtoupper($best['brand']['brand']) : 'ORIGINAL';
+									$sku = $best['one_c_id'];
+									$price = $best['price'];
+									$name = $best['name'];
+									$tmb = $best['tmb'];
+									$link = "/product/{$best['slug']}/";
+									?>
+									<div class="block-products-columns__list-item">
+										<div class="product-card">
+											<div class="product-card__actions-list">
+												<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
+													<svg width="16" height="16">
+														<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
 	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-												</svg>
-											</button>
-										</div>
-										<div class="product-card__image">
-											<div class="image image--type--product">
-												<a href="product-full.html" class="image__body">
-													<img class="image__tag" src="../assets/images/products/product-7-245x245.jpg" alt="" />
-												</a>
+													</svg>
+												</button>
 											</div>
-										</div>
-										<div class="product-card__info">
-											<div class="product-card__name">
-												<div>
-													<a href="product-full.html">Brandix Engine Block Z4</a>
+											<div class="product-card__image">
+												<div class="image image--type--product">
+													<a href="<?= $link ?>" class="image__body">
+														<img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" />
+													</a>
 												</div>
 											</div>
-											<div class="product-card__rating">
-												<div class="rating product-card__rating-stars">
-													<div class="rating__body">
-														<div class="rating__star"></div>
-														<div class="rating__star"></div>
-														<div class="rating__star"></div>
-														<div class="rating__star"></div>
-														<div class="rating__star"></div>
+											<div class="product-card__info">
+												<div class="product-card__name">
+													<div>
+														<a href="<?= $link ?>"><?= $name ?></a>
 													</div>
 												</div>
-												<div class="product-card__rating-label">0 on 0 reviews</div>
+												<div class="product-card__rating">
+													<div class="rating product-card__rating-stars_" style="margin-right: 1rem;">
+														<?= $brand ?>
+													</div>
+													<div class="product-card__rating-label"><?= $best['cat_number'] ?></div>
+												</div>
 											</div>
-										</div>
-										<div class="product-card__footer">
-											<div class="product-card__prices">
-												<div class="product-card__price product-card__price--current">
-													$452.00
+											<div class="product-card__footer">
+												<div class="product-card__prices">
+													<div class="product-card__price product-card__price--current">
+														&#8381; <?= $price ?>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="block-products-columns__list-item">
-									<div class="product-card">
-										<div class="product-card__actions-list">
-											<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-												<svg width="16" height="16">
-													<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-												</svg>
-											</button>
-										</div>
-										<div class="product-card__image">
-											<div class="image image--type--product">
-												<a href="product-full.html" class="image__body">
-													<img class="image__tag" src="../assets/images/products/product-8-245x245.jpg" alt="" />
-												</a>
-											</div>
-										</div>
-										<div class="product-card__info">
-											<div class="product-card__name">
-												<div>
-													<a href="product-full.html">Brandix Clutch Discs Z175</a>
-												</div>
-											</div>
-											<div class="product-card__rating">
-												<div class="rating product-card__rating-stars">
-													<div class="rating__body">
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star"></div>
-														<div class="rating__star"></div>
-													</div>
-												</div>
-												<div class="product-card__rating-label">3 on 7 reviews</div>
-											</div>
-										</div>
-										<div class="product-card__footer">
-											<div class="product-card__prices">
-												<div class="product-card__price product-card__price--current">
-													$345.00
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="block-products-columns__list-item">
-									<div class="product-card">
-										<div class="product-card__actions-list">
-											<button class="product-card__action product-card__action--quickview" type="button" aria-label="Quick view">
-												<svg width="16" height="16">
-													<path d="M14,15h-4v-2h3v-3h2v4C15,14.6,14.6,15,14,15z M13,3h-3V1h4c0.6,0,1,0.4,1,1v4h-2V3z M6,3H3v3H1V2c0-0.6,0.4-1,1-1h4V3z
-	 M3,13h3v2H2c-0.6,0-1-0.4-1-1v-4h2V13z" />
-												</svg>
-											</button>
-										</div>
-										<div class="product-card__image">
-											<div class="image image--type--product">
-												<a href="product-full.html" class="image__body">
-													<img class="image__tag" src="../assets/images/products/product-9-245x245.jpg" alt="" />
-												</a>
-											</div>
-										</div>
-										<div class="product-card__info">
-											<div class="product-card__name">
-												<div>
-													<a href="product-full.html">Brandix Manual Five Speed Gearbox</a>
-												</div>
-											</div>
-											<div class="product-card__rating">
-												<div class="rating product-card__rating-stars">
-													<div class="rating__body">
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star rating__star--active"></div>
-														<div class="rating__star"></div>
-													</div>
-												</div>
-												<div class="product-card__rating-label">4 on 6 reviews</div>
-											</div>
-										</div>
-										<div class="product-card__footer">
-											<div class="product-card__prices">
-												<div class="product-card__price product-card__price--current">
-													$879.00
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								<?php endforeach ?>
 							</div>
 						</div>
 					</div>
@@ -1967,8 +932,8 @@
 								</svg>
 							</div>
 							<div class="block-features__item-info">
-								<div class="block-features__item-title">Free Shipping</div>
-								<div class="block-features__item-subtitle">For orders from $50</div>
+								<div class="block-features__item-title">Бесплатная Доставка</div>
+								<div class="block-features__item-subtitle">Для заказов от &#8381; <?= COMPANY_INFO['free_delivery_from'] ?></div>
 							</div>
 						</li>
 						<li class="block-features__item">
@@ -2022,8 +987,8 @@
 								</svg>
 							</div>
 							<div class="block-features__item-info">
-								<div class="block-features__item-title">Support 24/7</div>
-								<div class="block-features__item-subtitle">Call us anytime</div>
+								<div class="block-features__item-title">Заказы 24/7</div>
+								<div class="block-features__item-subtitle">Работаем <?= COMPANY_INFO['working_hours_weekdays'][0] ?> - <?= COMPANY_INFO['working_hours_weekdays'][1] ?></div>
 							</div>
 						</li>
 						<li class="block-features__item">
@@ -2053,8 +1018,8 @@
 								</svg>
 							</div>
 							<div class="block-features__item-info">
-								<div class="block-features__item-title">100% Safety</div>
-								<div class="block-features__item-subtitle">Only secure payments</div>
+								<div class="block-features__item-title">100% Безопасно</div>
+								<div class="block-features__item-subtitle">Только защищенные платежи</div>
 							</div>
 						</li>
 						<li class="block-features__item">
@@ -2081,8 +1046,8 @@
 								</svg>
 							</div>
 							<div class="block-features__item-info">
-								<div class="block-features__item-title">Hot Offers</div>
-								<div class="block-features__item-subtitle">Discounts up to 90%</div>
+								<div class="block-features__item-title">Постянным клиентам</div>
+								<div class="block-features__item-subtitle">Скидки %</div>
 							</div>
 						</li>
 					</ul>
