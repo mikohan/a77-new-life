@@ -17,5 +17,7 @@ require_once __DIR__ . '/../home/HomeModel.php';
 require_once __DIR__ . '/../../includes/header/header.Model.php';
 
 $home_model = new HomeModel;
+
+$fetures = $home_model->getProductsForHomePage();
 // All cars we are getting from Header
 require_once __DIR__ . '/../../../templates/home.html.php';
