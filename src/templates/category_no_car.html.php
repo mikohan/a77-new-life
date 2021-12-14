@@ -118,6 +118,22 @@
                       </div>
                       <div class="widget-filters__list">
                         <form id="filters-form" name="filters-form" method="GET" action="">
+                          <?php
+
+                          foreach ($checked_car_model as $cm) {
+                            if (!in_array($cm, $get_arr)) {
+                              echo ("<input type='hidden' name='car_models' value='{$cm}' />");
+                            }
+                          }
+                          foreach ($checked_brand as $br) {
+                            if (!in_array($br, $get_arr)) {
+                              echo ("<input type='hidden' name='brand' value='{$br}' />");
+                            }
+                          }
+
+
+                          ?>
+
                           <?php include(__DIR__ . '/../backend/pages/category_no_car/filters_widget.php') ?>
                         </form>
                       </div>
@@ -192,18 +208,20 @@
                     </div>
                     <div class="view-options__body view-options__body--filters">
                       <div class="view-options__label">Активные фильтры</div>
-                      <div v-cloak class="applied-filters">
-                        <ul v-show="activeFilters.length" class="applied-filters__list">
-                          <li v-for="active in activeFilters" :key="active.value" class="applied-filters__item">
-                            <div class="applied-filters__button applied-filters__button--filter">
-                              {{ active.filter}}: {{active.value ? active.value.toUpperCase() : active.value}}
-                              <svg class="c-filter-svg" @click="clearFilter(active.eng)" width="9" height="9">
-                                <path d="M9,8.5L8.5,9l-4-4l-4,4L0,8.5l4-4l-4-4L0.5,0l4,4l4-4L9,0.5l-4,4L9,8.5z" />
-                              </svg>
-                            </div>
-                          </li>
+                      <div class="applied-filters">
+                        <ul class="applied-filters__list">
+                          <?php foreach ($active_filters as $active_filter) : ?>
+                            <li class="applied-filters__item">
+                              <div id="<?= $active_filter[2] ?>" class="applied-filters__button applied-filters__button--filter">
+                                <?= $active_filter[0] ?> <?= $active_filter[1] ?>
+                                <svg class="c-filter-svg" @click="clearFilter(active.eng)" width="9" height="9">
+                                  <path d="M9,8.5L8.5,9l-4-4l-4,4L0,8.5l4-4l-4-4L0.5,0l4,4l4-4L9,0.5l-4,4L9,8.5z" />
+                                </svg>
+                              </div>
+                            </li>
+                          <?php endforeach ?>
                           <li class="applied-filters__item">
-                            <button @click="clearFilterAll()" type="button" class="applied-filters__button applied-filters__button--clear">Очистить Фильтры</button>
+                            <button id="clear-all" type="button" class="applied-filters__button applied-filters__button--clear">Очистить Фильтры</button>
                           </li>
                         </ul>
                       </div>
@@ -226,29 +244,32 @@
                   <div class="products-view__pagination">
                     <nav aria-label="Page navigation example">
                       <ul class="pagination">
-                        <li class="page-item disabled">
-                          <a class="page-link page-link--with-arrow" href="" aria-label="Previous">
+                        <li class="page-item" <?= ($current_page == 1) ? 'disabled' : '' ?>>
+                          <a class="page-link page-link--with-arrow" href="<?= $previous_page_url ?>" aria-label="Previous">
                             <span class="page-link__arrow page-link__arrow--left" aria-hidden="true"><svg width="7" height="11">
                                 <path d="M6.7,0.3L6.7,0.3c-0.4-0.4-0.9-0.4-1.3,0L0,5.5l5.4,5.2c0.4,0.4,0.9,0.3,1.3,0l0,0c0.4-0.4,0.4-1,0-1.3l-4-3.9l4-3.9C7.1,1.2,7.1,0.6,6.7,0.3z" />
                               </svg>
                             </span>
                           </a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active" aria-current="page">
-                          <span class="page-link">
-                            2
-                            <span class="sr-only">(current)</span>
-                          </span>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="/category/<?= $get_category ?>/">1</a></li>
+                        <?php if ($current_page != 1) : ?>
+                          <li class="page-item"><a class="page-link" href="/category/<?= $get_category ?>/?page=<?= $current_page - 1 ?>"><?= $current_page - 1 ?></a></li>
+                          <li class="page-item active" aria-current="page">
+                            <span class="page-link">
+                              <?= $current_page ?>
+                              <span class="sr-only">(current)</span>
+                            </span>
+                          </li>
+                        <?php endif ?>
+                        <li class="page-item"><a class="page-link" href="<?= $page_root_url ?>/?page=<?= $current_page + 1 ?>"><?= $current_page + 1 ?></a></li>
+                        <li class="page-item"><a class="page-link" href="<?= $page_root_url ?>/?page=<?= $current_page + 2 ?>"><?= $current_page + 2 ?></a></li>
                         <li class="page-item page-item--dots">
                           <div class="pagination__dots"></div>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">9</a></li>
+                        <li class="page-item"><a class="page-link" href=""><?= $total_pages ?></a></li>
                         <li class="page-item">
-                          <a class="page-link page-link--with-arrow" href="" aria-label="Next">
+                          <a href="<?= $next_page_url ?>" id="pagination-next" class="page-link page-link--with-arrow" aria-label="Next">
                             <span class="page-link__arrow page-link__arrow--right" aria-hidden="true"><svg width="7" height="11">
                                 <path d="M0.3,10.7L0.3,10.7c0.4,0.4,0.9,0.4,1.3,0L7,5.5L1.6,0.3C1.2-0.1,0.7,0,0.3,0.3l0,0c-0.4,0.4-0.4,1,0,1.3l4,3.9l-4,3.9
 	C-0.1,9.8-0.1,10.4,0.3,10.7z" />
@@ -259,7 +280,7 @@
                       </ul>
                     </nav>
                     <div class="products-view__pagination-legend">
-                      Showing 6 of 98 products
+                      Показано <?= count($products) ?> из <?= $products_total_count ?> продуктов
                     </div>
                   </div>
                 </div>

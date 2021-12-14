@@ -22,7 +22,22 @@ import './shoppingCart';
 (function ($) {
 	$('.my-filter').on('change', function (e) {
 		e.preventDefault();
-		// $('#filters-form').trigger('submit');
-		console.log('Form submited', $(this).val());
+		$('#filters-form').trigger('submit');
+		let form = $('#filters-form').serializeArray();
+	});
+
+	const browserUrl = new URL(window.location.href);
+	$('.applied-filters__button--filter').on('click', function (e) {
+		if (browserUrl.searchParams.has(e.target.id)) {
+			browserUrl.searchParams.delete(e.target.id);
+		}
+		window.location.href = browserUrl.toString();
+	});
+	$('.applied-filters__button--clear').on('click', function (e) {
+		window.location.href = browserUrl.pathname;
+	});
+	// Next page clicked pagination
+	$('#pagination-next').on('click', function () {
+		console.log('Nex pagination clicked');
 	});
 })(jQuery);

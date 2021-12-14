@@ -7,21 +7,70 @@ $categoryModel = new CategoryModel;
 
 $get_category = $_GET['category'];
 $page_from = $_GET['page_from'] ?? 0;
-$page_size = $_GET['page_size'] ?? '50';
-p($page_from);
-p($page_size);
+$page_size = 20;
+$current_page = $_GET['page'] ?? 1;
 
-$checked_car_model = 'porter1';
-$checked_engine = 'd4dd';
+
+$query = urldecode($_SERVER['QUERY_STRING']);
+
+$checked_car_model = [];
+$checked_brand = [];
+$checked_has_photo = [];
+$checked_engine = [];
+$active_filters = [];
+$possible_filters = ['car_models', 'brand', 'has_photo', 'engine'];
+foreach (explode('&', $query) as $pair) {
+
+  [$key, $value] = explode('=', $pair);
+  if ($key == 'category') {
+    continue;
+  }
+  if ($key == 'car_models') {
+    $checked_car_model[] = $value;
+    $active_filters[] = array('Машина', $value, $key);
+  }
+  if ($key == 'brand') {
+    $checked_brand[] = $value;
+    $active_filters[] = array('Бренд', $value, $key);
+  }
+  if ($key == 'has_photo') {
+    $checked_has_photo[] = $value;
+    $active_filters[] = array('Фото', $value ? 'Есть' : 'Нет', $key);
+  }
+  if ($key == 'engine') {
+    $checked_engine[] = $value;
+    $active_filters[] = array('Двигатель', $value, $key);
+  }
+}
+
+parse_str($_SERVER['QUERY_STRING'], $get_arr);
 //$current_car = $categoryModel->getCar($get_model);
 
-
-
+// $active_filters = array_merge($checked_car_model, $checked_engine, $checked_brand, $checked_has_photo);
+// Pagination work goes here
 /**
  * Getting data from server 
  */
 $site_url = PHOTO_API_URL;
-$url = "{$site_url}/api/product/jsontest?page_from={$page_from}&page_size={$page_size}&category={$get_category}";
+$url = "{$site_url}/api/product/jsontest?page_from={$current_page}&page_size={$page_size}&category={$get_category}";
+// Root url for page
+$page_root_url = "/category/{$get_category}";
+$unique_query_array = array_unique($get_arr);
+
+$query_params = '';
+if (count($get_arr)) {
+  foreach ($get_arr as $key => $value) {
+    if ($key == 'category' || $key == 'page') {
+      continue;
+    }
+    if (!array_key_exists($key, $possible_filters)) {
+      continue;
+    }
+    $query_params .= "&{$key}={$value}";
+  }
+  $url = $url . $query_params;
+}
+
 
 // // Trying get data from api if not raise 404
 $remote_data = $categoryModel->getDataFromAPILocal($url);
@@ -102,5 +151,21 @@ $title_category = $page_category ? mb_ucfirst($page_category['name']) : "Зап�
 $title_phone = TELEPHONE_FREE;
 $title = "{$title_category} ✰ в интернет магазине Запчастей в Москве ☎ {$title_phone}";
 $description = "{$title_category} ✰ Всегда 97% запчастей в наличии на складе. ☎ {$title_phone}";
+
+
+// pagination
+
+$total_pages = ceil($products_total_count / $page_size);
+$pagination_query = $_GET;
+$new_pagination_query = array_filter($pagination_query, fn ($item) => $item !== 'category', ARRAY_FILTER_USE_KEY);
+
+$new_pagination_query['page'] = $current_page - 1;
+
+$previous_page_url = '/category/' . $get_category . '/?' . http_build_query($new_pagination_query);
+
+$new_pagination_query['page'] = $current_page + 1;
+$next_page_url = '/category/' . $get_category . '/?' . http_build_query($new_pagination_query);
+
+
 require_once(__DIR__ . '/../../../templates/category_no_car.html.php');
 // // require_once('./category.html.php');

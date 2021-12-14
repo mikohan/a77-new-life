@@ -57,10 +57,16 @@
           <div class="filter-list">
             <div class="filter-list__list">
               <?php foreach ($car_models['buckets'] as  $model) : ?>
+                <?php
+                $checked = '';
+                if (in_array($model['key'], $checked_car_model)) {
+                  $checked = 'checked';
+                }
+                ?>
                 <label class="filter-list__item ">
                   <span class="input-check filter-list__input">
                     <span class="input-check__body">
-                      <input class="input-check__input my-filter" name="car_model" value="<?= $model['key'] ?>" type="checkbox">
+                      <input class="input-check__input my-filter" name="car_models" value="<?= $model['key'] ?>" type="checkbox" <?= $checked ?>>
                       <span class="input-check__box"></span>
                       <span class="input-check__icon"><svg width="9px" height="7px">
                           <path d="M9,1.395L3.46,7L0,3.5L1.383,2.095L3.46,4.2L7.617,0L9,1.395Z" />
@@ -95,10 +101,16 @@
           <div class="filter-list">
             <div class="filter-list__list">
               <?php foreach ($brands['buckets'] as  $brand) : ?>
+                <?php
+                $checked_b = '';
+                if (in_array($brand['key'], $checked_brand)) {
+                  $checked_b = 'checked';
+                }
+                ?>
                 <label class="filter-list__item ">
                   <span class="input-check filter-list__input">
                     <span class="input-check__body">
-                      <input class="input-check__input my-filter" name="brand" value="<?= $brand['key'] ?>" type="checkbox">
+                      <input class="input-check__input my-filter" name="brand" value="<?= $brand['key'] ?>" type="checkbox" <?= $checked_b ?>>
                       <span class="input-check__box"></span>
                       <span class="input-check__icon"><svg width="9px" height="7px">
                           <path d="M9,1.395L3.46,7L0,3.5L1.383,2.095L3.46,4.2L7.617,0L9,1.395Z" />
@@ -132,10 +144,16 @@
         <div class="filter-list">
           <div class="filter-list__list">
             <?php foreach ($has_photo['buckets'] as $photo) : ?>
+              <?php
+              $checked = '';
+              if (in_array($photo['key'], $checked_has_photo)) {
+                $checked = 'checked';
+              }
+              ?>
               <label class="filter-list__item ">
                 <span class="filter-list__input input-radio">
                   <span class="input-radio__body">
-                    <input class="input-radio__input my-filter" name="has_photo" value="<?= $photo['key'] ?>" type="radio">
+                    <input class="input-radio__input my-filter" name="has_photo" value="<?= $photo['key'] ?>" type="radio" <?= $checked ?>>
                     <span class="input-radio__circle"></span>
                   </span>
                 </span>
@@ -165,10 +183,17 @@
           <div class="filter-list">
             <div class="filter-list__list">
               <?php foreach ($engines['buckets'] as $engine) : ?>
+                <?php
+                $checked = '';
+                if (in_array($engine['key'], $checked_engine)) {
+                  $checked = 'checked';
+                }
+                ?>
                 <label class="filter-list__item ">
                   <span class="filter-list__input input-radio">
                     <span class="input-radio__body">
-                      <input class="input-radio__input my-filter" name="engine" value="<?= $engine['key'] ?>" type="radio">
+                      <input class="input-radio__input my-filter" name="engine" value="<?= $engine['key'] ?>" type="radio" <?= $checked ?>>
+
                       <span class="input-radio__circle"></span>
                     </span>
                   </span>
@@ -195,7 +220,7 @@
     </button>
     <div class="filter__body" data-collapse-content>
       <div class="filter__container">
-        <div class="filter-price" data-min="<?= $min_price ?>" data-max="<?= $max_price ?>" data-from="690" data-to="9000">
+        <div class="filter-price" data-min="<?= $min_price ?>" data-max="<?= $max_price ?>" data-from="<?= $min_price ?>" data-to="<?= $max_price ?>">
           <div class="filter-price__slider"></div>
           <div class="filter-price__title-button">
             <div class="filter-price__title">&#8381;<span class="filter-price__min-value"></span> – &#8381;<span class="filter-price__max-value"></span></div>
