@@ -11,6 +11,8 @@ $page_size = $_GET['page_size'] ?? '50';
 p($page_from);
 p($page_size);
 
+$checked_car_model = 'porter1';
+$checked_engine = 'd4dd';
 //$current_car = $categoryModel->getCar($get_model);
 
 

@@ -19,3 +19,10 @@ import './main';
 
 import './shoppingCart';
 //import './category_no_car.vue';
+(function ($) {
+	$('.my-filter').on('change', function (e) {
+		e.preventDefault();
+		// $('#filters-form').trigger('submit');
+		console.log('Form submited', $(this).val());
+	});
+})(jQuery);

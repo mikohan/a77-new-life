@@ -60,7 +60,7 @@
                 <label class="filter-list__item ">
                   <span class="input-check filter-list__input">
                     <span class="input-check__body">
-                      <input class="input-check__input" type="checkbox">
+                      <input class="input-check__input my-filter" name="car_model" value="<?= $model['key'] ?>" type="checkbox">
                       <span class="input-check__box"></span>
                       <span class="input-check__icon"><svg width="9px" height="7px">
                           <path d="M9,1.395L3.46,7L0,3.5L1.383,2.095L3.46,4.2L7.617,0L9,1.395Z" />
@@ -98,7 +98,7 @@
                 <label class="filter-list__item ">
                   <span class="input-check filter-list__input">
                     <span class="input-check__body">
-                      <input class="input-check__input" type="checkbox">
+                      <input class="input-check__input my-filter" name="brand" value="<?= $brand['key'] ?>" type="checkbox">
                       <span class="input-check__box"></span>
                       <span class="input-check__icon"><svg width="9px" height="7px">
                           <path d="M9,1.395L3.46,7L0,3.5L1.383,2.095L3.46,4.2L7.617,0L9,1.395Z" />
@@ -135,7 +135,7 @@
               <label class="filter-list__item ">
                 <span class="filter-list__input input-radio">
                   <span class="input-radio__body">
-                    <input class="input-radio__input" name="filter_radio" type="radio">
+                    <input class="input-radio__input my-filter" name="has_photo" value="<?= $photo['key'] ?>" type="radio">
                     <span class="input-radio__circle"></span>
                   </span>
                 </span>
@@ -168,7 +168,7 @@
                 <label class="filter-list__item ">
                   <span class="filter-list__input input-radio">
                     <span class="input-radio__body">
-                      <input class="input-radio__input" name="filter_radio" type="radio">
+                      <input class="input-radio__input my-filter" name="engine" value="<?= $engine['key'] ?>" type="radio">
                       <span class="input-radio__circle"></span>
                     </span>
                   </span>
