@@ -6,6 +6,10 @@ require_once(__DIR__ . '/../category/CategoryModel.php');
 $categoryModel = new CategoryModel;
 
 $get_category = $_GET['category'];
+$page_from = $_GET['page_from'] ?? 0;
+$page_size = $_GET['page_size'] ?? '50';
+p($page_from);
+p($page_size);
 
 //$current_car = $categoryModel->getCar($get_model);
 
@@ -15,7 +19,7 @@ $get_category = $_GET['category'];
  * Getting data from server 
  */
 $site_url = PHOTO_API_URL;
-$url = "{$site_url}/api/product/jsontest?page_size=20&category={$get_category}";
+$url = "{$site_url}/api/product/jsontest?page_from={$page_from}&page_size={$page_size}&category={$get_category}";
 
 // // Trying get data from api if not raise 404
 $remote_data = $categoryModel->getDataFromAPILocal($url);

@@ -18,4 +18,4 @@ import './number';
 import './main';
 
 import './shoppingCart';
-import './category_no_car.vue';
+//import './category_no_car.vue';

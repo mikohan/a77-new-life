@@ -48,7 +48,17 @@ var app = new Vue({
 			},
 
 			products_total_count: 0,
-			possibleFilters: ['brand', 'car_models', 'engine', 'has_photo', 'bages', 'condition', 'category'],
+			possibleFilters: [
+				'brand',
+				'car_models',
+				'engine',
+				'has_photo',
+				'bages',
+				'condition',
+				'category',
+				'page_from',
+				'page_size',
+			],
 		};
 	},
 	methods: {
@@ -72,6 +82,16 @@ var app = new Vue({
 			if (category) {
 				apiUrl.searchParams.set('category', category);
 			}
+			// let page_from = null;
+			// let page_size = 20;
+
+			// if (browserUrl.searchParams.has('page_from')) {
+			// 	page_from = browserUrl.searchParams.get('page_from');
+			// }
+			// if (browserUrl.searchParams.has('page_size')) {
+			// 	page_from = browserUrl.searchParams.get('page_size');
+			// }
+
 			if (browserUrl.searchParams) {
 				// Adding params
 				browserUrl.searchParams.forEach((value, key) => {
@@ -80,11 +100,17 @@ var app = new Vue({
 					}
 				});
 			}
+			console.log(apiUrl);
 			// Setting up browserUrl and apiUrl in state
 			this.apiUrl = apiUrl;
 
 			this.browserUrl = browserUrl;
 			browserUrl.searchParams.forEach((value, filter) => {
+				// Page working here
+				if (browserUrl.searchParams.has('page_from') || browserUrl.searchParams.has('page_size')) {
+					return;
+				}
+
 				if (browserUrl.searchParams.has(filter)) {
 					this.filtersChecked[filter].push(value);
 				}

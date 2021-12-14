@@ -117,7 +117,7 @@
                         <h4>Фильтры</h4>
                       </div>
                       <div v-if="isLoadingProduct" class="widget-filters__list">
-                        <?php include(__DIR__ . '/../backend/pages/category/filters_widget.php') ?>
+                        <?php include(__DIR__ . '/../backend/pages/category_no_car/filters_widget.php') ?>
                       </div>
                       <div class="widget-filters__list">
                         <div class="widget-filters__item">
