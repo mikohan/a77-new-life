@@ -669,7 +669,7 @@
 								<?php
 								$img_chk = $post['img'] ?? false;
 								$img = $img_chk ? $post['img'] : '/assets/images/posts/post-1-730x485.jpg';
-								$link = "/blog/{$post['slug']}/";
+								$link = $u->blogPost($post['slug']);
 								$date_obj = new DateTime($post['date']);
 								$date = $date_obj->format('Y F d');
 

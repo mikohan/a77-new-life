@@ -11,4 +11,12 @@ class Url
   {
     return "/blog/{$slug}/";
   }
+  public function category($slug)
+  {
+    return "/category/{$slug}/";
+  }
+  public function categoryCar($model, $slug)
+  {
+    return "/car/{$model}/{$slug}/";
+  }
 }

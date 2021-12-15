@@ -26,7 +26,7 @@
             <div class="post-header__categories">
               <ul class="post-header__categories-list">
                 <li class="post-header__categories-item">
-                  <a href="/blog/" class="post-header__categories-link">Последние Новости</a>
+                  <a href="<?= $u->blog() ?>" class="post-header__categories-link">Последние Новости</a>
                 </li>
               </ul>
             </div>
