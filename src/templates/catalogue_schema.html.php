@@ -65,7 +65,7 @@
                       $spl = array_slice(explode(' ',  $product['name']), 0, 4);
                       $name = implode(' ', $spl);
                       ?>
-                      <li class="side-<?= $product['cat_number'] ?>"><a href="/product/<?= $product['slug'] ?>/"><span class="catalogue__span-name"><?= $name ?></span> <span class="catalogue__span-brand"><?= $brand ?> </span> <span class="catalogue__span-price">&#8381;<?= $product['price'] ?></span></a></li>
+                      <li class="side-<?= $product['cat_number'] ?>"><a href="<?= $u->product($product['slug']) ?>"><span class="catalogue__span-name"><?= $name ?></span> <span class="catalogue__span-brand"><?= $brand ?> </span> <span class="catalogue__span-price">&#8381;<?= $product['price'] ?></span></a></li>
                     <?php endforeach ?>
                   </ul>
                 </div>
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="product-card__image">
                                   <div class="image image--type--product">
-                                    <a href="/product/<?= $prod['slug'] ?>/" class="image__body">
+                                    <a href="<?= $u->product($prod['slug']) ?>" class="image__body">
                                       <img class="image__tag" src="<?= $prod_image ?>" alt="<?= $prod_name ?>">
                                     </a>
                                   </div>
@@ -117,7 +117,7 @@
                                         <!-- <div class="tag-badge tag-badge--sale">sale</div>
                                         <div class="tag-badge tag-badge--new">new</div> -->
                                       </div>
-                                      <a href="/product/<?= $prod['slug'] ?>/"><?= $prod_name ?></a>
+                                      <a href="<?= $u->product($prod['slug']) ?>"><?= $prod_name ?></a>
                                     </div>
                                   </div>
                                   <div class="product-card__rating mr-2">

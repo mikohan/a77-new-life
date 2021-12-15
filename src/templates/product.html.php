@@ -138,7 +138,7 @@
                                 ?>
                                 <tr>
                                   <td>
-                                    <a href="/product/<?= $analog['slug'] ?>/">
+                                    <a href="<?= $u->product($analog['slug']) ?>">
                                       <?= mb_ucfirst($analog['name']) ?>
                                     </a>
                                   </td>
@@ -610,7 +610,7 @@
                                 </button>
                               </div>
                               <div class="product-card__image">
-                                <a href="/product/<?= $related_product['slug'] ?>/">
+                                <a href="<?= $u->product($related_product['slug']) ?>">
                                   <?php if (empty($related_product['images'])) : ?>
                                     <img src="/assets/images/products/product-default-245.jpg" alt="<?= $related_product['name'] ?>" />
                                   <?php else : ?>
@@ -647,7 +647,7 @@
                                     $rel_make = count($related_product['car_model']) ? $related_product['car_model'][0]['make'] : '';
                                     $rel_model = count($related_product['car_model']) ? $related_product['car_model'][0]['name'] : '';
                                     ?>
-                                    <a href="/product/<?= $related_product['slug'] ?>/"><?= "{$related_product['name']} {$rel_make} {$rel_model}" ?></a>
+                                    <a href="<?= $u->product($related_product['slug']) ?>"><?= "{$related_product['name']} {$rel_make} {$rel_model}" ?></a>
                                   </div>
                                 </div>
                                 <div class="product-card__rating">
