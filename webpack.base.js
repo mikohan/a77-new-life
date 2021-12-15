@@ -36,6 +36,7 @@ module.exports = {
 		order: path.join(PATHS.src, 'assets/js/order.page.js'),
 		orderSuccess: path.join(PATHS.src, 'assets/js/order-success.page.js'),
 		catalogueSchema: path.join(PATHS.src, 'assets/js/catalogueSchema.js'),
+		quickView: path.join(PATHS.src, 'assets/js/quickView.js'),
 	},
 	output: {
 		path: PATHS.dist,
@@ -255,7 +256,7 @@ module.exports = {
 			template: `${PAGES_DIR}/templates/category_no_car.html.php`,
 			filename: `./templates/category_no_car.html.php`,
 			inject: 'body',
-			chunks: ['vendors', 'categoryPageNoCar'],
+			chunks: ['vendors', 'mainpage', 'categoryPageNoCar'],
 		}),
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/templates/search.html.php`,
@@ -268,7 +269,7 @@ module.exports = {
 			template: `${PAGES_DIR}/templates/quickview.html.php`,
 			filename: `./templates/quickview.html.php`,
 			inject: 'body',
-			chunks: ['vendors', 'mainpage', 'search'],
+			chunks: ['vendors', 'mainpage', 'quickView'],
 		}),
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/templates/cart.html.php`,

@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ . '/../../lib/init.php');
+require_once(__DIR__ . '/../../lib/QuickView.php');
 require_once(__DIR__ . '/../category/CategoryModel.php');
 $categoryModel = new CategoryModel;
 

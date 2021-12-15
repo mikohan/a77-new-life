@@ -27,7 +27,7 @@ class QuickView
     $data_array = '';
     if (count($this->product['product_image'])) {
       foreach ($this->product['product_image'] as $image) {
-        $lnk = '"' . $image['img800'] . '",';
+        $lnk =  $image['img800'] . ",";
         $data_array .= $lnk;
       }
     }
@@ -36,13 +36,13 @@ class QuickView
     $tmb_array = '';
     if (count($this->product['product_image'])) {
       foreach ($this->product['product_image'] as $image) {
-        $lnk = '"' . $image['img150'] . '",';
+        $lnk =  $image['img150'] . ",";
         $tmb_array .= $lnk;
       }
     }
     $t_arr = rtrim($tmb_array, ',');
     return <<<EOD
-data-name="$name" data-price="$price" data-images='[$d_arr]' data-tmbs='[$t_arr]' data-sku="$sku" data-catnumber="$cat_number" data-rating="$rating" data-brand="$brand" data-country="$country"
+data-name="$name" data-price="$price" data-images="$d_arr" data-tmbs="$t_arr" data-sku="$sku" data-catnumber="$cat_number" data-rating="$rating" data-brand="$brand" data-country="$country"
 EOD;
   }
 }
