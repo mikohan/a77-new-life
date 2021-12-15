@@ -85,14 +85,19 @@
 			<div class="block block-brands block-brands--layout--columns-8-full">
 				<div class="container">
 					<ul class="block-brands__list">
-						<?php foreach ($all_cars as $car) : ?>
+						<?php $i = 1; ?>
+						<?php foreach ($cars_car['brands'] as $brand) : ?>
 							<?php
-							$img = $car->image ?? '/assets/images/cars/car-default-96x96.png';
+							if ($i == 17) {
+								break;
+							}
+							$img = "/assets/images/brands/brand-{$i}.png" ?? '/assets/images/brands/brand-3.png';
+							$i++;
 							?>
 							<li class="block-brands__item">
 								<a href="" class="block-brands__item-link">
 									<img src="<?= $img ?>" alt="<?= $car->name ?>" />
-									<span class="block-brands__item-name"><?= $car->name ?></span>
+									<span class="block-brands__item-name"><?= $brand['name'] ?></span>
 								</a>
 							</li>
 							<li class="block-brands__divider" role="presentation"></li>
