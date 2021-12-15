@@ -4,6 +4,8 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 require_once __DIR__ . '/../../lib/init.php';
 require_once __DIR__ . '/../cars/CarsModel.php';
+require_once __DIR__ . '/../../lib/QuickView.php';
+
 
 $cars_model = new CarsModel;
 $cars_car = $cars_model->getCar($_GET['model']);

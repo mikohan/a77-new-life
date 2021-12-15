@@ -108,7 +108,7 @@ $tmb = count($_GET['images']) ? $_GET['images'][0] : '/assets/images/products/pr
 							</tr>
 							<tr>
 								<th>Бренд</th>
-								<td><?= $brand ?></td>
+								<td><?= mb_strtoupper($brand) ?></td>
 							</tr>
 							<tr>
 								<th>Страна</th>
