@@ -124,11 +124,11 @@
     <div class="header__topbar-classic">
       <div class="topbar topbar--classic">
         <div class="topbar__item-text"><a class="topbar__link" href="/about/">О Компании</a></div>
-        <div class="topbar__item-text"><a class="topbar__link" href="/articles/">Статьи</a></div>
-        <div class="topbar__item-text"><a class="topbar__link" href="/payment/">Оплата</a></div>
-        <div class="topbar__item-text"><a class="topbar__link" href="/garranty/">Гарантии</a></div>
-        <div class="topbar__item-text"><a class="topbar__link" href="/policy.php/">Политика Конфиденциальности</a></div>
-        <div class="topbar__item-text"><a class="topbar__link" href="/contacts/">Контакты</a></div>
+        <div class="topbar__item-text"><a class="topbar__link" href="<?= $u->blog() ?>">Статьи</a></div>
+        <div class="topbar__item-text"><a class="topbar__link" href="<?= $u->delivery() ?>">Доставка</a></div>
+        <div class="topbar__item-text"><a class="topbar__link" href="<?= $u->garranty() ?>">Гарантии</a></div>
+        <div class="topbar__item-text"><a class="topbar__link" href="<?= $u->policy() ?>">Политика Конфиденциальности</a></div>
+        <div class="topbar__item-text"><a class="topbar__link" href="<?= $u->contacts() ?>">Контакты</a></div>
         <div class="topbar__item-spring"></div>
         <div class="topbar__item-button topbar__menu">
           <button aria-label="Валюта" class="topbar__button topbar__button--has-arrow topbar__menu-button" type="button">

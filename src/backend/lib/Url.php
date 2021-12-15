@@ -31,6 +31,27 @@ class Url
   {
     return "/product/{$slug}/";
   }
+  // Static pages section
+  public function delivery()
+  {
+    return "/delivery/";
+  }
+  public function contacts()
+  {
+    return "/contacts/";
+  }
+  public function policy()
+  {
+    return "/policy/";
+  }
+  public function about()
+  {
+    return "/about/";
+  }
+  public function garranty()
+  {
+    return "/garranty/";
+  }
 }
 
 // Declaring abstract class for fun

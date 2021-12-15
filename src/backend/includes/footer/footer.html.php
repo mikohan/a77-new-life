@@ -40,13 +40,13 @@
             <div class="site-footer__widget footer-links">
               <h5 class="footer-links__title">Информация</h5>
               <ul class="footer-links__list">
-                <li class="footer-links__item"><a href="/about/" class="footer-links__link">О Нас</a></li>
-                <li class="footer-links__item"><a href="/delivery/" class="footer-links__link">Доставка</a></li>
-                <li class="footer-links__item"><a href="/policy.php/" class="footer-links__link">Политика Конфиденциальности</a></li>
-                <li class="footer-links__item"><a href="/garranty/" class="footer-links__link">Гарантия</a></li>
-                <li class="footer-links__item"><a href="/contacts/" class="footer-links__link">Контакты</a></li>
-                <li class="footer-links__item"><a href="/payment/" class="footer-links__link">Оплата</a></li>
-                <li class="footer-links__item"><a href="/articles/" class="footer-links__link">Блог</a></li>
+                <li class="footer-links__item"><a href="<?= $u->about() ?>" class="footer-links__link">О Нас</a></li>
+                <li class="footer-links__item"><a href="<?= $u->delivery() ?>" class="footer-links__link">Доставка</a></li>
+                <li class="footer-links__item"><a href="<?= $u->policy() ?>" class="footer-links__link">Политика Конфиденциальности</a></li>
+                <li class="footer-links__item"><a href="<?= $u->garranty() ?>" class="footer-links__link">Гарантия</a></li>
+                <li class="footer-links__item"><a href="<?= $u->contacts() ?>" class="footer-links__link">Контакты</a></li>
+                <li class="footer-links__item"><a href="<?= $u->delivery() ?>" class="footer-links__link">Оплата</a></li>
+                <li class="footer-links__item"><a href="<?= $u->blog() ?>" class="footer-links__link">Блог</a></li>
               </ul>
             </div>
           </div>
