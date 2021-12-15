@@ -1,7 +1,5 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 /**
  * 1) Latest news 6 pieses
  * 2) Featured(Last arrivals better) prorudts total 10 pis
