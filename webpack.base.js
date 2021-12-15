@@ -269,7 +269,7 @@ module.exports = {
 			template: `${PAGES_DIR}/templates/quickview.html.php`,
 			filename: `./templates/quickview.html.php`,
 			inject: 'body',
-			chunks: ['vendors', 'mainpage', 'quickView'],
+			chunks: ['vendors', 'mainpage'],
 		}),
 		new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/templates/cart.html.php`,
