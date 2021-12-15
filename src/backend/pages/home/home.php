@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../../lib/init.php';
+require_once __DIR__ . '/../../lib/QuickView.php';
 require_once __DIR__ . '/../home/HomeModel.php';
 require_once __DIR__ . '/../../includes/header/header.Model.php';
 
