@@ -7,7 +7,7 @@ $categoryModel = new CategoryModel;
 
 $get_category = $_GET['category'];
 $page_from = $_GET['page_from'] ?? 0;
-$page_size = 20;
+$page_size = 50;
 $current_page = $_GET['page'] ?? 1;
 
 
@@ -63,7 +63,7 @@ if (count($get_arr)) {
     if ($key == 'category' || $key == 'page') {
       continue;
     }
-    if (!array_key_exists($key, $possible_filters)) {
+    if (!in_array($key, $possible_filters)) {
       continue;
     }
     $query_params .= "&{$key}={$value}";
