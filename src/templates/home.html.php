@@ -5,7 +5,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="format-detection" content="telephone=no" />
-	<title>Запчасти для автомобилей и спецтехники - <?= COMPANY_INFO['comany_name'] ?></title>
+	<title><?= $title ?></title>
+	<meta name="description" content="<?= $description ?>">
+	<link rel="canonical" href="<?= $u->home() ?>" />
 	<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
 	<!-- fonts -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" />
@@ -20,6 +22,14 @@
 		<!-- site__header / end -->
 		<!-- site__body -->
 		<div class="site__body">
+			<div class="block-space block-space--layout--divider-xs"></div>
+			<div class="block block-categories">
+				<div class="container">
+					<div class="typography">
+						<h1><?= $h1 ?></h1>
+					</div>
+				</div>
+			</div>
 			<div class="block-space block-space--layout--divider-xs"></div>
 			<div class="block block-slideshow">
 				<div class="container">

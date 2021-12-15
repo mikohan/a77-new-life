@@ -15,7 +15,6 @@ require_once __DIR__ . '/../cars/CarsModel.php';
 
 $cars_model = new CarsModel;
 $cars_car = $cars_model->getCar($_GET['model']);
-p($cars_car);
 
 // Meta stuff here
 $h1 = "Запчасти для " . mb_ucfirst($cars_car['make']['name']) . " " . mb_ucfirst($cars_car['name']);

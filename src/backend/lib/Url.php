@@ -8,6 +8,10 @@ class Url
    * And redirection from old pages to new ones
    */
   private $root_url = '';
+  public function home()
+  {
+    return "/";
+  }
   // Blog Section
   public function blog()
   {
