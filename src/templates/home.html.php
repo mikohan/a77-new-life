@@ -430,8 +430,8 @@
 			<div class="block-banners block">
 				<div class="container">
 					<div class="block-banners__list">
-						<a href="" class="block-banners__item block-banners__item--style--one">
-							<span class="block-banners__item-image"><img src="../assets/images/banners/banner1.jpg" alt="" /></span>
+						<a href="<?= $u->category('zhidkosti-avtohimija') ?>" class="block-banners__item block-banners__item--style--one">
+							<span class="block-banners__item-image"><img src="../assets/images/banners/banner1.jpg" alt="Motor Oils" /></span>
 							<span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner1.jpg" alt="Motor oils" /></span>
 							<span class="block-banners__item-title">Моторные Масла</span>
 							<span class="block-banners__item-details">
@@ -440,7 +440,7 @@
 							</span>
 							<span class="block-banners__item-button btn btn-primary btn-sm"> Перейти </span>
 						</a>
-						<a href="" class="block-banners__item block-banners__item--style--two">
+						<a href="<?= $u->category('aksessuary') ?>" class="block-banners__item block-banners__item--style--two">
 							<span class="block-banners__item-image"><img src="assets/images/banners/banner2.jpg" alt="Acsessores" /></span>
 							<span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner2.jpg" alt="Acsessores" /></span>
 							<span class="block-banners__item-title">Аксесуары</span>
@@ -490,7 +490,7 @@
 									</svg>
 								</button>
 							</div>
-							<div class="block-sale__link"><a href="">Посмотреть все доступные предложения</a></div>
+							<div class="block-sale__link"><a href="<?= $u->sale() ?>">Посмотреть все доступные предложения</a></div>
 							<div class="arrow block-sale__arrow block-sale__arrow--next arrow--next">
 								<button class="arrow__button" type="button">
 									<svg width="7" height="11">
@@ -634,13 +634,13 @@
 							<div class="section-header__spring"></div>
 							<ul class="section-header__links">
 								<li class="section-header__links-item">
-									<a href="" class="section-header__links-link">Спецпредложения</a>
+									<a href="<?= $u->blog() ?>" class="section-header__links-link">Спецпредложения</a>
 								</li>
 								<li class="section-header__links-item">
-									<a href="" class="section-header__links-link">Новые поступления</a>
+									<a href="<?= $u->blog() ?>" class="section-header__links-link">Новые поступления</a>
 								</li>
 								<li class="section-header__links-item">
-									<a href="" class="section-header__links-link">Обзоры</a>
+									<a href="<?= $u->blog() ?>" class="section-header__links-link">Обзоры</a>
 								</li>
 							</ul>
 							<div class="section-header__arrows">
@@ -691,7 +691,7 @@
 												</h2>
 											</div>
 											<div class="post-card__date">
-												Автор <a href=""><?= $post['author'] ?></a> <?= $date ?>
+												Автор <a href="<?= $u->blog() ?>"><?= $post['author'] ?></a> <?= $date ?>
 											</div>
 											<div class="post-card__excerpt">
 												<div class="typography">

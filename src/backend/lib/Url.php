@@ -57,6 +57,11 @@ class Url
   {
     return "/garranty/";
   }
+  // Sale page
+  public function sale()
+  {
+    return "/sale/";
+  }
 }
 
 // Declaring abstract class for fun

@@ -9,8 +9,8 @@ class HomeModel extends Connection
   private function getFeaturesFromApi()
   {
     $host = PHOTO_API_URL;
-    $url = "{$host}/api/product/get-home-page-features/";
-    // $url = 'http://localhost:8000/api/product/get-home-page-features/';
+    $url = "{$host}/api/product/get-home-page-features/home/";
+    // $url = 'http://localhost:8000/api/product/get-home-page-features/home/';
     $ch = curl_init();
     $options = array(
       CURLOPT_URL => $url,

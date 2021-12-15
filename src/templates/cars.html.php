@@ -5,7 +5,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="format-detection" content="telephone=no" />
-	<title>Запчасти для автомобилей и спецтехники - <?= COMPANY_INFO['comany_name'] ?></title>
+	<title><?= $title ?></title>
+	<meta name="description" content="<?= $description ?>">
+	<link rel="canonical" href="<?= $u->cars($cars_car['slug']) ?>" />
 	<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
 	<!-- fonts -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" />
@@ -21,13 +23,21 @@
 		<!-- site__body -->
 		<div class="site__body">
 			<div class="block-space block-space--layout--divider-xs"></div>
+			<div class="block block-categories">
+				<div class="container">
+					<div class="typography">
+						<h1><?= $h1 ?></h1>
+					</div>
+				</div>
+			</div>
+			<div class="block-space block-space--layout--divider-xs"></div>
 			<div class="block block-slideshow">
 				<div class="container">
 					<div class="block-slideshow__carousel">
 						<div class="owl-carousel">
 							<a class="block-slideshow__item" href="/category/zhidkosti-avtohimija/">
-								<span class="block-slideshow__item-image block-slideshow__item-image--desktop" style="background-image: url('../assets/images/slides/slide-3.jpg')"></span>
-								<span class="block-slideshow__item-image block-slideshow__item-image--mobile" style="background-image: url('../assets/images/slides/slide-3-mobile.jpg')"></span>
+								<span class="block-slideshow__item-image block-slideshow__item-image--desktop" style="background-image: url('/assets/images/slides/slide-3.jpg')"></span>
+								<span class="block-slideshow__item-image block-slideshow__item-image--mobile" style="background-image: url('/assets/images/slides/slide-3-mobile.jpg')"></span>
 								<span class="block-slideshow__item-offer"> 100% оригинал </span>
 								<span class="block-slideshow__item-title">
 									Масло и жидкости <br />
@@ -40,8 +50,8 @@
 								<span class="block-slideshow__item-button"> В Каталог </span>
 							</a>
 							<a class="block-slideshow__item" href="/category/zapchasti/">
-								<span class="block-slideshow__item-image block-slideshow__item-image--desktop" style="background-image: url('../assets/images/slides/slide-2.jpg')"></span>
-								<span class="block-slideshow__item-image block-slideshow__item-image--mobile" style="background-image: url('../assets/images/slides/slide-2-mobile.jpg')"></span>
+								<span class="block-slideshow__item-image block-slideshow__item-image--desktop" style="background-image: url('/assets/images/slides/slide-2.jpg')"></span>
+								<span class="block-slideshow__item-image block-slideshow__item-image--mobile" style="background-image: url('/assets/images/slides/slide-2-mobile.jpg')"></span>
 								<span class="block-slideshow__item-title">
 									Еще нужны<br />
 									запчасти?
@@ -54,8 +64,8 @@
 								<span class="block-slideshow__item-button"> В Каталог </span>
 							</a>
 							<a class="block-slideshow__item" href="/category/filtry/">
-								<span class="block-slideshow__item-image block-slideshow__item-image--desktop" style="background-image: url('../assets/images/slides/slide-1.jpg')"></span>
-								<span class="block-slideshow__item-image block-slideshow__item-image--mobile" style="background-image: url('../assets/images/slides/slide-1-mobile.jpg')"></span>
+								<span class="block-slideshow__item-image block-slideshow__item-image--desktop" style="background-image: url('/assets/images/slides/slide-1.jpg')"></span>
+								<span class="block-slideshow__item-image block-slideshow__item-image--mobile" style="background-image: url('/assets/images/slides/slide-1-mobile.jpg')"></span>
 								<span class="block-slideshow__item-offer"> 100% Гарантия </span>
 								<span class="block-slideshow__item-title">
 									Большой выбор<br />
@@ -430,7 +440,7 @@
 			<div class="block-banners block">
 				<div class="container">
 					<div class="block-banners__list">
-						<a href="" class="block-banners__item block-banners__item--style--one">
+						<a href="<?= $u->category('zhidkosti-avtohimija') ?>" class="block-banners__item block-banners__item--style--one">
 							<span class="block-banners__item-image"><img src="/assets/images/banners/banner1.jpg" alt="" /></span>
 							<span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner1.jpg" alt="Motor oils" /></span>
 							<span class="block-banners__item-title">Моторные Масла</span>
@@ -516,7 +526,7 @@
 								<div class="decor__center"></div>
 							</div>
 						</div>
-						<div class="block-sale__image" style="background-image: url('../assets/images/sale-1903x640.jpg')"></div>
+						<div class="block-sale__image" style="background-image: url('/assets/images/sale-1903x640.jpg')"></div>
 						<div class="container">
 							<div class="block-sale__carousel">
 								<div class="owl-carousel">

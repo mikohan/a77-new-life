@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 /**
  * 1) Latest news 6 pieses
  * 2) Featured(Last arrivals better) prorudts total 10 pis
@@ -13,9 +13,19 @@ session_start();
 require_once __DIR__ . '/../../lib/init.php';
 require_once __DIR__ . '/../cars/CarsModel.php';
 
-$home_model = new HomeModel;
+$cars_model = new CarsModel;
+$cars_car = $cars_model->getCar($_GET['model']);
+p($cars_car);
 
-$features = $home_model->getProductsForHomePage();
-$posts = $home_model->getLatestPosts();
+// Meta stuff here
+$h1 = "Запчасти для " . mb_ucfirst($cars_car['make']['name']) . " " . mb_ucfirst($cars_car['name']);
+$title = "Запчасти на " . mb_ucfirst($cars_car['make']['name']) . " " . mb_ucfirst($cars_car['name']) . " в интернет магазиние - " . COMPANY_INFO['company_name'];
+$description = "Купить запчасти для " . mb_ucfirst($cars_car['make']['name']) . " " . mb_ucfirst($cars_car['name']) . " в интернет магазиние - " . COMPANY_INFO['company_name'] . ". | тел - " . COMPANY_INFO['phone_free'][1] . ". " . $cars_car['doc_count'] . " Запчастей для " . mb_ucfirst($cars_car['make']['name']) . " " . mb_ucfirst($cars_car['name']) . " в наличии на складе сегодня!";
+// p($cars_car);
+
+
+
+$features = $cars_model->getProductsForHomePage($cars_car);
+$posts = $cars_model->getLatestPosts();
 // All cars we are getting from Header
 require_once __DIR__ . '/../../../templates/cars.html.php';

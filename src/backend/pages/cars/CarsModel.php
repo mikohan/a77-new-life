@@ -1,15 +1,15 @@
 <?php
 
-class HomeModel extends Connection
+class CarsModel extends Connection
 {
   /**
    * Class for home page
    */
 
-  private function getFeaturesFromApi()
+  private function getFeaturesFromApi($car_slug)
   {
     $host = PHOTO_API_URL;
-    $url = "{$host}/api/product/get-home-page-features/";
+    $url = "{$host}/api/product/get-home-page-features/{$car_slug}/";
     // $url = 'http://localhost:8000/api/product/get-home-page-features/';
     $ch = curl_init();
     $options = array(
@@ -20,13 +20,14 @@ class HomeModel extends Connection
     curl_setopt_array($ch, $options);
 
     $result = curl_exec($ch);
+
     // $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $mydata = $result;
     curl_close($ch);
     return $mydata;
   }
 
-  private function getFeaturesFromMysql()
+  private function getFeaturesFromMysql($car_slug)
   {
     /**
      * Trying get features from mysql database
@@ -38,9 +39,9 @@ class HomeModel extends Connection
 
 
     $m = $this->db();
-    $q = "SELECT * FROM ang_home_page WHERE id = 1";
+    $q = "SELECT * FROM ang_cars_page WHERE slug = ?";
     $t = $m->prepare($q);
-    $t->execute();
+    $t->execute(array($car_slug));
     $res = $t->fetch(PDO::FETCH_ASSOC);
     if ($res) {
       $today = new DateTime();
@@ -57,7 +58,7 @@ class HomeModel extends Connection
   }
 
 
-  private function insertOrUpdateMysqlHomePage($json_data)
+  private function insertOrUpdateMysqlHomePage($json_data, $car_slug)
   {
     /**
      * Updates home page if expired or non exists
@@ -66,16 +67,17 @@ class HomeModel extends Connection
     $updated = date("Y-m-d H:i:s");
 
     $m = $this->db();
-    $q = "INSERT INTO ang_home_page  (id, json_data, updated)
-    VALUES (1, ?, ?) as vals
+    $q = "INSERT INTO ang_cars_page  (slug, json_data, updated)
+    VALUES (?, ?, ?) as vals
     ON DUPLICATE KEY UPDATE
+    slug = vals.slug,
     json_data = vals.json_data,
     updated = vals.updated
     ";
     $t = $m->prepare($q);
-    $t->execute(array($json_data, $updated));
+    $t->execute(array($car_slug, $json_data, $updated));
   }
-  public function getProductsForHomePage()
+  public function getProductsForHomePage($car)
   {
     /**
      * Getting featured products for home page
@@ -83,12 +85,13 @@ class HomeModel extends Connection
      * 2) If false go API
      * 3) Save to db and send to a page
      */
-    $products = $this->getFeaturesFromMysql();
+    $car_slug = $car['slug'];
+    $products = $this->getFeaturesFromMysql($car_slug);
     if ($products) {
       return json_decode($products, true);
     } else {
-      $products = $this->getFeaturesFromApi();
-      $this->insertOrUpdateMysqlHomePage($products);
+      $products = $this->getFeaturesFromApi($car_slug);
+      $this->insertOrUpdateMysqlHomePage($products, $car_slug);
       return json_decode($products, true);
     }
   }
