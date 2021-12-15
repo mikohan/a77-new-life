@@ -1,7 +1,6 @@
 <?php
 include __DIR__ . '/../../lib/init.php';
 header('Content-type: text/plain');
-echo PHP_EOL;
 $server_root = SERVER_ROOT_URL;
 
 echo "User-agent: *";
