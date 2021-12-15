@@ -36,6 +36,8 @@ RewriteRule ^delivery/$ /backend/pages/delivery/ [L]
 #Ajax Quiq preview of product
 RewriteRule ^ajax/quickview/$ /backend/includes/quickview.php [L]
 RewriteRule ^category/([a-zA-Z0-9-]+)/$ /backend/pages/category_no_car/index.php?category=$1 [L,QSA]
+#Robots.txt
+RewriteRule ^robots.txt$ /backend/pages/robots.txt/index.php [L]
 # Home redirect last
 RewriteRule ^$ /backend/pages/home/home.php [L]
 </IfModule>
