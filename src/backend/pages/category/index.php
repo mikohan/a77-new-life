@@ -1,6 +1,8 @@
 <?php
 require_once(__DIR__ . '/../../lib/init.php');
 require_once(__DIR__ . '/../category/CategoryModel.php');
+
+
 $categoryModel = new CategoryModel;
 
 $get_model = $_GET['model'];
@@ -27,6 +29,11 @@ if (!$remote_data['hits'] ?? false || !$remote_data['hits']['total']['value']) {
 
 // Products
 $products = $remote_data['hits']['hits'];
+
+// $test_prod = $products[0]['_source'];
+// $old_photo_object = new OldPhotos($test_prod);
+// $old_photo_object->makePhotos();
+
 $products_total_count = $remote_data['hits']['total']['value'];
 // Aggregations 
 $aggregations = $remote_data['aggregations'];

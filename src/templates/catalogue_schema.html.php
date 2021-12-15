@@ -91,6 +91,7 @@
                             $prod_price =  $prod_price ? $prod_price : 'Звоните';
                             $prod_cat_number = $prod['cat_number'];
                             $prod_name = $prod['name'];
+
                             ?>
                             <div class="block-products-columns__list-item">
                               <div class="product-card">

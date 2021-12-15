@@ -31,6 +31,8 @@
     }
   }
   $d_arr = rtrim($data_array, ',');
+  // Image working stuff 
+
   ?>
   <div class="products-list__item">
     <div class="product-card">
