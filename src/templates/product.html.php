@@ -413,7 +413,7 @@
                     <div class="product__shop-features shop-features product__shop--cars">
                       <div class="tags__list" style="padding: 1rem;">
                         <?php foreach ($all_cars as $car) : ?>
-                          <a href="/zapchasti/<?= $car->slug ? $car->slug : 'porter1' ?>/"><?= $car->name ?></a>
+                          <a href="<?= $u->car($car->make->slug, $car->slug) ?>"><?= $car->name ?></a>
                         <?php endforeach ?>
                       </div>
                     </div>

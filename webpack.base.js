@@ -355,6 +355,12 @@ module.exports = {
 			inject: 'body',
 			chunks: ['vendors', 'mainpage'],
 		}),
+		new HtmlWebpackPlugin({
+			template: `${PAGES_DIR}/templates/cars.html.php`,
+			filename: `./templates/cars.html.php`,
+			inject: 'body',
+			chunks: ['vendors', 'mainpage'],
+		}),
 
 		// ...PAGES.map(
 		// 	(page) =>

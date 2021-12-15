@@ -31,6 +31,11 @@ class Url
   {
     return "/product/{$slug}/";
   }
+  // Cars section
+  public function car($make, $model)
+  {
+    return "/cars/{$make}/{$model}/";
+  }
   // Static pages section
   public function delivery()
   {

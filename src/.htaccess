@@ -14,6 +14,7 @@ ErrorDocument 500 /backend/pages/500/
 RewriteRule ^500/$ /backend/pages/500/index.php [L]
 
 
+RewriteRule cars/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/cars/index.php?make=$1&model=$2 [L]
 RewriteRule car/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/category/index.php?model=$1&category=$2 [L]
 RewriteRule ^search/$ /backend/pages/search/ [L]
 RewriteRule ^product/([a-zA-Z0-9-]+)/$ /backend/pages/product/index.php?slug=$1 [L]
