@@ -33,7 +33,7 @@
   $d_arr = rtrim($data_array, ',');
   // Tmb array
   $tmb_array = '';
-  if (count($part['images'])) {
+  if ($part['images'] ?? false) {
     foreach ($part['images'] as $image) {
       $lnk =  $image['img150'] . ",";
       $tmb_array .= $lnk;
