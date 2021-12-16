@@ -57,6 +57,41 @@ class OldPhotos
     if ($local_find) {
       return $local_find;
     }
-    return ['/assets/images/products/product-default-800.jpg'];
+    return ['img150' => '/assets/images/products/product-default-160.jpg', 'img245' => '/assets/images/products/product-default-245.jpg', 'img500' => '/assets/images/products/product-default-500.jpg', 'img800' => '/assets/images/products/product-default-800.jpg', 'image' => '/assets/images/products/product-default-800.jpg'];
+  }
+
+
+  function resize_image_max($image, $max_width, $max_height)
+  {
+    /**
+     * Got this function from internet
+     * Needs to be checked tomorrow
+     */
+    $w = imagesx($image); //current width
+    $h = imagesy($image); //current height
+    if ((!$w) || (!$h)) {
+      $GLOBALS['errors'][] = 'Image could not be resized because it was not a valid image.';
+      return false;
+    }
+
+    if (($w <= $max_width) && ($h <= $max_height)) {
+      return $image;
+    } //no resizing needed
+
+    //try max width first...
+    $ratio = $max_width / $w;
+    $new_w = $max_width;
+    $new_h = $h * $ratio;
+
+    //if that didn't work
+    if ($new_h > $max_height) {
+      $ratio = $max_height / $h;
+      $new_h = $max_height;
+      $new_w = $w * $ratio;
+    }
+
+    $new_image = imagecreatetruecolor($new_w, $new_h);
+    imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_w, $new_h, $w, $h);
+    return $new_image;
   }
 }

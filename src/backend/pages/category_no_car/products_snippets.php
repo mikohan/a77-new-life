@@ -41,8 +41,6 @@
   }
   $t_arr = rtrim($tmb_array, ',');
 
-  $old_photo_object = new OldPhotos($part);
-  p($old_photo_object->makePhotos());
   ?>
   <div class="products-list__item">
     <div class="product-card">
