@@ -11,7 +11,6 @@ foreach ($ang_cars as $ang_car) {
     $car_slug = $ang_car['new_slug'];
   }
 }
-p($car_slug);
 
 $conn = new Connection;
 
@@ -19,4 +18,4 @@ $car = $conn->getCar($car_slug);
 
 $url = $u->car($car['make']['slug'], $car['slug']);
 
-// header("Location: {$url}", TRUE, 301);
+header("Location: {$url}", TRUE, 301);

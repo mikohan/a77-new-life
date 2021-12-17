@@ -16,8 +16,8 @@ RewriteRule ^500/$ /backend/pages/500/index.php [L]
 
 
 # Old redircts starts here
-RewriteRule ^zapchasti-([a-zA-Z0-9]+)/([0-9]+)/ /backend/pages/redirect/car/index.php?old_car_name=$1&old_car_id=$2 [L]
-RewriteRule ^category-([0-9]+)/([0-9]+)/ /backend/pages/redirect/category/index.php?car_id=$1&cat_id=$2 [L]
+RewriteRule ^zapchasti-([a-zA-Z0-9]+)/([0-9]+)/$ /backend/pages/redirect/car/index.php?old_car_name=$1&old_car_id=$2 [L]
+RewriteRule ^category-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/category/index.php?car_id=$1&cat_id=$2 [L]
 
 # Old redicrects ends here
 
