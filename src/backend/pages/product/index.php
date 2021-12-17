@@ -15,7 +15,13 @@ $product_model = new ProductModel;
 $slug = $_GET['slug'];
 // $id = 13;
 // $url = PHOTO_API_URL . "/api/product/onec/" . $id . "/";
-$product = $product_model->getDataFromAPI($slug);
+try {
+
+  $product = $product_model->getProduct($slug);
+} catch (Throwable $t) {
+  echo ('Catched error');
+  echo ($t);
+}
 // p($product);
 $model = count($product['model']) ? mb_strtolower($product['model'][0]['name'], 'UTF-8') : '';
 $make = count($product['model']) ? mb_strtolower($product['model'][0]['make']) : '';

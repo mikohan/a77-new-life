@@ -3,43 +3,53 @@
 class ProductModel extends Connection
 {
 
-  public function getDataFromAPI($slug)
+  /**
+   * 1) Sould check mysql if outdated or not exists get from API
+   * 2) If API fail trow exeption
+   * 3) Try get from mysql again if no record throw error
+   * 4) If API Success write data to mysql
+   * 5) Return that data to page 
+   */
+
+  private function getDataFromAPI($slug)
   {
-    $m = $this->db();
-    $today = new DateTime();
-    $product_db_q = "SELECT * from `ang_product_api` WHERE slug=?";
-    $t = $m->prepare($product_db_q);
-    $t->execute(array($slug));
-    $mysql_result = $t->fetch(PDO::FETCH_ASSOC);
 
-    $past = new DateTime($mysql_result['updated'] ?? null);
-    $interval = $today->diff($past)->days;
-
-    if (!$mysql_result || $interval > 1) {
-      $server_url = PHOTO_API_URL;
-      $url = "{$server_url}/api/product/get-product-by-slug/{$slug}/";
-      //  Initiate curl
-      $ch = curl_init($url);
-      $options = array(
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HTTPHEADER => array('Content-type: application/json')
-      );
-      curl_setopt_array($ch, $options);
-      $result = curl_exec($ch);
-      $mydata = json_decode($result, true);
-      curl_close($ch);
-
-      $this->insertOrUpdateProduct($mydata);
+    $server_url = PHOTO_API_URL;
+    $url = "{$server_url}/api/product/get-product-by-slug/{$slug}/";
+    //  Initiate curl
+    $ch = curl_init($url);
+    $options = array(
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_HTTPHEADER => array('Content-type: application/json')
+    );
+    curl_setopt_array($ch, $options);
+    $result = curl_exec($ch);
+    $info = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if ($info == 200) {
+      $mydata = $result;
     } else {
-      $mydata = json_decode($mysql_result['product_json'], true);
+      throw new Error("API not reacheble check it out!");
     }
-
-
-
-
+    curl_close($ch);
     return $mydata;
   }
 
+
+  private function getFromMysql($slug)
+  {
+
+    $m = $this->db();
+    $product_db_q = "SELECT * from `ang_product_api` WHERE slug=?";
+    $t = $m->prepare($product_db_q);
+    $t->execute(array($slug));
+
+    $mysql_result = $t->fetch(PDO::FETCH_ASSOC);
+    if ($mysql_result) {
+      return $mysql_result;
+    } else {
+      throw new ErrorException("No data saved in db yet");
+    }
+  }
 
   private function insertOrUpdateProduct($product)
   {
@@ -52,8 +62,9 @@ class ProductModel extends Connection
     $m = $this->db();
 
     $updated = date("Y-m-d H:i:s");
-    $slug = $product['slug'];
-    $product_json = json_encode($product);
+    $data = json_decode($product, true);
+    $slug = $data['slug'];
+    $product_json = $product;
 
     $q = "INSERT INTO ang_product_api
     (slug, product_json, updated)
@@ -68,6 +79,55 @@ class ProductModel extends Connection
     $t = $m->prepare($q);
     $t->execute(array($slug, $product_json, $updated));
   }
+
+  public function getProduct($slug)
+  {
+    /**
+     * Final function that returns product or raise error
+     */
+    // Try get data from mysql
+    try {
+
+      $mysql_data = $this->getFromMysql($slug);
+      // Check for expiration
+      $today = new DateTime();
+      $past = new DateTime($mysql_data['updated'] ?? null);
+      $interval = $today->diff($past)->days;
+      // echo ('Getting from mysql');
+      if ($interval > 1) {
+        // Call API
+        // IF Api fail return result
+        try {
+          // echo ('Getting data from API Interval');
+          $data = $this->getDataFromAPI($slug);
+          // Save data to mysql
+          $this->insertOrUpdateProduct($data);
+          return json_decode($data, true);
+        } catch (Throwable $t) {
+          // If API Call fucks up return data from db
+          return json_decode($mysql_data['product_json'], true);
+        }
+      } else {
+        // Return if interval valid
+        return json_decode($mysql_data['product_json'], true);
+      }
+    } catch (Throwable $t) {
+      // Call Api Here
+      // echo ("Data from API! Cause it not exists im mysql");
+      $data = $this->getDataFromAPI($slug);
+      $this->insertOrUpdateProduct($data);
+      return json_decode($data, true);
+    }
+  }
+
+
+
+
+
+
+  /**
+   * Catalogue stuff
+   */
   /////////////////////////////////////////////////////////////////////////
   public function getCatalogue($cat_number, $car_slug)
 
