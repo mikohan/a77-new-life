@@ -48,6 +48,18 @@ class BlogModel extends Connection
     $ret = array($res, $previous, $next);
     return $ret;
   }
+  public function getArticleById($id)
+  {
+    /**
+     * Increment veiws count on select from table
+     */
+    $m = $this->db();
+    $q = "SELECT slug FROM ang_blog_articles WHERE id = ?";
+    $t = $m->prepare($q);
+    $t->execute(array($id));
+    $res = $t->fetch(PDO::FETCH_ASSOC);
+    return $res;
+  }
 
   public function getAllArticles()
   {

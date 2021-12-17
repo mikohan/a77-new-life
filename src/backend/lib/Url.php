@@ -66,6 +66,11 @@ class Url
   {
     return "/sale/";
   }
+  // Catalogue
+  public function catalogue($slug)
+  {
+    return "/catalogue/{$slug}/";
+  }
 }
 
 // Declaring abstract class for fun

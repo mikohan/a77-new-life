@@ -23,6 +23,10 @@ RewriteRule ^sub-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/sub/i
 RewriteRule ^cat-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/cat/index.php?car_id=$1&cat_id=$2 [L]
 RewriteRule ^part/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)-(.+)/$ /backend/pages/redirect/part/index.php?car_name=$1&cat_number=$2 [L]
 RewriteRule ^porter-([a-zA-Z0-9]+)-([0-9]+)/$ /backend/pages/redirect/porter/index.php?cat_number=$1&one_c_id=$2 [L]
+RewriteRule ^article/([0-9]+)/$ /backend/pages/redirect/blog/index.php?id=$1 [L]
+RewriteRule ^articles/$ /backend/pages/blog/index.php [L]
+RewriteRule ^porter1/([0-9])/$ /backend/pages/redirect/catalogues/index.php?id=$1 [L]
+RewriteRule ^carcatalog/([0-9]+)/$ /backend/pages/redirect/catalogues/index.php?car_id=$1 [L]
 
 # Old redicrects ends here
 
