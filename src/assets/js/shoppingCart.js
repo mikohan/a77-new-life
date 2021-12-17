@@ -113,7 +113,7 @@ function displayCart() {
                   <tr class="cart-table__row">
                     <td class="cart-table__column cart-table__column--image">
                       <div class="image image--type--product">
-                        <a href="product-full.html" class="image__body">
+                        <a href="" class="image__body">
                           <img class="image__tag" src="${
 								cartArray[i].image
 									? cartArray[i].image

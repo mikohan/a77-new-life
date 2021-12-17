@@ -83,7 +83,7 @@
               <div class="tag-badge tag-badge--new">new</div>
               <div class="tag-badge tag-badge--hot">hot</div>
             </div>
-            <a href="product-full.html"><?= $name ?></a>
+            <a href="<?= $u->product($part['slug']) ?>"><?= $name ?></a>
           </div>
         </div>
         <div class="product-card__rating">

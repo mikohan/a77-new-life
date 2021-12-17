@@ -194,7 +194,7 @@
                             </tr>
                             <tr>
                               <th>Бренд</th>
-                              <td><a href=""><?= mb_strtoupper($product['brand']['brand']) ?></a></td>
+                              <td><a href=""><?= mb_strtoupper($part_brand) ?></a></td>
                             </tr>
                             <!-- <tr>
                                                             <th>Страна</th>

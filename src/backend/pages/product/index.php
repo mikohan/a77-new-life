@@ -28,6 +28,11 @@ $analogs = count($product['analogs']) ? $product['analogs'] : [];
 
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $attributes = count($product['product_attribute']) ? $product['product_attribute'] : [];
+// Main brand making
+$part_brand = 'ORIGINAL';
+if ($product['brand'] ?? false) {
+  $part_brand = $product['brand']['brand'];
+}
 
 $product_tmb = count($product['product_image']) ? $product['product_image'][0]['img150'] : "/assets/images/product/product-default-160.jpg";
 

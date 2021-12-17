@@ -638,7 +638,7 @@
                               <div class="product-card__meta"><span class="product-card__meta-title">SKU:</span> <?= $sku ?></div>
                               <div class="product-card__name">
                                 <div>
-                                  <a style="font-size: 0.9rem;" href="product-full.html"><?= $name ?></a>
+                                  <a style="font-size: 0.9rem;" href="<?= $u->product($part['slug']) ?>"><?= $name ?></a>
                                 </div>
                               </div>
                               <div class="product-card__rating">

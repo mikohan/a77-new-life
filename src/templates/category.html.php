@@ -473,7 +473,7 @@
                                   <div class="tag-badge tag-badge--new">new</div>
                                   <div class="tag-badge tag-badge--hot">hot</div>
                                 </div>
-                                <a href="product-full.html">{{ product._source.name}}</a>
+                                <a :href="`/product/${product._source.slug}/`">{{ product._source.name}}</a>
                               </div>
                             </div>
                             <div class="product-card__rating">
