@@ -111,8 +111,8 @@
                       <div class="product__features ">
                         <div class="product__features-title">Характеристики:</div>
                         <ul>
-                          <?php foreach ($attributes as $attribute) : ?>
-                            <li><?= $attribute['attribute_name'] ?? '' ?> <span><?= $attribute['attribute_value'] ?? '' ?></span></li>
+                          <?php foreach ($attrs as $attribute) : ?>
+                            <li><?= $attribute['name'] ?? ''  ?> <span><?= $attribute['value'] ?? '' ?></span></li>
                           <?php endforeach ?>
                         </ul>
                       </div>
