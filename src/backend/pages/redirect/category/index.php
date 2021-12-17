@@ -27,4 +27,4 @@ if ($new_cat_slug) {
 
 $url = $u->categoryCar($car['slug'], $category_slug);
 
-// header("Location: {$url}", TRUE, 301);
+header("Location: {$url}", TRUE, 301);
