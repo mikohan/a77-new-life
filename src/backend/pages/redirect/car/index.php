@@ -1,15 +1,14 @@
 <?php
 require_once __DIR__ . '/../../../lib/init.php';
-include __DIR__ . '/../car/ang_cars.php';
+include __DIR__ . '/../data/redirect_data.php';
 
 $old_car_name = $_GET['old_car_name'];
 $old_car_id = $_GET['old_car_id'];
 
 $car_slug = 'ljuboj-avtomobil';
-foreach ($ang_cars as $ang_car) {
-  if ($ang_car['id'] == $old_car_id) {
-    $car_slug = $ang_car['new_slug'];
-  }
+$new_car_slug = $ang_cars[$old_car_id] ?? false;
+if ($new_car_slug) {
+  $car_slug = $new_car_slug;
 }
 
 $conn = new Connection;

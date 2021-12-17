@@ -1,8 +1,10 @@
 <?php
 require_once __DIR__ . '/../../../lib/init.php';
 include __DIR__ . '/../data/redirect_data.php';
+include __DIR__ . '/../data/sub.php';
 
 $car_id = $_GET['car_id'];
+$subcat_id = $_GET['subcat_id'];
 $cat_id = $_GET['cat_id'];
 
 // Getting car 
@@ -20,11 +22,12 @@ $car = $conn->getCar($car_slug);
 // p($old_cats);
 
 $category_slug = 'zapchasti';
-$new_cat_slug = $big_cats[$cat_id] ?? false;
+$new_cat_slug = $subs[$subcat_id] ?? false;
 if ($new_cat_slug) {
   $category_slug = $new_cat_slug;
 }
 
 $url = $u->categoryCar($car['slug'], $category_slug);
+p($url);
 
 // header("Location: {$url}", TRUE, 301);

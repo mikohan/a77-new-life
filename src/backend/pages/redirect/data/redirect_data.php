@@ -98,7 +98,7 @@ $subcats  = [
   '101' =>  'maslo-i-zhidkosti',
 ];
 
-$cars  = [
+$ang_cars = [
   '1' =>  'porter1',
   '2' =>  'hd78',
   '3' =>  'starex',
