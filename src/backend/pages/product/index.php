@@ -19,8 +19,6 @@ try {
 
   $product = $product_model->getProduct($slug);
 } catch (Throwable $t) {
-  echo ('Catched error');
-  echo ($t);
 }
 // p($product);
 $model = count($product['model']) ? mb_strtolower($product['model'][0]['name'], 'UTF-8') : '';

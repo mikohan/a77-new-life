@@ -4,7 +4,6 @@ ini_set("display_errors", 1);
 require __DIR__ . '/../config.php';
 require __DIR__ . '/Connection.php';
 require __DIR__ . '/Url.php';
-require __DIR__ . '/OldPhotos.php';
 
 $u = new Url;
 
