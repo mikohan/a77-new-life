@@ -7,8 +7,8 @@ RewriteBase /
 RewriteEngine on
 
 
-# ErrorDocument 404 /backend/pages/404/
-# RewriteRule ^404/$ /backend/pages/404/index.php [L]
+ErrorDocument 404 /backend/pages/404/
+RewriteRule ^404/$ /backend/pages/404/index.php [L]
 
 ErrorDocument 500 /backend/pages/500/
 RewriteRule ^500/$ /backend/pages/500/index.php [L]
@@ -21,7 +21,7 @@ RewriteRule ^category-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/category/
 RewriteRule ^subcat-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/subcat/index.php?car_id=$1&subcat_id=$2&cat_id=$3 [L]
 RewriteRule ^sub-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/sub/index.php?car_id=$1&subcat_id=$2&cat_id=$3 [L]
 RewriteRule ^cat-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/cat/index.php?car_id=$1&cat_id=$2 [L]
-RewriteRule ^part/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/$ /backend/pages/redirect/part/index.php?car_name=$1&cat_number=$2 [L]
+RewriteRule ^part/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)-(.+)/$ /backend/pages/redirect/part/index.php?car_name=$1&cat_number=$2 [L]
 RewriteRule ^porter-([a-zA-Z0-9]+)-([0-9]+)/$ /backend/pages/redirect/porter/index.php?cat_number=$1&one_c_id=$2 [L]
 
 # Old redicrects ends here
