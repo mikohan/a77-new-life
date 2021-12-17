@@ -20,6 +20,7 @@ RewriteRule ^zapchasti-([a-zA-Z0-9]+)/([0-9]+)/$ /backend/pages/redirect/car/ind
 RewriteRule ^category-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/category/index.php?car_id=$1&cat_id=$2 [L]
 RewriteRule ^subcat-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/subcat/index.php?car_id=$1&subcat_id=$2&cat_id=$3 [L]
 RewriteRule ^sub-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/sub/index.php?car_id=$1&subcat_id=$2&cat_id=$3 [L]
+RewriteRule ^cat-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/cat/index.php?car_id=$1&cat_id=$2 [L]
 
 # Old redicrects ends here
 
