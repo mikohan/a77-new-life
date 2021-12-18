@@ -15,7 +15,7 @@ if ($car_slug == 'hd') {
 }
 $car = $catalogue_model_refactor->getCar($car_title);
 $make = $car ? $car['make']['name'] : '';
-$model = $car ? $car['name'] : '';
+$model = $car ? $car['name'] : mb_ucfirst($car_slug);
 
 
 $parent = $schema_id;

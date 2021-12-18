@@ -22,6 +22,21 @@
       <div class="block-space block-space--layout--spaceship-ledge-height"></div>
       <div class="block faq">
         <div class="container container--max--xl">
+          <nav class="breadcrumb block-header__breadcrumb header__breadcrumb_catalogue" aria-label="breadcrumb">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__spaceship-safe-area" role="presentation"></li>
+              <li class="breadcrumb__item breadcrumb__item--parent breadcrumb__item--first">
+                <a href="/" class="breadcrumb__item-link">Главная</a>
+              </li>
+              <li class="breadcrumb__item breadcrumb__item--parent">
+                <a href="" class="breadcrumb__item-link">Каталог</a>
+              <li>
+              <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
+                <span class="breadcrumb__item-link"><?= $model ?></span>
+              </li>
+              <li class="breadcrumb__title-safe-area" role="presentation"></li>
+            </ol>
+          </nav>
           <div class="faq__header">
             <h1 class="faq__header-title">Каталог запчастей на <?= "{$make} {$model}" ?></h1>
           </div>

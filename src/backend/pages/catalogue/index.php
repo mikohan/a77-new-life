@@ -17,8 +17,9 @@ $first = $catalogue_model->getCatalogue($car_slug);
 
 
 
+
 $make = $car ? $car['make']['name'] : '';
-$model = $car ? $car['name'] : '';
+$model = $car ? $car['name'] : mb_ucfirst($car_slug);
 
 
 

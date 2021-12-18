@@ -75,7 +75,7 @@
               <ol class="breadcrumb__list">
                 <li class="breadcrumb__spaceship-safe-area" role="presentation"></li>
                 <li class="breadcrumb__item breadcrumb__item--parent breadcrumb__item--first">
-                  <a href="index.html" class="breadcrumb__item-link">Главная</a>
+                  <a href="/" class="breadcrumb__item-link">Главная</a>
                 </li>
                 <?php foreach ($parents as $parent) : ?>
                   <li class="breadcrumb__item breadcrumb__item--parent">
