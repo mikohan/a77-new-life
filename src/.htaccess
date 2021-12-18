@@ -30,12 +30,9 @@ RewriteRule ^carcatalog/([0-9]+)/$ /backend/pages/redirect/catalogues/index.php?
 
 # Old redicrects ends here
 
-# Sitemap
-RewriteRule ^sitemap.xml$ /backend/pages/sitemap.xml [L]
 
-
-RewriteRule cars/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/cars/index.php?make=$1&model=$2 [L]
-RewriteRule car/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/category/index.php?model=$1&category=$2 [L]
+RewriteRule ^cars/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/cars/index.php?make=$1&model=$2 [L]
+RewriteRule ^car/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/category/index.php?model=$1&category=$2 [L]
 RewriteRule ^search/$ /backend/pages/search/ [L]
 RewriteRule ^product/(.+)/$ /backend/pages/product/index.php?slug=$1 [L]
 
@@ -58,6 +55,9 @@ RewriteRule ^ajax/quickview/$ /backend/includes/quickview.php [L]
 RewriteRule ^category/([a-zA-Z0-9-]+)/$ /backend/pages/category_no_car/index.php?category=$1 [L,QSA]
 #Robots.txt
 RewriteRule ^robots.txt$ /backend/pages/robots.txt/index.php [L]
+# Sitemap
+RewriteRule ^sitemap\.xml$ /backend/pages/sitemap.xml/index.php [L]
+
 # Home redirect last
 RewriteRule ^$ /backend/pages/home/home.php [L]
 </IfModule>

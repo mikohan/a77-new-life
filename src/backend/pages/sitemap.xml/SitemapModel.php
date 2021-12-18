@@ -1,14 +1,13 @@
 <?php
 
+use Spatie\Async\Pool;
 
 class SitemapModel extends Connection
 {
   // All Categories
   private $all_cats_url = PHOTO_API_URL .  "/api/product/get-all-categories-flat/";
-  // All car models 
-  private $all_models_url = PHOTO_API_URL .  "/api/product/getcarmodelsiteall/";
   // All products
-  private $all_products_url =  PHOTO_API_URL . "/api/product/merchant/";
+  private $all_products_url =  PHOTO_API_URL . "/api/product/product-sitemap-list/";
 
   private $host = ANG_HTTP;
 
@@ -30,7 +29,7 @@ class SitemapModel extends Connection
     return $mydata;
   }
 
-  public function staticPages()
+  private function staticPages()
   {
     /**
      * Return array of static pages
@@ -48,7 +47,7 @@ class SitemapModel extends Connection
     return array_map(fn ($url) => $this->host . $url, $pages);
   }
 
-  public function categoriesPages()
+  private function categoriesPages()
   {
     /**
      * Return all categories urls
@@ -58,7 +57,7 @@ class SitemapModel extends Connection
     return array_map(fn ($item) => $this->host . $u->category($item['slug']), $api_data);
   }
 
-  public function carsCategoriesPages()
+  private function carsCategoriesPages()
   {
     /**
      * Getting category/model/categoryslug/ url from mysql
@@ -80,7 +79,7 @@ class SitemapModel extends Connection
     }
     return ($urls);
   }
-  public function blogPostsPages()
+  private function blogPostsPages()
   {
     /**
      * Return all articles from db
@@ -94,7 +93,7 @@ class SitemapModel extends Connection
     $data = $t->fetchAll(PDO::FETCH_ASSOC);
     return array_map(fn ($item) => $this->host . $u->blogPost($item['slug']), $data);
   }
-  public function productsPages()
+  private function productsPages()
   {
     /**
      * Getting products from api and return products urls
@@ -104,12 +103,14 @@ class SitemapModel extends Connection
     return array_map(fn ($item) => $this->host . $u->product($item['slug']), $data);
   }
 
+
+
+
   public function makeMeHappy()
   {
     /**
      * Combine all array together and than return it
      */
-    $time_start = microtime(true);
     $return = [];
     $static_pages = $this->staticPages();
     $blog_post_pages = $this->blogPostsPages();
@@ -117,9 +118,8 @@ class SitemapModel extends Connection
     $cars_categories_pages = $this->carsCategoriesPages();
     $products_pages = $this->productsPages();
     $return = array_merge($static_pages, $blog_post_pages, $categories_pages, $cars_categories_pages, $products_pages);
+    $return = array_map(fn ($item) => "<loc>" . $item . "</loc>", $return);
 
-    $time_end = microtime(true);
-    echo ($time_end - $time_start);
     return $return;
   }
 }
