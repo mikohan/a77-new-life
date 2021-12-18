@@ -341,6 +341,7 @@
 
 								$brand = $latest['brand'] ? mb_strtoupper($latest['brand']['brand']) : 'ORIGINAL';
 								$quick = new QuickView($latest);
+								p($latest['price']);
 
 								?>
 								<div class="block-products-carousel__column">
@@ -418,7 +419,7 @@
 														&#8381; <?= $latest['price'] ?>
 													</div>
 												</div>
-												<button class="product-card__addtocart-icon add-to-cart" type="button" aria-label="В Корзину" data-sku="<?= $latest['one_c_id'] ?>" data-name="<?= $latest['name'] ?>" data-image="<?= $latest['tmb'] ?>" $data-price="<?= $latest['price'] ?>">
+												<button class="product-card__addtocart-icon add-to-cart" type="button" aria-label="В Корзину" data-sku="<?= $latest['one_c_id'] ?>" data-name="<?= $latest['name'] ?>" data-image="<?= $latest['tmb'] ?>" data-price="<?= $latest['price'] ?>">
 													<svg width="20" height="20">
 														<circle cx="7" cy="17" r="2" />
 														<circle cx="15" cy="17" r="2" />
