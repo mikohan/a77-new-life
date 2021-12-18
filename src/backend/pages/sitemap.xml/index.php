@@ -14,9 +14,11 @@ $sm = new SitemapModel;
 
 
 $cdate = date("Y-m-d H:i", time());
-$cats = $sm->categoriesPages();
-// p($cats);
-$sm->carsCategoriesPages();
+
+// Static pages
+$all_pages = $sm->makeMeHappy();
+p($all_pages);
+
 $head = <<<EOD
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

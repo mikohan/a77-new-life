@@ -10,7 +10,7 @@ class SitemapModel extends Connection
   // All products
   private $all_products_url =  PHOTO_API_URL . "/api/product/merchant/";
 
-  private $host = COMPANY_INFO['site'];
+  private $host = ANG_HTTP;
 
   private function getApi($url)
   {
@@ -64,14 +64,62 @@ class SitemapModel extends Connection
      * Getting category/model/categoryslug/ url from mysql
      * 
      */
+    $u = new Url;
     $m = $this->db();
     $q = "SELECT * FROM `ang_cars_api`";
     $t = $m->prepare($q);
     $t->execute();
     $data = $t->fetchAll(PDO::FETCH_ASSOC);
+    $urls = [];
     foreach ($data as $car) {
       $car_data = json_decode($car['car_json'], true);
-      p($car_data);
+      foreach ($car_data['categories'] as $category) {
+        $url = $this->host . $u->categoryCar($car['slug'], $category['slug']);
+        $urls[] = $url;
+      }
     }
+    return ($urls);
+  }
+  public function blogPostsPages()
+  {
+    /**
+     * Return all articles from db
+     */
+
+    $u = new Url;
+    $m = $this->db();
+    $q = "SELECT slug FROM ang_blog_articles";
+    $t = $m->prepare($q);
+    $t->execute();
+    $data = $t->fetchAll(PDO::FETCH_ASSOC);
+    return array_map(fn ($item) => $this->host . $u->blogPost($item['slug']), $data);
+  }
+  public function productsPages()
+  {
+    /**
+     * Getting products from api and return products urls
+     */
+    $u = new Url;
+    $data = json_decode($this->getApi($this->all_products_url), true);
+    return array_map(fn ($item) => $this->host . $u->product($item['slug']), $data);
+  }
+
+  public function makeMeHappy()
+  {
+    /**
+     * Combine all array together and than return it
+     */
+    $time_start = microtime(true);
+    $return = [];
+    $static_pages = $this->staticPages();
+    $blog_post_pages = $this->blogPostsPages();
+    $categories_pages = $this->categoriesPages();
+    $cars_categories_pages = $this->carsCategoriesPages();
+    $products_pages = $this->productsPages();
+    $return = array_merge($static_pages, $blog_post_pages, $categories_pages, $cars_categories_pages, $products_pages);
+
+    $time_end = microtime(true);
+    echo ($time_end - $time_start);
+    return $return;
   }
 }
