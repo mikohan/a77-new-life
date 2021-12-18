@@ -10,19 +10,19 @@ require __DIR__ . '/../../../../vendor/autoload.php';
 $sm = new SitemapModel;
 
 
-// header('Content-type: application/xml');
-// header("Content-Type: text/xml; charset=utf-8");
+header('Content-type: application/xml');
+header("Content-Type: text/xml; charset=utf-8");
 
 
 $cdate = date("Y-m-d H:i", time());
 
 // Static pages
-$start = microtime(true);
 $all_pages = $sm->makeMeHappy();
-$stop = microtime(true);
-echo ($stop - $start);
-p($all_pages);
 
+$loc = '';
+foreach ($all_pages as $page) {
+  $loc .= $page  . "<lastmod>$cdate</lastmod>";
+}
 
 
 
@@ -31,8 +31,8 @@ $head = <<<EOD
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.example.com/foo.html</loc>
-    <lastmod>$cdate</lastmod>
+   $loc 
   </url>
 </urlset>
 EOD;
+echo $head;
