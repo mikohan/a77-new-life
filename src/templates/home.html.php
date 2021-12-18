@@ -341,8 +341,6 @@
 
 								$brand = $latest['brand'] ? mb_strtoupper($latest['brand']['brand']) : 'ORIGINAL';
 								$quick = new QuickView($latest);
-								p($latest['price']);
-
 								?>
 								<div class="block-products-carousel__column">
 									<div class="block-products-carousel__cell">
