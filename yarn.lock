@@ -3000,11 +3000,6 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
-fs@^0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
-  integrity sha1-invTcYa23d84E/I4WLV+yq9eQdQ=
-
 fsevents@~2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
@@ -3397,15 +3392,6 @@ html-minifier-terser@^6.0.2:
     param-case "^3.0.4"
     relateurl "^0.2.7"
     terser "^5.10.0"
-
-html-webpack-partials-plugin@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/html-webpack-partials-plugin/-/html-webpack-partials-plugin-0.8.0.tgz#23d3f2c65f2ed43780038502e7da632b1bf224c4"
-  integrity sha512-JJMtu3R2vjohfH/o6JTMOapcZm3304qj5ct920Gk2NHzl4ldflf9lRFK1JWaubXraaTPT0Xn3wEXih71/9lZJw==
-  dependencies:
-    fs "^0.0.1-security"
-    lodash "^4.17.20"
-    path "^0.12.7"
 
 html-webpack-plugin@^5.5.0:
   version "5.5.0"
