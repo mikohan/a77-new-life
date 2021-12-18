@@ -30,6 +30,9 @@ RewriteRule ^carcatalog/([0-9]+)/$ /backend/pages/redirect/catalogues/index.php?
 
 # Old redicrects ends here
 
+# Sitemap
+RewriteRule ^sitemap.xml$ /backend/pages/sitemap.xml [L]
+
 
 RewriteRule cars/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/cars/index.php?make=$1&model=$2 [L]
 RewriteRule car/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/category/index.php?model=$1&category=$2 [L]
