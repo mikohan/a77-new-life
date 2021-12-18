@@ -200,7 +200,7 @@
                             $file = '/assets/images/departments/HD.png';
                           }
                           ?>
-                          <img src="<?= $file ?>" alt="<? $all_car->name ?>">
+                          <!-- here was car image  -->
                         </div>
                         <div class="row">
                           <!-- Looping Categories -->
