@@ -228,12 +228,6 @@ module.exports = {
 				},
 			],
 		}),
-		new HtmlWebpackPlugin({
-			template: `${PAGES_DIR}/about.html`,
-			filename: `./about.html`,
-			inject: 'body',
-			chunks: ['mainpage', 'about'],
-		}),
 		// new HtmlWebpackPlugin({
 		// 	template: `${PAGES_DIR}/index.html`,
 		// 	filename: `./index.html`,

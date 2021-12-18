@@ -2,8 +2,9 @@
 <html lang="ru" dir="ltr">
 
 <head>
-	<title>Оформление Заказа — Angara Parts</title>
 	<meta charset="UTF-8" />
+	<?php include __DIR__ . '/../backend/includes/header/ga.php'; ?>
+	<title>Оформление Заказа — Angara Parts</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="format-detection" content="telephone=no" />
 	<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
