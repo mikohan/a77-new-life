@@ -156,6 +156,9 @@ h1 {
 		object-fit: cover;
 		object-position: bottom;
 	}
+	.custom-mobile-header {
+		font-size: 1.5rem;
+	}
 }
 
 @media screen and (min-width: 401px) and (max-width: 3840px) {
@@ -186,4 +189,6 @@ h1 {
 }
 .header__breadcrumb_catalogue {
 	padding-bottom: 0px;
+}
+.custom-mobile-header {
 }

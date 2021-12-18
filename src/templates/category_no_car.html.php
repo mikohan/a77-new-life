@@ -119,7 +119,6 @@
                       <div class="widget-filters__list">
                         <form id="filters-form" name="filters-form" method="GET" action="">
                           <?php
-
                           foreach ($checked_car_model as $cm) {
                             if (!in_array($cm, $get_arr)) {
                               echo ("<input type='hidden' name='car_models' value='{$cm}' />");
@@ -130,10 +129,7 @@
                               echo ("<input type='hidden' name='brand' value='{$br}' />");
                             }
                           }
-
-
                           ?>
-
                           <?php include(__DIR__ . '/../backend/pages/category_no_car/filters_widget.php') ?>
                         </form>
                       </div>
@@ -239,7 +235,6 @@
                       <?php include(__DIR__ . '/../backend/pages/category_no_car/products_snippets.php')
                       ?>
                     </div>
-
                   </div>
                   <div class="products-view__pagination">
                     <nav aria-label="Page navigation example">
@@ -301,8 +296,7 @@
   <!-- mobile-menu / end -->
   <!-- quickview-modal -->
   <div id="quickview-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
-
-
+  <?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
 </body>
 
 </html>

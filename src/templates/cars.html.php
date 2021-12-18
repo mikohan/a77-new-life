@@ -18,7 +18,6 @@
 	<div class="site">
 		<!-- site__mobile-header -->
 		<?php include __DIR__ . '/../backend/includes/header/header.php'; ?>
-
 		<!-- site__header / end -->
 		<!-- site__body -->
 		<div class="site__body">
@@ -102,7 +101,6 @@
 							</li>
 							<li class="block-brands__divider" role="presentation"></li>
 						<?php endforeach ?>
-
 					</ul>
 				</div>
 			</div>
@@ -342,10 +340,8 @@
 								<?php
 								$img = count($latest['product_image']) ? $latest['product_image'][0]['img245'] : '/assets/images/products/product-default-245.jpg';
 								$link = $latest['slug'] ? "/product/{$latest['slug']}/" : '';
-
 								$brand = $latest['brand'] ? mb_strtoupper($latest['brand']['brand']) : 'ORIGINAL';
 								$quick = new QuickView($latest);
-
 								?>
 								<div class="block-products-carousel__column">
 									<div class="block-products-carousel__cell">
@@ -436,8 +432,6 @@
 									</div>
 								</div>
 							<?php endforeach ?>
-
-
 						</div>
 					</div>
 				</div>
@@ -545,9 +539,7 @@
 										$name = $sale['name'];
 										$tmb = $sale['tmb'];
 										$link = "/product/{$sale['slug']}/";
-
 										$quick = new QuickView($latest);
-
 										?>
 										<div class="block-sale__item">
 											<div class="product-card">
@@ -636,7 +628,6 @@
 											</div>
 										</div>
 									<?php endforeach ?>
-
 								</div>
 							</div>
 						</div>
@@ -690,7 +681,6 @@
 								$link = $u->blogPost($post['slug']);
 								$date_obj = new DateTime($post['date']);
 								$date = $date_obj->format('Y F d');
-
 								?>
 								<div class="block-posts-carousel__item">
 									<div class="post-card">
@@ -723,7 +713,6 @@
 									</div>
 								</div>
 							<?php endforeach ?>
-
 						</div>
 					</div>
 				</div>
@@ -744,7 +733,6 @@
 									$name = $top['name'];
 									$tmb = $top['tmb'];
 									$link = "/product/{$top['slug']}/";
-
 									?>
 									<div class="block-products-columns__list-item">
 										<div class="product-card">
@@ -849,7 +837,6 @@
 										</div>
 									</div>
 								<?php endforeach ?>
-
 							</div>
 						</div>
 						<div class="col-4">
@@ -1078,8 +1065,7 @@
 		<!-- site__footer / end -->
 	</div>
 	<!-- site / end -->
-
-
+	<?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
 </body>
 
 </html>

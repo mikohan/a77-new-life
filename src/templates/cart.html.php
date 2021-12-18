@@ -13,7 +13,6 @@
 <body>
   <!-- site -->
   <div class="site">
-
     <!-- site__header / start -->
     <?php include __DIR__ . '/../backend/includes/header/header.php' ?>
     <!-- site__header / end -->
@@ -122,9 +121,7 @@
     <?php include __DIR__ . '/../backend/includes/footer/footer.php' ?>
     <!-- site__footer / end -->
   </div>
-  <!-- site / end -->
-  <!-- mobile-menu -->
-  <!-- scripts -->
+  <?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
 </body>
 
 </html>

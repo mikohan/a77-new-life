@@ -37,7 +37,6 @@
       }
     }
   </script>
-
   <!-- site -->
   <div class="site" id="app">
     <!-- site__header -->
@@ -68,7 +67,6 @@
                             <img src="<?= $img ?>" alt="<?= $product['name'] ?>">
                           </a>
                         <?php endforeach ?>
-
                       </div>
                     </div>
                     <div class="product-gallery__thumbnails">
@@ -118,7 +116,6 @@
                       </div>
                       <?php if (!empty($analogs)) : ?>
                         <div class="product__features product__expert--side--item product__expert--side--item1">
-
                           <table class="table table-sm" style="font-size: .9rem; color: #6c757d;">
                             <thead>
                               <th>Аналоги</th>
@@ -134,7 +131,6 @@
                                     $brand = mb_strtoupper($analog['brand']['brand']);
                                   }
                                 }
-
                                 ?>
                                 <tr>
                                   <td>
@@ -167,7 +163,6 @@
                         <a href="#product-tab-description">Гаранития и Доставка ...</a>
                       </div>
                     </div>
-
                   </div>
                   <div class="product__info">
                     <div class="product__info-card">
@@ -207,29 +202,24 @@
                           </table>
                         </div>
                       </div>
-
                       <div class="product__actions">
                         <div class="product__actions-item product__actions-item--addtocart">
                           <button class="btn btn-primary btn-lg btn-block add-to-cart" id="add_to_cart_GA" data-price="<?= $product['price'] ?>" data-name="<?= $product['name'] ?>" data-image="<?= $product_tmb ?>" data-sku="<?= $product['one_c_id'] ?>">В
                             Корзину</button>
                         </div>
-
                         <div class="product__actions-divider"></div>
                         <!-- <div class="product__actions-item product__actions-item--addtocart">
                                                     <button class="btn btn-primary btn-lg btn-block  ang-byu-oneclick b1c" id="b1clickGA">Купить в
                                                         1 клик</button>
                                                 </div> -->
                       </div>
-
                       <div class="product__tags-and-share-links">
                         <div class="product__tags tags tags--sm">
                           <div class="product__features-title">Подходит на:</div>
                           <div class="tags__list">
-
                             <?php foreach ($product['model'] as $car) : ?>
                               <a href=""><?= mb_strtoupper($car['name'], 'UTF-8') ?></a>
                             <?php endforeach ?>
-
                           </div>
                         </div>
                         <div class="product__share-links share-links">
@@ -418,7 +408,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div class=" product__tabs product-tabs product-tabs--layout--full d-none d-md-block">
                     <ul class="product-tabs__list">
                       <li class="product-tabs__item product-tabs__item--active"><a href="#product-tab-description">Гарантии и Доставка</a></li>
@@ -488,7 +477,6 @@
                           </div>
                         </div>
                       </div>
-
                       <div class="product-tabs__pane" id="product-tab-analogs">
                         <table class="analogs-table">
                           <thead>
@@ -551,9 +539,7 @@
                 </div>
               </div>
               <div class="block-space block-space--layout--divider-nl"></div>
-
               <!-- product carousel component -->
-
               <!-- Product Carousel Block -->
               <div class="block block-products-carousel" data-layout="grid-5">
                 <div class="container">
@@ -811,8 +797,7 @@
       </div>
     </div>
   </div>
-  <!-- photoswipe / end -->
-  <!-- scripts -->
+  <?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
 </body>
 
 </html>

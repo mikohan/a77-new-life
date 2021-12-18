@@ -213,7 +213,7 @@
 		<!-- site__footer / end -->
 	</div>
 	<!-- scripts -->
-
+	<?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
 </body>
 
 </html>

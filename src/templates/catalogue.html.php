@@ -38,7 +38,7 @@
             </ol>
           </nav>
           <div class="faq__header">
-            <h1 class="faq__header-title">Каталог запчастей на <?= "{$make} {$model}" ?></h1>
+            <h1 class="faq__header-title custom-mobile-header">Каталог запчастей на <?= "{$make} {$model}" ?></h1>
           </div>
           <div class="faq__section">
             <h3 class="faq__section-title">Выберите раздел</h3>
@@ -65,12 +65,12 @@
       <div class="block-space block-space--layout--before-footer"></div>
     </div>
     <!-- site__body / end -->
-    <!-- site__body / end -->
     <!-- site__footer -->
     <?php require_once __DIR__ . '/../backend/includes/footer/footer.php' ?>
     <!-- site__footer / end -->
   </div>
   <!-- site / end -->
+  <?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
   <!-- quickview-modal -->
   <div id="quickview-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
   <!-- quickview-modal / end -->

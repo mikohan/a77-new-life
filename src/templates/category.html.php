@@ -581,8 +581,7 @@
   <!-- mobile-menu / end -->
   <!-- quickview-modal -->
   <div id="quickview-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
-
-
+  <?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
 </body>
 
 </html>

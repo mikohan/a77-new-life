@@ -11,12 +11,10 @@
 </head>
 
 <body>
-
   <!-- site -->
   <div class="site" id="app">
     <!-- site__header -->
     <?php include __DIR__ . '/../backend/includes/header/header.php'; ?>
-
     <!-- site__header / end -->
     <!-- site__body -->
     <div class="site__body">
@@ -39,7 +37,7 @@
             </ol>
           </nav>
           <div class="faq__header">
-            <h1 class="faq__header-title"><?= mb_ucfirst($page_title) ?> на <?= "{$make} {$model}" ?></h1>
+            <h1 class="faq__header-title custom-mobile-header"><?= mb_ucfirst($page_title) ?> на <?= "{$make} {$model}" ?></h1>
           </div>
           <div class="faq__section" style="padding: 5px;">
             <div class="schema__item-container">
@@ -106,7 +104,6 @@
                             $prod_price =  $prod_price ? $prod_price : 'Звоните';
                             $prod_cat_number = $prod['cat_number'];
                             $prod_name = $prod['name'];
-
                             ?>
                             <div class="block-products-columns__list-item">
                               <div class="product-card">
@@ -149,17 +146,14 @@
                               </div>
                             </div>
                           <?php endforeach ?>
-
                         </div>
                       </div>
                     <?php endforeach ?>
-
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
       <div class="block-space block-space--layout--before-footer"></div>
@@ -171,6 +165,7 @@
     <!-- site__footer / end -->
   </div>
   <!-- site / end -->
+  <?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
   <!-- quickview-modal -->
   <div id="quickview-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
   <!-- quickview-modal / end -->

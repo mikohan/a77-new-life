@@ -26,7 +26,7 @@
 			<div class="block block-categories">
 				<div class="container">
 					<div class="typography">
-						<h1><?= $h1 ?></h1>
+						<h1 class="custom-mobile-header"><?= $h1 ?></h1>
 					</div>
 				</div>
 			</div>
@@ -1072,6 +1072,7 @@
 		<!-- site__footer / end -->
 	</div>
 	<!-- site / end -->
+	<?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
 
 
 </html>
