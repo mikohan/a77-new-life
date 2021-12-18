@@ -71,6 +71,11 @@ class Url
   {
     return "/catalogue/{$slug}/";
   }
+  // Account section
+  public function account()
+  {
+    return "/"; // Change it later when account will be done
+  }
 }
 
 // Declaring abstract class for fun

@@ -134,7 +134,6 @@
                                     <span class="filter-list__counter"><?= $brand['doc_count'] ?></span>
                                   </label>
                                 <?php endforeach ?>
-
                               </div>
                             </div>
                           </div>
@@ -171,7 +170,6 @@
                                     <span class="filter-list__counter"><?= $photo['doc_count'] ?></span>
                                   </label>
                                 <?php endforeach ?>
-
                               </div>
                             </div>
                           </div>
@@ -591,8 +589,6 @@
                           }
                         }
                         $t_arr = rtrim($tmb_array, ',');
-
-
                         ?>
                         <div class="products-list__item">
                           <div class="product-card">
@@ -644,7 +640,6 @@
                               <div class="product-card__rating">
                                 <div class="rating product-card__rating-stars">
                                   <div class="rating__body">
-
                                     <?php foreach (range(1, $rating) as $r) : ?>
                                       <div class="rating__star rating__star--active"></div>
                                     <?php endforeach ?>
@@ -757,7 +752,6 @@
   <div id="quickview-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
   <!-- quickview-modal / end -->
   <!-- add-vehicle-modal -->
-
 </body>
 
 </html>
