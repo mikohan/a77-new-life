@@ -25,10 +25,10 @@
       "brand": "<?= $part_brand ?>",
       "offers": {
         "@type": "Offer",
-        "url": "<?= $url->product($slug) ?>",
+        "url": "<?= $product_link ?>",
         "priceCurrency": "RUB",
         "price": "<?= $product['price'] ?>",
-        "priceValidUntil": "<?= $snippets_price_date_valid ?>",
+        "priceValidUntil": "<?= $valid ?>",
         "itemCondition": "http://schema.org/NewCondition",
         "availability": "https://schema.org/InStock",
         "seller": {
@@ -192,10 +192,6 @@
                               <th>Бренд</th>
                               <td><a href=""><?= mb_strtoupper($part_brand) ?></a></td>
                             </tr>
-                            <!-- <tr>
-                                                            <th>Страна</th>
-                                                            <td>Japan</td>
-                                                        </tr> -->
                             <tr>
                               <th>SKU</th>
                               <td><?= $product['one_c_id'] ?></td>

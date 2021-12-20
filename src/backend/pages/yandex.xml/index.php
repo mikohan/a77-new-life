@@ -1,0 +1,38 @@
+<?php
+// ob_start();
+ini_set('max_execution_time', 300);
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+include __DIR__ . '/../../lib/init.php';
+include __DIR__ . '/../sitemap.xml/SitemapModel.php';
+require __DIR__ . '/../../../../vendor/autoload.php';
+
+$sm = new SitemapModel;
+
+
+header('Content-type: application/xml');
+header("Content-Type: text/xml; charset=utf-8");
+
+
+$cdate = date("Y-m-d H:i", time());
+
+// Static pages
+$all_pages = $sm->makeMeHappy();
+
+$loc = '';
+foreach ($all_pages as $page) {
+  $loc .= $page  . "<lastmod>$cdate</lastmod>";
+}
+
+
+
+
+$head = <<<EOD
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+   $loc 
+  </url>
+</urlset>
+EOD;
+echo $head;

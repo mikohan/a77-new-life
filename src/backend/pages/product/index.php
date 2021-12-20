@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 include __DIR__ . '/../../lib/init.php';
 require_once __DIR__ . '/../product/ProductModel.php';
 
@@ -74,8 +76,9 @@ $catalogue_new = null;
 if (count($product['model'])) {
   $catalogue_new = $product_model->getCatalogue($product['cat_number'], $product['model'][0]['slug']);
 }
-// $today = new DateTime();
-// date_add($today, date_interval_create_from_date_string('30 days'));
-// $snippets_price_date_valid = date_format($today, 'Y-m-d');
+$today = new DateTime();
+$today->add(new DateInterval('P30D'));
+$valid = $today->format('Y-m-d');
+$product_link = $u->product($product['slug']);
 
 include __DIR__ . '/../../../templates/product.html.php';
