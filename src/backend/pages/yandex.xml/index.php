@@ -15,7 +15,7 @@ header("Content-Type: text/xml; charset=utf-8");
 $name = "Ангара";
 
 # Описание магазина
-
+$shop_name = COMPANY_INFO['company_name'];
 $desc = "Запчасти для грузовиков и автобусов";
 $site = COMPANY_INFO['site'];
 $cost = COMPANY_INFO['delivery_rate'];
@@ -45,10 +45,9 @@ $i = 0;
 foreach ($products['hits']['hits'] as $product_source) {
   $product = $product_source['_source'];
   $id = $product['one_c_id'] ?? false;
-  // if (!$id) {
-  //   continue;
-  // }
-  // $id = $product_source['_id'];
+  if (!$id) {
+    continue;
+  }
   $model_ck = $product['model'] ?? false;
   $model = $model_ck ? $product['model'][0]['name'] : '';
   $make = $model_ck ? $product['model'][0]['make']['name'] : '';
@@ -65,7 +64,7 @@ foreach ($products['hits']['hits'] as $product_source) {
   }
 
   $categoru_ck = $product['category'] ?? false;
-  $category_id = $categoru_ck ? $product['category'][0]['id'] : null;
+  $category_id = $categoru_ck ? end($product['category'])['id'] : null;
 
   $offers .= <<<HTML
     <offer id="{$id}">
@@ -100,7 +99,7 @@ $out = <<<HTML
 <?xml version="1.0" encoding="utf-8"?>
 <yml_catalog date="{$date}">
 <shop>
-<name>{$name}</name>
+<name>{$shop_name}</name>
 <company>{$desc}</company>
 <url>{$site}</url>
 <currencies>
