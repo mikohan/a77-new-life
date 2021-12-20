@@ -45,9 +45,9 @@ $i = 0;
 foreach ($products['hits']['hits'] as $product_source) {
   $product = $product_source['_source'];
   $id = $product['one_c_id'] ?? false;
-  if (!$id) {
-    continue;
-  }
+  // if (!$id) {
+  //   continue;
+  // }
   // $id = $product_source['_id'];
   $model_ck = $product['model'] ?? false;
   $model = $model_ck ? $product['model'][0]['name'] : '';
