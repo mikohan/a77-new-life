@@ -55,11 +55,18 @@ foreach ($products['hits']['hits'] as $product_source) {
   $name = $product['name'] . ' ' . $make . ' ' . $model . ' ' . $name2;
 
   $brand = $product['brand']['name'] ?? '';
+  $brand = preg_replace("/[^\w\d\s]+/", " ", $brand);
   $url = $u->product($product['slug']);
 
   $pictures = '';
+  $j = 0;
   foreach ($product['images'] as $img) {
+    $im = addslashes($img['image']);
     $pictures .= "<picture>{$img['image']}</picture>";
+    if ($j == 9) {
+      break;
+    }
+    $j++;
   }
 
   $categoru_ck = $product['category'] ?? false;
@@ -72,11 +79,11 @@ foreach ($products['hits']['hits'] as $product_source) {
       <currencyId>{$curr}</currencyId>
       <categoryId>{$category_id}</categoryId>
       {$pictures}
-      <vendor>{$brand}</vendor>
       <model>{$make} {$model}</model>
       <vendorCode>{$product['cat_number']}</vendorCode>
-      <name>{$name}</name>
+      <vendor>{$brand}</vendor>
       <description>{$name} от производителя {$brand} для автомобиля {$make} {$model} . На все запчасти есть сертификат соответсвия.</description>
+      <name>{$name}</name>
       <delivery>true</delivery>
       <pickup>true</pickup>
       <delivery-options>
