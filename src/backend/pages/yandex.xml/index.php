@@ -8,8 +8,8 @@ include __DIR__ . '/../yandex.xml/YandexXmlModel.php';
 
 $sm = new YandexXmlModel;
 
-header('Content-type: application/xml');
-header("Content-Type: text/xml; charset=utf-8");
+// header('Content-type: application/xml');
+// header("Content-Type: text/xml; charset=utf-8");
 
 
 $name = "Ангара";
@@ -73,11 +73,11 @@ foreach ($products['hits']['hits'] as $product_source) {
     $j++;
   }
 
-  $categoru_ck = $product['category'] ?? false;
+  $category_ck = $product['category'] ?? false;
   if (!$category_ck) {
     continue;
   }
-  $category_id = $categoru_ck ? end($product['category'])['id'] : null;
+  $category_id = $category_ck ? end($product['category'])['id'] : null;
 
   $offers .= <<<HTML
     <offer id="{$id}">
