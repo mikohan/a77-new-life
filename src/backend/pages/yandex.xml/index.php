@@ -47,6 +47,10 @@ foreach ($products['hits']['hits'] as $product_source) {
   if (!$id) {
     continue;
   }
+  $price = $product['price'] ?? false;
+  if (!$price) {
+    continue;
+  }
   $model_ck = $product['model'] ?? false;
   $model = $model_ck ? $product['model'][0]['name'] : '';
   $make = $model_ck ? $product['model'][0]['make']['name'] : '';
@@ -70,6 +74,9 @@ foreach ($products['hits']['hits'] as $product_source) {
   }
 
   $categoru_ck = $product['category'] ?? false;
+  if (!$category_ck) {
+    continue;
+  }
   $category_id = $categoru_ck ? end($product['category'])['id'] : null;
 
   $offers .= <<<HTML
