@@ -74,26 +74,8 @@ $catalogue_new = null;
 if (count($product['model'])) {
   $catalogue_new = $product_model->getCatalogue($product['cat_number'], $product['model'][0]['slug']);
 }
-
-
-// // Analogs part here
-// $url_analog = PHOTO_API_URL . '/api/product/analogs/' . $data['id'] . '/?cat_number=' . $data['cat_number'];
-// $analogs = $product_model->getDataFromAPIAnalog($url_analog);
-
-// //Related here
-
-// $url_params = array(
-//   'car_model' => $data['car_model'][0]['id'],
-//   'product_name' => $data['name']
-// );
-
-
-
-
-// $url_related = PHOTO_API_URL . '/api/product/relatedsite/' . $data['id'] . '/?' . http_build_query($url_params, '', '&amp;');
-// $related_new = $product_model->getDataFromAPIAnalog($url_related);
-// // p($related_new);
-
-// // $product->p($catalogue);
+// $today = new DateTime();
+// date_add($today, date_interval_create_from_date_string('30 days'));
+// $snippets_price_date_valid = date_format($today, 'Y-m-d');
 
 include __DIR__ . '/../../../templates/product.html.php';

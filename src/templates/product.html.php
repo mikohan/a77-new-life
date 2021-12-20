@@ -19,21 +19,21 @@
       "@type": "Product",
       "mpn": "<?= $product['cat_number'] ?>",
       "name": "<?= $product['name'] . ' ' . $product['name2'] ?>",
-      "image": "<?= $product['product_image'][0]['img245'] ?>",
-      "description": "<?= $product['name'] . ' ' . $product['name2'] ?> от производителя <?= $product['brand']['brand'] ?> для автомобиля <?= $make ?> <?= $model ?>. На все запчасти есть сертификат соответсвия.",
+      "image": "<?= $product_tmb ?>",
+      "description": "<?= $product['name'] . ' ' . $product['name2'] ?> от производителя <?= $part_brand ?> для автомобиля <?= $make ?> <?= $model ?>. На все запчасти есть сертификат соответсвия.",
       "sku": "<?= $product['one_c_id'] ?>",
-      "brand": "<?= $product['brand']['brand'] ?>",
+      "brand": "<?= $part_brand ?>",
       "offers": {
         "@type": "Offer",
-        "url": "<?= $actual_link ?>",
+        "url": "<?= $url->product($slug) ?>",
         "priceCurrency": "RUB",
         "price": "<?= $product['price'] ?>",
-        "priceValidUntil": "<?= date("Y-m-d") ?>",
+        "priceValidUntil": "<?= $snippets_price_date_valid ?>",
         "itemCondition": "http://schema.org/NewCondition",
         "availability": "https://schema.org/InStock",
         "seller": {
           "@type": "Organization",
-          "name": "Angara77"
+          "name": "<?= COMPANY_INFO['company_name'] ?>"
         }
       }
     }
