@@ -57,6 +57,8 @@ RewriteRule ^category/([a-zA-Z0-9-]+)/$ /backend/pages/category_no_car/index.php
 RewriteRule ^robots.txt$ /backend/pages/robots.txt/index.php [L]
 # Sitemap
 RewriteRule ^sitemap.xml$ /backend/pages/sitemap.xml/index.php [L]
+# Yandex XML
+RewriteRule ^yandex.xml$ /backend/pages/yandex.xml/index.php [L]
 
 # Home redirect last
 RewriteRule ^$ /backend/pages/home/home.php [L]
