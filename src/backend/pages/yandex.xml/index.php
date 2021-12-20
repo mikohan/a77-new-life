@@ -1,8 +1,6 @@
 <?php
 // ob_start();
 ini_set('max_execution_time', 300);
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
 include __DIR__ . '/../../lib/init.php';
 include __DIR__ . '/../yandex.xml/YandexXmlModel.php';
 

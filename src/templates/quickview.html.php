@@ -1,7 +1,5 @@
 <?php
 
-// error_reporting(E_ALL);
-// ini_set("display_errors", 1);
 $name = $_GET['name'];
 $images = $_GET['images'];
 $images = explode(',', $_GET['images']);
