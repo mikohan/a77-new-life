@@ -2,7 +2,7 @@
 
 use Spatie\Async\Pool;
 
-class SitemapModel extends Connection
+class YandexXmlModel extends Connection
 {
   // All Categories
   private $all_cats_url = PHOTO_API_URL .  "/api/product/get-all-categories-flat/";
