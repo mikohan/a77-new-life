@@ -6,7 +6,7 @@
   <?php include __DIR__ . '/../backend/includes/header/ga.php'; ?>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no" />
-  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
   <title><?= $post['title'] ?> - Ангара77 Запчасти</title>
   <meta name="description" content="<?= mb_ucfirst($post['title']) ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
   <!-- fonts -->

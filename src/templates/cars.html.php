@@ -9,7 +9,7 @@
 	<title><?= $title ?></title>
 	<meta name="description" content="<?= $description ?>">
 	<link rel="canonical" href="<?= $u->car($cars_car['make']['slug'], $cars_car['slug']) ?>" />
-	<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+	<?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
 	<!-- fonts -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" />
 </head>

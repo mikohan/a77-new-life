@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
   <title>Гарантии - <?= COMPANY_INFO['company_name'] ?></title>
-  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
   <!-- fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
   <!-- css -->
