@@ -26,17 +26,16 @@ $date =  $date_obj->format('Y-m-d');
 # Валюта
 
 // Getting categoreis from API
-$categories = $sm->categoriesPages();
+$cats = $sm->categoriesPages();
 
 
-$category_string = '<categories>';
-foreach ($categories as $category) {
+$categories = '';
+foreach ($cats as $category) {
   $parent_ck = $category['parent'] ?? false;
   $parent = $parent_ck ? 'parentId="' . $category['parent'] . '"' : '';
   $id = $category['id'];
-  $category_string .= '<category id="' . $id . '" ' . $parent . '>' . $category['name'] .  '</category>';
+  $categories .= '<category id="' . $id . '" ' . $parent . '>' . $category['name'] .  '</category>';
 }
-$category_string .= '</categories>';
 
 $products = $sm->getProducts();
 
@@ -106,7 +105,7 @@ $out = <<<HTML
     <currency id="RUR" rate="1"/>
 </currencies>
 <categories>
-  {$category_string}
+  {$categories}
 </categories>
 <offers>
 {$offers}
