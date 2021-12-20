@@ -88,10 +88,10 @@ foreach ($products['hits']['hits'] as $product_source) {
       <store>true</store>   
     </offer>
 HTML;
-  if ($i == 10) {
-    break;
-  }
-  $i++;
+  // if ($i == 10) {
+  //   break;
+  // }
+  // $i++;
 }
 
 $out = <<<HTML
