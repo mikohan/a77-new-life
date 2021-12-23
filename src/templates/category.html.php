@@ -80,11 +80,11 @@
                 </li>
                 <?php foreach ($parents as $parent) : ?>
                   <li class="breadcrumb__item breadcrumb__item--parent">
-                    <a href="/car/<?= $current_car->make->slug ?>/<?= $current_car->slug ?>/<?= $parent['slug'] ?>/" class="breadcrumb__item-link"><?= $parent['name'] ?></a>
+                    <a href="<?= $u->categoryCar($current_car->slug, $parent['slug']) ?>" class="breadcrumb__item-link"><?= mb_ucfirst($parent['name']) ?></a>
                   <li>
                   <?php endforeach ?>
                   <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
-                    <span class="breadcrumb__item-link"><?= $page_category['name'] ?></span>
+                    <span class="breadcrumb__item-link"><?= mb_ucfirst($page_category['name']) ?></span>
                   </li>
                   <li class="breadcrumb__title-safe-area" role="presentation"></li>
               </ol>
