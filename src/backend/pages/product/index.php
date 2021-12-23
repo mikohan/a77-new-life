@@ -77,5 +77,6 @@ $today = new DateTime();
 $today->add(new DateInterval('P30D'));
 $valid = $today->format('Y-m-d');
 $product_link = $u->product($product['slug']);
+// Categories for breadcrumbs
 
 include __DIR__ . '/../../../templates/product.html.php';

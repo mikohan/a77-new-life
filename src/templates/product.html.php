@@ -45,7 +45,39 @@
     <!-- site__header / end -->
     <!-- site__body -->
     <div class="site__body">
-      <div class="block-split" style="margin-top: 30px;">
+      <div class="block-header block-header--has-breadcrumb">
+        <div class="container">
+          <div class="block-header__body">
+            <nav class="breadcrumb block-header__breadcrumb" aria-label="breadcrumb">
+              <ol class="breadcrumb__list">
+                <li class="breadcrumb__spaceship-safe-area" role="presentation"></li>
+                <li class="breadcrumb__item breadcrumb__item--parent breadcrumb__item--first">
+                  <a href="<?= $u->home() ?>" class="breadcrumb__item-link">Главная</a>
+                </li>
+                <?php foreach ($product['category'] as $category) : ?>
+                  <?php
+                  $mod_slug = $product['model'][0]['slug'] ?? null;
+                  if ($mod_slug) {
+                    $link = $u->categoryCar($mod_slug, $category['slug']);
+                  } else {
+
+                    $link = $u->category($category['slug']);
+                  }
+
+                  ?>
+                  <li class="breadcrumb__item breadcrumb__item--parent">
+                    <a href="<?= $link ?>" class="breadcrumb__item-link"><?= $category['name'] ?></a>
+                  </li>
+                <?php endforeach ?>
+                <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
+                  <span class="breadcrumb__item-link"><?= $product['name'] ?></span>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="block-split">
         <div class="container">
           <div class="block-split__row row no-gutters">
             <div class="block-split__item block-split__item-content col-auto">
