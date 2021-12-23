@@ -66,11 +66,11 @@
 
                   ?>
                   <li class="breadcrumb__item breadcrumb__item--parent">
-                    <a href="<?= $link ?>" class="breadcrumb__item-link"><?= $category['name'] ?></a>
+                    <a href="<?= $link ?>" class="breadcrumb__item-link"><?= mb_ucfirst($category['name']) ?></a>
                   </li>
                 <?php endforeach ?>
                 <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
-                  <span class="breadcrumb__item-link"><?= $product['name'] ?></span>
+                  <span class="breadcrumb__item-link"><?= mb_ucfirst($product['name']) ?></span>
                 </li>
               </ol>
             </nav>
