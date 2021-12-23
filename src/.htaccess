@@ -27,6 +27,7 @@ RewriteRule ^article/([0-9]+)/$ /backend/pages/redirect/blog/index.php?id=$1 [L]
 RewriteRule ^articles/$ /backend/pages/blog/index.php [L]
 RewriteRule ^porter1/([0-9])/$ /backend/pages/redirect/catalogues/index.php?id=$1 [L]
 RewriteRule ^carcatalog/([0-9]+)/$ /backend/pages/redirect/catalogues/index.php?car_id=$1 [L]
+RewriteRule ^group-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/group/index.php?car_id=$1&dummy=$2&cat_id=$3 [L]
 
 # Old redicrects ends here
 
