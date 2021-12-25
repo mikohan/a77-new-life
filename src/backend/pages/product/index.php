@@ -78,5 +78,7 @@ $today->add(new DateInterval('P30D'));
 $valid = $today->format('Y-m-d');
 $product_link = $u->product($product['slug']);
 // Categories for breadcrumbs
+$product['name'] = str_replace('"', '', $product['name']);
+$product['name2'] = str_replace('"', '', $product['name2']);
 
 include __DIR__ . '/../../../templates/product.html.php';
