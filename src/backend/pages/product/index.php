@@ -67,6 +67,7 @@ if (!count($product['product_image'])) {
     $product_tmbs[] = $item['img150'];
   }
 }
+// Comment
 
 
 $catalogue_new = null;
@@ -79,6 +80,6 @@ $valid = $today->format('Y-m-d');
 $product_link = $u->product($product['slug']);
 // Categories for breadcrumbs
 $product['name'] = str_replace('"', '', $product['name']);
-$product['name2'] = str_replace('"', '', $product['name2']);
+$product['name2'] = str_replace('"', '', $product['name']);
 
 include __DIR__ . '/../../../templates/product.html.php';
