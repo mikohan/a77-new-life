@@ -4,6 +4,9 @@
 include __DIR__ . '/../../lib/init.php';
 require_once __DIR__ . '/../catalogue/CatalogueModel.php';
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 $car_slug = $_GET['car'] ?? '';
 $schema_id = $_GET['schema'] ?? ''; // Var current shcema id
 

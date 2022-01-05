@@ -179,20 +179,24 @@ class CatalogueModel extends Connection
     $t->execute(array($car_slug, $schema_id));
     $mysql_result = $t->fetch(PDO::FETCH_ASSOC);
 
+    // Making interval
+    $today = new DateTime();
+    $past = new DateTime($mysql_result['updated'] ?? null);
+    $interval = CATALOUGE_CACHE_LIFETIME;
     if ($mysql_result) {
-      // Making interval
-      $today = new DateTime();
-      $past = new DateTime($mysql_result['updated'] ?? null);
       $interval = $today->diff($past)->days;
-      // Checking interval
-      if ($interval < CATALOUGE_CACHE_LIFETIME) {
-        // Return data from cache table
-        // echo ('Got data from MysQl');
-        return array(
-          'merged_data' => json_decode($mysql_result['merged_json'], true), 'product_data' =>
-          json_decode($mysql_result['products_json'], true)
-        );
-      }
+    }
+
+
+
+    // Checking interval
+    if ($interval <= CATALOUGE_CACHE_LIFETIME) {
+      // Return data from cache table
+      // echo ('Got data from MysQl');
+      return array(
+        'merged_data' => json_decode($mysql_result['merged_json'], true), 'product_data' =>
+        json_decode($mysql_result['products_json'], true)
+      );
     } else {
       // Start chain of getting and saving data to cahche
       // echo ('Got data from API');
@@ -212,18 +216,26 @@ class CatalogueModel extends Connection
 
 
 
-  function splitArray(array $input_array, int $size, $preserve_keys = null): array
+  function splitArray($input_array, int $size, $preserve_keys = null): array
 
   {
     /**
      * Function for getting chunks for bottom section with product cards
      */
-    $nr = (int)ceil(count($input_array) / $size);
+    try {
+
+      $nr = (int)ceil(count($input_array) / $size);
+    } catch (Throwable $t) {
+      return [];
+    }
 
     if ($nr > 0) {
       return array_chunk($input_array, $nr, $preserve_keys);
+    } else {
+      return [];
     }
-
-    return $input_array;
+    if ($input_array) {
+      return $input_array;
+    }
   }
 }
