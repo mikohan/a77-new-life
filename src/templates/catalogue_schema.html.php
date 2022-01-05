@@ -30,7 +30,7 @@
                 <a href="/" class="breadcrumb__item-link">Главная</a>
               </li>
               <li class="breadcrumb__item breadcrumb__item--parent">
-                <a href="" class="breadcrumb__item-link">Каталог</a>
+                <a href="<?= $u->catalogue($car_slug) ?>" class="breadcrumb__item-link">Каталог</a>
               <li>
               <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
                 <span class="breadcrumb__item-link"><?= $model ?></span>
