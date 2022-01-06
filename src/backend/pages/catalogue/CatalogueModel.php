@@ -190,16 +190,16 @@ class CatalogueModel extends Connection
 
 
     // Checking interval
-    if ($interval <= CATALOUGE_CACHE_LIFETIME) {
+    if ($interval < CATALOUGE_CACHE_LIFETIME) {
       // Return data from cache table
-      // echo ('Got data from MysQl');
+      echo ('Got data from MysQl');
       return array(
         'merged_data' => json_decode($mysql_result['merged_json'], true), 'product_data' =>
         json_decode($mysql_result['products_json'], true)
       );
     } else {
       // Start chain of getting and saving data to cahche
-      // echo ('Got data from API');
+      echo ('Got data from API');
       // Getting cat_data from mysql
       $cat_data = $this->getCatalogueSchema($car_slug, $schema_id);
       // Getting cat_number array
