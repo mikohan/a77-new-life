@@ -81,8 +81,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="block-space block-space--layout--divider-nl"></div>
-			<div class="block block-brands block-brands--layout--columns-8-full">
+			<div class="block-space block-space--layout--divider-nl display_desktop"></div>
+			<div class="block block-brands block-brands--layout--columns-8-full display_desktop">
 				<div class="container">
 					<ul class="block-brands__list">
 						<?php $i = 1; ?>
@@ -105,8 +105,8 @@
 					</ul>
 				</div>
 			</div>
-			<div class="block-space block-space--layout--divider-nl"></div>
-			<div class="block block-categories">
+			<div class="block-space block-space--layout--divider-nl display_desktop"></div>
+			<div class="block block-categories display_desktop">
 				<div class="container">
 					<div class="block-categories__header">
 						<div class="block-categories__title">
@@ -291,8 +291,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="block-space block-space--layout--divider-nl home_all_cats_block"></div>
-			<div class="block block-categories home_all_cats_block">
+			<div class="block-space block-space--layout--divider-nl display_mobile"></div>
+			<div class="block block-categories display_mobile">
 				<div class="container">
 					<div class="block-categories__header">
 						<div class="block-categories__title">
@@ -324,7 +324,6 @@
 								if ($cat_img_chk) {
 									$cat_img = $car_cat['cat_img'];
 								}
-
 								?>
 								<div class="block-categories__item category-card category-card--layout--classic">
 									<div class="category-card__body">

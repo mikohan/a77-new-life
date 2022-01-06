@@ -162,10 +162,22 @@ h1 {
   .home_all_cats_block {
     display: none;
   }
+  .display_mobile {
+    display: block;
+  }
+  .display_desktop {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 401px) and (max-width: 3840px) {
   .catalogue__tooltip-item-container {
+    display: block;
+  }
+  .display_mobile {
+    display: none;
+  }
+  .display_desktop {
     display: block;
   }
 }
