@@ -398,25 +398,26 @@
                 <div class="vehicles-list">
                   <div class="vehicles-list__body">
                     <script>
-                      function sendSession(id, carName) {
-                        console.log(id, carName)
+                      function sendSession(make, model) {
+                        console.log(make, model)
 
                         var xhttp = new XMLHttpRequest();
                         xhttp.onreadystatechange = function() {
                           if (this.readyState == 4 && this.status == 200) {
 
                             // console.log(this.responseText);
-                            location.reload();
+                            //location.reload();
+                            window.location.href = `/cars/${make}/${model}/`;
+
                           }
                         };
-                        const carId = id;
-                        xhttp.open("GET", `/backend/includes/header/set_session.php?carname=${carName}&carid=${carId}`, true);
+                        xhttp.open("GET", `/backend/includes/header/set_session.php?carname=${model}&carid=${model}`, true);
                         xhttp.send();
 
                       }
                     </script>
                     <?php foreach ($get_all_cars as $selectCar) : ?>
-                      <label id="<?= $selectCar->id ?>" class="vehicles-list__item" onclick="sendSession(this.id, '<?= $selectCar->name ?>')">
+                      <label id="<?= $selectCar->id ?>" class="vehicles-list__item" onclick="sendSession('<?= $selectCar->make->slug ?>', '<?= $selectCar->slug ?>')">
                         <span class="vehicles-list__item-radio input-radio">
                           <span class="input-radio__body">
                             <input class="input-radio__input" name="header-vehicle" type="radio">
