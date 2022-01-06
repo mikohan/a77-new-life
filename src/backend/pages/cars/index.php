@@ -5,10 +5,14 @@ require_once __DIR__ . '/../cars/CarsModel.php';
 require_once __DIR__ . '/../../lib/QuickView.php';
 
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 $cars_model = new CarsModel;
 $cars_car = $cars_model->getCar($_GET['model']);
 // p($cars_car['categories']);
 $car_all_categories = buildTree($cars_car['categories']);
+// p($car_all_categories);
 
 // Meta stuff here
 $h1 = "Запчасти для " . mb_ucfirst($cars_car['make']['name']) . " " . mb_ucfirst($cars_car['name']);

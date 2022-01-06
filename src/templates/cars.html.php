@@ -291,8 +291,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="block-space block-space--layout--divider-nl"></div>
-			<div class="block block-categories">
+			<div class="block-space block-space--layout--divider-nl home_all_cats_block"></div>
+			<div class="block block-categories home_all_cats_block">
 				<div class="container">
 					<div class="block-categories__header">
 						<div class="block-categories__title">
@@ -317,28 +317,34 @@
 					</div>
 					<div class="container">
 						<div class="block-categories__list">
-							<?php foreach ($car_all_categories[1] as $car_cat) : ?>
+							<?php foreach ($car_all_categories[1]['children'] as $car_cat) : ?>
+								<?php
+								$cat_img_chk  = $car_cat['cat_img'] ?? false;
+								$cat_img = '/assets/images/categories/podveska.jpg';
+								if ($cat_img_chk) {
+									$cat_img = $car_cat['cat_img'];
+								}
+
+								?>
 								<div class="block-categories__item category-card category-card--layout--classic">
 									<div class="category-card__body">
 										<div class="category-card__content">
 											<div class="category-card__image image image--type--category">
-												<a href="/category/fary-osveschenie-signalizatsija/" class="image__body">
-													<img class="image__tag" src="/assets/images/categories/fary-osveschenie-signalizatsija.jpg" alt="Lamps and headlights" />
+												<a href="<?= $u->categoryCar($_GET['model'], $car_cat['slug']) ?>" class="image__body">
+													<img class="image__tag" src="<?= $cat_img ?>" alt="<?= $car_cat['name'] ?>" />
 												</a>
 											</div>
 											<div class="category-card__info">
 												<div class="category-card__name">
-													<a href="/category/fary-osveschenie-signalizatsija/">Фары и освещение</a>
+													<a href="/category/fary-osveschenie-signalizatsija/"><?= $car_cat['name'] ?></a>
 												</div>
 												<ul class="category-card__children">
-													<li><a href="/category/fary-osveschenie-signalizatsija/">Фары и освещение</a></li>
-													<li><a href="/category/fonari-i-signalizatsija/">Фонари и сигнализация</a></li>
-													<li><a href="/category/fary-raznye/">Фары разные</a></li>
-													<li><a href="/category/lampy-far-i-podsvetki/">Лампы фар</a></li>
-													<li><a href="/category/povorotniki-povtoriteli/">Поворотники</a></li>
+													<?php foreach ($car_cat['children'] as $sub) : ?>
+														<li><a href="<?= $u->categoryCar($_GET['model'], $sub['slug']) ?>"><?= $sub['name'] ?></a></li>
+													<?php endforeach ?>
 												</ul>
 												<div class="category-card__actions">
-													<a href="/category/fary-osveschenie-signalizatsija/" class="category-card__link">Перейти в категорию</a>
+													<a href="<?= $u->categoryCar($_GET['model'], $car_cat['slug']) ?>" class="category-card__link">Перейти в категорию</a>
 												</div>
 											</div>
 										</div>
