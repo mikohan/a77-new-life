@@ -7,6 +7,8 @@ require_once __DIR__ . '/../../lib/QuickView.php';
 
 $cars_model = new CarsModel;
 $cars_car = $cars_model->getCar($_GET['model']);
+// p($cars_car['categories']);
+$car_all_categories = buildTree($cars_car['categories']);
 
 // Meta stuff here
 $h1 = "Запчасти для " . mb_ucfirst($cars_car['make']['name']) . " " . mb_ucfirst($cars_car['name']);
@@ -19,3 +21,23 @@ $features = $cars_model->getProductsForHomePage($cars_car);
 $posts = $cars_model->getLatestPosts();
 // All cars we are getting from Header
 require_once __DIR__ . '/../../../templates/cars.html.php';
+
+// Making tree
+function buildTree(array $array, $idKeyName = 'id', $parentIdKey = 'parent', $childNodesField = 'children')
+{
+    $indexed = array();
+    // first pass - get the array indexed by the primary id
+    foreach ($array as $row) {
+        $indexed[$row[$idKeyName]]                   = $row;
+        $indexed[$row[$idKeyName]][$childNodesField] = array();
+    }
+    // second pass
+    $root = array();
+    foreach ($indexed as $id => $row) {
+        $indexed[$row[$parentIdKey]][$childNodesField][$id] = &$indexed[$id];
+        if (!$row[$parentIdKey]) {
+            $root[$id] = &$indexed[$id];
+        }
+    }
+    return $root;
+}

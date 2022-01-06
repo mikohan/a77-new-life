@@ -292,6 +292,64 @@
 				</div>
 			</div>
 			<div class="block-space block-space--layout--divider-nl"></div>
+			<div class="block block-categories">
+				<div class="container">
+					<div class="block-categories__header">
+						<div class="block-categories__title">
+							Все категории
+							<div class="decor block-categories__title-decor decor--type--center">
+								<div class="decor__body">
+									<div class="decor__start"></div>
+									<div class="decor__end"></div>
+									<div class="decor__center"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block-categories__body">
+					<div class="decor block-categories__body-decor decor--type--bottom">
+						<div class="decor__body">
+							<div class="decor__start"></div>
+							<div class="decor__end"></div>
+							<div class="decor__center"></div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="block-categories__list">
+							<?php foreach ($car_all_categories[1] as $car_cat) : ?>
+								<div class="block-categories__item category-card category-card--layout--classic">
+									<div class="category-card__body">
+										<div class="category-card__content">
+											<div class="category-card__image image image--type--category">
+												<a href="/category/fary-osveschenie-signalizatsija/" class="image__body">
+													<img class="image__tag" src="/assets/images/categories/fary-osveschenie-signalizatsija.jpg" alt="Lamps and headlights" />
+												</a>
+											</div>
+											<div class="category-card__info">
+												<div class="category-card__name">
+													<a href="/category/fary-osveschenie-signalizatsija/">Фары и освещение</a>
+												</div>
+												<ul class="category-card__children">
+													<li><a href="/category/fary-osveschenie-signalizatsija/">Фары и освещение</a></li>
+													<li><a href="/category/fonari-i-signalizatsija/">Фонари и сигнализация</a></li>
+													<li><a href="/category/fary-raznye/">Фары разные</a></li>
+													<li><a href="/category/lampy-far-i-podsvetki/">Лампы фар</a></li>
+													<li><a href="/category/povorotniki-povtoriteli/">Поворотники</a></li>
+												</ul>
+												<div class="category-card__actions">
+													<a href="/category/fary-osveschenie-signalizatsija/" class="category-card__link">Перейти в категорию</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							<?php endforeach ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="block-space block-space--layout--divider-nl"></div>
 			<div class="block block-products-carousel" data-layout="grid-5">
 				<div class="container">
 					<div class="section-header">

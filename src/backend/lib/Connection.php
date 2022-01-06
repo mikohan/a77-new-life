@@ -29,7 +29,7 @@ class Connection
     $i = null;
     if ($result) {
       $i = json_decode($result['car_json'], true);
-      unset($i['categories']);
+      // unset($i['categories']);
       unset($i['model_to']);
       unset($i['model_to']);
       unset($i['model_hostory']);
