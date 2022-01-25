@@ -140,7 +140,7 @@
                   <div class="product__main">
                     <div class="product__excerpt--side">
                       <div class="product__features ">
-                        <div class="product__features-title">Характеристики:</div>
+                        <div class="product__features-title">Характеристики</div>
                         <ul>
                           <?php foreach ($attrs as $attribute) : ?>
                             <li><?= $attribute['name'] ?? ''  ?> <span><?= $attribute['value'] ?? '' ?></span></li>
@@ -494,8 +494,10 @@
                             <h4 class="spec__section-title">Характеристики</h4>
                             <?php if (count($product['product_attribute'])) : ?>
                               <?php foreach ($product['product_attribute'] as $attribute) : ?>
+
+                                <?php $att_name = $attribute['attribute_name']['name'] ?? '' ?>
                                 <div class="spec__row">
-                                  <div class="spec__name"><?= $attribute['attribute_name'] ?></div>
+                                  <div class="spec__name"><?= $att_name ?></div>
                                   <div class="spec__value"><?= $attribute['attribute_value'] ?></div>
                                 </div>
                               <?php endforeach ?>
