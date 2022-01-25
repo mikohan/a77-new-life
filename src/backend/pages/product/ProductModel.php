@@ -94,7 +94,7 @@ class ProductModel extends Connection
       $past = new DateTime($mysql_data['updated'] ?? null);
       $interval = $today->diff($past)->days;
       // echo ('Getting from mysql');
-      if ($interval > 1) {
+      if ($interval > PRODUCT_UPDATE_INTERVAL) {
         // Call API
         // IF Api fail return result
         try {
