@@ -40,7 +40,7 @@ module.exports = {
 	},
 	output: {
 		path: PATHS.dist,
-		filename: `${PATHS.assets}js/[name].[hash].js`,
+		filename: `${PATHS.assets}js/[name].[fullhash].js`,
 		sourceMapFilename: '[name].[hash:8].map',
 		assetModuleFilename: 'assets/images/[name].[ext]',
 		publicPath: '/',
@@ -155,7 +155,7 @@ module.exports = {
 
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: `${PATHS.assets}css/[name].[hash].css`,
+			filename: `${PATHS.assets}css/[name].[fullhash].css`,
 		}),
 		new PurgeCSSPlugin({
 			paths: () => glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
