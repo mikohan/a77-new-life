@@ -23,6 +23,12 @@ try {
 $model = count($product['model']) ? mb_strtolower($product['model'][0]['name'], 'UTF-8') : '';
 $make = count($product['model']) ? mb_strtolower($product['model'][0]['make']) : '';
 
+
+$check_model = true;
+if ($model == "все модели") {
+  $check_model = false;
+}
+
 $analogs = count($product['analogs']) ? $product['analogs'] : [];
 
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
