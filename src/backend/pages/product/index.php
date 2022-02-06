@@ -4,7 +4,6 @@ require_once __DIR__ . '/../product/ProductModel.php';
 
 $product_model = new ProductModel;
 
-// Some comment
 
 
 // Here is check if ajax data has a photo then include new page
