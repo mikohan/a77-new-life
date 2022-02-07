@@ -123,7 +123,7 @@
                     <!-- // Video -->
                   </div>
                   <div class="product__header">
-                    <h1 class="product__title"><?= mb_ucfirst($product['name'] . ' ' . $product['name2']) . ' ' .  mb_ucfirst($make) . ' ' . mb_ucfirst($model)  ?></h1>
+                    <h1 class="product__title"><?= $name  ?></h1>
                     <div class="product__subtitle">
                       <div class="status-badge status-badge--style--success product__fit status-badge--has-icon status-badge--has-text">
                         <div class="status-badge__body">

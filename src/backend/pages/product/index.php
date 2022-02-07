@@ -53,6 +53,13 @@ $product_cross = count($product['product_cross']) ? $product['product_cross'] : 
 $related = count($product['related']) ? $product['related'] : [];
 
 $slug = count($product['model']) ? $product['model'][0]['make_slug'] : null;
+
+$name2 = $product['name2'] ?? ' ';
+
+$name = mb_ucfirst($product['name']) . $name2 .  mb_ucfirst($make) . ' ' . mb_ucfirst($model);
+
+
+
 $all_cars = [];
 if ($slug) {
   $all_cars = $product_model->GetCars($slug);
