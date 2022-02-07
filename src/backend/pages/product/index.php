@@ -56,7 +56,7 @@ $slug = count($product['model']) ? $product['model'][0]['make_slug'] : null;
 
 $name2 = ' ' .  $product['name2'] ?? ' ';
 
-$name = mb_ucfirst($product['name']) . $name2 .  mb_ucfirst($make) . ' ' . mb_ucfirst($model);
+$name = mb_ucfirst($product['name']) . $name2 . ' ' .  mb_ucfirst($make) . ' ' . mb_ucfirst($model);
 
 
 
