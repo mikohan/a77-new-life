@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ . '/../../lib/init.php');
+// comment
 
 $error = [
   'status_code' => 404,
