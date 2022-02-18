@@ -246,7 +246,10 @@
                           <div class="product__features-title">Подходит на:</div>
                           <div class="tags__list">
                             <?php foreach ($product['model'] as $car) : ?>
-                              <a href=""><?= mb_strtoupper($car['name'], 'UTF-8') ?></a>
+                              <?php
+                              p($car);
+                              ?>
+                              <a href="<?= $u->car($car['make_slug'], $car['slug']) ?>"><?= mb_strtoupper($car['name'], 'UTF-8') ?></a>
                             <?php endforeach ?>
                           </div>
                         </div>
