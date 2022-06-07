@@ -19,6 +19,10 @@
   $rating = $part['rating']['ratingAvg'] ? $part['rating']['ratingAvg'] : 5;
   $attributes = $part['attributes'] ? $part['attributes'] : array();
   $price = count($part['stocks']) ? $part['stocks'][0]['price'] : 'Звоните!';
+  if (!SHOW_PRICE) {
+    $price = 'Звоните';
+  }
+  echo ($price);
   $cat_number = $part['cat_number'] ? $part['cat_number'] : '/';
   $link = "/product/{$part['slug']}/";
   $brand = $part['brand'] ? $part['brand']['name'] : '';
