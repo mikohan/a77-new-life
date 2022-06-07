@@ -50,6 +50,12 @@ $product_tmb = count($product['product_image']) ? $product['product_image'][0]['
 
 $product_cross = count($product['product_cross']) ? $product['product_cross'] : [];
 
+// Price 
+$price = $product['price'] ?? 'Звоните!';
+if (!SHOW_PRICE) {
+  $price = SHOW_PRICE_STRING;
+}
+
 $related = count($product['related']) ? $product['related'] : [];
 
 $slug = count($product['model']) ? $product['model'][0]['make_slug'] : null;

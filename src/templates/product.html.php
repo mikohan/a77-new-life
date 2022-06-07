@@ -27,7 +27,7 @@
         "@type": "Offer",
         "url": "<?= $product_link ?>",
         "priceCurrency": "RUB",
-        "price": "<?= $product['price'] ?>",
+        "price": "<?= $price ?>",
         "priceValidUntil": "<?= $valid ?>",
         "itemCondition": "http://schema.org/NewCondition",
         "availability": "https://schema.org/InStock",
@@ -158,6 +158,7 @@
                               <?php foreach ($analogs as $analog) : ?>
                                 <?php
                                 $brand = '';
+                                $analog_price = SHOW_PRICE ? $analog['price'] : SHOW_PRICE_STRING;
                                 if ($analog['brand'] ?? false) {
                                   if (array_key_exists('brand', $analog)) {
                                     $brand = mb_strtoupper($analog['brand']['brand']);
@@ -171,7 +172,7 @@
                                     </a>
                                   </td>
                                   <td style="white-space: nowrap; font-size: 12px;"><?= $brand ?></td>
-                                  <td style="white-space: nowrap; font-size: 12px; font-weight: bold;"><?= $analog['price'] ? '₽ ' . $analog['price'] : ''  ?></td>
+                                  <td style="white-space: nowrap; font-size: 12px; font-weight: bold;"><?= '₽ ' . $analog_price ?></td>
                                 </tr>
                               <?php endforeach ?>
                             </tbody>
@@ -203,7 +204,7 @@
                         <div class="product__prices-stock">
                           <div class="product__prices">
                             <?php setlocale(LC_MONETARY, 'ru_RU'); ?>
-                            <div class="product__price product__price--current">₽ <?= number_format($product['price'], 0, ',', ' ')  ?>
+                            <div class="product__price product__price--current">₽ <?= !SHOW_PRICE ? SHOW_PRICE_STRING : number_format($product['price'], 0, ',', ' ')  ?>
                             </div>
                           </div>
                           <div class="status-badge status-badge--style--success product__stock status-badge--has-text">
@@ -601,6 +602,7 @@
                     <div class="block-products-carousel__carousel-loader"></div>
                     <div class="owl-carousel">
                       <?php foreach ($related as $related_product) : ?>
+                        <?php $related_price = !SHOW_PRICE ? SHOW_PRICE_STRING : $related_product['price']; ?>
                         <div class="block-products-carousel__column">
                           <div class="block-products-carousel__cell">
                             <div class="product-card product-card--layout--grid">
@@ -682,7 +684,7 @@
                               <div class="product-card__footer">
                                 <div class="product-card__prices">
                                   <div class="product-card__price product-card__price--current">
-                                    ₽ <?= $related_product['price'] ?>
+                                    ₽ <?= $related_price ?>
                                   </div>
                                 </div>
                                 <button class="product-card__addtocart-icon add-to-cart" type="button" aria-label="Add to cart" data-name="<?= $related_product['name'] ?>" data-price="<?= $related_product['price'] ?>" data-image="<?= count($related_product['images']) ? $related_product['images'][0]['img245'] : '/assets/images/products/product-default-245.jpg' ?>" data-sku="<?= $related_product['one_c_id'] ?>">
