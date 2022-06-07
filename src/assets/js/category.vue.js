@@ -11,6 +11,7 @@ var app = new Vue({
   el: '#app',
   data() {
     return {
+      show_price: false,
       //////////
       apiUrl: {},
       browserUrl: {},
