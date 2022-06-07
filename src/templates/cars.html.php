@@ -678,7 +678,7 @@
                         <div class="product-card__footer">
                           <div class="product-card__prices">
                             <div class="product-card__price product-card__price--current">
-                              &#8381; <?= $latest_price ?>
+                              &#8381; <?= $sale_price ?>
                             </div>
                           </div>
                           <button class="product-card__addtocart-icon add-to-cart" type="button" aria-label="Add to cart" data-sku="<?= $sku ?>" data-price="<?= $price ?>" data-name="<?= $name ?>" data-img="<?= $img ?>">
