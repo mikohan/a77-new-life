@@ -79,8 +79,11 @@
                       $brand = $chk_br ? mb_strtoupper($product['brand']['brand']) : '';
                       $spl = array_slice(explode(' ',  $product['name']), 0, 4);
                       $name = implode(' ', $spl);
+                      $prod_price_list = !SHOW_PRICE ? SHOW_PRICE_STRING : $product['price'];
                       ?>
-                      <li class="side-<?= $product['cat_number'] ?>"><a href="<?= $u->product($product['slug']) ?>"><span class="catalogue__span-name"><?= $name ?></span> <span class="catalogue__span-brand"><?= $brand ?> </span> <span class="catalogue__span-price">&#8381;<?= $product['price'] ?></span></a></li>
+                      <li class="side-<?= $product['cat_number'] ?>"><a href="<?= $u->product($product['slug']) ?>">
+                          <span class="catalogue__span-name"><?= $name ?></span> <span class="catalogue__span-brand"><?= $brand ?> </span>
+                          <span class="catalogue__span-price">&#8381;<?= $prod_price_list ?></span></a></li>
                     <?php endforeach ?>
                   </ul>
                 </div>
