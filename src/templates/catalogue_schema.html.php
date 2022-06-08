@@ -83,7 +83,7 @@
                       ?>
                       <li class="side-<?= $product['cat_number'] ?>"><a href="<?= $u->product($product['slug']) ?>">
                           <span class="catalogue__span-name"><?= $name ?></span> <span class="catalogue__span-brand"><?= $brand ?> </span>
-                          <span class="catalogue__span-price">&#8381;<?= $prod_price_list ?></span></a></li>
+                          <span class="catalogue__span-price">&#8381;&nbsp;<?= $prod_price_list ?></span></a></li>
                     <?php endforeach ?>
                   </ul>
                 </div>
