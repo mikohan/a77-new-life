@@ -102,8 +102,12 @@
                             $chk_brand = $prod['brand'] ?? false;
                             $prod_brand = $chk_brand ? mb_strtoupper($prod['brand']['brand']) : '';
                             $chk_price = $prod['price'] ?? false;
-                            $prod_price = $chk_price ? $prod['price'] : 'Звоните';
-                            $prod_price =  $prod_price ? $prod_price : 'Звоните';
+                            $product_price = $prod['price'] ?? null;
+
+                            $prod_price = !SHOW_PRICE || !$chk_price ? SHOW_PRICE_STRING : $product_price;
+
+                            // $prod_price = $chk_price ? $prod['price'] : 'Звоните';
+                            // $prod_price =  $prod_price ? $prod_price : 'Звоните';
                             $prod_cat_number = $prod['cat_number'];
                             $prod_name = $prod['name'];
                             ?>
