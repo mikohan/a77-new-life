@@ -27,7 +27,7 @@
         "@type": "Offer",
         "url": "<?= $product_link ?>",
         "priceCurrency": "RUB",
-        "price": "<?= $price ?>",
+        "price": "<?= $markup_price ?>",
         "priceValidUntil": "<?= $valid ?>",
         "itemCondition": "http://schema.org/NewCondition",
         "availability": "https://schema.org/InStock",
