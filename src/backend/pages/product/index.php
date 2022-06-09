@@ -52,7 +52,8 @@ $product_cross = count($product['product_cross']) ? $product['product_cross'] : 
 
 // Price 
 $price = $product['price'] ?? 'Звоните!';
-$markup_price = $product['price'] && 0;
+$markup_price = $product['price'] ?? 0;
+
 if (!SHOW_PRICE) {
   $price = SHOW_PRICE_STRING;
 }
