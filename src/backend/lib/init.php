@@ -1,5 +1,5 @@
 <?php
-if (MODE == 'development') {
+if (SITE_MODE == 'development') {
   error_reporting(E_ALL);
   ini_set("display_errors", 1);
 }
