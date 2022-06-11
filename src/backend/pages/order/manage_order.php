@@ -12,7 +12,7 @@ $firstname = isset($data['customer']['firstname']) ? $data['customer']['firstnam
 
 
 if (!$firstname) {
-	$firstname = 'Клиент';
+  $firstname = 'Клиент';
 }
 echo $firstname;
 $city = $data['customer']['city'];
@@ -30,12 +30,12 @@ require_once('./email.company.tpl.html.php');
 
 $row = '';
 foreach ($data['cart'] as $cart) {
-	$sku = $cart['sku'];
-	$name = $cart['name'];
-	$count = $cart['count'];
-	$price = $cart['price'];
-	$total = $cart['total'];
-	$row .= "
+  $sku = $cart['sku'];
+  $name = $cart['name'];
+  $count = $cart['count'];
+  $price = $cart['price'];
+  $total = $cart['total'];
+  $row .= "
 																	<tr style='border-bottom: 1px solid #c0c5ca; line-height: 24px; font-size: 12px;'>
 																		<td>
 																			{$sku}
@@ -62,15 +62,15 @@ $company_tpl = $tpl_head_company . $row . $tpl_end_company;
 
 function send_email($to, $template)
 {
-	$subject = 'Заказ запчастей в Ангара';
-	$headers = "From: Ангара запчасти <noreply@angara77.com>" . "\r\n";
-	$headers .= "Reply-To: angara77@gmail.com" . "\r\n";
-	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-	if (mail($to, $subject, $template, $headers)) {
-		return true;
-	}
-	return false;
+  $subject = 'Заказ запчастей в Ангара';
+  $headers = "From: Ангара запчасти <angara77@gmail.com>" . "\r\n";
+  $headers .= "Reply-To: angara77@gmail.com" . "\r\n";
+  $headers .= "MIME-Version: 1.0\r\n";
+  $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+  if (mail($to, $subject, $template, $headers)) {
+    return true;
+  }
+  return false;
 }
 $manages_emails = implode(', ', MANAGERS_EMAILS);
 echo send_email($manages_emails, $company_tpl);
@@ -78,5 +78,5 @@ $customer_email = strip_tags($email);
 
 if ($customer_email) {
 
-	echo send_email($customer_email, $customer_tpl);
+  echo send_email($customer_email, $customer_tpl);
 }
