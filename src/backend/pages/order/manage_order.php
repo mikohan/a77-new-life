@@ -59,7 +59,7 @@ foreach ($data['cart'] as $cart) {
 $customer_tpl = $tpl_head . $row . $tpl_end;
 
 $company_tpl = $tpl_head_company . $row . $tpl_end_company;
-
+// Some comment for gh
 function send_email($to, $template)
 {
   $subject = 'Заказ запчастей в Ангара';
