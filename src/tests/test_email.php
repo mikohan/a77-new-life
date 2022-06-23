@@ -22,7 +22,7 @@ function send_email($to, $template)
   return false;
 }
 
-if (send_email("a2151508@yandex.ru", $template)) {
+if (send_email("a2151508@yandex.ru, angara99@gmail.com", $template)) {
   echo ("Message accepted");
 } else {
   "Error: Messate not accepted";
