@@ -73,7 +73,7 @@ function send_email($to, $template)
   return false;
 }
 $manages_emails = implode(', ', MANAGERS_EMAILS);
-echo send_email($manages_emails, $company_tpl);
+echo send_email(trim($manages_emails), $company_tpl);
 $customer_email = strip_tags($email);
 
 if ($customer_email) {
