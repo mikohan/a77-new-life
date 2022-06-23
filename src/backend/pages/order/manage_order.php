@@ -63,7 +63,7 @@ $company_tpl = $tpl_head_company . $row . $tpl_end_company;
 function send_email($to, $template)
 {
   $subject = 'Заказ запчастей в Ангара';
-  $headers = "From: Ангара запчасти <angara77@gmail.com>" . "\r\n";
+  $headers = "From: Ангара запчасти <angara77@agmail.com>" . "\r\n";
   $headers .= "Reply-To: angara77@gmail.com" . "\r\n";
   $headers .= "MIME-Version: 1.0\r\n";
   $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
