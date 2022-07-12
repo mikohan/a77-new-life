@@ -84,6 +84,7 @@ class HomeModel extends Connection
      * 3) Save to db and send to a page
      */
     $products = $this->getFeaturesFromMysql();
+    p($products);
     if ($products) {
       return json_decode($products, true);
     } else {
