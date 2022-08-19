@@ -60,7 +60,8 @@ RewriteRule ^robots.txt$ /backend/pages/robots.txt/index.php [L]
 RewriteRule ^sitemap.xml$ /backend/pages/sitemap.xml/index.php [L]
 # Yandex XML
 RewriteRule ^yandex.xml$ /backend/pages/yandex.xml/index.php [L]
-
+# Blog API redirect
+RewriteRule ^backend-blog/$ /backend/index.php [L]
 # Home redirect last
 RewriteRule ^$ /backend/pages/home/home.php [L]
 </IfModule>
