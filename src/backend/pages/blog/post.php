@@ -2,8 +2,12 @@
 require_once(__DIR__ . '/../../lib/init.php');
 require_once(__DIR__ . '/../blog/BlogModelBackend.php');
 
-$blog_model = new BlogModelHTTP(BLOG_API_URL);
+
+
 $post_id = $_GET['id'];
+$url = BLOG_API_URL . "/wp/v2/posts/" . $post_id . "?_embed";
+
+$blog_model = new BlogModelHTTP($url);
 
 
 // try {
@@ -22,7 +26,7 @@ $post_id = $_GET['id'];
 //   IntlDateFormatter::GREGORIAN
 // );
 
-$post = $blog_model->getAllArticlesBackend($post_id);
+$post = $blog_model->getAllArticlesBackend();
 //p($post);
 $main_image = $post['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['large']['source_url'];
 $post_text = $post['content']['rendered'];
@@ -30,7 +34,7 @@ $post_title = $post['title']['rendered'];
 $post_author_name = $post['_embedded']['author'][0]['name'];
 $post_author_avatar = $post['_embedded']['author'][0]['avatar_urls'][96];
 
-p($post['_embedded']['author']);
+// p($post['_embedded']['author']);
 $post_raw_date = new DateTime($post['date']);
 $post_date = $post_raw_date->format('j F Y');
 

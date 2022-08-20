@@ -55,24 +55,30 @@
                       if ($article['search_frase']) {
                         $mark = mb_strtoupper($article['search_frase']);
                       }
+                      $article_title = $article['title']['rendered'];
+                      $article_img = $article['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['large']['source_url'];
+
+                      $post_author_name = $article['_embedded']['author'][0]['name'];
+                      $post_author_avatar = $article['_embedded']['author'][0]['avatar_urls'][96];
+                      $category_name = $article['_embedded']['wp:term'][0][0]['name'];
 
                       ?>
                       <div class="posts-list__item">
                         <div class="post-card post-card--layout--grid-sm">
                           <div class="post-card__image">
                             <a href="/blog/<?= $article['id'] ?>/">
-                              <img src="/assets/images/posts/post-1-730x485.jpg" alt="">
+                              <img src="<?= $article_img ?>" alt="<?= $article_title ?>">
                             </a>
                           </div>
                           <div class="post-card__content">
                             <div class="post-card__category">
-                              <a href="/search/?search=<?= $mark ?>"><?= $mark ?></a>
+                              <a href="/search/?search=<?= $category_name ?>"><?= $category_name ?></a>
                             </div>
                             <div class="post-card__title">
-                              <h2><a href="/blog/<?= $article['id'] ?>/"><?= $article['title'] ?></a></h2>
+                              <h2><a href="/blog/<?= $article['id'] ?>/"><?= $article_title ?></a></h2>
                             </div>
                             <div class="post-card__date">
-                              Автор <a href=""><?= $article['author'] ?></a> on <?= $date ?>
+                              Автор <a href=""><?= $post_author_name ?></a> on <?= $date ?>
                             </div>
                             <div class="post-card__excerpt">
                               <div class="typography">
@@ -152,7 +158,7 @@
                           <i class="widget-social__icon fab fa-youtube"></i>
                         </a>
                       </li>
-                      <li class="social-links__item social-links__item--facebook">
+                      <!--<li class="social-links__item social-links__item--facebook">
                         <a href="https://www.facebook.com/groups/angara77/media/" target="_blank">
                           <i class="widget-social__icon fab fa-facebook-f"></i>
                         </a>
@@ -161,7 +167,7 @@
                         <a href="https://twitter.com/angara_digital" target="_blank">
                           <i class="widget-social__icon fab fa-twitter"></i>
                         </a>
-                      </li>
+                      </li>-->
                       <li class="social-links__item social-links__item--instagram">
                         <a href="https://vk.com/angara772018" target="_blank">
                           <i class="widget-social__icon fab fa-vk"></i>
@@ -176,10 +182,10 @@
                   <h4>Категории</h4>
                 </div>
                 <ul class="widget-categories__list widget-categories__list--root" data-collapse data-collapse-opened-class="widget-categories__item--open">
-                  <?php foreach ($categories_tmp as $cat) : ?>
+                  <?php foreach ($categories as $cat) : ?>
                     <li class="widget-categories__item" data-collapse-item>
-                      <a href="/search/?search=<?= $cat ?>" class="widget-categories__link">
-                        <?= mb_strtoupper($cat) ?>
+                      <a href="/blog/?category_id=<?= $cat['id'] ?>" class="widget-categories__link">
+                        <?= mb_strtoupper($cat['name']) ?>
                       </a>
                     </li>
                   <?php endforeach ?>
@@ -194,16 +200,18 @@
                     <?php
                     $lp_date_obj = new DateTime($latest_post['date']);
                     $lp_date = $lp_date_obj->format('Y F d');
+
+                    $main_image = $post['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['thumbnail']['source_url'];
                     ?>
                     <li class="widget-posts__item">
                       <div class="widget-posts__image">
                         <a href="">
-                          <img src="/assets/images/posts/post-1-70x70.jpg" alt="<?= $latest_post['title'] ?>">
+                          <img src="<?= $main_image ?>" alt="<?= $latest_post['title']['rendered'] ?>">
                         </a>
                       </div>
                       <div class="widget-posts__info">
                         <div class="widget-posts__name">
-                          <a href="/blog/<?= $latest_post['id'] ?>/"><?= $latest_post['title'] ?></a>
+                          <a href="/blog/<?= $latest_post['id'] ?>/"><?= $latest_post['title']['rendered'] ?></a>
                         </div>
                         <div class="widget-posts__date"><?= $lp_date ?></div>
                       </div>
