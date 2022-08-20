@@ -28,8 +28,9 @@ $main_image = $post['_embedded']['wp:featuredmedia'][0]['media_details']['sizes'
 $post_text = $post['content']['rendered'];
 $post_title = $post['title']['rendered'];
 $post_author_name = $post['_embedded']['author'][0]['name'];
-$post_author_avatar = $post['_embedded']['author'][0][48];
-p($post_author_avatar);
+$post_author_avatar = $post['_embedded']['author'][0]['avatar_urls'][96];
+
+p($post['_embedded']['author']);
 $post_raw_date = new DateTime($post['date']);
 $post_date = $post_raw_date->format('j F Y');
 
