@@ -7,8 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no" />
   <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
-  <title><?= $post['title'] ?> - Ангара77 Запчасти</title>
-  <meta name="description" content="<?= mb_ucfirst($post['title']) ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
+  <title>
+    <?= $post['title'] ?> - Ангара77 Запчасти
+  </title>
+  <meta name="description"
+    content="<?= mb_ucfirst($post['title']) ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
   <!-- fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
 </head>
@@ -31,12 +34,20 @@
                 </li>
               </ul>
             </div>
-            <h1 class="post-header__title"><?= $post_title ?></h1>
+            <h1 class="post-header__title">
+              <?= $post_title ?>
+            </h1>
             <div class="post-header__meta">
               <ul class="post-header__meta-list">
-                <li class="post-header__meta-item">Автор <a href="" class="post-header__meta-link"><?= $post_author_name ?? 'Angara Parts' ?></a></li>
-                <li class="post-header__meta-item"><?= $post_date ?></li>
-                <li class="post-header__meta-item"><a href="" class="post-header__meta-link"><?= $post['view'] ?> Просмотров</a></li>
+                <li class="post-header__meta-item">Автор <a href="" class="post-header__meta-link">
+                    <?= $post_author_name ?? 'Angara Parts' ?>
+                  </a></li>
+                <li class="post-header__meta-item">
+                  <?= $post_date ?>
+                </li>
+                <li class="post-header__meta-item"><a href="" class="post-header__meta-link">
+                    <?= $post['view'] ?> Просмотров
+                  </a></li>
               </ul>
             </div>
           </div>
@@ -55,34 +66,34 @@
                 <div class="post__body typography">
                   <?= $post_text ?>
                 </div>
-                <div class="post__pagination">
-                  <div class="post__pagination-title">
-                    Pages
-                  </div>
-                  <div class="post__pagination-list">
-                    <ul>
-                      <li><span class="post__pagination-link post__pagination-link--current">1</span></li>
-                      <li><a href="" class="post__pagination-link">2</a></li>
-                      <li><a href="" class="post__pagination-link">3</a></li>
-                    </ul>
-                  </div>
-                </div>
+                <!-- <div class="post__pagination"> -->
+                <!-- <div class="post__pagination-title"> -->
+                <!--   Pages -->
+                <!-- </div> -->
+                <!-- <div class="post__pagination-list"> -->
+                <!--   <ul> -->
+                <!--     <li><span class="post__pagination-link post__pagination-link--current">1</span></li> -->
+                <!--     <li><a href="" class="post__pagination-link">2</a></li> -->
+                <!--     <li><a href="" class="post__pagination-link">3</a></li> -->
+                <!--   </ul> -->
+                <!-- </div> -->
+                <!-- </div> -->
                 <div class="post__footer">
                   <div class="post__tags tags tags--sm">
                     <div class="tags__list">
                       <?php foreach ($tags as $tag) : ?>
-                        <a href="">Promotion</a>
+                      <a href="">Promotion</a>
                       <?php endforeach ?>
                     </div>
                   </div>
-                  <div class="post__share-links share-links">
-                    <ul class="share-links__list">
-                      <li class="share-links__item share-links__item--type--like"><a href="">Like</a></li>
-                      <li class="share-links__item share-links__item--type--tweet"><a href="">Tweet</a></li>
-                      <li class="share-links__item share-links__item--type--pin"><a href="">Pin It</a></li>
-                      <li class="share-links__item share-links__item--type--counter"><a href="">4K</a></li>
-                    </ul>
-                  </div>
+                  <!-- <div class="post__share-links share-links"> -->
+                  <!--   <ul class="share-links__list"> -->
+                  <!--     <li class="share-links__item share-links__item--type--like"><a href="">Like</a></li> -->
+                  <!--     <li class="share-links__item share-links__item--type--tweet"><a href="">Tweet</a></li> -->
+                  <!--     <li class="share-links__item share-links__item--type--pin"><a href="">Pin It</a></li> -->
+                  <!--     <li class="share-links__item share-links__item--type--counter"><a href="">4K</a></li> -->
+                  <!--   </ul> -->
+                  <!-- </div> -->
                 </div>
                 <div class="post__author">
                   <div class="post__author-avatar">
@@ -108,7 +119,8 @@
                       <div class="post-navigation__direction">
                         <div class="post-navigation__direction-arrow">
                           <svg width="7" height="11">
-                            <path d="M6.7,0.3L6.7,0.3c-0.4-0.4-0.9-0.4-1.3,0L0,5.5l5.4,5.2c0.4,0.4,0.9,0.3,1.3,0l0,0c0.4-0.4,0.4-1,0-1.3l-4-3.9l4-3.9C7.1,1.2,7.1,0.6,6.7,0.3z" />
+                            <path
+                              d="M6.7,0.3L6.7,0.3c-0.4-0.4-0.9-0.4-1.3,0L0,5.5l5.4,5.2c0.4,0.4,0.9,0.3,1.3,0l0,0c0.4-0.4,0.4-1,0-1.3l-4-3.9l4-3.9C7.1,1.2,7.1,0.6,6.7,0.3z" />
                           </svg>
                         </div>
                         <div class="post-navigation__direction-title">
@@ -165,7 +177,8 @@
                             <button type="button" class="btn btn-xs btn-light">Reply</button>
                           </div>
                           <div class="comment__content typography">
-                            Aliquam ullamcorper elementum sagittis. Etiam lacus lacus, mollis in mattis in, vehicula eu nulla. Nulla nec tellus pellentesque.
+                            Aliquam ullamcorper elementum sagittis. Etiam lacus lacus, mollis in mattis in, vehicula eu
+                            nulla. Nulla nec tellus pellentesque.
                           </div>
                         </div>
                       </div>
@@ -189,7 +202,9 @@
                                   <button type="button" class="btn btn-xs btn-light">Reply</button>
                                 </div>
                                 <div class="comment__content typography">
-                                  Ut vitae finibus nisl, suscipit porttitor urna. Integer efficitur efficitur velit non pulvinar. Aliquam blandit volutpat arcu vel tristique. Integer commodo ligula id augue tincidunt faucibus.
+                                  Ut vitae finibus nisl, suscipit porttitor urna. Integer efficitur efficitur velit non
+                                  pulvinar. Aliquam blandit volutpat arcu vel tristique. Integer commodo ligula id augue
+                                  tincidunt faucibus.
                                 </div>
                               </div>
                             </div>
@@ -212,7 +227,9 @@
                                   <button type="button" class="btn btn-xs btn-light">Reply</button>
                                 </div>
                                 <div class="comment__content typography">
-                                  Suspendisse dignissim luctus metus vitae aliquam. Vestibulum sem odio, ullamcorper a imperdiet a, tincidunt sed lacus. Sed magna felis, consequat a erat ut, rutrum finibus odio.
+                                  Suspendisse dignissim luctus metus vitae aliquam. Vestibulum sem odio, ullamcorper a
+                                  imperdiet a, tincidunt sed lacus. Sed magna felis, consequat a erat ut, rutrum finibus
+                                  odio.
                                 </div>
                               </div>
                             </div>
@@ -261,7 +278,8 @@
                             <button type="button" class="btn btn-xs btn-light">Reply</button>
                           </div>
                           <div class="comment__content typography">
-                            Suspendisse dignissim luctus metus vitae aliquam. Vestibulum sem odio, ullamcorper a imperdiet a, tincidunt sed lacus. Sed magna felis, consequat a erat ut, rutrum finibus odio.
+                            Suspendisse dignissim luctus metus vitae aliquam. Vestibulum sem odio, ullamcorper a
+                            imperdiet a, tincidunt sed lacus. Sed magna felis, consequat a erat ut, rutrum finibus odio.
                           </div>
                         </div>
                       </div>
@@ -271,8 +289,10 @@
                     <ul class="pagination">
                       <li class="page-item disabled">
                         <a class="page-link page-link--with-arrow" href="" aria-label="Previous">
-                          <span class="page-link__arrow page-link__arrow--left" aria-hidden="true"><svg width="7" height="11">
-                              <path d="M6.7,0.3L6.7,0.3c-0.4-0.4-0.9-0.4-1.3,0L0,5.5l5.4,5.2c0.4,0.4,0.9,0.3,1.3,0l0,0c0.4-0.4,0.4-1,0-1.3l-4-3.9l4-3.9C7.1,1.2,7.1,0.6,6.7,0.3z" />
+                          <span class="page-link__arrow page-link__arrow--left" aria-hidden="true"><svg width="7"
+                              height="11">
+                              <path
+                                d="M6.7,0.3L6.7,0.3c-0.4-0.4-0.9-0.4-1.3,0L0,5.5l5.4,5.2c0.4,0.4,0.9,0.3,1.3,0l0,0c0.4-0.4,0.4-1,0-1.3l-4-3.9l4-3.9C7.1,1.2,7.1,0.6,6.7,0.3z" />
                             </svg>
                           </span>
                         </a>
@@ -292,7 +312,8 @@
                       <li class="page-item"><a class="page-link" href="#">9</a></li>
                       <li class="page-item">
                         <a class="page-link page-link--with-arrow" href="" aria-label="Next">
-                          <span class="page-link__arrow page-link__arrow--right" aria-hidden="true"><svg width="7" height="11">
+                          <span class="page-link__arrow page-link__arrow--right" aria-hidden="true"><svg width="7"
+                              height="11">
                               <path d="M0.3,10.7L0.3,10.7c0.4,0.4,0.9,0.4,1.3,0L7,5.5L1.6,0.3C1.2-0.1,0.7,0,0.3,0.3l0,0c-0.4,0.4-0.4,1,0,1.3l4,3.9l-4,3.9
 	C-0.1,9.8-0.1,10.4,0.3,10.7z" />
                             </svg>
