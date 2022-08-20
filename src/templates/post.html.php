@@ -22,7 +22,7 @@
     <div class="site__body">
       <div class="block post-view">
         <div class="post-view__header post-header post-header--has-image">
-          <div class="post-header__image" style="background-image: url('/assets/images/posts/post-default-1903x500.jpg');"></div>
+          <div class="post-header__image" style="background-image: url('<?= $main_image ?>');"></div>
           <div class="post-header__body">
             <div class="post-header__categories">
               <ul class="post-header__categories-list">
@@ -31,10 +31,10 @@
                 </li>
               </ul>
             </div>
-            <h1 class="post-header__title"><?= $post['title'] ?></h1>
+            <h1 class="post-header__title"><?= $post_title ?></h1>
             <div class="post-header__meta">
               <ul class="post-header__meta-list">
-                <li class="post-header__meta-item">Автор <a href="" class="post-header__meta-link"><?= $post['author'] ?? 'Angara Parts' ?></a></li>
+                <li class="post-header__meta-item">Автор <a href="" class="post-header__meta-link"><?= $post_author_name ?? 'Angara Parts' ?></a></li>
                 <li class="post-header__meta-item"><?= $post_date ?></li>
                 <li class="post-header__meta-item"><a href="" class="post-header__meta-link"><?= $post['view'] ?> Просмотров</a></li>
               </ul>
@@ -53,7 +53,7 @@
             <div class="post-view__item post-view__item-post">
               <div class="post-view__card post">
                 <div class="post__body typography">
-                  <?= $post['text'] ?>
+                  <?= $post_text ?>
                 </div>
                 <div class="post__pagination">
                   <div class="post__pagination-title">
@@ -86,7 +86,7 @@
                 </div>
                 <div class="post__author">
                   <div class="post__author-avatar">
-                    <img src="/assets/images/avatars/avatar-4-70x70.jpg" alt="">
+                    <img src="<?= $post_author_avatar ?>" alt="<?= $post_author_name ?>">
                   </div>
                   <div class="post__author-info">
                     <div class="post__author-name">

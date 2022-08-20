@@ -60,7 +60,7 @@
                       <div class="posts-list__item">
                         <div class="post-card post-card--layout--grid-sm">
                           <div class="post-card__image">
-                            <a href="/blog/<?= $article['slug'] ?>/">
+                            <a href="/blog/<?= $article['id'] ?>/">
                               <img src="/assets/images/posts/post-1-730x485.jpg" alt="">
                             </a>
                           </div>
@@ -69,7 +69,7 @@
                               <a href="/search/?search=<?= $mark ?>"><?= $mark ?></a>
                             </div>
                             <div class="post-card__title">
-                              <h2><a href="/blog/<?= $article['slug'] ?>/"><?= $article['title'] ?></a></h2>
+                              <h2><a href="/blog/<?= $article['id'] ?>/"><?= $article['title'] ?></a></h2>
                             </div>
                             <div class="post-card__date">
                               Автор <a href=""><?= $article['author'] ?></a> on <?= $date ?>
@@ -80,7 +80,7 @@
                               </div>
                             </div>
                             <div class="post-card__more">
-                              <a href="/blog/<?= $article['slug'] ?>/" class="btn btn-secondary btn-sm">Читать далее...</a>
+                              <a href="/blog/<?= $article['id'] ?>/" class="btn btn-secondary btn-sm">Читать далее...</a>
                             </div>
                           </div>
                         </div>
@@ -203,7 +203,7 @@
                       </div>
                       <div class="widget-posts__info">
                         <div class="widget-posts__name">
-                          <a href="/blog/<?= $latest_post['slug'] ?>/"><?= $latest_post['title'] ?></a>
+                          <a href="/blog/<?= $latest_post['id'] ?>/"><?= $latest_post['title'] ?></a>
                         </div>
                         <div class="widget-posts__date"><?= $lp_date ?></div>
                       </div>

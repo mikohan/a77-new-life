@@ -43,7 +43,7 @@ RewriteRule ^catalogue/([a-zAZ0-9-]+)/$ /backend/pages/catalogue/index.php?car=$
 RewriteRule ^catalogue/([a-zAZ0-9-]+)/([a-zA-Z0-9-]+)/$ /backend/pages/catalogue/subcat.php?car=$1&parent=$2 [L]
 RewriteRule ^catalogue/schema/([a-zAZ0-9-]+)/([a-zA-Z0-9-]+)/$ /backend/pages/catalogue/schema.php?car=$1&schema=$2 [L]
 RewriteRule ^blog/$ /backend/pages/blog/ [L]
-RewriteRule ^blog/([a-zAZ0-9-]+)/$ /backend/pages/blog/post.php?slug=$1 [L]
+RewriteRule ^blog/([a-zAZ0-9-]+)/$ /backend/pages/blog/post.php?id=$1 [L]
 
 #Static pages goes here
 RewriteRule ^about/$ /backend/pages/about/ [L]
@@ -61,7 +61,7 @@ RewriteRule ^sitemap.xml$ /backend/pages/sitemap.xml/index.php [L]
 # Yandex XML
 RewriteRule ^yandex.xml$ /backend/pages/yandex.xml/index.php [L]
 # Blog API redirect
-RewriteRule ^backend-blog/$ /backend/index.php [L]
+#RewriteRule ^backend-blog/$ /backend/index.php [L]
 # Home redirect last
 RewriteRule ^$ /backend/pages/home/home.php [L]
 </IfModule>
