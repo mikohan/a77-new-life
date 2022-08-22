@@ -8,10 +8,10 @@
   <meta name="format-detection" content="telephone=no" />
   <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
   <title>
-    <?= $post['title'] ?> - Ангара77 Запчасти
+    <?= $post['title']['rendered'] ?> - Ангара77 Запчасти
   </title>
   <meta name="description"
-    content="<?= mb_ucfirst($post['title']) ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
+    content="<?= mb_ucfirst($post['title']['rendered']) ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
   <!-- fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
 </head>

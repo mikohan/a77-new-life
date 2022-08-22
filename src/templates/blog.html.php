@@ -285,7 +285,7 @@
                   </form>
                 </div>
               </div>
-              <div class="card widget widget-comments">
+              <!--<div class="card widget widget-comments">
                 <div class="widget__header">
                   <h4>Последние комментарии</h4>
                 </div>
@@ -317,7 +317,7 @@
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div>-->
               <div class="card widget-tags widget">
                 <div class="widget__header">
                   <h4>Облако тегов</h4>
