@@ -97,10 +97,12 @@
                 <?php
                 // pagination
                 $total_posts = $articles[0]['page_info']['X-WP-Total'];
-                $total_pages = $articles[0]['page_info']['X-WP-TotalPages'];
+                $total_pages = intval($articles[0]['page_info']['X-WP-TotalPages']);
                 $current_page = intval($_GET['page_number']) ?? null;
                 $pages_array = [];
-                if ($current_page > 3 and $total_pages >= 6) {
+                if ($current_page <= 3) {
+                  $pages_array = range(1, $current_page + 3);
+                } else {
                   $pages_array[] = $current_page - 2;
                   $pages_array[] = $current_page - 1;
                   $pages_array[] = $current_page;
@@ -110,13 +112,10 @@
                   if ($current_page <= $total_pages - 2) {
                     $pages_array[] = $current_page + 2;
                   }
-                } else {
-                  $pages_array = range(1, $total_pages);
                 }
-                if ($pages_array === 1) {
-                  unset($pages_array);
+                if ($pages_array[0] === 1) {
+                  unset($pages_array[0]);
                 }
-                p($pages_array);
 
 
 
