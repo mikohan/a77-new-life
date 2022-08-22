@@ -200,13 +200,12 @@
                     <?php
                     $lp_date_obj = new DateTime($latest_post['date']);
                     $lp_date = $lp_date_obj->format('Y F d');
-
-                    $main_image = $post['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['thumbnail']['source_url'];
+                    $main_image = $latest_post['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['thumbnail']['source_url'];
                     ?>
                     <li class="widget-posts__item">
                       <div class="widget-posts__image">
-                        <a href="">
-                          <img src="<?= $main_image ?>" alt="<?= $latest_post['title']['rendered'] ?>">
+                        <a href="/blog/<?= $latest_post['id'] ?>/">
+                          <img style="width: 70px; height: auto;" src="<?= $main_image ?>" alt="<?= $latest_post['title']['rendered'] ?>">
                         </a>
                       </div>
                       <div class="widget-posts__info">

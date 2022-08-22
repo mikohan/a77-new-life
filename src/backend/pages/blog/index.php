@@ -23,7 +23,7 @@ $latest_post_get_url = BLOG_API_URL . '/wp/v2/posts?_embed&filter[posts_per_page
 $obj_lstest_post = new BlogModelHTTP($latest_post_get_url);
 $latest_posts =  $obj_lstest_post->getAllArticlesBackend();
 $categories = $blog_model->getAllCategories();
-p($latest_posts);
+// p($latest_posts);
 
 // $tags = array_map(fn ($tag) => $tag['search_frase'], $articles);
 // $tags = array_filter($tags, fn ($tag) => $tag && $tag !== '');

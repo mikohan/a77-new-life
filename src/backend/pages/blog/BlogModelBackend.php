@@ -20,13 +20,27 @@ class BlogModelHTTP
     $options = array(
       CURLOPT_URL => $this->url,
       CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_HTTPHEADER => array('Content-type: application/json')
+      CURLOPT_HTTPHEADER => array('Content-type: application/json'),
+      CURLOPT_HEADER => 1
     );
     curl_setopt_array($ch, $options);
     $result = curl_exec($ch);
+
+    $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+    $header = substr($result, 0, $header_size);
+    $body = substr($result, $header_size);
+
+
     // $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $mydata = json_decode($result, true);
+    $mydata = json_decode($body, true);
+
+    $matches1 = null;
+    $matches2 = null;
+    preg_match('/X-WP-Total:\s+(\d+)/', $header, $matches1);
+    preg_match('/X-WP-TotalPages:\s+(\d+)/', $header, $matches2);
+    $pages_info = ['X-WP-Total' => $matches1[1], 'X-WP-TotalPages' => $matches2[1]];
     curl_close($ch);
+    $mydata['page_info'] = $pages_info;
     return $mydata;
   }
 
