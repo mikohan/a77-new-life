@@ -40,7 +40,7 @@ class BlogModelHTTP
     preg_match('/X-WP-TotalPages:\s+(\d+)/', $header, $matches2);
     $pages_info = ['X-WP-Total' => $matches1[1], 'X-WP-TotalPages' => $matches2[1]];
     curl_close($ch);
-    $mydata['page_info'] = $pages_info;
+    $mydata[0]['page_info'] = $pages_info;
     return $mydata;
   }
 

@@ -11,7 +11,7 @@ if ($_GET['post_id']) {
   $category_id = $_GET['category_id'];
   $url = BLOG_API_URL . "/wp/v2/posts/?_embed&categories=" . $category_id;
 } else {
-  $url = BLOG_API_URL .  "/wp/v2/posts?_embed";
+  $url = BLOG_API_URL .  "/wp/v2/posts?_embed&per_page=2";
 }
 
 $blog_model = new BlogModelHTTP($url);
@@ -19,11 +19,11 @@ $blog_model = new BlogModelHTTP($url);
 
 
 $articles = $blog_model->getAllArticlesBackend(null);
-$latest_post_get_url = BLOG_API_URL . '/wp/v2/posts?_embed&filter[posts_per_page]=5';
+$latest_post_get_url = BLOG_API_URL . '/wp/v2/posts?_embed&per_page=5';
 $obj_lstest_post = new BlogModelHTTP($latest_post_get_url);
 $latest_posts =  $obj_lstest_post->getAllArticlesBackend();
 $categories = $blog_model->getAllCategories();
-// p($latest_posts);
+// p($articles);
 
 // $tags = array_map(fn ($tag) => $tag['search_frase'], $articles);
 // $tags = array_filter($tags, fn ($tag) => $tag && $tag !== '');
