@@ -127,6 +127,13 @@
                 }
 
                 // p($pages_array);
+                $query_string = '';
+                if (isset($_GET['blog_tag'])) {
+                  $query_string = '&blog_tag=' . $_GET['blog_tag'];
+                }
+                if (isset($_GET['category_id'])) {
+                  $query_string = '&category_id=' . $_GET['category_id'];
+                }
 
 
 
@@ -134,14 +141,14 @@
                 <div class="posts-view__pagination">
                   <ul class="pagination">
                     <li class="page-item <?= (intval($current_page)) <= 1 ? 'disabled' : '' ?>">
-                      <a class="page-link page-link--with-arrow" href="<?= ($current_page >= 2) ? '/blog/?page_number=' . strval($current_page - 1)  : '' ?>" aria-label="Previous">
+                      <a class="page-link page-link--with-arrow" href="<?= ($current_page >= 2) ? '/blog/?page_number=' . strval($current_page - 1) . $query_string  : '' ?>" aria-label="Previous">
                         <span class="page-link__arrow page-link__arrow--left" aria-hidden="true"><svg width="7" height="11">
                             <path d="M6.7,0.3L6.7,0.3c-0.4-0.4-0.9-0.4-1.3,0L0,5.5l5.4,5.2c0.4,0.4,0.9,0.3,1.3,0l0,0c0.4-0.4,0.4-1,0-1.3l-4-3.9l4-3.9C7.1,1.2,7.1,0.6,6.7,0.3z" />
                           </svg>
                         </span>
                       </a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="/blog/?page_number=1">1</a></li>
+                    <li class="page-item"><a class="page-link" href="/blog/?page_number=1<?= $query_string ?>">1</a></li>
                     <?php foreach ($pages_array as $p) : ?>
                       <li class="page-item">
                         <?php $check_current = intval($current_page) == intval($p); ?>
@@ -153,7 +160,7 @@
                         </span>
                       </li>
                     <?php else : ?>
-                      <a class="page-link" href="/blog/?page_number=<?= $p ?>"><?= $p ?></a>
+                      <a class="page-link" href="/blog/?page_number=<?= $p . $query_string ?>"><?= $p ?></a>
                     <?php endif ?>
 
                     </li>
@@ -161,9 +168,9 @@
                   <li class="page-item page-item--dots">
                     <div class="pagination__dots"></div>
                   </li>
-                  <li class="page-item"><a class="page-link" href="/blog/?page_number=<?= $total_pages ?>"><?= $total_pages ?></a></li>
+                  <li class="page-item"><a class="page-link" href="/blog/?page_number=<?= $total_pages . $query_string ?>"><?= $total_pages ?></a></li>
                   <li class="page-item <?= (intval($current_page) === intval($total_pages)) ? 'disabled' : '' ?>">
-                    <a class="page-link page-link--with-arrow" href="<?= ($current_page !== intval($total_pages)) ? '/blog/?page_number=' . strval($current_page + 1)  : '' ?>" aria-label="Next">
+                    <a class="page-link page-link--with-arrow" href="<?= ($current_page !== intval($total_pages)) ? '/blog/?page_number=' . strval($current_page + 1) . $query_string  : '' ?>" aria-label="Next">
                       <span class="page-link__arrow page-link__arrow--right" aria-hidden="true"><svg width="7" height="11">
                           <path d="M0.3,10.7L0.3,10.7c0.4,0.4,0.9,0.4,1.3,0L7,5.5L1.6,0.3C1.2-0.1,0.7,0,0.3,0.3l0,0c-0.4,0.4-0.4,1,0,1.3l4,3.9l-4,3.9
 	C-0.1,9.8-0.1,10.4,0.3,10.7z" />
