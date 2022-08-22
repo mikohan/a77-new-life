@@ -98,11 +98,16 @@
                 // pagination
                 $total_posts = $articles[0]['page_info']['X-WP-Total'];
                 $total_pages = intval($articles[0]['page_info']['X-WP-TotalPages']);
-                $current_page = intval($_GET['page_number']) ?? null;
+                $current_page = intval($_GET['page_number']) ?? 1;
                 $pages_array = [];
-                if ($current_page <= 3) {
-                  $pages_array = range(1, $current_page + 3);
-                } else {
+                if ($total_pages === 1) {
+                  $pages_array = [];
+                } elseif ($total_pages === 2) {
+                  $pages_array[] = 2;
+                } elseif ($total_pages === 3) {
+                  $pages_array[] = 2;
+                  $pages_array[] = 3;
+                } elseif ($total_pages > 3 && $current_page > 2) {
                   $pages_array[] = $current_page - 2;
                   $pages_array[] = $current_page - 1;
                   $pages_array[] = $current_page;
@@ -112,11 +117,16 @@
                   if ($current_page <= $total_pages - 2) {
                     $pages_array[] = $current_page + 2;
                   }
+                } else {
+                  $pages_array = range(1, $total_pages);
                 }
+
+
                 if ($pages_array[0] === 1) {
                   unset($pages_array[0]);
                 }
 
+                // p($pages_array);
 
 
 
@@ -308,7 +318,7 @@
                 <div class="widget-tags__body tags">
                   <div class="tags__list">
                     <?php foreach ($tags as $tag) : ?>
-                      <a href=""><?= $tag ?></a>
+                      <a href="/blog/?blog_tag=<?= $tag['id'] ?>"><?= $tag['name'] ?></a>
                     <?php endforeach ?>
                   </div>
                 </div>

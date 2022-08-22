@@ -10,30 +10,32 @@ if ($_GET['post_id']) {
 } elseif ($_GET['category_id']) {
   $category_id = $_GET['category_id'];
   $url = BLOG_API_URL . "/wp/v2/posts/?_embed&categories=" . $category_id;
+} elseif (isset($_GET['blog_tag'])) {
+  $url = BLOG_API_URL .  "/wp/v2/posts?_embed&tags=" . $_GET['blog_tag'];
 } else {
-  $url = BLOG_API_URL .  "/wp/v2/posts?_embed&per_page=2";
+  $url = BLOG_API_URL .  "/wp/v2/posts?_embed&per_page=4";
 }
+if (isset($_GET['page_number'])) {
+  $url = $url . '&page=' . $_GET['page_number'];
+}
+
 
 $blog_model = new BlogModelHTTP($url);
 
-
-
 $articles = $blog_model->getAllArticlesBackend(null);
 $latest_post_get_url = BLOG_API_URL . '/wp/v2/posts?_embed&per_page=5';
+
 $obj_lstest_post = new BlogModelHTTP($latest_post_get_url);
 $latest_posts =  $obj_lstest_post->getAllArticlesBackend();
 $categories = $blog_model->getAllCategories();
-// p($articles);
 
-// $tags = array_map(fn ($tag) => $tag['search_frase'], $articles);
-// $tags = array_filter($tags, fn ($tag) => $tag && $tag !== '');
-// $categories_tmp = array_slice($tags, 0, 8);
 
-// $latest_posts = array_slice($articles, 0, 4);
-// p($tags);
 
-// $articles = $blog_model->getAllArticlesBackend(null);
-// p($articles);
+$tags_url = BLOG_API_URL . '/wp/v2/tags';
+$obj_tags = new BlogModelHTTP($tags_url);
+$tags = $obj_tags->getAllArticlesBackend(null);
+
+
 
 
 require_once(__DIR__ . '/../../../templates/blog.html.php');
