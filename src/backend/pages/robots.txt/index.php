@@ -11,4 +11,6 @@ echo "Disallow: /*utm_source";
 echo PHP_EOL;
 echo "Disallow: /*utm_source";
 echo PHP_EOL;
+echo "Disallow: /blog-api*";
+echo PHP_EOL;
 echo "Sitemap: $server_root/sitemap.xml";
