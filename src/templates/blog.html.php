@@ -272,7 +272,7 @@
                     <li class="widget-posts__item">
                       <div class="widget-posts__image">
                         <a href="/blog/<?= $latest_post['id'] ?>/">
-                          <img style="width: 70px; height: auto;" src="<?= $main_image ?>" alt="<?= $latest_post['title']['rendered'] ?>">
+                          <img style="width: 70px; height: auto;" src="<?= $main_image ? $main_image : '/assets/images/posts/post-70x70.jpg' ?>" alt="<?= $latest_post['title']['rendered'] ?>">
                         </a>
                       </div>
                       <div class="widget-posts__info">
