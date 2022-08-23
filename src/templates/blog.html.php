@@ -46,53 +46,55 @@
             <div class="blog-view__item blog-view__item-posts">
               <div class="block posts-view">
                 <div class="posts-view__list posts-list posts-list--layout--grid-2">
-                  <div class="posts-list__body">
-                    <?php foreach ($articles as $article) : ?>
-                      <?php
-                      $date_obj = new DateTime($article['date']);
-                      $date = $date_obj->format('Y F d');
-                      $mark = 'Запчасти';
-                      if ($article['search_frase']) {
-                        $mark = mb_strtoupper($article['search_frase']);
-                      }
-                      $article_title = $article['title']['rendered'];
-                      $article_img = $article['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['large']['source_url'];
+                  <?php if (!isset($_GET['blog_search'])) : ?>
+                    <div class="posts-list__body">
+                      <?php foreach ($articles as $article) : ?>
+                        <?php
+                        $date_obj = new DateTime($article['date']);
+                        $date = $date_obj->format('Y F d');
+                        $mark = 'Запчасти';
+                        if ($article['search_frase']) {
+                          $mark = mb_strtoupper($article['search_frase']);
+                        }
+                        $article_title = $article['title']['rendered'];
+                        $article_img = $article['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['large']['source_url'];
 
-                      $post_author_name = $article['_embedded']['author'][0]['name'];
-                      $post_author_avatar = $article['_embedded']['author'][0]['avatar_urls'][96];
-                      $category_name = $article['_embedded']['wp:term'][0][0]['name'];
+                        $post_author_name = $article['_embedded']['author'][0]['name'];
+                        $post_author_avatar = $article['_embedded']['author'][0]['avatar_urls'][96];
+                        $category_name = $article['_embedded']['wp:term'][0][0]['name'];
 
-                      ?>
-                      <div class="posts-list__item">
-                        <div class="post-card post-card--layout--grid-sm">
-                          <div class="post-card__image">
-                            <a href="/blog/<?= $article['id'] ?>/">
-                              <img src="<?= $article_img ?>" alt="<?= $article_title ?>">
-                            </a>
-                          </div>
-                          <div class="post-card__content">
-                            <div class="post-card__category">
-                              <a href="/search/?search=<?= $category_name ?>"><?= $category_name ?></a>
+                        ?>
+                        <div class="posts-list__item">
+                          <div class="post-card post-card--layout--grid-sm">
+                            <div class="post-card__image">
+                              <a href="/blog/<?= $article['id'] ?>/">
+                                <img src="<?= $article_img ?>" alt="<?= $article_title ?>">
+                              </a>
                             </div>
-                            <div class="post-card__title">
-                              <h2><a href="/blog/<?= $article['id'] ?>/"><?= $article_title ?></a></h2>
-                            </div>
-                            <div class="post-card__date">
-                              Автор <a href=""><?= $post_author_name ?></a> on <?= $date ?>
-                            </div>
-                            <div class="post-card__excerpt">
-                              <div class="typography">
-                                <!-- tilte goes herer -->
+                            <div class="post-card__content">
+                              <div class="post-card__category">
+                                <a href="/search/?search=<?= $category_name ?>"><?= $category_name ?></a>
                               </div>
-                            </div>
-                            <div class="post-card__more">
-                              <a href="/blog/<?= $article['id'] ?>/" class="btn btn-secondary btn-sm">Читать далее...</a>
+                              <div class="post-card__title">
+                                <h2><a href="/blog/<?= $article['id'] ?>/"><?= $article_title ?></a></h2>
+                              </div>
+                              <div class="post-card__date">
+                                Автор <a href=""><?= $post_author_name ?></a> on <?= $date ?>
+                              </div>
+                              <div class="post-card__excerpt">
+                                <div class="typography">
+                                  <!-- tilte goes herer -->
+                                </div>
+                              </div>
+                              <div class="post-card__more">
+                                <a href="/blog/<?= $article['id'] ?>/" class="btn btn-secondary btn-sm">Читать далее...</a>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    <?php endforeach ?>
-                  </div>
+                      <?php endforeach ?>
+                    </div>
+                  <?php endif ?>
                 </div>
                 <?php
                 // pagination
@@ -184,8 +186,8 @@
             </div>
             <div class="blog-view__item blog-view__item-sidebar">
               <div class="card widget widget-search">
-                <form action="" class="widget-search__form">
-                  <input class="widget-search__input" type="search" placeholder="Blog search...">
+                <form action="" method="get" class="widget-search__form">
+                  <input class="widget-search__input" name="blog_search" type="search" placeholder="Поиск статей...">
                   <button class="widget-search__button"><svg width="20" height="20">
                       <path d="M19.2,17.8c0,0-0.2,0.5-0.5,0.8c-0.4,0.4-0.9,0.6-0.9,0.6s-0.9,0.7-2.8-1.6c-1.1-1.4-2.2-2.8-3.1-3.9C10.9,14.5,9.5,15,8,15
 	c-3.9,0-7-3.1-7-7s3.1-7,7-7s7,3.1,7,7c0,1.5-0.5,2.9-1.3,4c1.1,0.8,2.5,2,4,3.1C20,16.8,19.2,17.8,19.2,17.8z M8,3C5.2,3,3,5.2,3,8

@@ -1,18 +1,11 @@
+
 <?php
 require_once(__DIR__ . '/../../lib/init.php');
 // require_once(__DIR__ . '/../blog/BlogModel.php');
 require_once(__DIR__ . '/../blog/BlogModelBackend.php');
 
 //$blog_model = new BlogModel;
-if ($_GET['post_id']) {
-  $id = $_GET['post_id'];
-  $url = BLOG_API_URL . "/wp/v2/posts" . $id . "?_embed";
-} elseif ($_GET['category_id']) {
-  $category_id = $_GET['category_id'];
-  $url = BLOG_API_URL . "/wp/v2/posts/?_embed&categories=" . $category_id;
-} elseif (isset($_GET['blog_tag'])) {
-  $url = BLOG_API_URL .  "/wp/v2/posts?_embed&tags=" . $_GET['blog_tag'];
-} elseif (isset($_GET['blog_search'])) {
+if (isset($_GET['blog_search'])) {
   $url = BLOG_API_URL .  "/wp/v2/search?_embed&search=" . $_GET['blog_search'];
 } else {
   $url = BLOG_API_URL .  "/wp/v2/posts?_embed&per_page=4";
