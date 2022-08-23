@@ -9,6 +9,8 @@ dist
 composer.lock
 package-lock.json
 
+# Remove entire backend from here
+blog_backend
 # WordPress core is installed by Composer
 htdocs/wordpress
 htdocs/.htaccess
