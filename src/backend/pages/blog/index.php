@@ -13,7 +13,7 @@ if ($_GET['post_id']) {
 } elseif (isset($_GET['blog_tag'])) {
   $url = BLOG_API_URL .  "/wp/v2/posts?_embed&tags=" . $_GET['blog_tag'];
 } elseif (isset($_GET['blog_search'])) {
-  $url = BLOG_API_URL .  "/wp/v2/search?_embed&search=" . $_GET['blog_search'];
+  $url = BLOG_API_URL .  "/wp/v2/search?search=" . urlencode($_GET['blog_search']);
 } else {
   $url = BLOG_API_URL .  "/wp/v2/posts?_embed&per_page=4";
 }

@@ -311,12 +311,6 @@ module.exports = {
       chunks: ['vendors', 'allpages'],
     }),
     new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/templates/blog_search_results.html.php`,
-      filename: `./templates/blog_search_results.html.php`,
-      inject: 'body',
-      chunks: ['vendors', 'allpages'],
-    }),
-    new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/templates/post.html.php`,
       filename: `./templates/post.html.php`,
       inject: 'body',

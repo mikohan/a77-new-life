@@ -28,15 +28,19 @@
               <ol class="breadcrumb__list">
                 <li class="breadcrumb__spaceship-safe-area" role="presentation"></li>
                 <li class="breadcrumb__item breadcrumb__item--parent breadcrumb__item--first">
-                  <a href="index.html" class="breadcrumb__item-link">Главная</a>
+                  <a href="/" class="breadcrumb__item-link">Главная</a>
                 </li>
                 <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
-                  <span class="breadcrumb__item-link">Блог</span>
+                  <a href="/blog/" class="breadcrumb__item-link">Блог</a>
                 </li>
                 <li class="breadcrumb__title-safe-area" role="presentation"></li>
               </ol>
             </nav>
-            <h1 class="block-header__title">Полезная информация</h1>
+            <?php if (!isset($_GET['blog_search'])) : ?>
+              <h1 class="block-header__title">Полезная информация</h1>
+            <?php else : ?>
+              <h1 class="block-header__title">Результаты поиска</h1>
+            <?php endif ?>
           </div>
         </div>
       </div>
@@ -91,6 +95,15 @@
                               </div>
                             </div>
                           </div>
+                        </div>
+                      <?php endforeach ?>
+                    </div>
+                  <?php else : ?>
+                    <div class="blog__search-container">
+                      <?php foreach ($articles as $art) : ?>
+                        <div class="blog__search-item">
+                          <div><a href="/blog/<?= $art['id'] ?>/"><?= $art['title'] ?></a></div>
+
                         </div>
                       <?php endforeach ?>
                     </div>
