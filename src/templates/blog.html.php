@@ -61,7 +61,7 @@
                           $mark = mb_strtoupper($article['search_frase']);
                         }
                         $article_title = $article['title']['rendered'];
-                        $article_img = $article['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['medium']['source_url'];
+                        $article_img = $article['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['large']['source_url'];
                         $article_img = $article_img ?? $article['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['full']['source_url'];
                         // p($article['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']);
 
