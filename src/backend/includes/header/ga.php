@@ -42,3 +42,4 @@
 </noscript>
 <!-- /Yandex.Metrika counter -->
 <!-- /Yandex.Metrika counter -->
+<meta name="yandex-verification" content="bc25c21b07b16ef5" />
