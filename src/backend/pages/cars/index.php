@@ -27,7 +27,6 @@ $car_path = $cars_car['make']['slug'] . '/' . $cars_car['slug'];
 
 
 
-
 $features = $cars_model->getProductsForHomePage($cars_car);
 $posts = $cars_model->getLatestPosts();
 // All cars we are getting from Header
