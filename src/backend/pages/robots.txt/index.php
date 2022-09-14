@@ -13,4 +13,42 @@ echo "Disallow: /*utm_source";
 echo PHP_EOL;
 echo "Disallow: /blog-api*";
 echo PHP_EOL;
+
+
+echo "Disallow: /search/";
+echo PHP_EOL;
+
+
+echo "Disallow: /blog_search/";
+echo PHP_EOL;
+
+
+echo "Disallow: *.html";
+echo PHP_EOL;
+
+echo "Disallow: *?*";
+echo PHP_EOL;
+
+
+echo "Disallow: /cart/";
+echo PHP_EOL;
+
+echo "Disallow: /order/";
+echo PHP_EOL;
+
+echo "Disallow: /backend/";
+echo PHP_EOL;
+
 echo "Sitemap: $server_root/sitemap.xml";
+echo PHP_EOL;
+
+
+
+// /search/
+// *blog_search*
+// *.html
+// *?*
+// *?*
+// *?*
+// /cart/
+// /order/
