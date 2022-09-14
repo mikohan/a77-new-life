@@ -7,8 +7,8 @@ include __DIR__ . '/../yandex.xml/YandexXmlModel.php';
 
 $sm = new YandexXmlModel;
 
-header('Content-type: application/xml');
-header("Content-Type: text/xml; charset=utf-8");
+// header('Content-type: application/xml');
+// header("Content-Type: text/xml; charset=utf-8");
 
 
 $name = "Ангара";
@@ -128,4 +128,6 @@ $out = <<<HTML
 </yml_catalog>
 HTML;
 
-echo $out;
+p($products);
+
+// echo $out;

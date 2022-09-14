@@ -145,14 +145,14 @@
                         <a href="/category/fary-osveschenie-signalizatsija/">Фары и освещение</a>
                       </div>
                       <ul class="category-card__children">
-                        <li><a href="/category/fary-osveschenie-signalizatsija/">Фары и освещение</a></li>
-                        <li><a href="/category/fonari-i-signalizatsija/">Фонари и сигнализация</a></li>
-                        <li><a href="/category/fary-raznye/">Фары разные</a></li>
-                        <li><a href="/category/lampy-far-i-podsvetki/">Лампы фар</a></li>
-                        <li><a href="/category/povorotniki-povtoriteli/">Поворотники</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'fary-osveschenie-signalizatsija') ?>">Фары и освещение</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'fonari-i-signalizatsija') ?>">Фонари и сигнализация</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'fary-raznye') ?>">Фары разные</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'lampy-far-i-podsvetki') ?>">Лампы фар</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'povorotniki-povtoriteli') ?>">Поворотники</a></li>
                       </ul>
                       <div class="category-card__actions">
-                        <a href="/category/fary-osveschenie-signalizatsija/" class="category-card__link">Перейти в категорию</a>
+                        <a href="<?= $u->categoryCar($model_slug, 'fary-osveschenie-signalizatsija') ?>" class="category-card__link">Перейти в категорию</a>
                       </div>
                     </div>
                   </div>
@@ -168,17 +168,17 @@
                     </div>
                     <div class="category-card__info">
                       <div class="category-card__name">
-                        <a href="/category/filtry-i-korpusy-filtrov/">Фильтры</a>
+                        <a href="<?= $u->categoryCar($model_slug, 'filtry-i-korpusy-filtrov') ?>">Фильтры</a>
                       </div>
                       <ul class="category-card__children">
-                        <li><a href="/category/filtr-toplivnyj/">Фильтр топливный</a></li>
-                        <li><a href="/category/filtr-masljanyj/">Фильтр масляный</a></li>
-                        <li><a href="/category/filtr-vozdushnyj/">Фильтр воздушный </a></li>
-                        <li><a href="/category/filtr-salonnyj/">Фильтр салонный</a></li>
-                        <li><a href="/category/filtry-i-korpusy-filtrov/">Фильтры</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'filtr-toplivnyj') ?>">Фильтр топливный</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'filtr-masljanyj') ?>">Фильтр масляный</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'filtr-vozdushnyj') ?>">Фильтр воздушный </a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'filtr-salonnyj') ?>">Фильтр салонный</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'filtry-i-korpusy-filtrov') ?>">Фильтры</a></li>
                       </ul>
                       <div class="category-card__actions">
-                        <a href="/category/filtry-i-korpusy-filtrov/" class="category-card__link">Перейти в категорию</a>
+                        <a href="<?= $u->categoryCar($model_slug, 'filtry-i-korpusy-filtrov') ?>" class="category-card__link">Перейти в категорию</a>
                       </div>
                     </div>
                   </div>
@@ -188,23 +188,23 @@
                 <div class="category-card__body">
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
-                      <a href="/category/transmissija/" class="image__body">
+                      <a href="<?= $u->categoryCar($model_slug, 'transmissija') ?>" class="image__body">
                         <img class="image__tag" src="/assets/images/categories/transmissija.jpg" alt="Transmission" />
                       </a>
                     </div>
                     <div class="category-card__info">
                       <div class="category-card__name">
-                        <a href="/category/transmissija/">Трансмиссия</a>
+                        <a href="<?= $u->categoryCar($model_slug, 'transmissija') ?>">Трансмиссия</a>
                       </div>
                       <ul class="category-card__children">
-                        <li><a href="/category/ressory-puruzhiny-torsiony/">Пружины Рессоры</a></li>
-                        <li><a href="/category/korobka-peredach-i-zapchasti/">Коробка</a></li>
-                        <li><a href="/category/stupitsy-i-zapchasti/">Ступицы</a></li>
-                        <li><a href="/category/reduktor-mosta/">Редуктор</a></li>
-                        <li><a href="/category/stseplenie-i-zapchasti/">Сцепление</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'ressory-puruzhiny-torsiony') ?>">Пружины Рессоры</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'korobka-peredach-i-zapchasti') ?>">Коробка</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'stupitsy-i-zapchasti') ?>">Ступицы</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'reduktor-mosta') ?>">Редуктор</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'stseplenie-i-zapchasti') ?>">Сцепление</a></li>
                       </ul>
                       <div class="category-card__actions">
-                        <a href="/category/transmissija/" class="category-card__link">Перейти в категорию</a>
+                        <a href="<?= $u->categoryCar($model_slug, 'transmissija') ?>" class="category-card__link">Перейти в категорию</a>
                       </div>
                     </div>
                   </div>
@@ -214,23 +214,23 @@
                 <div class="category-card__body">
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
-                      <a href="/category/salon-interer/" class="image__body">
+                      <a href="<?= $u->categoryCar($model_slug, 'salon-interer') ?>" class="image__body">
                         <img class="image__tag" src="/assets/images/categories/category-4-160x160.jpg" alt="Inrerior" />
                       </a>
                     </div>
                     <div class="category-card__info">
                       <div class="category-card__name">
-                        <a href="/category/salon-interer/">Интерьер</a>
+                        <a href="<?= $u->categoryCar($model_slug, 'salon-interer') ?>">Интерьер</a>
                       </div>
                       <ul class="category-card__children">
-                        <li><a href="/category/dveri-i-detali-dverej/">Двери</a></li>
-                        <li><a href="/category/detali-salona-raznye/">салонный</a></li>
-                        <li><a href="/category/kovriki-salona/">Коврики</a></li>
-                        <li><a href="/category/sistema-multimedia/">Мультимедиа</a></li>
-                        <li><a href="/category//vozduhozabornik/">Воздуховод</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'dveri-i-detali-dverej') ?>">Двери</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'detali-salona-raznye') ?>">салонный</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'kovriki-salona') ?>">Коврики</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'sistema-multimedia') ?>">Мультимедиа</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'vozduhozabornik') ?>">Воздуховод</a></li>
                       </ul>
                       <div class="category-card__actions">
-                        <a href="/category/salon-interer/" class="category-card__link">Перейти в категорию</a>
+                        <a href="<?= $u->categoryCar($model_slug, 'salon-interer') ?>" class="category-card__link">Перейти в категорию</a>
                       </div>
                     </div>
                   </div>
@@ -240,23 +240,23 @@
                 <div class="category-card__body">
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
-                      <a href="/category/podveska/" class="image__body">
+                      <a href="<?= $u->categoryCar($model_slug, 'podveska') ?>" class="image__body">
                         <img class="image__tag" src="/assets/images/categories/podveska.jpg" alt="Podveska" />
                       </a>
                     </div>
                     <div class="category-card__info">
                       <div class="category-card__name">
-                        <a href="/category/podveska/">Подвеска</a>
+                        <a href="<?= $u->categoryCar($model_slug, 'podveska') ?>">Подвеска</a>
                       </div>
                       <ul class="category-card__children">
-                        <li><a href="/category/rychagi-podveski/">Рычаги</a></li>
-                        <li><a href="/category/amortizator-podveski/">Амортизаторы</a></li>
-                        <li><a href="/category/sharovye-opory/">Опоры шаровые</a></li>
-                        <li><a href="/category/stabilizator-podveski/">Стабилизатор</a></li>
-                        <li><a href="/category/sajlentbloki-podveski/">Сайлентблоки</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'rychagi-podveski') ?>">Рычаги</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'amortizator-podveski') ?>">Амортизаторы</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'sharovye-opory') ?>">Опоры шаровые</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'stabilizator-podveski') ?>">Стабилизатор</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'sajlentbloki-podveski') ?>">Сайлентблоки</a></li>
                       </ul>
                       <div class="category-card__actions">
-                        <a href="/category/podveska/" class="category-card__link">Перейти в категорию</a>
+                        <a href="<?= $u->categoryCar($model_slug, 'podveska') ?>" class="category-card__link">Перейти в категорию</a>
                       </div>
                     </div>
                   </div>
@@ -266,23 +266,23 @@
                 <div class="category-card__body">
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
-                      <a href="/category/tormoznaja-sistema/" class="image__body">
+                      <a href="<?= $u->categoryCar($model_slug, 'tormoznaja-sistema') ?>" class="image__body">
                         <img class="image__tag" src="/assets/images/categories/tormoznaja-sistema.jpg" alt="Tormoznaya systema" />
                       </a>
                     </div>
                     <div class="category-card__info">
                       <div class="category-card__name">
-                        <a href="/category/tormoznaja-sistema/">Тормозная Система</a>
+                        <a href="<?= $u->categoryCar($model_slug, 'tormoznaja-sistema') ?>">Тормозная Система</a>
                       </div>
                       <ul class="category-card__children">
-                        <li><a href="/category//kolodki-tormoznye-nakladki/">Колодки</a></li>
-                        <li><a href="/category/support-tormoznoj/">Суппорт</a></li>
-                        <li><a href="/category/diski-barabany-tormoznye/">Диски</a></li>
-                        <li><a href="/category/ruchnik-tormoz-stojanochnyj/">Ручник</a></li>
-                        <li><a href="/category/tormoznye-zapchasti-raznye/">Разное</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'kolodki-tormoznye-nakladki') ?>">Колодки</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'support-tormoznoj') ?>">Суппорт</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'diski-barabany-tormoznye') ?>">Диски</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'ruchnik-tormoz-stojanochnyj') ?>">Ручник</a></li>
+                        <li><a href="<?= $u->categoryCar($model_slug, 'tormoznye-zapchasti-raznye') ?>">Разное</a></li>
                       </ul>
                       <div class="category-card__actions">
-                        <a href="/category/tormoznaja-sistema/" class="category-card__link">Перейти в категорию</a>
+                        <a href="<?= $u->categoryCar($model_slug, 'tormoznaja-sistema') ?>" class="category-card__link">Перейти в категорию</a>
                       </div>
                     </div>
                   </div>

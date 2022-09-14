@@ -20,9 +20,7 @@ $h1 = "Запчасти для " . mb_ucfirst($cars_car['make']['name']) . " " .
 $title = "Запчасти на " . mb_ucfirst($cars_car['make']['name']) . " " . mb_ucfirst($cars_car['name']) . " в интернет магазиние - " . COMPANY_INFO['company_name'];
 $description = "Купить запчасти для " . mb_ucfirst($cars_car['make']['name']) . " " . mb_ucfirst($cars_car['name']) . " в интернет магазиние - " . COMPANY_INFO['company_name'] . ". | тел - " . COMPANY_INFO['phone_free'][1] . ". " . $cars_car['doc_count'] . " Запчастей для " . mb_ucfirst($cars_car['make']['name']) . " " . mb_ucfirst($cars_car['name']) . " в наличии на складе сегодня!";
 
-$make_slug = $cars_car['make']['slug'];
-$model_slug = $cars_car['slug'];
-$car_path = $cars_car['make']['slug'] . '/' . $cars_car['slug'];
+$model_slug = $cars_car['slug'] ?? 'porter2';
 
 
 
