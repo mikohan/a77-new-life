@@ -59,7 +59,8 @@ foreach ($products['hits']['hits'] as $product_source) {
 
   $brand = $product['brand']['name'] ?? '';
   $brand = preg_replace("/[^\w\d\s]+/", " ", $brand);
-  $url = $u->product($product['slug']);
+  $url = rtrim(SERVER_ROOT_URL, '/') . $u->product($product['slug']);
+
 
   $pictures = '';
   $j = 0;
@@ -80,7 +81,7 @@ foreach ($products['hits']['hits'] as $product_source) {
 
   $offers .= <<<HTML
     <offer id="{$id}">
-      <url>{$url}}/?utm_source=market.yandex.ru</url>
+      <url>{$url}</url>
       <price>{$product['price']}</price>
       <currencyId>{$curr}</currencyId>
       <categoryId>{$category_id}</categoryId>
