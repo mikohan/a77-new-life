@@ -157,6 +157,7 @@
                             <tbody>
                               <?php foreach ($analogs as $analog) : ?>
                                 <?php
+                                if ($analog['one_c_id'] == $product['one_c_id']) continue;
                                 $brand = '';
                                 $analog_price = SHOW_PRICE ? $analog['price'] : SHOW_PRICE_STRING;
                                 if ($analog['brand'] ?? false) {
@@ -193,7 +194,7 @@
                     </div>
                     <div class="product__features">
                       <div class="product__features-link">
-                        <a href="#product-tab-description">Гаранития и Доставка ...</a>
+                        <a href="#product-tab-description" rel="nofollow">Гаранития и Доставка ...</a>
                       </div>
                     </div>
                   </div>
@@ -222,7 +223,7 @@
                             </tr>
                             <tr>
                               <th>Бренд</th>
-                              <td><a href=""><?= mb_strtoupper($part_brand) ?></a></td>
+                              <td><span class="product_page-brand"><?= mb_strtoupper($part_brand) ?></span></td>
                             </tr>
                             <tr>
                               <th>SKU</th>
