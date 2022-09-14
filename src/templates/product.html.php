@@ -253,13 +253,9 @@
                         </div>
                         <div class="product__share-links share-links">
                           <ul class="share-links__list">
-                            <li class="share-links__item share-links__item--type--like"><a href="https://vk.com/angara772018">VK</a></li>
-                            <li class="share-links__item share-links__item--type--pin"><a href="https://www.ok.ru/group/52962919973041">OK</a></li>
-                            <li class="share-links__item share-links__item--type--like"><a href="https://www.facebook.com/groups/angara77/">Facebook</a></li>
-                            <li class="share-links__item share-links__item--type--pin"><a href="http://www.youtube.com/channel/UCJ97RljnqyAdKKmAc8mvHZw">YouTube</a></li>
-                            <li class="share-links__item share-links__item--type--counter">
-                              <a href="">4K</a>
-                            </li>
+                            <li class="share-links__item share-links__item--type--like"><a href="https://vk.com/angara772018" rel="nofollow">VK</a></li>
+                            <li class="share-links__item share-links__item--type--pin"><a href="https://www.ok.ru/group/52962919973041" rel="nofollow">OK</a></li>
+                            <li class="share-links__item share-links__item--type--pin"><a href="http://www.youtube.com/channel/UCJ97RljnqyAdKKmAc8mvHZw" rel="nofollow">YouTube</a></li>
                           </ul>
                         </div>
                       </div>
