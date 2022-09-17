@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="84.755mm" height="84.751mm" version="1.1" viewBox="0 0 1001 1001" xmlns="http://www.w3.org/2000/svg">
+ <path d="m801.5 0.5h-801v1e3h801l199-498s-199-502-199-502z" fill="none" stroke="#000"/>
+ <g>
+  <text x="82.00312" y="895.46515" fill="#ffffff" font-size="166.67px" stroke-width=".84101" xml:space="preserve"><tspan x="82.00312" y="895.46515" fill="#ffffff" font-size="166.67px" stroke-width=".84101">A</tspan></text>
+  <path d="m1.6049 500.44v-498.84l799.32 0.55545 198.37 500.39-198.33 496.66-799.36 0.0812z" fill="#3f51b5" stroke-width="1.1048"/>
+  <text transform="scale(.99989 1.0001)" x="56.386795" y="846.24329" fill="#ffffff" font-family="sans-serif" font-size="949.96px" font-weight="bold" stroke-width="17.812" xml:space="preserve"><tspan x="56.386795" y="846.24329" fill="#ffffff" font-family="sans-serif" font-weight="bold" stroke-width="17.812">A</tspan></text>
+ </g>
+</svg>
