@@ -11,6 +11,9 @@ header('Content-type: application/xml');
 header("Content-Type: text/xml; charset=utf-8");
 
 
+$nal = isset($_GET['nal']) ?? 0;
+
+
 $name = "Ангара";
 
 # Описание магазина
@@ -42,6 +45,11 @@ $offers = '';
 $i = 0;
 foreach ($products['hits']['hits'] as $product_source) {
   $product = $product_source['_source'];
+  $in_stock = intval($product['stocks'][0]['quantity']);
+  if ($nal && $in_stock === 0) {
+    continue;
+  }
+
   $id = $product['one_c_id'] ?? false;
   if (!$id) {
     continue;
@@ -105,7 +113,7 @@ HTML;
   // if ($i == 10) {
   //   break;
   // }
-  // $i++;
+  $i++;
 }
 
 $out = <<<HTML
