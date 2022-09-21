@@ -39,7 +39,7 @@ echo PHP_EOL;
 echo "Disallow: /backend/";
 echo PHP_EOL;
 
-echo "Sitemap: $server_root/sitemap.xml";
+echo "Sitemap: " . $server_root . "sitemap.xml";
 echo PHP_EOL;
 
 

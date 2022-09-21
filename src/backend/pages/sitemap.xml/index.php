@@ -3,7 +3,7 @@
 ini_set('max_execution_time', 300);
 include __DIR__ . '/../../lib/init.php';
 include __DIR__ . '/../sitemap.xml/SitemapModel.php';
-require __DIR__ . '/../../../../vendor/autoload.php';
+//require __DIR__ . '/../../../../vendor/autoload.php';
 
 $sm = new SitemapModel;
 
