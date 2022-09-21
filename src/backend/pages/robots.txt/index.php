@@ -39,6 +39,18 @@ echo PHP_EOL;
 echo "Disallow: /backend/";
 echo PHP_EOL;
 
+echo "Disallow: /logout/";
+echo PHP_EOL;
+
+echo "Disallow: /dashboard/";
+echo PHP_EOL;
+
+echo "Disallow: /edit-profile/";
+echo PHP_EOL;
+
+echo "Disallow: /my-orders/";
+echo PHP_EOL;
+
 echo "Sitemap: " . $server_root . "sitemap.xml";
 echo PHP_EOL;
 

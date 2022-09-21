@@ -449,7 +449,7 @@
     </div>
     <div class="header__indicators">
       <div class="indicator indicator--trigger--click">
-        <a href="account-login.html" class="indicator__button">
+        <a href="/login/" class="indicator__button">
           <span class="indicator__icon">
             <svg width="32" height="32">
               <path d="M16,18C9.4,18,4,23.4,4,30H2c0-6.2,4-11.5,9.6-13.3C9.4,15.3,8,12.8,8,10c0-4.4,3.6-8,8-8s8,3.6,8,8c0,2.8-1.5,5.3-3.6,6.7
@@ -483,26 +483,28 @@
                 <a href="account-login.html">Создать Аккаунт</a>
               </div>
             </form>
-            <div class="account-menu__divider"></div>
-            <a href="" class="account-menu__user">
-              <div class="account-menu__user-avatar">
-                <img src="/assets/images/avatars/avatar-4.jpg" alt="avatar">
-              </div>
-              <div class="account-menu__user-info">
-                <div class="account-menu__user-name">Ryan Ford</div>
-                <div class="account-menu__user-email">red-parts@example.com</div>
-              </div>
-            </a>
-            <div class="account-menu__divider"></div>
-            <ul class="account-menu__links">
-              <li><a href="/dashboard/">Мой Гараж</a></li>
-              <li><a href="/edit-profile/">Редактировать профайл</a></li>
-              <li><a href="/my-orders/">Мои заказы</a></li>
-            </ul>
-            <div class="account-menu__divider"></div>
-            <ul class="account-menu__links">
-              <li><a href="/logout/">Выйти</a></li>
-            </ul>
+            <?php if ($_SESSION['logged_user']) : ?>
+              <div class="account-menu__divider"></div>
+              <a href="" class="account-menu__user">
+                <div class="account-menu__user-avatar">
+                  <img src="/assets/images/avatars/avatar-4.jpg" alt="avatar">
+                </div>
+                <div class="account-menu__user-info">
+                  <div class="account-menu__user-name">Ryan Ford</div>
+                  <div class="account-menu__user-email">red-parts@example.com</div>
+                </div>
+              </a>
+              <div class="account-menu__divider"></div>
+              <ul class="account-menu__links">
+                <li><a href="/dashboard/">Мой Гараж</a></li>
+                <li><a href="/edit-profile/">Редактировать профайл</a></li>
+                <li><a href="/my-orders/">Мои заказы</a></li>
+              </ul>
+              <div class="account-menu__divider"></div>
+              <ul class="account-menu__links">
+                <li><a href="/logout/">Выйти</a></li>
+              </ul>
+            <?php endif ?>
           </div>
         </div>
       </div>
