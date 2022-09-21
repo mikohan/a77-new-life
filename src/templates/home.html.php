@@ -91,7 +91,7 @@
               $img = $car->image ?? '/assets/images/cars/car-default-96x96.png';
               ?>
               <li class="block-brands__item">
-                <a href="<?= $u->car($car->make->slug, $car->slug) ?>" class="block-brands__item-link">
+                <a href="<?= $u->carNoHomePage($car->slug) ?>" class="block-brands__item-link">
                   <img src="<?= $img ?>" alt="<?= $car->name ?>" />
                   <span class="block-brands__item-name"><?= $car->name ?></span>
                 </a>
@@ -298,17 +298,17 @@
               <ul class="section-header__groups">
                 <li class="section-header__groups-item">
                   <button type="button" class="section-header__groups-button section-header__groups-button--active">
-                    all
+                    Все
                   </button>
                 </li>
                 <li class="section-header__groups-item">
-                  <button type="button" class="section-header__groups-button">power tools</button>
+                  <button type="button" class="section-header__groups-button">Запчасти</button>
                 </li>
                 <li class="section-header__groups-item">
-                  <button type="button" class="section-header__groups-button">hand tools</button>
+                  <button type="button" class="section-header__groups-button">Аксесуары</button>
                 </li>
                 <li class="section-header__groups-item">
-                  <button type="button" class="section-header__groups-button">plumbing</button>
+                  <button type="button" class="section-header__groups-button">Расходники</button>
                 </li>
               </ul>
               <div class="section-header__arrows">
@@ -467,7 +467,7 @@
         </div>
       </div>
       <div class="block-space block-space--layout--divider-nl"></div>
-      <div class="block block-sale">
+      <!--<div class="block block-sale">
         <div class="block-sale__content">
           <div class="block-sale__header">
             <div class="block-sale__title">Товары со скидкой!</div>
@@ -638,7 +638,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
       <div class="block-space block-space--layout--divider-nl"></div>
       <div class="block block-posts-carousel block-posts-carousel--layout--list" data-layout="list">
         <div class="container">
@@ -681,9 +681,13 @@
             <div class="owl-carousel">
               <?php foreach ($posts as $post) : ?>
                 <?php
-                $img_chk = $post['img'] ?? false;
-                $img = $img_chk ? $post['img'] : '/assets/images/posts/post-1-730x485.jpg';
-                $link = $u->blogPost($post['slug']);
+                // $tmb = $post['_embedded']['wp:featuredmedia'][0]['media_details']['medium']['source_url'];
+                $tmb = $post['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['medium']['source_url'];
+                $img_chk = $tmb ?? false;
+                $img = $img_chk ? $tmb : '/assets/images/posts/post-1-730x485.jpg';
+                $title = $post['title']['rendered'];
+                $author = $post['_embedded']['author'][0]['name'];
+                $link = $u->blogPost($post['id']);
                 $date_obj = new DateTime($post['date']);
                 $date = $date_obj->format('Y F d');
 
@@ -692,24 +696,24 @@
                   <div class="post-card">
                     <div class="post-card__image">
                       <a href="<?= $link ?>">
-                        <img src="<?= $img ?>" alt="<?= $name ?>" />
+                        <img src="<?= $img ?>" alt="<?= $title ?>" />
                       </a>
                     </div>
                     <div class="post-card__content">
-                      <div class="post-card__category">
-                        <a href="<?= $link ?>"><?= $post['blog_category_name'] ?></a>
+                      <div style="width: 100%;" class="post-card__category">
+                        <a href="<?= $link ?>">Запчасти</a>
                       </div>
-                      <div class="post-card__title">
+                      <div style="width: 100%;" class="post-card__title">
                         <h2>
-                          <a href="<?= $link ?>"><?= $post['title'] ?></a>
+                          <a href="<?= $link ?>"><?= $title ?></a>
                         </h2>
                       </div>
                       <div class="post-card__date">
-                        Автор <a href="<?= $u->blog() ?>"><?= $post['author'] ?></a> <?= $date ?>
+                        Автор <a href="<?= $u->blog() ?>"><?= $author ?></a> -- <?= $date ?>
                       </div>
                       <div class="post-card__excerpt">
                         <div class="typography">
-                          <?= $post['title'] ?>
+                          <?= $title ?>
                         </div>
                       </div>
                       <div class="post-card__more">

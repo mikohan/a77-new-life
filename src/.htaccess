@@ -6,6 +6,9 @@ Options +FollowSymlinks
 RewriteBase /
 RewriteEngine on
 
+### WWW Redirect ###
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
 ErrorDocument 404 /backend/pages/404/
 RewriteRule ^404/$ /backend/pages/404/index.php [L]
@@ -13,9 +16,6 @@ RewriteRule ^404/$ /backend/pages/404/index.php [L]
 ErrorDocument 500 /backend/pages/500/
 RewriteRule ^500/$ /backend/pages/500/index.php [L]
 
-### WWW Redirect ###
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
 
 

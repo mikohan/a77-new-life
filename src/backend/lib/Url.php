@@ -17,9 +17,9 @@ class Url
   {
     return '/blog/';
   }
-  public function blogPost($slug)
+  public function blogPost($id)
   {
-    return "/blog/{$slug}/";
+    return "/blog/{$id}/";
   }
   // Category Section
   public function category($slug)
@@ -29,6 +29,11 @@ class Url
   public function categoryCar($model, $slug)
   {
     return "/car/{$model}/{$slug}/";
+  }
+  // Car no home page
+  public function carNoHomePage($model)
+  {
+    return "/car/{$model}/zapchasti/";
   }
   // Product Section 
   public function product($slug)

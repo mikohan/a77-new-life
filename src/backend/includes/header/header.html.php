@@ -181,7 +181,7 @@
                 <li class="departments__list-padding" role="presentation"></li>
                 <?php foreach ($all_cars as $all_car) : ?>
                   <li class="departments__item departments__item--submenu--megamenu departments__item--has-submenu">
-                    <a href="<?= "/cars/{$all_car->make->slug}/{$all_car->slug}" ?>/" class="departments__item-link">
+                    <a href="<?= $u->carNoHomePage($all_car->slug) ?>" class="departments__item-link">
                       <?= $all_car->name ?>
                       <span class="departments__item-arrow"><svg width="7" height="11">
                           <path d="M0.3,10.7L0.3,10.7c0.4,0.4,0.9,0.4,1.3,0L7,5.5L1.6,0.3C1.2-0.1,0.7,0,0.3,0.3l0,0c-0.4,0.4-0.4,1,0,1.3l4,3.9l-4,3.9
@@ -209,11 +209,11 @@
                               <ul class="megamenu__links megamenu-links megamenu-links--root">
 
                                 <li class="megamenu-links__item megamenu-links__item--has-submenu">
-                                  <a class="megamenu-links__item-link" href="<?= "/car/{$all_car->slug}/{$category->slug}/" ?>"><?= mb_ucfirst($category->name) ?></a>
+                                  <a class="megamenu-links__item-link" href="<?= $u->categoryCar($all_car->slug, $category->slug) ?>"><?= mb_ucfirst($category->name) ?></a>
                                   <ul class="megamenu-links">
                                     <!-- Looping subcategories -->
                                     <?php foreach ($category->children as $subcat) : ?>
-                                      <li clheader_ass="megamenu-links__item" style="position:relative;"><a class="megamenu-links__item-link" href="<?= "/car/{$all_car->slug}/{$subcat->slug}/" ?>"><?= $subcat->name ?></a><span class="indicator__counter"><?= $subcat->doc_count ?></span></li>
+                                      <li clheader_ass="megamenu-links__item" style="position:relative;"><a class="megamenu-links__item-link" href="<?= $u->categoryCar($all_car->slug, $category->slug) ?>"><?= $subcat->name ?></a><span class="indicator__counter"><?= $subcat->doc_count ?></span></li>
                                     <?php endforeach  ?>
                                   </ul>
                                 </li>

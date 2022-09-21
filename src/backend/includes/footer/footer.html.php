@@ -35,6 +35,16 @@
                 </dl>
               </address>
             </div>
+
+            <div style="padding-top: 2rem;" class="site-footer__widget footer-contacts">
+              Реквизиты:
+              ИНН 7733607590
+              КПП 773301001
+              БИК 044525555
+              ОГРН 5077746795418
+              Номер счета 40702810170030424301
+            </div>
+
           </div>
           <div class="col-6 col-md-3 col-xl-2">
             <div class="site-footer__widget footer-links">
@@ -92,6 +102,7 @@
                 </ul>
               </div>
             </div>
+            <div class="footer-newsletter__text footer-newsletter__text--social"><iframe src="https://yandex.ru/sprav/widget/rating-badge/1616530362" width="150" height="50" frameborder="0"></iframe></div>
           </div>
         </div>
       </div>
@@ -101,11 +112,11 @@
         <div class="site-footer__bottom-row">
           <div class="site-footer__copyright">
             <!-- copyright -->
-            Angara Ltd. <a href="https://angara77.com" target="_blank">Angara Ltd.</a>
+            Angara Ltd. <a href="https://angara77.com" target="_blank">ООО "Ангара"</a>
             <!-- copyright / end -->
           </div>
           <div class="site-footer__payments">
-            <img src="/assets/images/payments.png" alt="">
+            <img src="/assets/images/payments.png" alt="Методы оплаты">
           </div>
         </div>
       </div>
