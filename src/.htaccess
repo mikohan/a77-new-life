@@ -20,30 +20,58 @@ RewriteRule ^404/$ /backend/pages/404/index.php [L]
 ErrorDocument 500 /backend/pages/500/
 RewriteRule ^500/$ /backend/pages/500/index.php [L]
 
+ErrorDocument 410 /backend/pages/410/
+RewriteRule ^410/$ /backend/pages/410/index.php [L]
+
 
 
 
 # Old redircts starts here
-RewriteRule ^zapchasti-([a-zA-Z0-9]+)/([0-9]+)/$ /backend/pages/redirect/car/index.php?old_car_name=$1&old_car_id=$2 [L]
-RewriteRule ^category-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/category/index.php?car_id=$1&cat_id=$2 [L]
-RewriteRule ^subcat-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/subcat/index.php?car_id=$1&subcat_id=$2&cat_id=$3 [L]
-RewriteRule ^sub-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/sub/index.php?car_id=$1&subcat_id=$2&cat_id=$3 [L]
-RewriteRule ^cat-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/cat/index.php?car_id=$1&cat_id=$2 [L]
-RewriteRule ^part/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)-(.+)/$ /backend/pages/redirect/part/index.php?car_name=$1&cat_number=$2 [L]
-RewriteRule ^porter-([a-zA-Z0-9]+)-([0-9]+)/$ /backend/pages/redirect/porter/index.php?cat_number=$1&one_c_id=$2 [L]
-RewriteRule ^article/([0-9]+)/$ /backend/pages/redirect/blog/index.php?id=$1 [L]
-RewriteRule ^articles/$ /backend/pages/blog/index.php [L]
-RewriteRule ^porter1/([0-9])/$ /backend/pages/redirect/catalogues/index.php?id=$1 [L]
-RewriteRule ^carcatalog/([0-9]+)/$ /backend/pages/redirect/catalogues/index.php?car_id=$1 [L]
-RewriteRule ^group-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/group/index.php?car_id=$1&dummy=$2&cat_id=$3 [L]
+#RewriteRule ^zapchasti-([a-zA-Z0-9]+)/([0-9]+)/$ /backend/pages/redirect/car/index.php?old_car_name=$1&old_car_id=$2 [L]
+#RewriteRule ^category-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/category/index.php?car_id=$1&cat_id=$2 [L]
+#RewriteRule ^subcat-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/subcat/index.php?car_id=$1&subcat_id=$2&cat_id=$3 [L]
+#RewriteRule ^sub-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/sub/index.php?car_id=$1&subcat_id=$2&cat_id=$3 [L]
+#RewriteRule ^cat-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/cat/index.php?car_id=$1&cat_id=$2 [L]
+#RewriteRule ^part/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)-(.+)/$ /backend/pages/redirect/part/index.php?car_name=$1&cat_number=$2 [L]
+#RewriteRule ^porter-([a-zA-Z0-9]+)-([0-9]+)/$ /backend/pages/redirect/porter/index.php?cat_number=$1&one_c_id=$2 [L]
+#RewriteRule ^article/([0-9]+)/$ /backend/pages/redirect/blog/index.php?id=$1 [L]
+#RewriteRule ^articles/$ /backend/pages/blog/index.php [L]
+#RewriteRule ^porter1/([0-9])/$ /backend/pages/redirect/catalogues/index.php?id=$1 [L]
+#RewriteRule ^carcatalog/([0-9]+)/$ /backend/pages/redirect/catalogues/index.php?car_id=$1 [L]
+#RewriteRule ^group-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/redirect/group/index.php?car_id=$1&dummy=$2&cat_id=$3 [L]
+
+
+
+
+RewriteRule ^zapchasti-([a-zA-Z0-9]+)/([0-9]+)/$ /backend/pages/410/index.php [L,R=410]
+RewriteRule ^category-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/410/index.php [L,R=410]
+RewriteRule ^subcat-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/410/index.php [L,R=410]
+RewriteRule ^sub-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/410/index.php [L,R=410]
+RewriteRule ^cat-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/410/index.php [L,R=410]
+RewriteRule ^part/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)-(.+)/$ /backend/pages/410/index.php [L,R=410]
+RewriteRule ^porter-([a-zA-Z0-9]+)-([0-9]+)/$ /backend/pages/410/index.php [L,R=410]
+RewriteRule ^article/([0-9]+)/$ /backend/pages/410/index.php [L,R=410]
+RewriteRule ^articles/$ /backend/pages/410/index.php [L,R=410]
+RewriteRule ^porter1/([0-9])/$ /backend/pages/410/index.php [L,R=410]
+RewriteRule ^carcatalog/([0-9]+)/$ /backend/pages/410/index.php [L,R=410]
+RewriteRule ^group-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/410/index.php [L,R=410]
 
 # Old redicrects ends here
 
 
+#RewriteRule ^cars/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/410/index.php [L]
+
+
+
+##### Backup old urls 
 RewriteRule ^cars/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/cars/index.php?make=$1&model=$2 [L]
 RewriteRule ^car/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/category/index.php?model=$1&category=$2 [L]
 RewriteRule ^search/$ /backend/pages/search/ [L]
 RewriteRule ^product/(.+)/$ /backend/pages/product/index.php?slug=$1 [L]
+
+
+
+
 
 RewriteRule ^order/$ /backend/pages/order/ [L]
 RewriteRule ^cart/$ /backend/pages/cart/ [L]
@@ -68,6 +96,8 @@ RewriteRule ^logout/$ /backend/pages/logout/ [L]
 RewriteRule ^login/$ /backend/pages/login/ [L]
 
 #Ajax Quiq preview of product
+
+#Redirect all html to 410.php
 
 
 RewriteRule ^ajax/quickview/$ /backend/includes/quickview.php [L]
