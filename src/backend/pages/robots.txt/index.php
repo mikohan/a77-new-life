@@ -54,6 +54,8 @@ echo PHP_EOL;
 echo "Sitemap: " . $server_root . "sitemap.xml";
 echo PHP_EOL;
 
+echo "host: https://angara77.com";
+echo PHP_EOL;
 
 
 // /search/

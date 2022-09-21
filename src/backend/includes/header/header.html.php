@@ -461,7 +461,7 @@
         </a>
         <div class="indicator__content">
           <div class="account-menu">
-            <form class="account-menu__form">
+            <form class="account-menu__form" method="GET" action="/login/">
               <div class="account-menu__form-title">
                 Войти в Аккаунт
               </div>

@@ -65,6 +65,7 @@ RewriteRule ^dashboard/$ /backend/pages/dashboard/ [L]
 RewriteRule ^edit-profile/$ /backend/pages/edit-profile/ [L]
 RewriteRule ^my-orders/$ /backend/pages/my-orders/ [L]
 RewriteRule ^logout/$ /backend/pages/logout/ [L]
+RewriteRule ^login/$ /backend/pages/login/ [L]
 
 #Ajax Quiq preview of product
 RewriteRule ^ajax/quickview/$ /backend/includes/quickview.php [L]
