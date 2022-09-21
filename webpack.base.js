@@ -358,6 +358,12 @@ module.exports = {
       inject: 'body',
       chunks: ['vendors', 'mainpage'],
     }),
+    new HtmlWebpackPlugin({
+      template: `${PAGES_DIR}/templates/logout.html.php`,
+      filename: `./templates/logout.html.php`,
+      inject: 'body',
+      chunks: ['vendors', 'mainpage'],
+    }),
 
     // ...PAGES.map(
     // 	(page) =>

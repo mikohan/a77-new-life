@@ -495,15 +495,13 @@
             </a>
             <div class="account-menu__divider"></div>
             <ul class="account-menu__links">
-              <li><a href="account-dashboard.html">Dashboard</a></li>
-              <li><a href="account-dashboard.html">Garage</a></li>
-              <li><a href="account-profile.html">Edit Profile</a></li>
-              <li><a href="account-orders.html">Order History</a></li>
-              <li><a href="account-addresses.html">Addresses</a></li>
+              <li><a href="/dashboard/">Мой Гараж</a></li>
+              <li><a href="/edit-profile/">Редактировать профайл</a></li>
+              <li><a href="/my-orders/">Мои заказы</a></li>
             </ul>
             <div class="account-menu__divider"></div>
             <ul class="account-menu__links">
-              <li><a href="account-login.html">Logout</a></li>
+              <li><a href="/logout/">Выйти</a></li>
             </ul>
           </div>
         </div>

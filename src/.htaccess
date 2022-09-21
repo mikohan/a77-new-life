@@ -10,6 +10,10 @@ RewriteEngine on
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
+#### Redirect to https
+#RewriteCond %{HTTPS} off
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
 ErrorDocument 404 /backend/pages/404/
 RewriteRule ^404/$ /backend/pages/404/index.php [L]
 
@@ -55,6 +59,13 @@ RewriteRule ^garranty/$ /backend/pages/garranty/ [L]
 RewriteRule ^policy/$ /backend/pages/policy/ [L]
 RewriteRule ^contacts/$ /backend/pages/contacts/ [L]
 RewriteRule ^delivery/$ /backend/pages/delivery/ [L]
+###############################################
+
+RewriteRule ^dashboard/$ /backend/pages/dashboard/ [L]
+RewriteRule ^edit-profile/$ /backend/pages/edit-profile/ [L]
+RewriteRule ^my-orders/$ /backend/pages/my-orders/ [L]
+RewriteRule ^logout/$ /backend/pages/logout/ [L]
+
 #Ajax Quiq preview of product
 RewriteRule ^ajax/quickview/$ /backend/includes/quickview.php [L]
 RewriteRule ^category/([a-zA-Z0-9-]+)/$ /backend/pages/category_no_car/index.php?category=$1 [L,QSA]
