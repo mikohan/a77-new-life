@@ -100,7 +100,7 @@
         </div>
         <div class="mobile-menu__divider"></div>
         <div class="mobile-menu__indicators">
-          <a class="mobile-menu__indicator" href="wishlist.html">
+          <a class="mobile-menu__indicator" href="/login/">
             <span class="mobile-menu__indicator-icon">
               <svg width="20" height="20">
                 <path d="M14,3c2.2,0,4,1.8,4,4c0,4-5.2,10-8,10S2,11,2,7c0-2.2,1.8-4,4-4c1,0,1.9,0.4,2.7,1L10,5.2L11.3,4C12.1,3.4,13,3,14,3 M14,1
@@ -109,7 +109,7 @@
             </span>
             <span class="mobile-menu__indicator-title">Избранное</span>
           </a>
-          <a class="mobile-menu__indicator" href="/account/dashboard">
+          <a class="mobile-menu__indicator" href="/login/">
             <span class="mobile-menu__indicator-icon">
               <svg width="20" height="20">
                 <path d="M20,20h-2c0-4.4-3.6-8-8-8s-8,3.6-8,8H0c0-4.2,2.6-7.8,6.3-9.3C4.9,9.6,4,7.9,4,6c0-3.3,2.7-6,6-6s6,2.7,6,6
@@ -131,7 +131,7 @@
             </span>
             <span class="mobile-menu__indicator-title">Корзина</span>
           </a>
-          <a class="mobile-menu__indicator" href="/account/garage/">
+          <a class="mobile-menu__indicator" href="/login/">
             <span class="mobile-menu__indicator-icon">
               <svg width="20" height="20">
                 <path d="M6.6,2c2,0,4.8,0,6.8,0c1,0,2.9,0.8,3.6,2.2C17.7,5.7,17.9,7,18.4,7C20,7,20,8,20,8v1h-1v7.5c0,0.8-0.7,1.5-1.5,1.5h-1
@@ -177,15 +177,6 @@
           <li data-mobile-menu-item>
             <a href="<?= $u->contacts() ?>" class="" data-mobile-menu-trigger>
               Контакты
-              <svg width="7" height="11">
-                <path d="M0.3,10.7L0.3,10.7c0.4,0.4,0.9,0.4,1.3,0L7,5.5L1.6,0.3C1.2-0.1,0.7,0,0.3,0.3l0,0c-0.4,0.4-0.4,1,0,1.3l4,3.9l-4,3.9
-	C-0.1,9.8-0.1,10.4,0.3,10.7z" />
-              </svg>
-            </a>
-          </li>
-          <li data-mobile-menu-item>
-            <a href="<?= $u->account() ?>" class="" data-mobile-menu-trigger>
-              Аккаунт
               <svg width="7" height="11">
                 <path d="M0.3,10.7L0.3,10.7c0.4,0.4,0.9,0.4,1.3,0L7,5.5L1.6,0.3C1.2-0.1,0.7,0,0.3,0.3l0,0c-0.4,0.4-0.4,1,0,1.3l4,3.9l-4,3.9
 	C-0.1,9.8-0.1,10.4,0.3,10.7z" />
