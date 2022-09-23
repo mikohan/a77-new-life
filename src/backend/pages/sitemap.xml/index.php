@@ -18,9 +18,10 @@ $cdate = date("Y-m-d H:i", time());
 $all_pages = $sm->makeMeHappy();
 
 $loc = '';
-foreach ($all_pages as $page) {
-  $loc .= $page  . "<lastmod>$cdate</lastmod>";
+foreach ($all_pages as $i => $page) {
+  $loc .= '<url>' . $page . '<lastmod>' . $cdate . '</lastmod></url>';
 }
+
 
 
 
@@ -28,9 +29,7 @@ foreach ($all_pages as $page) {
 $head = <<<EOD
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
    $loc 
-  </url>
 </urlset>
 EOD;
 echo $head;
