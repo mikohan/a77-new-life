@@ -218,15 +218,15 @@
                         <div class="product__meta">
                           <table>
                             <tr>
-                              <th>Каталожный номер</th>
+                              <td>Каталожный номер</td>
                               <td><?= mb_strtoupper($product['cat_number'], 'UTF-8') ?></td>
                             </tr>
                             <tr>
-                              <th>Бренд</th>
+                              <td>Бренд</td>
                               <td><span class="product_page-brand"><?= mb_strtoupper($part_brand) ?></span></td>
                             </tr>
                             <tr>
-                              <th>SKU</th>
+                              <td>SKU</td>
                               <td><?= $product['one_c_id'] ?></td>
                             </tr>
                           </table>
