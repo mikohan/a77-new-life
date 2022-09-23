@@ -38,9 +38,9 @@
                   <ul class="mobile-menu__links">
                     <li data-mobile-menu-item>
                       <button type="button" class="" data-mobile-menu-trigger>
-                        <div class="mobile-menu__links-image">
+                        <span class="mobile-menu__links-image">
                           <img src="/assets/images/languages/language-4.png" alt="language">
-                        </div>
+                        </span>
                         Русский
                       </button>
                     </li>

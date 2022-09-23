@@ -271,7 +271,7 @@
                         <a href="/category/tormoznaja-sistema/">Тормозная Система</a>
                       </div>
                       <ul class="category-card__children">
-                        <li><a href="/category//kolodki-tormoznye-nakladki/">Колодки</a></li>
+                        <li><a href="/category/kolodki-tormoznye-nakladki/">Колодки</a></li>
                         <li><a href="/category/support-tormoznoj/">Суппорт</a></li>
                         <li><a href="/category/diski-barabany-tormoznye/">Диски</a></li>
                         <li><a href="/category/ruchnik-tormoz-stojanochnyj/">Ручник</a></li>

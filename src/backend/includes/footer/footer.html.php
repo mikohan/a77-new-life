@@ -80,7 +80,7 @@
               <div class="footer-newsletter__text">
                 Подписаться на рассылку
               </div>
-              <form action="" class="footer-newsletter__form">
+              <form action="/subscribe.php" class="footer-newsletter__form">
                 <label class="sr-only" for="footer-newsletter-address">Email</label>
                 <input type="text" class="footer-newsletter__form-input" id="footer-newsletter-address" placeholder="Емейл адрес...">
                 <button class="footer-newsletter__form-button">Подписаться</button>
@@ -102,7 +102,7 @@
                 </ul>
               </div>
             </div>
-            <div class="footer-newsletter__text footer-newsletter__text--social"><iframe src="https://yandex.ru/sprav/widget/rating-badge/1616530362" width="150" height="50" frameborder="0"></iframe></div>
+            <div class="footer-newsletter__text footer-newsletter__text--social"><iframe src="https://yandex.ru/sprav/widget/rating-badge/1616530362" width="150" height="50"></iframe></div>
           </div>
         </div>
       </div>

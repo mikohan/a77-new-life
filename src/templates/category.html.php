@@ -11,54 +11,53 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" />
   <title><?= $title ?></title>
   <meta name="description" content="<?= $description ?>">
-</head>
-<style>
-  products-list__item {
-    display: none;
-  }
+  <style>
+    products-list__item {
+      display: none;
+    }
 
-  .fade-loader {
-    width: 100%;
-    height: 100vh;
-    background-color: #e9ecef;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 10px;
-    border-radius: 3px;
-  }
+    .fade-loader {
+      width: 100%;
+      height: 100vh;
+      background-color: #e9ecef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10px;
+      border-radius: 3px;
+    }
 
-  .fade-loader h3 {
-    color: #fff;
-    font-weight: bold;
-    font-size: 3rem;
-  }
+    .fade-loader h3 {
+      color: #fff;
+      font-weight: bold;
+      font-size: 3rem;
+    }
 
-  .has-photo {
-    cursor: pointer;
-  }
+    .has-photo {
+      cursor: pointer;
+    }
 
-  .filter-list__title:hover {
-    font-weight: 600;
-  }
+    .filter-list__title:hover {
+      font-weight: 600;
+    }
 
-  .applied-filters__button--filter {
-    cursor: pointer;
-  }
+    .applied-filters__button--filter {
+      cursor: pointer;
+    }
 
-  .applied-filters__button--filter svg:hover {
-    fill: red;
-    transform: scale(1.3);
-  }
+    .applied-filters__button--filter svg:hover {
+      fill: red;
+      transform: scale(1.3);
+    }
 
-  .c-filter-svg {
-    fill: red;
-  }
+    .c-filter-svg {
+      fill: red;
+    }
 
-  [v-cloak] {
-    display: none;
-  }
-</style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -379,14 +378,14 @@
                       <div class="view-options__spring"></div>
                       <div class="view-options__select">
                         <label for="view-option-sort">Сортировать:</label>
-                        <select id="view-option-sort" class="form-control form-control-sm" name="">
-                          <option value="">Цена</option>
+                        <select id="view-option-sort" class="form-control form-control-sm" name="price">
+                          <option>Цена</option>
                         </select>
                       </div>
                       <div class="view-options__select">
                         <label for="view-option-limit">Показано:</label>
-                        <select id="view-option-limit" class="form-control form-control-sm" name="">
-                          <option value="">20</option>
+                        <select id="view-option-limit" class="form-control form-control-sm" name="cuantity">
+                          <option>20</option>
                         </select>
                       </div>
                     </div>
@@ -529,13 +528,13 @@
                   <div class="products-view__pagination">
                     <nav aria-label="Page navigation example">
                       <ul class="pagination">
-                        <li class="page-item disabled">
-                          <a class="page-link page-link--with-arrow" href="" aria-label="Previous">
+                        <li class="page-item">
+                          <button class="page-link page-link--with-arrow" aria-label="Previous" disabled>
                             <span class="page-link__arrow page-link__arrow--left" aria-hidden="true"><svg width="7" height="11">
                                 <path d="M6.7,0.3L6.7,0.3c-0.4-0.4-0.9-0.4-1.3,0L0,5.5l5.4,5.2c0.4,0.4,0.9,0.3,1.3,0l0,0c0.4-0.4,0.4-1,0-1.3l-4-3.9l4-3.9C7.1,1.2,7.1,0.6,6.7,0.3z" />
                               </svg>
                             </span>
-                          </a>
+                          </button>
                         </li>
                         <li class="page-item"><a class="page-link" href="#">1</a></li>
                         <li class="page-item active" aria-current="page">

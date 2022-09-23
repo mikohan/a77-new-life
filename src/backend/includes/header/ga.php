@@ -14,7 +14,7 @@
 
 
 <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
+<script>
   (function(m, e, t, r, i, k, a) {
     m[i] = m[i] || function() {
       (m[i].a = m[i].a || []).push(arguments)
@@ -37,9 +37,5 @@
     webvisor: true
   });
 </script>
-<noscript>
-  <div><img src="https://mc.yandex.ru/watch/20154349" style="position:absolute; left:-9999px;" alt="" /></div>
-</noscript>
-<!-- /Yandex.Metrika counter -->
 <!-- /Yandex.Metrika counter -->
 <meta name="yandex-verification" content="bc25c21b07b16ef5" />

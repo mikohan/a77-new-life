@@ -38,7 +38,7 @@
         <div class="mobile-header__search mobile-search">
           <form name="mobile-search-parts" class="mobile-search__body" method="GET" action="/search/">
             <input onclick="this.select()" type="text" class="mobile-search__input" placeholder="Введите каталожный номер или название" name="search" value="<?= $_GET['search'] ?? '' ?>">
-            <button aria-label="Выбрать машину" type="button" class="mobile-search__vehicle-picker" aria-label="Select Vehicle">
+            <button aria-label="Выбрать машину" type="button" class="mobile-search__vehicle-picker">
               <svg width="20" height="20">
                 <path d="M6.6,2c2,0,4.8,0,6.8,0c1,0,2.9,0.8,3.6,2.2C17.7,5.7,17.9,7,18.4,7C20,7,20,8,20,8v1h-1v7.5c0,0.8-0.7,1.5-1.5,1.5h-1
   c-0.8,0-1.5-0.7-1.5-1.5V16H5v0.5C5,17.3,4.3,18,3.5,18h-1C1.7,18,1,17.3,1,16.5V16V9H0V8c0,0,0.1-1,1.6-1C2.1,7,2.3,5.7,3,4.2
@@ -213,7 +213,7 @@
                                   <ul class="megamenu-links">
                                     <!-- Looping subcategories -->
                                     <?php foreach ($category->children as $subcat) : ?>
-                                      <li clheader_ass="megamenu-links__item" style="position:relative;"><a class="megamenu-links__item-link" href="<?= $u->categoryCar($all_car->slug, $category->slug) ?>"><?= $subcat->name ?></a><span class="indicator__counter"><?= $subcat->doc_count ?></span></li>
+                                      <li data-clheader_ass="megamenu-links__item" style="position:relative;"><a class="megamenu-links__item-link" href="<?= $u->categoryCar($all_car->slug, $category->slug) ?>"><?= $subcat->name ?></a><span class="indicator__counter"><?= $subcat->doc_count ?></span></li>
                                     <?php endforeach  ?>
                                   </ul>
                                 </li>

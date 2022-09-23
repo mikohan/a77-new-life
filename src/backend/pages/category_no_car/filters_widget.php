@@ -29,9 +29,9 @@
               <div class="filter-categories__counter"><?= $page_category['count'] ?></div>
             </li>
             <!-- Children cats start -->
-            <?php foreach (findChildren($page_category, $categories) as $ct) : ?>
+            <?php foreach (findChildren($page_category, $categories) as $key => $ct) : ?>
               <li class="filter-categories__item filter-categories__item--child">
-                <a id="drils" href="/category/<?= $ct['slug'] ?>/"><?= mb_ucfirst($ct['name']) ?></a>
+                <a id="drils-<?= $key ?>" href="/category/<?= $ct['slug'] ?>/"><?= mb_ucfirst($ct['name']) ?></a>
                 <div class="filter-categories__counter"><?= $ct['count'] ?></div>
               </li>
             <?php endforeach ?>
