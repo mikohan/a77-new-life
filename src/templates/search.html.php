@@ -10,6 +10,8 @@
   <title>Поиск запчастей ✰ в интернет магазине Запчастей в Москве ✈ <?= $search ?> ☎ <?= TELEPHONE_FREE ?></title>
   <meta name="description" content="Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" />
+  <meta name=”robots” content=”noindex” />
+  <meta name="robots" content="nofollow" />
   <style>
     .applied-filters__item {
       cursor: pointer;

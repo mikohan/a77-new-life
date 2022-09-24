@@ -194,7 +194,7 @@
                     </div>
                     <div class="product__features">
                       <div class="product__features-link">
-                        <a href="#product-tab-description" rel="nofollow">Гаранития и Доставка ...</a>
+                        <span>Гаранития и Доставка ...</span>
                       </div>
                     </div>
                   </div>
@@ -237,18 +237,19 @@
                           <button class="btn btn-primary btn-lg btn-block add-to-cart" id="add_to_cart_GA" data-price="<?= $product['price'] ?>" data-name="<?= $product['name'] ?>" data-image="<?= $product_tmb ?>" data-sku="<?= $product['one_c_id'] ?>">В
                             Корзину</button>
                         </div>
-                        <div class="product__actions-divider"></div>
-                        <!-- <div class="product__actions-item product__actions-item--addtocart">
-                                                    <button class="btn btn-primary btn-lg btn-block  ang-byu-oneclick b1c" id="b1clickGA">Купить в
-                                                        1 клик</button>
-                                                </div> -->
+                      </div>
+                      <div class="product__tags-and-share-links">
+                        <div class="product__features-title-whatsapp">Получить фото и видео или консультацию от менеджера в WhatsApp</div>
+                        <div class="product__actions-item product__actions-item--addtocart">
+                          <button class="btn btn-success btn-lg btn-block" id="whatsup-button">WhatsApp</button>
+                        </div>
                       </div>
                       <div class="product__tags-and-share-links">
                         <div class="product__tags tags tags--sm">
                           <div class="product__features-title">Подходит на:</div>
                           <div class="tags__list">
                             <?php foreach ($product['model'] as $car) : ?>
-                              <a href="<?= $u->car($car['make_slug'], $car['slug']) ?>"><?= mb_strtoupper($car['name'], 'UTF-8') ?></a>
+                              <a href="<?= $u->carNoHomePage($car['slug']) ?>"><?= mb_strtoupper($car['name'], 'UTF-8') ?></a>
                             <?php endforeach ?>
                           </div>
                         </div>
@@ -260,6 +261,7 @@
                           </ul>
                         </div>
                       </div>
+
                     </div>
                     <div class="product__shop-features shop-features">
                       <ul class="shop-features__list">
@@ -429,7 +431,7 @@
                     <div class="product__shop-features shop-features product__shop--cars">
                       <div class="tags__list" style="padding: 1rem;">
                         <?php foreach ($all_cars as $car) : ?>
-                          <a href="<?= $u->car($car->make->slug, $car->slug) ?>"><?= $car->name ?></a>
+                          <a href="<?= $u->carNoHomePage($car->slug) ?>"><?= $car->name ?></a>
                         <?php endforeach ?>
                       </div>
                     </div>
@@ -439,7 +441,7 @@
                       <li class="product-tabs__item product-tabs__item--active"><a href="#product-tab-description">Гарантии и Доставка</a></li>
                       <li class="product-tabs__item"><a href="#product-tab-opisanie">Описание</a></li>
                       <li class="product-tabs__item"><a href="#product-tab-specification">Характеристики</a></li>
-                      <li class="product-tabs__item"><a href="#product-tab-analogs">Кроссы</a>
+                      <!--<li class="product-tabs__item"><a href="#product-tab-analogs">Кроссы</a>-->
                       </li>
                     </ul>
                     <div class="product-tabs__content">

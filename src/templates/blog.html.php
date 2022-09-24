@@ -201,7 +201,7 @@
             </div>
             <div class="blog-view__item blog-view__item-sidebar">
               <div class="card widget widget-search">
-                <form action="" method="get" class="widget-search__form">
+                <form method="get" class="widget-search__form">
                   <input class="widget-search__input" name="blog_search" type="search" placeholder="Поиск статей...">
                   <button class="widget-search__button"><svg width="20" height="20">
                       <path d="M19.2,17.8c0,0-0.2,0.5-0.5,0.8c-0.4,0.4-0.9,0.6-0.9,0.6s-0.9,0.7-2.8-1.6c-1.1-1.4-2.2-2.8-3.1-3.9C10.9,14.5,9.5,15,8,15
