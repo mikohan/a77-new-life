@@ -227,3 +227,15 @@ h1 {
   font-size: 0.8rem;
   padding-bottom: 5px;
 }
+
+@media only screen and (max-width: 600px) {
+  .breadcrumb__mobile {
+    font-size: 0.7rem;
+  }
+}
+
+.product__page-analogs-mobile {
+  width: 100%;
+  border: 1px solid teal;
+}
+

@@ -49,7 +49,7 @@
         <div class="container">
           <div class="block-header__body">
             <nav class="breadcrumb block-header__breadcrumb" aria-label="breadcrumb">
-              <ol class="breadcrumb__list">
+              <ol class="breadcrumb__list breadcrumb__mobile">
                 <li class="breadcrumb__spaceship-safe-area" role="presentation"></li>
                 <li class="breadcrumb__item breadcrumb__item--parent breadcrumb__item--first">
                   <a href="<?= $u->home() ?>" class="breadcrumb__item-link">Главная</a>
@@ -184,7 +184,7 @@
                       <?php endif ?>
                       <div class="product__tabs--hr--full product__expert--side--item2"></div>
                       <?php if (!empty($catalogue_new['data'])) : ?>
-                        <div class="product__expert--side--item product__expert--side--item3">
+                        <div class="product__expert--side--item product__expert--side--item3 d-none d-md-block">
                           <div class="product__features-title">Посмотреть на схеме</div>
                           <a href="/catalogue/schema/<?= $catalogue_new['prefix'] ?>/<?= $catalogue_new['data']['id'] ?>/">
                             <img src="/catalogue_images/<?= $catalogue_new['prefix'] ?><?= $catalogue_new['data']['img2'] ?>" alt="<?= $catalogue_new['data']['name'] ?>" title="<?= $catalogue_new['data']['name'] ?>" class="img-responsive" style="width: 60%;">
@@ -261,7 +261,6 @@
                           </ul>
                         </div>
                       </div>
-
                     </div>
                     <div class="product__shop-features shop-features">
                       <ul class="shop-features__list">
@@ -436,12 +435,13 @@
                       </div>
                     </div>
                   </div>
-                  <div class=" product__tabs product-tabs product-tabs--layout--full d-none d-md-block">
+
+                  <div class=" product__tabs product-tabs product-tabs--layout--full d-md-block">
                     <ul class="product-tabs__list">
-                      <li class="product-tabs__item product-tabs__item--active"><a href="#product-tab-description">Гарантии и Доставка</a></li>
+                      <li class="product-tabs__item product-tabs__item--active"><a href="#product-tab-description">Гарантии</a></li>
                       <li class="product-tabs__item"><a href="#product-tab-opisanie">Описание</a></li>
-                      <li class="product-tabs__item"><a href="#product-tab-specification">Характеристики</a></li>
-                      <!--<li class="product-tabs__item"><a href="#product-tab-analogs">Кроссы</a>-->
+                      <li class="product-tabs__item"><a href="#product-tab-specification">Хар-ки</a></li>
+                      <li class="product-tabs__item"><a href="#product-tab-analogs">Аналоги</a>
                       </li>
                     </ul>
                     <div class="product-tabs__content">
@@ -457,7 +457,7 @@
                                 </a></li>
                             </ul>
                             <hr class="product__tabs--hr">
-                            <h4>Гарантия Возврата 1 Год!</h4>
+                            <h3>Гарантия Возврата 1 Год!</h3>
                             <ul>
                               <li>Если запчасть не понадобилась.</li>
                               <li>Если запчасть не подошла.</li>
@@ -512,52 +512,34 @@
                           <thead>
                             <tr>
                               <th class="analogs-table__column analogs-table__column--name">
-                                Name</th>
-                              <th class="analogs-table__column analogs-table__column--rating">
-                                Rating</th>
+                                Название</th>
                               <th class="analogs-table__column analogs-table__column--vendor">
-                                Vendor</th>
+                                Бренд</th>
                               <th class="analogs-table__column analogs-table__column--price">
-                                Price</th>
+                                Цена</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <?php if ($product_cross) : ?>
-                              <?php foreach ($product_cross as $cross) : ?>
+                            <?php if ($analogs) : ?>
+                              <?php foreach ($analogs as $cross) : ?>
+                                <?php if ($cross['one_c_id'] == $product['one_c_id']) {
+                                  continue;
+                                } ?>
                                 <tr>
                                   <td class="analogs-table__column analogs-table__column--name">
-                                    <a href="" class="analogs-table__product-name"><?= $product['name'] ?></a><br>
+                                    <a href="<?= $u->product($cross['slug']) ?>" class="analogs-table__product-name"><?= $product['name'] ?></a><br>
                                     <div class="analogs-table__sku" data-title="SKU">
-                                      <?= $cross['cross'] ?></div>
-                                  </td>
-                                  <td class="analogs-table__column analogs-table__column--rating">
-                                    <div class="analogs-table__rating">
-                                      <div class="analogs-table__rating-stars">
-                                        <div class="rating">
-                                          <div class="rating__body">
-                                            <div class="rating__star rating__star--active">
-                                            </div>
-                                            <div class="rating__star rating__star--active">
-                                            </div>
-                                            <div class="rating__star rating__star--active">
-                                            </div>
-                                            <div class="rating__star rating__star--active">
-                                            </div>
-                                            <div class="rating__star"></div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="analogs-table__rating-label">
-                                        10 Reviews
-                                      </div>
+                                      <a href="<?= $u->product($cross['slug']) ?>">
+                                        <?= $cross['cat_number'] ?>
+                                      </a>
                                     </div>
                                   </td>
                                   <td class="analogs-table__column analogs-table__column--vendor" data-title="Vendor">
-                                    Sunset
-                                    <div class="analogs-table__country">(Germany)</div>
+                                    <?= mb_ucfirst($cross['brand']['brand']) ?>
+                                    <div class="analogs-table__country"><?= $cross['brand']['country'] ?? mb_ucfirst($cross['brand']['country']) ?></div>
                                   </td>
                                   <td class="analogs-table__column analogs-table__column--price">
-                                    ₽ 1259.00</td>
+                                    ₽ <?= $cross['price'] ?></td>
                                 </tr>
                               <?php endforeach ?>
                             <?php endif ?>
