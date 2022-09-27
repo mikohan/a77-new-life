@@ -1,4 +1,8 @@
 <header class="site__mobile-header">
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/20154349" style="position:absolute; left:-9999px;" alt="yandex counter" title="yandex counter" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
   <div class="mobile-header">
     <div class="container">
       <div class="mobile-header__body">

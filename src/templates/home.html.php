@@ -92,7 +92,7 @@
               ?>
               <li class="block-brands__item">
                 <a href="<?= $u->carNoHomePage($car->slug) ?>" class="block-brands__item-link">
-                  <img src="<?= $img ?>" alt="<?= $car->name ?>" />
+                  <img src="<?= $img ?>" alt="<?= $car->name ?>" title="<?= $car->name ?>" />
                   <span class="block-brands__item-name"><?= $car->name ?></span>
                 </a>
               </li>
@@ -133,7 +133,7 @@
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
                       <a href="/category/fary-osveschenie-signalizatsija/" class="image__body">
-                        <img class="image__tag" src="/assets/images/categories/fary-osveschenie-signalizatsija.jpg" alt="Lamps and headlights" />
+                        <img class="image__tag" src="/assets/images/categories/fary-osveschenie-signalizatsija.jpg" alt="Lamps and headlights" title="Lamps and headlights" />
                       </a>
                     </div>
                     <div class="category-card__info">
@@ -159,7 +159,7 @@
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
                       <a href="/category/filtry-i-korpusy-filtrov/" class="image__body">
-                        <img class="image__tag" src="/assets/images/categories/filtry-i-korpusy-filtrov.jpg" alt="Filters and parts" />
+                        <img class="image__tag" src="/assets/images/categories/filtry-i-korpusy-filtrov.jpg" alt="Filters and parts" title="Filters and parts" />
                       </a>
                     </div>
                     <div class="category-card__info">
@@ -185,7 +185,7 @@
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
                       <a href="/category/transmissija/" class="image__body">
-                        <img class="image__tag" src="/assets/images/categories/transmissija.jpg" alt="Transmission" />
+                        <img class="image__tag" src="/assets/images/categories/transmissija.jpg" alt="Transmission" title="Transmission" />
                       </a>
                     </div>
                     <div class="category-card__info">
@@ -211,7 +211,7 @@
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
                       <a href="/category/salon-interer/" class="image__body">
-                        <img class="image__tag" src="/assets/images/categories/category-4-160x160.jpg" alt="Inrerior" />
+                        <img class="image__tag" src="/assets/images/categories/category-4-160x160.jpg" alt="Inrerior" title="Inrerior" />
                       </a>
                     </div>
                     <div class="category-card__info">
@@ -237,7 +237,7 @@
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
                       <a href="/category/podveska/" class="image__body">
-                        <img class="image__tag" src="/assets/images/categories/podveska.jpg" alt="Podveska" />
+                        <img class="image__tag" src="/assets/images/categories/podveska.jpg" alt="Podveska" title="Podveska" />
                       </a>
                     </div>
                     <div class="category-card__info">
@@ -263,7 +263,7 @@
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
                       <a href="/category/tormoznaja-sistema/" class="image__body">
-                        <img class="image__tag" src="/assets/images/categories/tormoznaja-sistema.jpg" alt="Tormoznaya systema" />
+                        <img class="image__tag" src="/assets/images/categories/tormoznaja-sistema.jpg" alt="Tormoznaya systema" title="Tormoznaya systema" />
                       </a>
                     </div>
                     <div class="category-card__info">
@@ -371,7 +371,7 @@
                       <div class="product-card__image">
                         <div class="image image--type--product">
                           <a href="<?= $u->product($latest['slug']) ?>" class="image__body">
-                            <img class="image__tag" src="<?= $img ?>" alt="" />
+                            <img class="image__tag" src="<?= $img ?>" alt="<?= $latest['name'] ?>" title="<?= $latest['name'] ?>" />
                           </a>
                         </div>
                         <div class="
@@ -444,8 +444,8 @@
         <div class="container">
           <div class="block-banners__list">
             <a href="<?= $u->category('zhidkosti-avtohimija') ?>" class="block-banners__item block-banners__item--style--one">
-              <span class="block-banners__item-image"><img src="../assets/images/banners/banner1.jpg" alt="Motor Oils" /></span>
-              <span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner1.jpg" alt="Motor oils" /></span>
+              <span class="block-banners__item-image"><img src="../assets/images/banners/banner1.jpg" alt="Motor Oils" title="Motor Oils" /></span>
+              <span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner1.jpg" alt="Motor oils" title="Motor oils" /></span>
               <span class="block-banners__item-title">Моторные Масла</span>
               <span class="block-banners__item-details">
                 Синтетические масла с доставкой<br />
@@ -454,8 +454,8 @@
               <span class="block-banners__item-button btn btn-primary btn-sm"> Перейти </span>
             </a>
             <a href="<?= $u->category('aksessuary') ?>" class="block-banners__item block-banners__item--style--two">
-              <span class="block-banners__item-image"><img src="assets/images/banners/banner2.jpg" alt="Acsessores" /></span>
-              <span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner2.jpg" alt="Acsessores" /></span>
+              <span class="block-banners__item-image"><img src="assets/images/banners/banner2.jpg" alt="Acsessores" title="Acsessores" /></span>
+              <span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner2.jpg" alt="Acsessores" title="Acsessores" /></span>
               <span class="block-banners__item-title">Аксесуары</span>
               <span class="block-banners__item-details">
                 Полезные принадлежности и расходники для машин<br />
@@ -696,7 +696,7 @@
                   <div class="post-card">
                     <div class="post-card__image">
                       <a href="<?= $link ?>">
-                        <img src="<?= $img ?>" alt="<?= $title ?>" />
+                        <img src="<?= $img ?>" alt="<?= $title ?>" title="<?= $title ?>" />
                       </a>
                     </div>
                     <div class="post-card__content">
@@ -759,7 +759,7 @@
                       <div class="product-card__image">
                         <div class="image image--type--product">
                           <a href="<?= $link ?>" class="image__body">
-                            <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" />
+                            <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" title"<?= $name ?>" />
                           </a>
                         </div>
                       </div>
@@ -819,7 +819,7 @@
                       <div class="product-card__image">
                         <div class="image image--type--product">
                           <a href="<?= $link ?>" class="image__body">
-                            <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" />
+                            <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" title="<?= $name ?>" />
                           </a>
                         </div>
                       </div>
@@ -878,7 +878,7 @@
                       <div class="product-card__image">
                         <div class="image image--type--product">
                           <a href="<?= $link ?>" class="image__body">
-                            <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" />
+                            <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" title="<?= $name ?>" />
                           </a>
                         </div>
                       </div>
