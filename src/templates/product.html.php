@@ -438,17 +438,25 @@
 
                   <div class=" product__tabs product-tabs product-tabs--layout--full d-md-block">
                     <ul class="product-tabs__list">
-                      <li class="product-tabs__item product-tabs__item--active"><a href="#product-tab-description">Гарантии</a></li>
-                      <li class="product-tabs__item"><a href="#product-tab-opisanie">Описание</a></li>
-                      <li class="product-tabs__item"><a href="#product-tab-specification">Хар-ки</a></li>
-                      <li class="product-tabs__item"><a href="#product-tab-analogs">Аналоги</a>
+                      <li class="product-tabs__item product-tabs__item--active"><a href="#product-tab-description">
+                          <h2>Гарантии</h2>
+                        </a></li>
+                      <li class="product-tabs__item"><a href="#product-tab-opisanie">
+                          <h2>Описание</h3>
+                        </a></li>
+                      <li class="product-tabs__item"><a href="#product-tab-specification">
+                          <h2>Хар-ки</h2>
+                        </a></li>
+                      <li class="product-tabs__item"><a href="#product-tab-analogs">
+                          <h2>Аналоги</h2>
+                        </a>
                       </li>
                     </ul>
                     <div class="product-tabs__content">
                       <div class="product-tabs__pane product-tabs__pane--active" id="product-tab-description">
                         <div class="typography">
                           <div class="product__tabs--delivery">
-                            <h4>Сделать заказ можно</h4>
+                            <h3>Сделать заказ можно</h3>
                             <ul>
                               <li>По телефону.</li>
                               <li>По Email.</li>
@@ -466,7 +474,7 @@
                                   Подробнее здесь...</a></li>
                             </ul>
                             <hr class="product__tabs--hr">
-                            <h4>Доставка</h4>
+                            <h3>Доставка</h3>
                             <ul>
                               <li>Если запчасть нужна срочно, приезжайте с 09:00 утра до 19:00 вечера в любой день
                                 недели.</li>
@@ -557,7 +565,7 @@
                 <div class="container">
                   <div class="section-header">
                     <div class="section-header__body">
-                      <h2 class="section-header__title">Похожие продукты</h2>
+                      <h5 class="section-header__title">Похожие продукты</h5>
                       <div class="section-header__spring"></div>
                       <div class="section-header__arrows">
                         <div class="arrow section-header__arrow section-header__arrow--prev arrow--prev">
