@@ -96,7 +96,7 @@
                       <div class="owl-carousel">
                         <?php foreach ($product_images as $img) : ?>
                           <a href="<?= $img ?>" target="_blank">
-                            <img src="<?= $img ?>" alt="<?= $product['name'] ?>">
+                            <img src="<?= $img ?>" alt="<?= $product['name'] ?>" title="<?= $product['name'] ?>" />
                           </a>
                         <?php endforeach ?>
                       </div>
@@ -105,7 +105,7 @@
                       <div class="owl-carousel">
                         <?php foreach ($product_tmbs as $thumb) : ?>
                           <a href="<?= $thumb ?>" class="product-gallery__thumbnails-item" target="_blank">
-                            <img src="<?= $thumb ?>" alt="<?= $product['name'] ?>">
+                            <img src="<?= $thumb ?>" alt="<?= $product['name'] ?>" title="<?= $product['name'] ?>" />
                           </a>
                         <?php endforeach ?>
                       </div>
@@ -619,9 +619,9 @@
                               <div class="product-card__image">
                                 <a href="<?= $u->product($related_product['slug']) ?>">
                                   <?php if (empty($related_product['images'])) : ?>
-                                    <img src="/assets/images/products/product-default-245.jpg" alt="<?= $related_product['name'] ?>" />
+                                    <img src="/assets/images/products/product-default-245.jpg" alt="<?= $related_product['name'] ?>" title="<?= $related_product['name'] ?>" />
                                   <?php else : ?>
-                                    <img src="<?= count($related_product['images']) ? $related_product['images'][0]['img245'] : '/assets/images/products/product-default-245.jpg' ?>" alt="<?= $related_product['name'] ?>" />
+                                    <img src="<?= count($related_product['images']) ? $related_product['images'][0]['img245'] : '/assets/images/products/product-default-245.jpg' ?>" alt="<?= $related_product['name'] ?>" title="<?= $related_product['name'] ?>" />
                                   <?php endif ?>
                                 </a>
                                 <div class="status-badge status-badge--style--success product-card__fit status-badge--has-icon status-badge--has-text">
