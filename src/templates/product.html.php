@@ -241,7 +241,7 @@
                       <div class="product__tags-and-share-links">
                         <div class="product__features-title-whatsapp">Получить фото и видео или консультацию от менеджера в WhatsApp</div>
                         <div class="product__actions-item product__actions-item--addtocart">
-                          <button class="btn btn-success btn-lg btn-block" id="whatsup-button">WhatsApp</button>
+                          <button class="btn btn-success btn-lg btn-block" id="whatsup-button" data-url="<?= $whatsapp_text ?>">WhatsApp</button>
                         </div>
                       </div>
                       <div class="product__tags-and-share-links">

@@ -103,4 +103,11 @@ $product_link = $u->product($product['slug']);
 $product['name'] = str_replace('"', '', $product['name']);
 $product['name2'] = str_replace('"', '', $product['name']);
 
+// Here I am making url for whatsup
+$product_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$text = 'Расскажите подробнее про ' . $name . ' ';
+$text .= $product_link;
+$whatsapp_text = str_replace(' ', '%20', $text);
+// Расскажите%20подробнее%20про%20Сцепление%20Комплект%20(Корзина,%20Диск,%20Подшипник)%20Sachs%20Портер%20Хендай%20Портер1%20-%20https://angara77.com/product/stseplenie-komplekt-korzina-disk-podshipnik-sachs-porter/
+
 include __DIR__ . '/../../../templates/product.html.php';

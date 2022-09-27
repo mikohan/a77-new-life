@@ -1352,7 +1352,10 @@ import PhotoSwipeUI_Default from '../vendor/photoswipe/photoswipe-ui-default.min
 
   $(function() {
     $('#whatsup-button').click(function() {
-      window.open("https://api.whatsapp.com/send?phone=79197703953&text=Hello!", '_blank');
+      const text = $(this).attr('data-url');
+
+      window.open("https://api.whatsapp.com/send?phone=79197703953&text=" + text, '_blank');
+
     });
   });
 
