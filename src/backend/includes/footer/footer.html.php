@@ -64,13 +64,13 @@
             <div class="site-footer__widget footer-links">
               <h5 class="footer-links__title">Каталоги</h5>
               <ul class="footer-links__list">
-                <li class="footer-links__item"><a href="/porter1/1/" class="footer-links__link">Портер</a></li>
-                <li class="footer-links__item"><a href="/porter1/2/" class="footer-links__link">Портер 2</a></li>
-                <li class="footer-links__item"><a href="/porter1/3/" class="footer-links__link">HD</a></li>
-                <li class="footer-links__item"><a href="/porter1/5/" class="footer-links__link">Старекс</a></li>
-                <li class="footer-links__item"><a href="/carcatalog/7/" class="footer-links__link">Соната</a></li>
-                <li class="footer-links__item"><a href="/carcatalog/11/" class="footer-links__link">Оптима</a></li>
-                <li class="footer-links__item"><a href="/carcatalog/6/" class="footer-links__link">Соренто</a></li>
+                <li class="footer-links__item"><a href="<?= $u->catalogue('porter1') ?>" class="footer-links__link">Портер</a></li>
+                <li class="footer-links__item"><a href="<?= $u->catalogue('porter2') ?>" class="footer-links__link">Портер 2</a></li>
+                <li class="footer-links__item"><a href="<?= $u->catalogue('hd') ?>" class="footer-links__link">HD</a></li>
+                <li class="footer-links__item"><a href="<?= $u->catalogue('starex') ?>" class="footer-links__link">Старекс</a></li>
+                <li class="footer-links__item"><a href="<?= $u->catalogue('sonata') ?>" class="footer-links__link">Соната</a></li>
+                <li class="footer-links__item"><a href="<?= $u->catalogue('optima') ?>" class="footer-links__link">Оптима</a></li>
+                <li class="footer-links__item"><a href="<?= $u->catalogue('sorento') ?>" class="footer-links__link">Соренто</a></li>
               </ul>
             </div>
           </div>
