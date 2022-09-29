@@ -239,3 +239,7 @@ h1 {
   border: 1px solid teal;
 }
 
+.product-tabs__item h2 {
+  font-size: 1rem;
+
+}
