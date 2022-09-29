@@ -24,8 +24,11 @@ $model = count($product['model']) ? mb_strtolower($product['model'][0]['name'], 
 $make = count($product['model']) ? mb_strtolower($product['model'][0]['make']) : '';
 
 
+
+
+
 $check_model = true;
-if ($model == "все модели") {
+if ($model == "все модели" or !$model) {
   $check_model = false;
 }
 
