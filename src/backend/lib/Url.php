@@ -76,6 +76,14 @@ class Url
   {
     return "/catalogue/{$slug}/";
   }
+  public function orderOneClick()
+  {
+    return "/order-one-click/";
+  }
+  public function order()
+  {
+    return "/order/";
+  }
   // Account section
   public function account()
   {

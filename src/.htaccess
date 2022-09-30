@@ -74,6 +74,7 @@ RewriteRule ^product/(.+)/$ /backend/pages/product/index.php?slug=$1 [L]
 
 
 RewriteRule ^order/$ /backend/pages/order/ [L]
+RewriteRule ^order-one-click/$ /backend/pages/one-click-order/ [L]
 RewriteRule ^cart/$ /backend/pages/cart/ [L]
 RewriteRule ^catalogue/([a-zAZ0-9-]+)/$ /backend/pages/catalogue/index.php?car=$1 [L]
 RewriteRule ^catalogue/([a-zAZ0-9-]+)/([a-zA-Z0-9-]+)/$ /backend/pages/catalogue/subcat.php?car=$1&parent=$2 [L]

@@ -84,7 +84,7 @@
                 <div class="card">
                   <div class="card-body card-body--padding--2">
                     <h3 class="card-title">Оформить в 1 клик</h3>
-                    <form id="send-order-one-click">
+                    <form id="send-order-one-click" method="post" action="<?= $u->orderOneClick() ?>">
                       <table class="cart__totals-table">
                         <thead>
                           <tr>
@@ -100,14 +100,14 @@
                             </td>
                             <td>
                               <div class="form-group">
-                                <label for="header-signin-email" class="sr-only">Имя</label>
-                                <input id="header-signin-email" type="text" class="form-control form-control-sm" placeholder="Имя">
+                                <label for="one-click-name" class="sr-only">Имя</label>
+                                <input id="one-click-name" type="text" class="form-control form-control-sm" placeholder="Имя" name="one-click-name">
                               </div>
                             </td>
                             <td>
                               <div class="form-group">
-                                <label for="header-signin-email" class="sr-only">Телефон</label>
-                                <input id="header-signin-email" type="text" class="form-control form-control-sm" placeholder="Телефон">
+                                <label for="one-click-phone" class="sr-only">Телефон</label>
+                                <input id="one-click-phone" type="text" class="form-control form-control-sm" placeholder="Телефон" name="one-click-phone">
                               </div>
                             </td>
                           </tr>
@@ -119,7 +119,7 @@
                           </tr>
                         </tfoot>
                       </table>
-                      <button id="order-one-click" class="btn btn-primary btn-xl btn-block">
+                      <button id="order-one-click" type="submit" class="btn btn-primary btn-xl btn-block">
                         Оформить в 1 клик
                       </button>
                     </form>
@@ -155,7 +155,7 @@
                         </tr>
                       </tfoot>
                     </table>
-                    <a class="btn btn-primary btn-xl btn-block" href="/order/">
+                    <a class="btn btn-primary btn-xl btn-block" href="<?= $u->order() ?>">
                       Оформить заказ
                     </a>
                   </div>
@@ -178,6 +178,36 @@
     <!-- site__footer / end -->
   </div>
   <?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
 </body>
 
 </html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
