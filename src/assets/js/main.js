@@ -1354,6 +1354,12 @@ import PhotoSwipeUI_Default from '../vendor/photoswipe/photoswipe-ui-default.min
     $('#whatsup-button').click(function() {
       const text = $(this).attr('data-url');
 
+      try {
+        ym(20154349, 'reachGoal', 'whatsup-button');
+
+      } catch {
+        console.error('Yandex goal not working');
+      }
       window.open("https://api.whatsapp.com/send?phone=79197703953&text=" + text, '_blank');
 
     });

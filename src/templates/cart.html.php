@@ -22,7 +22,7 @@
       <div class="block-header block-header--has-breadcrumb block-header--has-title">
         <div class="container">
           <div class="block-header__body">
-            <nav class="breadcrumb block-header__breadcrumb" aria-label="breadcrumb">
+            <!-- <nav class="breadcrumb block-header__breadcrumb" aria-label="breadcrumb">
               <ol class="breadcrumb__list">
                 <li class="breadcrumb__spaceship-safe-area" role="presentation"></li>
                 <li class="breadcrumb__item breadcrumb__item--parent breadcrumb__item--first">
@@ -33,7 +33,7 @@
                 </li>
                 <li class="breadcrumb__title-safe-area" role="presentation"></li>
               </ol>
-            </nav>
+            </nav>-->
             <h1 class="block-header__title">Корзина</h1>
           </div>
         </div>
@@ -77,41 +77,96 @@
                 </tfoot>
               </table>
             </div>
-            <div class="cart__totals">
-              <div class="card">
-                <div class="card-body card-body--padding--2">
-                  <h3 class="card-title">Сумма корзины</h3>
-                  <table class="cart__totals-table">
-                    <thead>
-                      <tr>
-                        <th>Subtotal</th>
-                        <td>&#8381; <span class="total-cart"></span></td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th>Доставка</th>
-                        <td>
-                          Звоните
-                          <div>
-                            <a href="/deliver/">Подробрее о доставке</a>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <th>Сумма</th>
-                        <td>&#8381; <span class="total-cart"></span></td>
-                      </tr>
-                    </tfoot>
-                  </table>
-                  <a class="btn btn-primary btn-xl btn-block" href="/order/">
-                    Оформить заказ
-                  </a>
+
+
+            <div class="order_side_block">
+              <div class="cart__totals">
+                <div class="card">
+                  <div class="card-body card-body--padding--2">
+                    <h3 class="card-title">Оформить в 1 клик</h3>
+                    <form id="send-order-one-click">
+                      <table class="cart__totals-table">
+                        <thead>
+                          <tr>
+                            <th>Итого</th>
+                            <td>&#8381; <span class="total-cart"></span></td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Доставка</th>
+                            <td>
+                              Звоните
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                <label for="header-signin-email" class="sr-only">Имя</label>
+                                <input id="header-signin-email" type="text" class="form-control form-control-sm" placeholder="Имя">
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                <label for="header-signin-email" class="sr-only">Телефон</label>
+                                <input id="header-signin-email" type="text" class="form-control form-control-sm" placeholder="Телефон">
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                            <th>Сумма</th>
+                            <td>&#8381; <span class="total-cart"></span></td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                      <button id="order-one-click" class="btn btn-primary btn-xl btn-block">
+                        Оформить в 1 клик
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="cart__totals">
+                <div class="card">
+                  <div class="card-body card-body--padding--2">
+                    <h3 class="card-title">Оформить заказ</h3>
+                    <table class="cart__totals-table">
+                      <thead>
+                        <tr>
+                          <th>Итого</th>
+                          <td>&#8381; <span class="total-cart"></span></td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th>Доставка</th>
+                          <td>
+                            Звоните
+                          </td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>Сумма</th>
+                          <td>&#8381; <span class="total-cart"></span></td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                    <a class="btn btn-primary btn-xl btn-block" href="/order/">
+                      Оформить заказ
+                    </a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="<?= $u->policy() ?>">Политика конфиденциальности</a>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -123,6 +178,42 @@
     <!-- site__footer / end -->
   </div>
   <?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
+</body>
+
+</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
 </body>
 
 </html>

@@ -243,3 +243,14 @@ h1 {
   font-size: 1rem;
 
 }
+
+.cart__totals {
+  margin-bottom: 20px;
+}
+
+.order_side_block{
+  display: flex; 
+  flex-direction: column;
+}
+
+
