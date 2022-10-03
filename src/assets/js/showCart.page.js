@@ -10,11 +10,8 @@ import { shoppingCart } from './shoppingCart';
   // Here is the code which is getting cart and user name and phone and send it to as one click order
   $("#send-order-one-click").on('submit', function(event) {
     event.preventDefault();
-    // console.log($(this).serializeArray());
 
     var myCart = shoppingCart.listCart();
-    // console.log(myCart);
-
 
 
     var name = $(this).serializeArray()[0].value;
