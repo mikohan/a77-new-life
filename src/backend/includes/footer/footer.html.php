@@ -74,7 +74,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-xl-4 d-sm-block d-none">
+          <!--<div class="col-12 col-md-6 col-xl-4">
             <div class="site-footer__widget footer-newsletter">
               <h5 class="footer-newsletter__title">Подписаться на новости</h5>
               <div class="footer-newsletter__text">
@@ -85,24 +85,29 @@
                 <input type="text" class="footer-newsletter__form-input" id="footer-newsletter-address" placeholder="Емейл адрес...">
                 <button class="footer-newsletter__form-button">Подписаться</button>
               </form>
-              <div class="footer-newsletter__text footer-newsletter__text--social">
-                Мы в Соцсетях
-              </div>
-              <div class="footer-newsletter__social-links social-links">
-                <ul class="social-links__list">
-                  <!--<li class="social-links__item social-links__item--facebook"><a href="https://www.facebook.com/groups/angara77/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                  </li>-->
-                  <li class="social-links__item social-links__item--twitter"><a href="https://vk.com/angara772018" target="_blank"><i class="fab fa-vk"></i></a>
-                  </li>
-                  <li class="social-links__item social-links__item--youtube"><a href="http://www.youtube.com/channel/UCJ97RljnqyAdKKmAc8mvHZw" target="_blank"><i class="fab fa-youtube"></i></a>
-                  </li>
-                  <li class="social-links__item social-links__item--instagram"><a href="https://www.ok.ru/group/52962919973041" target="_blank"><i class="fab fa-instagram"></i></a>
-                  </li>
-                  <!--<li class="social-links__item social-links__item--rss"><a href="https://www.instagram.com/" target="_blank"><i class="fas fa-rss"></i></a></li>-->
-                </ul>
-              </div>
             </div>
-            <div class="footer-newsletter__text footer-newsletter__text--social"><iframe src="https://yandex.ru/sprav/widget/rating-badge/1616530362" width="150" height="50"></iframe></div>
+          </div>-->
+
+          <div class="col-12 col-md-6 col-xl-4">
+            <div class="site-footer__widget footer-newsletter">
+              <h5 class="footer-newsletter__title">
+                Мы в Соцсетях
+              </h5>
+            </div>
+            <div class="footer-newsletter__social-links social-links">
+              <ul class="social-links__list">
+                <!--<li class="social-links__item social-links__item--facebook"><a href="https://www.facebook.com/groups/angara77/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                  </li>-->
+                <li class="social-links__item social-links__item--twitter"><a href="https://vk.com/angara772018" target="_blank"><i class="fab fa-vk"></i></a>
+                </li>
+                <li class="social-links__item social-links__item--youtube"><a href="http://www.youtube.com/channel/UCJ97RljnqyAdKKmAc8mvHZw" target="_blank"><i class="fab fa-youtube"></i></a>
+                </li>
+                <li class="social-links__item social-links__item--instagram"><a href="https://www.ok.ru/group/52962919973041" target="_blank"><i class="fab fa-instagram"></i></a>
+                </li>
+                <li class="social-links__item social-links__item--rss"><iframe src="https://yandex.ru/sprav/widget/rating-badge/1616530362" width="150" height="50"></iframe></li>
+              </ul>
+            </div>
+
           </div>
         </div>
       </div>
