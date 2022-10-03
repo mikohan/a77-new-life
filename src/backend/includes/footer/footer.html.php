@@ -12,16 +12,16 @@
         <div class="row">
           <div class="col-12 col-xl-4">
             <div class="site-footer__widget footer-contacts">
-              <h5 class="footer-contacts__title">Контакы</h5>
+              <h5 class="footer-contacts__title">Контакты</h5>
               <div class="footer-contacts__text">
                 Ангара - Запчасти для Коммерческого Транспорта
               </div>
               <address class="footer-contacts__contacts">
                 <dl>
                   <dt>Телефон</dt>
-                  <dd><?= TELEPHONE_FREE ?></dd>
+                  <dd class="footer_phone"><a href="tel: <?= TELEPHONE_FREE_LINK ?>"><?= TELEPHONE_FREE ?></a></dd>
                 </dl>
-                <dl>
+                <dl class="d-sm-block d-none">
                   <dt>Email</dt>
                   <dd>angara77@gmail.com</dd>
                 </dl>
@@ -31,12 +31,12 @@
                 </dl>
                 <dl>
                   <dt>Рабочие часы</dt>
-                  <dd>Каждый день 9:00am - 7:00pm</dd>
+                  <dd>Каждый день 9:00 - 19:00</dd>
                 </dl>
               </address>
             </div>
 
-            <div style="padding-top: 2rem;" class="site-footer__widget footer-contacts">
+            <div style="padding-top: 2rem;" class="site-footer__widget footer-contacts d-sm-block d-none">
               Реквизиты:
               ИНН 7733607590
               КПП 773301001
@@ -46,7 +46,7 @@
             </div>
 
           </div>
-          <div class="col-6 col-md-3 col-xl-2">
+          <div class="col-6 col-md-3 col-xl-2 d-sm-block d-none">
             <div class="site-footer__widget footer-links">
               <h5 class="footer-links__title">Информация</h5>
               <ul class="footer-links__list">
@@ -60,7 +60,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-6 col-md-3 col-xl-2">
+          <div class="col-6 col-md-3 col-xl-2 d-sm-block d-none">
             <div class="site-footer__widget footer-links">
               <h5 class="footer-links__title">Каталоги</h5>
               <ul class="footer-links__list">
@@ -74,7 +74,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-xl-4">
+          <div class="col-12 col-md-6 col-xl-4 d-sm-block d-none">
             <div class="site-footer__widget footer-newsletter">
               <h5 class="footer-newsletter__title">Подписаться на новости</h5>
               <div class="footer-newsletter__text">
@@ -107,12 +107,12 @@
         </div>
       </div>
     </div>
-    <div class="site-footer__bottom">
+    <div class="site-footer__bottom d-sm-block d-none">
       <div class="container">
         <div class="site-footer__bottom-row">
           <div class="site-footer__copyright">
             <!-- copyright -->
-            Angara Ltd. <a href="https://angara77.com" target="_blank">ООО "Ангара"</a>
+            <a href="https://angara77.com" target="_blank">ООО "Ангара"</a>
             <!-- copyright / end -->
           </div>
           <div class="site-footer__payments">

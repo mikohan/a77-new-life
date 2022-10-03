@@ -23,7 +23,7 @@
         <div class="container">
           <div class="block-header__body">
             <nav class="breadcrumb block-header__breadcrumb" aria-label="breadcrumb">
-              <ol class="breadcrumb__list">
+              <!--<ol class="breadcrumb__list">
                 <li class="breadcrumb__spaceship-safe-area" role="presentation"></li>
                 <li class="breadcrumb__item breadcrumb__item--parent breadcrumb__item--first">
                   <a href="/" class="breadcrumb__item-link">Главная</a>
@@ -31,7 +31,7 @@
                   <span class="breadcrumb__item-link">Заказ</span>
                 </li>
                 <li class="breadcrumb__title-safe-area" role="presentation"></li>
-              </ol>
+              </ol>-->
             </nav>
             <h1 class="block-header__title">Оформить заказ</h1>
           </div>
@@ -41,7 +41,7 @@
         <div class="container container--max--xl">
           <div id="checkout-id" class="row">
             <div class="col-12 mb-3">
-              <div class="alert alert-lg alert-primary">Returning customer? <a href="<?= $u->login() ?>">Залогиниться</a></div>
+              <!--<div class="alert alert-lg alert-primary">Уже есть аккаунт? <a href="<?= $u->login() ?>">Залогиниться</a></div>-->
             </div>
             <div class="col-12 col-lg-6 col-xl-7">
               <div class="card mb-lg-0">
@@ -52,7 +52,7 @@
                     <input required type="text" class="form-control" id="checkout-phone" placeholder="Телефон">
                   </div>
                   <div class="form-group">
-                    <label for="checkout-email">Email <span class="text-muted"></span></label>
+                    <label for="checkout-email">Email (Не обязательно) <span class="text-muted"></span></label>
                     <input required type="email" class="form-control" id="checkout-email" placeholder="Емейл">
                   </div>
                   <div class="form-row">
@@ -195,7 +195,7 @@
                         </span>
                       </span>
                       <label class="form-check-label" for="checkout-terms">
-                        Я согласен <a target="_blank" href="policy.php"> Политикой обработки персональнх данных</a>
+                        Я согласен <a target="_blank" href="policy.php"> Политикой обработки персональных данных</a>
                       </label>
                     </div>
                   </div>
