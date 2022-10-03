@@ -89,6 +89,10 @@ class Url
   {
     return "/"; // Change it later when account will be done
   }
+  public function login()
+  {
+    return "/login/"; // Change it later when account will be done
+  }
 }
 
 // Declaring abstract class for fun
