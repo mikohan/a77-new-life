@@ -267,3 +267,20 @@ h1 {
   }
 
 }
+.cart_policy {
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1399.98px){
+
+.cart__totals {
+    margin-top: 0;
+  }
+}
+.card-title {
+  font-size: 1.3rem;
+}
+.card-title-sum {
+  font-size: 1.1rem;
+}

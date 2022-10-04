@@ -114,7 +114,7 @@ function displayCart() {
     output += `
                   <tr class="cart-table__row">
                     <td class="cart-table__column cart-table__column--image">
-                      <div class="image image--type--product">
+                      <div class="image image--type--product d-none d-md-block">
                         <a href="" class="image__body">
                           <img class="image__tag" src="${cartArray[i].image
         ? cartArray[i].image
@@ -128,9 +128,9 @@ function displayCart() {
                       <ul class="cart-table__options">
                       </ul>
                     </td>
-                    <td class="cart-table__column cart-table__column--price" data-title="Price">${cartArray[i].price
+                    <td class="cart-table__column cart-table__column--price d-none d-md-block" data-title="Цена">${cartArray[i].price
       }</td>
-                    <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
+                    <td class="cart-table__column cart-table__column--quantity" data-title="Количество">
                       <div class="cart-table__quantity input-number">
                         <input class="form-control input-number__input" type="number" min="1" value="${cartArray[i].count
       }">
@@ -140,7 +140,7 @@ function displayCart() {
       }"></div>
                       </div>
                     </td>
-                    <td class="cart-table__column cart-table__column--total" data-title="Total">${cartArray[i].total
+                    <td class="cart-table__column cart-table__column--total" data-title="Всего">${cartArray[i].total
       }</td>
                     <td class="cart-table__column cart-table__column--remove">
                       <button type="button" class="cart-table__remove btn btn-sm btn-icon btn-muted delete-item" data-sku="${cartArray[i].sku
@@ -162,7 +162,7 @@ function displayCart() {
 							<li class="dropcart__item">
                 <div class="dropcart__item-image">
                   <a href="/cart/">
-                    <img style="width: 70px;"  src="${cartArray[i].image ? cartArray[i].image : '/assets/images/products/product-default-70.jpg'
+                    <img style="width: 70px;" src="${cartArray[i].image ? cartArray[i].image : '/assets/images/products/product-default-70.jpg'
       }" alt="${cartArray[i].name}">
                   </a>
                 </div>

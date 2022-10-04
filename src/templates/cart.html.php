@@ -41,7 +41,7 @@
       <div class="block">
         <div class="container">
           <div id="cart-id" class="cart">
-            <div class="cart__table cart-table">
+            <div class="cart__table cart-table col-lg-9 col-md-12">
               <table class="cart-table__table">
                 <thead class="cart-table__head">
                   <tr class="cart-table__row">
@@ -60,16 +60,8 @@
                   <tr>
                     <td colspan="6">
                       <div class="cart-table__actions">
-                        <form class="cart-table__coupon-form form-row">
-                          <div class="form-group mb-0 col flex-grow-1">
-                            <input type="text" class="form-control form-control-sm" placeholder="Код купона">
-                          </div>
-                          <div class="form-group mb-0 col-auto">
-                            <button type="button" class="btn btn-sm btn-primary">Применить купон</button>
-                          </div>
-                        </form>
-                        <div class="cart-table__update-button">
-                          <a class="btn btn-sm btn-primary" href="">Обновить корзину</a>
+                        <div class="cart-table__update-button d-none d-md-block">
+                          <a class="btn btn-primary" href="">Обновить корзину</a>
                         </div>
                       </div>
                     </td>
@@ -77,92 +69,38 @@
                 </tfoot>
               </table>
             </div>
-
-
-            <div class="order_side_block">
-              <div class="cart__totals">
-                <div class="card">
-                  <div class="card-body card-body--padding--2">
-                    <h3 class="card-title">Оформить в 1 клик</h3>
-                    <form id="send-order-one-click" method="post" action="<?= $u->orderOneClick() ?>">
-                      <table class="cart__totals-table">
-                        <thead>
-                          <tr>
-                            <th>Итого</th>
-                            <td>&#8381; <span class="total-cart"></span></td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th>Доставка</th>
-                            <td>
-                              Звоните
-                            </td>
-                            <td>
-                              <div class="form-group">
-                                <label for="one-click-name" class="sr-only">Имя</label>
-                                <input id="one-click-name" type="text" class="form-control form-control-sm" placeholder="Имя" name="one-click-name">
-                              </div>
-                            </td>
-                            <td>
-                              <div class="form-group">
-                                <label for="one-click-phone" class="sr-only">Телефон</label>
-                                <input id="one-click-phone" type="text" class="form-control form-control-sm" placeholder="Телефон" name="one-click-phone">
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                        <tfoot>
-                          <tr>
-                            <th>Сумма</th>
-                            <td>&#8381; <span class="total-cart"></span></td>
-                          </tr>
-                        </tfoot>
-                      </table>
-                      <button id="order-one-click" type="submit" class="btn btn-primary btn-xl btn-block">
-                        Оформить в 1 клик
-                      </button>
-                    </form>
+            <div class="cart__totals col-lg-3 col-md-12">
+              <div class="card">
+                <div class="card-body card-body--padding--2">
+                  <h3 class="card-title">Оформить заказ</h3>
+                  <table class="cart__totals-table">
+                    <thead>
+                      <tr>
+                        <th>Итого</th>
+                        <td>&#8381; <span class="total-cart"></span></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Доставка</th>
+                        <td>
+                          Звоните
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th class="cartd-title-sum">Сумма</th>
+                        <td>&#8381; <span class="total-cart card-title-sum"></span></td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                  <a class="btn btn-primary btn-block" href="<?= $u->order() ?>">
+                    Оформить заказ
+                  </a>
+                  <div class="cart_policy">
+                    <a href="<?= $u->policy() ?>">Политика конфиденциальности</a>
                   </div>
-                </div>
-              </div>
-
-
-
-              <div class="cart__totals">
-                <div class="card">
-                  <div class="card-body card-body--padding--2">
-                    <h3 class="card-title">Оформить заказ</h3>
-                    <table class="cart__totals-table">
-                      <thead>
-                        <tr>
-                          <th>Итого</th>
-                          <td>&#8381; <span class="total-cart"></span></td>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th>Доставка</th>
-                          <td>
-                            Звоните
-                          </td>
-                        </tr>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <th>Сумма</th>
-                          <td>&#8381; <span class="total-cart"></span></td>
-                        </tr>
-                      </tfoot>
-                    </table>
-                    <a class="btn btn-primary btn-xl btn-block" href="<?= $u->order() ?>">
-                      Оформить заказ
-                    </a>
-                  </div>
-                </div>
-
-                <div>
-                  <a href="<?= $u->policy() ?>">Политика конфиденциальности</a>
                 </div>
               </div>
             </div>
@@ -179,71 +117,3 @@
   </div>
   <?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
 </body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html> include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
-</body>
-
-</html>
