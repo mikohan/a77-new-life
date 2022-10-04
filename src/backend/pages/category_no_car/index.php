@@ -6,7 +6,7 @@ $categoryModel = new CategoryModel;
 
 $get_category = $_GET['category'];
 $page_from = $_GET['page_from'] ?? 0;
-$page_size = 50;
+$page_size = PRODUCTS_HOW_MANY_GET;
 $current_page = $_GET['page'] ?? 1;
 
 
