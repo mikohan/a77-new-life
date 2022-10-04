@@ -354,7 +354,7 @@
     </div>
     <div class="header__search">
       <div class="search">
-        <form name="search-parts" class="search__body" action="/search/" method="GET">
+        <form name="search-parts" class="search__body" action="<?= $u->search() ?>" method="GET">
           <div class="search__shadow"></div>
           <input onclick="this.select()" class="search__input" type="text" placeholder="Введите каталожный номер или название" name="search" value="<?= $_GET['search'] ?? '' ?>">
           <input type="hidden" name="cmn" value="<?= $_SESSION['carname'] ?? '' ?>">

@@ -148,6 +148,101 @@
         <div class="mobile-menu__divider"></div>
         <ul class="mobile-menu__links">
           <li data-mobile-menu-item>
+            <a href="index.html" class="" data-mobile-menu-trigger>
+              Каталог
+              <svg width="7" height="11">
+                <path d="M0.3,10.7L0.3,10.7c0.4,0.4,0.9,0.4,1.3,0L7,5.5L1.6,0.3C1.2-0.1,0.7,0,0.3,0.3l0,0c-0.4,0.4-0.4,1,0,1.3l4,3.9l-4,3.9
+	C-0.1,9.8-0.1,10.4,0.3,10.7z" />
+              </svg>
+            </a>
+            <div class="mobile-menu__links-panel" data-mobile-menu-panel>
+              <div class="mobile-menu__panel mobile-menu__panel--hidden">
+                <div class="mobile-menu__panel-header">
+                  <button class="mobile-menu__panel-back" type="button">
+                    <svg width="7" height="11">
+                      <path d="M6.7,0.3L6.7,0.3c-0.4-0.4-0.9-0.4-1.3,0L0,5.5l5.4,5.2c0.4,0.4,0.9,0.3,1.3,0l0,0c0.4-0.4,0.4-1,0-1.3l-4-3.9l4-3.9C7.1,1.2,7.1,0.6,6.7,0.3z" />
+                    </svg>
+                  </button>
+                  <div class="mobile-menu__panel-title">Home</div>
+                </div>
+                <div class="mobile-menu__panel-body">
+                  <ul class="mobile-menu__links">
+
+                    <?php foreach ($all_cars as $car) : ?>
+                      <li data-mobile-menu-item>
+                        <a href="header-spaceship-variant-one.html" data-mobile-menu-trigger>
+                          <?= $car->name ?>
+                          <svg width="7" height="11">
+                            <path d="M0.3,10.7L0.3,10.7c0.4,0.4,0.9,0.4,1.3,0L7,5.5L1.6,0.3C1.2-0.1,0.7,0,0.3,0.3l0,0c-0.4,0.4-0.4,1,0,1.3l4,3.9l-4,3.9
+	C-0.1,9.8-0.1,10.4,0.3,10.7z" />
+                          </svg>
+                        </a>
+                        <div class="mobile-menu__links-panel" data-mobile-menu-panel>
+                          <div class="mobile-menu__panel mobile-menu__panel--hidden">
+                            <div class="mobile-menu__panel-header">
+                              <button class="mobile-menu__panel-back" type="button">
+                                <svg width="7" height="11">
+                                  <path d="M6.7,0.3L6.7,0.3c-0.4-0.4-0.9-0.4-1.3,0L0,5.5l5.4,5.2c0.4,0.4,0.9,0.3,1.3,0l0,0c0.4-0.4,0.4-1,0-1.3l-4-3.9l4-3.9C7.1,1.2,7.1,0.6,6.7,0.3z" />
+                                </svg>
+                              </button>
+                              <div class="mobile-menu__panel-title">Header Spaceship</div>
+                            </div>
+                            <div class="mobile-menu__panel-body">
+                              <ul class="mobile-menu__links">
+                                <?php foreach (makeSubCategoreies($car) as $category) : ?>
+                                  <li data-mobile-menu-item>
+
+                                    <a href="<?= $u->categoryCar($car->slug, $category->slug) ?>" class="" data-mobile-menu-trigger>
+                                      <?= $category->name ?>
+                                      <svg width="7" height="11">
+                                        <path d="M0.3,10.7L0.3,10.7c0.4,0.4,0.9,0.4,1.3,0L7,5.5L1.6,0.3C1.2-0.1,0.7,0,0.3,0.3l0,0c-0.4,0.4-0.4,1,0,1.3l4,3.9l-4,3.9
+	C-0.1,9.8-0.1,10.4,0.3,10.7z" />
+                                      </svg>
+                                    </a>
+                                    <div class="mobile-menu__links-panel" data-mobile-menu-panel>
+                                      <div class="mobile-menu__panel mobile-menu__panel--hidden">
+                                        <div class="mobile-menu__panel-header">
+                                          <button class="mobile-menu__panel-back" type="button">
+                                            <svg width="7" height="11">
+                                              <path d="M6.7,0.3L6.7,0.3c-0.4-0.4-0.9-0.4-1.3,0L0,5.5l5.4,5.2c0.4,0.4,0.9,0.3,1.3,0l0,0c0.4-0.4,0.4-1,0-1.3l-4-3.9l4-3.9C7.1,1.2,7.1,0.6,6.7,0.3z" />
+                                            </svg>
+                                          </button>
+                                          <div class="mobile-menu__panel-title">Header Classic</div>
+                                        </div>
+                                        <div class="mobile-menu__panel-body">
+                                          <ul class="mobile-menu__links">
+
+                                            <?php foreach ($category->children as $subcat) : ?>
+                                              <li data-mobile-menu-item>
+                                                <a href="<?= $u->categoryCar($car->slug, $subcat->slug) ?>" data-mobile-menu-trigger>
+                                                  <?= $subcat->name ?>
+                                                </a>
+                                              </li>
+                                            <?php endforeach ?>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                <?php endforeach ?>
+                                <li data-mobile-menu-item>
+                                  <a href="header-spaceship-variant-three.html" class="" data-mobile-menu-trigger>
+                                    Variant Three
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+
+                    <?php endforeach ?>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li data-mobile-menu-item>
             <a href="/" class="" data-mobile-menu-trigger>
               Главная
               <svg width="7" height="11">

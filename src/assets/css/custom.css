@@ -261,12 +261,27 @@ h1 {
 .order-table-widht {
   width: 70%;
 }
-.checkout__totals {
+
 @media only screen and (max-width: 600px) {
+.checkout__totals {
   font-size: .8rem;
   }
-
 }
+
+@media only screen and (max-width: 600px) {
+.home-page-search{
+    font-size: 1.2rem;
+    text-align: center;
+  }
+.search-form-main-page {
+    margin-top: 1rem;
+
+  }
+}
+
+
+
+
 .cart_policy {
   padding-top: 1rem;
   font-size: 0.9rem;

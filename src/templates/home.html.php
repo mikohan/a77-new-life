@@ -27,12 +27,23 @@
       <div class="block block-categories">
         <div class="container">
           <div class="typography">
-            <h1 class="custom-mobile-header"><?= $h1 ?></h1>
+            <h1 class="custom-mobile-header home-page-search"><?= $h1 ?></h1>
+          </div>
+          <div class="card widget widget-search d-sm-block d-md-none search-form-main-page">
+            <form action="<?= $u->search() ?>" method="GET" class="widget-search__form">
+              <input class="widget-search__input" type="search" placeholder="Номер или Назване..." name="search" value="<?= $_GET['search'] ?? '' ?>">
+              <button class="widget-search__button"><svg width="20" height="20">
+                  <path d="M19.2,17.8c0,0-0.2,0.5-0.5,0.8c-0.4,0.4-0.9,0.6-0.9,0.6s-0.9,0.7-2.8-1.6c-1.1-1.4-2.2-2.8-3.1-3.9C10.9,14.5,9.5,15,8,15
+	c-3.9,0-7-3.1-7-7s3.1-7,7-7s7,3.1,7,7c0,1.5-0.5,2.9-1.3,4c1.1,0.8,2.5,2,4,3.1C20,16.8,19.2,17.8,19.2,17.8z M8,3C5.2,3,3,5.2,3,8
+	c0,2.8,2.2,5,5,5c2.8,0,5-2.2,5-5C13,5.2,10.8,3,8,3z"></path>
+                </svg></button>
+              <div class="widget-search__field"></div>
+            </form>
           </div>
         </div>
       </div>
-      <div class="block-space block-space--layout--divider-xs"></div>
-      <div class="block block-slideshow">
+      <div class="block-space block-space--layout--divider-xs d-none d-md-block"></div>
+      <div class="block block-slideshow d-none d-md-block">
         <div class="container">
           <div class="block-slideshow__carousel">
             <div class="owl-carousel">

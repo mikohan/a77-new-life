@@ -46,7 +46,6 @@ function makeSubCategoreies($car)
   }
   return $zerro;
 }
-
 //$articles = $header->getArticlesByCar();
 
 //$catalogues = $header->catalogues();
