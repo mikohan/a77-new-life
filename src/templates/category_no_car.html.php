@@ -195,12 +195,12 @@
                           <option>Цена</option>
                         </select>
                       </div>
-                      <div class="view-options__select">
+                      <!--<div class="view-options__select">
                         <label for="view-option-limit">Показано:</label>
                         <select id="view-option-limit" class="form-control form-control-sm" name="quantity">
                           <option>20</option>
                         </select>
-                      </div>
+                      </div>-->
                     </div>
                     <div class="view-options__body view-options__body--filters">
                       <div class="view-options__label">Активные фильтры</div>
@@ -236,7 +236,7 @@
                       ?>
                     </div>
                   </div>
-                  <div class="products-view__pagination">
+                  <!--<div class="products-view__pagination">
                     <nav aria-label="Page navigation example">
                       <ul class="pagination">
                         <li class="page-item">
@@ -277,7 +277,7 @@
                     <div class="products-view__pagination-legend">
                       Показано <?= count($products) ?> из <?= $products_total_count ?> продуктов
                     </div>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
