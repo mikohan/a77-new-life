@@ -79,103 +79,54 @@
             </div>
 
 
-            <div class="order_side_block">
-              <div class="cart__totals">
-                <div class="card">
-                  <div class="card-body card-body--padding--2">
-                    <h3 class="card-title">Оформить в 1 клик</h3>
-                    <form id="send-order-one-click" method="post" action="<?= $u->orderOneClick() ?>">
-                      <table class="cart__totals-table">
-                        <thead>
-                          <tr>
-                            <th>Итого</th>
-                            <td>&#8381; <span class="total-cart"></span></td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th>Доставка</th>
-                            <td>
-                              Звоните
-                            </td>
-                            <td>
-                              <div class="form-group">
-                                <label for="one-click-name" class="sr-only">Имя</label>
-                                <input id="one-click-name" type="text" class="form-control form-control-sm" placeholder="Имя" name="one-click-name">
-                              </div>
-                            </td>
-                            <td>
-                              <div class="form-group">
-                                <label for="one-click-phone" class="sr-only">Телефон</label>
-                                <input id="one-click-phone" type="text" class="form-control form-control-sm" placeholder="Телефон" name="one-click-phone">
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                        <tfoot>
-                          <tr>
-                            <th>Сумма</th>
-                            <td>&#8381; <span class="total-cart"></span></td>
-                          </tr>
-                        </tfoot>
-                      </table>
-                      <button id="order-one-click" type="submit" class="btn btn-primary btn-xl btn-block">
-                        Оформить в 1 клик
-                      </button>
-                    </form>
-                  </div>
+
+            <div class="cart__totals">
+              <div class="card">
+                <div class="card-body card-body--padding--2">
+                  <h3 class="card-title">Оформить заказ</h3>
+                  <table class="cart__totals-table">
+                    <thead>
+                      <tr>
+                        <th>Итого</th>
+                        <td>&#8381; <span class="total-cart"></span></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Доставка</th>
+                        <td>
+                          Звоните
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>Сумма</th>
+                        <td>&#8381; <span class="total-cart"></span></td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                  <a class="btn btn-primary btn-xl btn-block" href="<?= $u->order() ?>">
+                    Оформить заказ
+                  </a>
                 </div>
               </div>
 
-
-
-              <div class="cart__totals">
-                <div class="card">
-                  <div class="card-body card-body--padding--2">
-                    <h3 class="card-title">Оформить заказ</h3>
-                    <table class="cart__totals-table">
-                      <thead>
-                        <tr>
-                          <th>Итого</th>
-                          <td>&#8381; <span class="total-cart"></span></td>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th>Доставка</th>
-                          <td>
-                            Звоните
-                          </td>
-                        </tr>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <th>Сумма</th>
-                          <td>&#8381; <span class="total-cart"></span></td>
-                        </tr>
-                      </tfoot>
-                    </table>
-                    <a class="btn btn-primary btn-xl btn-block" href="<?= $u->order() ?>">
-                      Оформить заказ
-                    </a>
-                  </div>
-                </div>
-
-                <div>
-                  <a href="<?= $u->policy() ?>">Политика конфиденциальности</a>
-                </div>
+              <div>
+                <a href="<?= $u->policy() ?>">Политика конфиденциальности</a>
               </div>
             </div>
-
           </div>
+
         </div>
       </div>
-      <div class="block-space block-space--layout--before-footer"></div>
     </div>
-    <!-- site__body / end -->
-    <!-- site__footer -->
-    <?php include __DIR__ . '/../backend/includes/footer/footer.php' ?>
-    <!-- site__footer / end -->
+    <div class="block-space block-space--layout--before-footer"></div>
+  </div>
+  <!-- site__body / end -->
+  <!-- site__footer -->
+  <?php include __DIR__ . '/../backend/includes/footer/footer.php' ?>
+  <!-- site__footer / end -->
   </div>
   <?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
 </body>
