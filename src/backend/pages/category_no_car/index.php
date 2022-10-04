@@ -51,7 +51,7 @@ parse_str($_SERVER['QUERY_STRING'], $get_arr);
  * Getting data from server 
  */
 $site_url = PHOTO_API_URL;
-$url = "{$site_url}/api/product/jsontest?page_from={$current_page}&page_size={$page_size}&category={$get_category}";
+$url = "{$site_url}/api/product/jsontest-angara77?page_from={$current_page}&page_size={$page_size}&category={$get_category}";
 // Root url for page
 $page_root_url = "/category/{$get_category}";
 $unique_query_array = array_unique($get_arr);

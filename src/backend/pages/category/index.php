@@ -16,8 +16,8 @@ $current_car = $categoryModel->getCar($get_model);
  * Getting data from server 
  */
 $site_url = PHOTO_API_URL;
-$how_many_products = PRODUCTS_HOW_MANY_GET;
-$url = "{$site_url}/api/product/jsontest?model={$get_model}&page_size={$how_many_products}&category={$get_category}";
+$how_many_products =  PRODUCTS_HOW_MANY_GET;
+$url = "{$site_url}/api/product/jsontest-angara77?model={$get_model}&page_size={$how_many_products}&category={$get_category}";
 
 // Trying get data from api if not raise 404
 $remote_data = $categoryModel->getDataFromAPILocal($url);
