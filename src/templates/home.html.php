@@ -96,6 +96,9 @@
       <div class="block-space block-space--layout--divider-nl"></div>
       <div class="block block-brands block-brands--layout--columns-8-full">
         <div class="container">
+          <div class="typography">
+            <h2 style="font-size: 1.2rem;" class="home-page-search">Выберите машину</h2>
+          </div>
           <ul class="block-brands__list">
             <?php foreach ($all_cars as $car) : ?>
               <?php
