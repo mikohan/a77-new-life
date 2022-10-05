@@ -153,7 +153,7 @@ $title_phone = TELEPHONE_FREE;
 
 
 $title = "Купить {$title_category} | Каталог запчастей - Ангара77.";
-$description = "{$title_category} в Наличии и под Заказ. Магазин №1 Запчастей. 100% Гарантия Возврата. 20 лет на рынке.";
+$description = "{$title_category} в наличии и под заказ. Магазин №1 запчастей. 100% гарантия возврата. 20 лет на рынке.";
 $h1 = "{$title_category}";
 
 

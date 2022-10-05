@@ -105,7 +105,7 @@ $title_phone = TELEPHONE_FREE;
 
 // {$title_make} 
 $title = "Купить {$title_category} {$title_model} | Каталог {$title_make} - Ангара77.";
-$description = "{$title_category} {$title_model} в Наличии и под Заказ. Магазин №1 Запчастей на {$title_make}. 100% Гарантия Возврата. 20 лет на рынке.";
+$description = "{$title_category} {$title_model} в наличии и под заказ. Магазин №1 запчастей на {$title_make}. 100% Гарантия возврата. 20 лет на рынке.";
 $h1 = "{$title_category} {$title_model}";
 
 require_once(__DIR__ . '/../../../templates/category.html.php');

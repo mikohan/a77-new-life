@@ -118,7 +118,7 @@ $cat_number = $product['cat_number'];
 
 $h1 = $product_name . ' на ' . trim(mb_ucfirst($model)) . ', ' . trim(mb_strtoupper($part_brand)) . ', ' . trim(mb_ucfirst($cat_number));
 $title = $product_name . ' на ' . trim(mb_ucfirst($model)) . ' - ' . trim($cat_number) .  ' | Купить в Магазине Запчастей.';
-$description = $product_name . ' ' . trim(mb_ucfirst($make)) . ' ' .  trim(mb_ucfirst($model))  . ' в Hаличии и на Заказ. Подберем Оригинал и Аналоги. Пришлем Видео по Запросу.';
+$description = $product_name . ' ' . trim(mb_ucfirst($make)) . ' ' .  trim(mb_ucfirst($model))  . ' в наличии и на заказ. Подберем оригинал и аналоги. Пришлем видео по запросу.';
 
 
 
