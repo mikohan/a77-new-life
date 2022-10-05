@@ -137,7 +137,7 @@
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
                       <a href="/category/fary-osveschenie-signalizatsija/" class="image__body">
-                        <img class="image__tag" src="/assets/images/categories/fary-osveschenie-signalizatsija.jpg" alt="Lamps and headlights" />
+                        <img class="image__tag" src="/assets/images/categories/fary-osveschenie-signalizatsija.jpg" alt="Lamps and headlights" title="Lamps and headlights" />
                       </a>
                     </div>
                     <div class="category-card__info">
@@ -163,7 +163,7 @@
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
                       <a href="/category/filtry-i-korpusy-filtrov/" class="image__body">
-                        <img class="image__tag" src="/assets/images/categories/filtry-i-korpusy-filtrov.jpg" alt="Filters and parts" />
+                        <img class="image__tag" src="/assets/images/categories/filtry-i-korpusy-filtrov.jpg" alt="Filters and parts" title="Filters and parts" />
                       </a>
                     </div>
                     <div class="category-card__info">
@@ -189,7 +189,7 @@
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
                       <a href="<?= $u->categoryCar($model_slug, 'transmissija') ?>" class="image__body">
-                        <img class="image__tag" src="/assets/images/categories/transmissija.jpg" alt="Transmission" />
+                        <img class="image__tag" src="/assets/images/categories/transmissija.jpg" alt="Transmission" title="Transmission" />
                       </a>
                     </div>
                     <div class="category-card__info">
@@ -215,7 +215,7 @@
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
                       <a href="<?= $u->categoryCar($model_slug, 'salon-interer') ?>" class="image__body">
-                        <img class="image__tag" src="/assets/images/categories/category-4-160x160.jpg" alt="Inrerior" />
+                        <img class="image__tag" src="/assets/images/categories/category-4-160x160.jpg" alt="Inrerior" title="Inrerior" />
                       </a>
                     </div>
                     <div class="category-card__info">
@@ -241,7 +241,7 @@
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
                       <a href="<?= $u->categoryCar($model_slug, 'podveska') ?>" class="image__body">
-                        <img class="image__tag" src="/assets/images/categories/podveska.jpg" alt="Podveska" />
+                        <img class="image__tag" src="/assets/images/categories/podveska.jpg" alt="Podveska" title="Podveska" />
                       </a>
                     </div>
                     <div class="category-card__info">
@@ -267,7 +267,7 @@
                   <div class="category-card__content">
                     <div class="category-card__image image image--type--category">
                       <a href="<?= $u->categoryCar($model_slug, 'tormoznaja-sistema') ?>" class="image__body">
-                        <img class="image__tag" src="/assets/images/categories/tormoznaja-sistema.jpg" alt="Tormoznaya systema" />
+                        <img class="image__tag" src="/assets/images/categories/tormoznaja-sistema.jpg" alt="Tormoznaya systema" title="Tormoznaya systema" />
                       </a>
                     </div>
                     <div class="category-card__info">
@@ -331,7 +331,7 @@
                     <div class="category-card__content">
                       <div class="category-card__image image image--type--category">
                         <a href="<?= $u->categoryCar($_GET['model'], $car_cat['slug']) ?>" class="image__body">
-                          <img class="image__tag" src="<?= $cat_img ?>" alt="<?= $car_cat['name'] ?>" />
+                          <img class="image__tag" src="<?= $cat_img ?>" alt="<?= $car_cat['name'] ?>" title="<?= $car_cat['name'] ?>" />
                         </a>
                       </div>
                       <div class="category-card__info">
@@ -436,7 +436,7 @@
                       <div class="product-card__image">
                         <div class="image image--type--product">
                           <a href="<?= $u->product($latest['slug']) ?>" class="image__body">
-                            <img class="image__tag" src="<?= $img ?>" alt="<?= $latest['name'] ?>" />
+                            <img class="image__tag" src="<?= $img ?>" alt="<?= $latest['name'] ?>" title="<?= $latest['name'] ?>" />
                           </a>
                         </div>
                         <div class="
@@ -633,7 +633,7 @@
                         <div class="product-card__image">
                           <div class="image image--type--product">
                             <a href="<?= $link ?>" class="image__body">
-                              <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" />
+                              <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" title="<?= $name ?>" />
                             </a>
                           </div>
                           <div class="
@@ -813,7 +813,7 @@
                       <div class="product-card__image">
                         <div class="image image--type--product">
                           <a href="<?= $link ?>" class="image__body">
-                            <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" />
+                            <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" title="<?= $name ?>" />
                           </a>
                         </div>
                       </div>
@@ -873,7 +873,7 @@
                       <div class="product-card__image">
                         <div class="image image--type--product">
                           <a href="<?= $link ?>" class="image__body">
-                            <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" />
+                            <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" title="<?= $name ?>" />
                           </a>
                         </div>
                       </div>
@@ -931,7 +931,7 @@
                       <div class="product-card__image">
                         <div class="image image--type--product">
                           <a href="<?= $link ?>" class="image__body">
-                            <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" />
+                            <img class="image__tag" src="<?= $img ?>" alt="<?= $name ?>" title="<?= $name ?>" />
                           </a>
                         </div>
                       </div>

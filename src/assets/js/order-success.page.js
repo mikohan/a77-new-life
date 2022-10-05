@@ -9,7 +9,7 @@ import { shoppingCart } from './shoppingCart';
                                             <td class="order-list__column-image">
                                                 <div class="image image--type--product">
                                                     <a href="product-full.html" class="image__body">
-                                                        <img class="image__tag" src="${myCart[i].image}" alt="${myCart[i].name}">
+                                                        <img class="image__tag" src="${myCart[i].image}" alt="${myCart[i].name}" title="${myCart[i].name}">
                                                     </a>
                                                 </div>
                                             </td>

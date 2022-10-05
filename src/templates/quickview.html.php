@@ -65,7 +65,7 @@ $tmb = count($tmbs) ? $tmbs[0] : '/assets/images/products/product-default-160.jp
                 -->
 								<a class="image image--type--product" href="<?= $image ?>" target="_blank" data-width="900" data-height="600">
 									<div class="image__body">
-										<img class="image__tag" src="<?= $image ?>" alt="<?= $name ?>" />
+										<img class="image__tag" src="<?= $image ?>" alt="<?= $name ?>" title="<?= $name ?>" />
 									</div>
 								</a>
 							<?php endforeach ?>
@@ -79,7 +79,7 @@ $tmb = count($tmbs) ? $tmbs[0] : '/assets/images/products/product-default-160.jp
 								image image--type--product
 							">
 									<div class="image__body">
-										<img class="image__tag" src="<?= $tmb ?>" alt="<?= $name ?>" />
+										<img class="image__tag" src="<?= $tmb ?>" alt="<?= $name ?>" title="<?= $name ?>" />
 									</div>
 								</div>
 							<?php endforeach ?>

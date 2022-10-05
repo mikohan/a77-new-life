@@ -74,7 +74,7 @@
                           <div class="post-card post-card--layout--grid-sm">
                             <div class="post-card__image">
                               <a href="/blog/<?= $article['id'] ?>/">
-                                <img src="<?= $article_img ?>" alt="<?= $article_title ?>" alt="<?= $article_title ?>" >
+                                <img src="<?= $article_img ?>" alt="<?= $article_title ?>" alt="<?= $article_title ?>" title="<?= $article_title ?>" >
                               </a>
                             </div>
                             <div class="post-card__content">
@@ -274,7 +274,7 @@
                     <li class="widget-posts__item">
                       <div class="widget-posts__image">
                         <a href="/blog/<?= $latest_post['id'] ?>/">
-                          <img style="width: 70px; height: auto;" src="<?= $main_image ? $main_image : '/assets/images/posts/post-70x70.jpg' ?>" alt="<?= $latest_post['title']['rendered'] ?>">
+                          <img style="width: 70px; height: auto;" src="<?= $main_image ? $main_image : '/assets/images/posts/post-70x70.jpg' ?>" alt="<?= $latest_post['title']['rendered'] ?>" title="<?= $latest_post['title']['rendered'] ?>">
                         </a>
                       </div>
                       <div class="widget-posts__info">
