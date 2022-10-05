@@ -8,8 +8,8 @@
   <meta name="format-detection" content="telephone=no" />
   <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
-  <title>Купить <?= $product['name'] ?> для <?= mb_ucfirst($make) ?> ✰ интернет магазин Запчастей в Москве ✈ <?= $product['cat_number'] ?> ✈ <?= $product['one_c_id'] ?></title>
-  <meta name="description" content="<?= $product['name'] . ' ' . $product['name2'] ?> для <?= mb_ucfirst($make) ?> <?= mb_ucfirst($model) ?> ✈ <?= $product['cat_number'] ?> ✰ <?= $product['one_c_id'] ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
+  <title><?= $title ?></title>
+  <meta name="description" content="<?= $description ?>" />
 </head>
 
 <body>
@@ -123,7 +123,7 @@
                     <!-- // Video -->
                   </div>
                   <div class="product__header">
-                    <h1 class="product__title"><?= $name  ?></h1>
+                    <h1 class="product__title"><?= $h1  ?></h1>
                     <div class="product__subtitle">
                       <div class="status-badge status-badge--style--success product__fit status-badge--has-icon status-badge--has-text">
                         <div class="status-badge__body">
