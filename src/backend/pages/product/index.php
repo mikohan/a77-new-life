@@ -119,7 +119,6 @@ $cat_number = $product['cat_number'];
 $h1 = $product_name . ' на ' . trim(mb_ucfirst($model)) . ', ' . trim(mb_strtoupper($part_brand)) . ', ' . trim(mb_ucfirst($cat_number));
 $title = $product_name . ' на ' . trim(mb_ucfirst($model)) . ' - ' . trim($cat_number) .  ' | купить в магазине запчастей.';
 $description = $product_name . ' ' . trim(mb_ucfirst($make)) . ' ' .  trim(mb_ucfirst($model))  . ' Подберем оригинал и аналоги. Пришлем видео по запросу.';
-p($description);
 
 
 
