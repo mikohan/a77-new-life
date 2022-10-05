@@ -24,4 +24,5 @@ $model = $car ? $car['name'] : mb_ucfirst($car_slug);
 
 
 
+
 include __DIR__ . '/../../../templates/catalogue.html.php';

@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no" />
   <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
-  <title>Каталог запчастей для <?= $make ?> <?= $model ?> ✰ в интернет магазине Запчастей в Москве ✈ </title>
-  <meta name="description" content="Каталог запчастей для <?= mb_ucfirst($make) ?> <?= mb_ucfirst($model) ?>. Всегда 97% запчастей в наличии на складе. ☎ <?= TELEPHONE_FREE ?>">
+  <title><?= $title ?></title>
+  <meta name="description" content="<?= $description ?>">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" />
 </head>
 
@@ -40,7 +40,7 @@
             </ol>
           </nav>
           <div class="faq__header">
-            <h1 class="faq__header-title custom-mobile-header">Каталог запчастей на <?= "{$make} {$model}" ?></h1>
+            <h1 class="faq__header-title custom-mobile-header"><?= $h1 ?></h1>
           </div>
           <div class="faq__section">
             <h3 class="faq__section-title">Выберите раздел</h3>

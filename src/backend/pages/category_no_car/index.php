@@ -148,8 +148,13 @@ if (!$page_category['parent']) {
 //Making page title and description
 $title_category = $page_category ? mb_ucfirst($page_category['name']) : "Запчасти";
 $title_phone = TELEPHONE_FREE;
-$title = "{$title_category} ✰ в интернет магазине Запчастей в Москве ☎ {$title_phone}";
-$description = "{$title_category} ✰ Всегда 97% запчастей в наличии на складе. ☎ {$title_phone}";
+// $title = "{$title_category} ✰ в интернет магазине Запчастей в Москве ☎ {$title_phone}";
+// $description = "{$title_category} ✰ Всегда 97% запчастей в наличии на складе. ☎ {$title_phone}";
+
+
+$title = "Купить {$title_category} | Каталог запчастей - Ангара77.";
+$description = "{$title_category} в Наличии и под Заказ. Магазин №1 Запчастей. 100% Гарантия Возврата. 20 лет на рынке.";
+$h1 = "{$title_category}";
 
 
 // pagination

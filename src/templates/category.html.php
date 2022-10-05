@@ -91,7 +91,7 @@
             <?php
             $title = isset($current_car) ? "{$page_category['name']} для {$current_car->make->name} {$current_car->name}" : "{$page_category['name']}";
             ?>
-            <h1 class="block-header__title"><?= $title ?></h1>
+            <h1 class="block-header__title"><?= $h1 ?></h1>
           </div>
         </div>
       </div>

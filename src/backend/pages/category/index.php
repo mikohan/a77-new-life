@@ -98,11 +98,15 @@ if (!$page_category['parent']) {
 // p($neighbors);
 ///home/manhee/sites/angara77.loc/category/category_4.html.php
 //Making page title and description
-$title_category = $page_category ? mb_ucfirst($page_category['name']) : "Запчасти";
-$title_make = $current_car->make->name ? $current_car->make->name : "для Всех";
-$title_model = $current_car->name ? $current_car->name : "Автомобилей";
+$title_category = mb_ucfirst($page_category['name']);
+$title_make = mb_ucfirst($current_car->make->name);
+$title_model = mb_ucfirst($current_car->name);
 $title_phone = TELEPHONE_FREE;
-$title = "{$title_category} для {$title_make} {$title_model} ✰ в интернет магазине Запчастей в Москве ☎ {$title_phone}";
-$description = "{$title_category} для {$title_make} {$title_model} ✰ Всегда 97% запчастей в наличии на складе. ☎ {$title_phone}";
+
+// {$title_make} 
+$title = "Купить {$title_category} {$title_model} | Каталог {$title_make} - Ангара77.";
+$description = "{$title_category} {$title_model} в Наличии и под Заказ. Магазин №1 Запчастей на {$title_make}. 100% Гарантия Возврата. 20 лет на рынке.";
+$h1 = "{$title_category} {$title_model}";
+
 require_once(__DIR__ . '/../../../templates/category.html.php');
 // require_once('./category.html.php');
