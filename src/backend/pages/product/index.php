@@ -111,6 +111,16 @@ $product_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https
 $text = 'Расскажите подробнее про ' . $name . ' ';
 $text .= $product_link;
 $whatsapp_text = str_replace(' ', '%20', $text);
-// Расскажите%20подробнее%20про%20Сцепление%20Комплект%20(Корзина,%20Диск,%20Подшипник)%20Sachs%20Портер%20Хендай%20Портер1%20-%20https://angara77.com/product/stseplenie-komplekt-korzina-disk-podshipnik-sachs-porter/
+
+$product_name = trim(preg_replace('/\s+/u', ' ', $product['name']));
+$model = trim(preg_replace('/\s+/u', ' ', $model));
+$cat_number = $product['cat_number'];
+
+$h1 = $product_name . ' на ' . trim(mb_ucfirst($model)) . ', ' . trim(mb_strtoupper($part_brand)) . ', ' . trim(mb_ucfirst($cat_number));
+$title = $product_name . ' на ' . trim(mb_ucfirst($model)) . ' - ' . trim($cat_number) .  ' | купить в магазине запчастей.';
+$description = $product_name . ' ' . trim(mb_ucfirst($make)) . ' ' .  trim(mb_ucfirst($model))  . ' Подберем оригинал и аналоги. Пришлем видео по запросу.';
+p($description);
+
+
 
 include __DIR__ . '/../../../templates/product.html.php';
