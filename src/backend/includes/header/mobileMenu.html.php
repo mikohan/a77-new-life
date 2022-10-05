@@ -16,7 +16,7 @@
           <div class="mobile-menu__setting" data-mobile-menu-item>
             <button class="mobile-menu__setting-button" title="Language" data-mobile-menu-trigger>
               <span class="mobile-menu__setting-icon">
-                <img src="/assets/images/languages/language-4.png" alt="language">
+                <img src="/assets/images/languages/language-4.png" alt="language" title="language">
               </span>
               <span class="mobile-menu__setting-title">Русский</span>
               <span class="mobile-menu__setting-arrow"><svg width="6px" height="9px">
@@ -39,7 +39,7 @@
                     <li data-mobile-menu-item>
                       <button type="button" class="" data-mobile-menu-trigger>
                         <span class="mobile-menu__links-image">
-                          <img src="/assets/images/languages/language-4.png" alt="language">
+                          <img src="/assets/images/languages/language-4.png" alt="language" title="language">
                         </span>
                         Русский
                       </button>

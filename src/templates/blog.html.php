@@ -74,7 +74,7 @@
                           <div class="post-card post-card--layout--grid-sm">
                             <div class="post-card__image">
                               <a href="/blog/<?= $article['id'] ?>/">
-                                <img src="<?= $article_img ?>" alt="<?= $article_title ?>">
+                                <img src="<?= $article_img ?>" alt="<?= $article_title ?>" alt="<?= $article_title ?>" >
                               </a>
                             </div>
                             <div class="post-card__content">

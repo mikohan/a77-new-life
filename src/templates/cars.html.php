@@ -97,7 +97,7 @@
               ?>
               <li class="block-brands__item">
                 <a href="" class="block-brands__item-link">
-                  <img src="<?= $img ?>" alt="<?= $car->name ?>" />
+                  <img src="<?= $img ?>" alt="<?= $car->name ?>" title="<?= $car->name ?>" />
                   <span class="block-brands__item-name"><?= $brand['name'] ?></span>
                 </a>
               </li>
@@ -507,8 +507,8 @@
         <div class="container">
           <div class="block-banners__list">
             <a href="<?= $u->category('zhidkosti-avtohimija') ?>" class="block-banners__item block-banners__item--style--one">
-              <span class="block-banners__item-image"><img src="/assets/images/banners/banner1.jpg" alt="" /></span>
-              <span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner1.jpg" alt="Motor oils" /></span>
+              <span class="block-banners__item-image"><img src="/assets/images/banners/banner1.jpg" alt="Моторное масло" title="Моторное масло" /></span>
+              <span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner1.jpg" alt="Моторное масло ангара" title="Моторное масло ангара" /></span>
               <span class="block-banners__item-title">Моторные Масла</span>
               <span class="block-banners__item-details">
                 Синтетические масла с доставкой<br />
@@ -517,8 +517,8 @@
               <span class="block-banners__item-button btn btn-primary btn-sm"> Перейти </span>
             </a>
             <a href="" class="block-banners__item block-banners__item--style--two">
-              <span class="block-banners__item-image"><img src="assets/images/banners/banner2.jpg" alt="Acsessores" /></span>
-              <span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner2.jpg" alt="Acsessores" /></span>
+              <span class="block-banners__item-image"><img src="assets/images/banners/banner2.jpg" alt="Аксусуары" title="Аксусуары" /></span>
+              <span class="block-banners__item-image block-banners__item-image--blur"><img src="/assets/images/banners/banner2.jpg" alt="Аксесуары" title="Аксесуары" /></span>
               <span class="block-banners__item-title">Аксесуары</span>
               <span class="block-banners__item-details">
                 Полезные принадлежности и расходники для машин<br />
@@ -752,7 +752,7 @@
                   <div class="post-card">
                     <div class="post-card__image">
                       <a href="<?= $link ?>">
-                        <img src="<?= $img ?>" alt="<?= $name ?>" />
+                        <img src="<?= $img ?>" alt="<?= $name ?>" title="<?= $name ?>" />
                       </a>
                     </div>
                     <div class="post-card__content">

@@ -12,7 +12,7 @@ import '../vendor/imagemapster/jquery.imagemapster.min';
 					products_rows += `
       <div class="catalogue__tooltip-inner-item-row">
           <div class="catalogue__tooltip-inner-item-col catalogue__tooltip-inner-item-col-img">
-            <img src="${product.tmb ?? '/assets/images/products/product-default-70.jpg'}" alt="${product.name}" />
+            <img src="${product.tmb ?? '/assets/images/products/product-default-70.jpg'}" alt="${product.name}"  title="${product.name}" />
           </div>
           <div class="catalogue__tooltip-inner-item-col catalogue__tooltip-inner-item-col-name">
             ${product.name}

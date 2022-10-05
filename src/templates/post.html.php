@@ -97,7 +97,7 @@
                 </div>
                 <div class="post__author">
                   <div class="post__author-avatar">
-                    <img src="<?= $post_author_avatar ?>" alt="<?= $post_author_name ?>">
+                    <img src="<?= $post_author_avatar ?>" alt="<?= $post_author_name ?>" title="<?= $post_author_name ?>" >
                   </div>
                   <div class="post__author-info">
                     <div class="post__author-name">
@@ -113,7 +113,7 @@
                 <div class="post-navigation__body">
                   <a class="post-navigation__item post-navigation__item--prev" href="<?= $prev_link ?>">
                     <div class="post-navigation__item-image">
-                      <img src="/assets/images/posts/post-2-80x80.jpg" alt="<?= $prev_title ?>">
+                      <img src="/assets/images/posts/post-2-80x80.jpg" alt="<?= $prev_title ?>" title="<?= $prev_title ?>" >
                     </div>
                     <div class="post-navigation__item-info">
                       <div class="post-navigation__direction">
@@ -150,7 +150,7 @@
                       </div>
                     </div>
                     <div class="post-navigation__item-image">
-                      <img src="/assets/images/posts/post-3-80x80.jpg" alt="<?= $next_title ?>">
+                      <img src="/assets/images/posts/post-3-80x80.jpg" alt="<?= $next_title ?>" title="<?= $next_title ?>">
                     </div>
                   </a>
                 </div>

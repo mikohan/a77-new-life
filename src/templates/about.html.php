@@ -40,7 +40,7 @@
             </div>
             <div class="about__card-author">Владимир Востриков, CEO Angara Parts</div>
             <div class="about__card-signature">
-              <img src="/assets/images/signature.jpg" width="160" height="55" alt="">
+              <img src="/assets/images/signature.jpg" width="160" height="55" alt="Подпись" title="Подпись">
             </div>
           </div>
           <div class="about__indicators">
@@ -75,7 +75,7 @@
                 ?>
                 <div class="block-teammates__item teammate">
                   <div class="teammate__avatar">
-                    <img src="<?= $img ?>" alt="<?= $man['firstname'] ?>">
+                    <img src="<?= $img ?>" alt="<?= $man['firstname'] ?>" title="<?= $man['firstname'] ?>">
                   </div>
                   <div class="teammate__info">
                     <div class="teammate__name"><?= $man['firstname'] ?></div>
@@ -100,7 +100,7 @@
                 <h5 class="faq__question-title">Отзывы в Гугл</h5>
                 <div class="faq__question-answer">
                   <div class="typography">
-                    <img src="/assets/images/testimonials/google.png" alt="Google testimonials" />
+                    <img src="/assets/images/testimonials/google.png" alt="Отзывы Гугл" title="Отзывы Гугл" />
                   </div>
                 </div>
               </div>
@@ -108,7 +108,7 @@
                 <h5 class="faq__question-title">Отзывы в Яндекс</h5>
                 <div class="faq__question-answer">
                   <div class="typography">
-                    <img src="/assets/images/testimonials/yandex.png" alt="Yandex testimonials" />
+                    <img src="/assets/images/testimonials/yandex.png" alt="Яндекс отзывы" title="Яндекс отзывы" />
                   </div>
                 </div>
               </div>
@@ -147,7 +147,7 @@
               <h5 class="faq__question-title"></h5>
               <div class="faq__question-answer">
                 <div class="typography">
-                  <img src="/assets/images/testimonials/ang_sert.jpg" alt="Yandex testimonials" />
+                  <img src="/assets/images/testimonials/ang_sert.jpg" alt="Яндекс отзывы" title="Яндекс отзывы" />
                 </div>
               </div>
             </div>

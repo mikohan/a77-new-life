@@ -87,19 +87,19 @@
               <div class="faq__question faq__question_warratny">
                 <h5 class="faq__question-title"></h5>
                 <div class="faq__question-answer">
-                  <img src="/assets/images/testimonials/whatsup1.jpg" alt="Whatsup1" />
+                  <img src="/assets/images/testimonials/whatsup1.jpg" alt="Whatsup1" title="Whatsup1" />
                 </div>
               </div>
               <div class="faq__question faq__question_warratny">
                 <h5 class="faq__question-title"></h5>
                 <div class="faq__question-answer">
-                  <img src="/assets/images/testimonials/whatsup2.jpg" alt="Whatsup2" />
+                  <img src="/assets/images/testimonials/whatsup2.jpg" alt="Whatsup2" title="Whatsup2"  />
                 </div>
               </div>
               <div class="faq__question faq__question_warratny">
                 <h5 class="faq__question-title"></h5>
                 <div class="faq__question-answer">
-                  <img src="/assets/images/testimonials/whatsup3.jpg" alt="Whatsup3" />
+                  <img src="/assets/images/testimonials/whatsup3.jpg" alt="Whatsup3" title="Whatsup3" />
                 </div>
               </div>
             </div>

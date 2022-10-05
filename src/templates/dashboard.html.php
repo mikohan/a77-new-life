@@ -65,7 +65,7 @@
                                 <div class="dashboard__profile card profile-card">
                                     <div class="card-body profile-card__body">
                                         <div class="profile-card__avatar">
-                                            <img src="images/avatars/avatar-4.jpg" alt="">
+                                            <img src="images/avatars/avatar-4.jpg" alt="Аватар" title="Аватар">
                                         </div>
                                         <div class="profile-card__name">Helena Garcia</div>
                                         <div class="profile-card__email">red-parts@example.com</div>

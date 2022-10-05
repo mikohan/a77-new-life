@@ -121,7 +121,7 @@
             <!-- copyright / end -->
           </div>
           <div class="site-footer__payments">
-            <img src="/assets/images/payments.png" alt="Методы оплаты">
+            <img src="/assets/images/payments.png" alt="Методы оплаты" title="Методы оплаты">
           </div>
         </div>
       </div>
