@@ -51,6 +51,9 @@ echo PHP_EOL;
 echo "Disallow: /my-orders/";
 echo PHP_EOL;
 
+echo "Allow: https://angara77.com/yandex.xml?nal=1";
+echo PHP_EOL;
+
 echo "Sitemap: " . $server_root . "sitemap.xml";
 echo PHP_EOL;
 
