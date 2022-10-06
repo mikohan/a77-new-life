@@ -39,4 +39,3 @@
 </script>
 <!-- /Yandex.Metrika counter -->
 <meta name="yandex-verification" content="bc25c21b07b16ef5" />
-<meta name="yandex-verification" content="a6a1af3e914f8464" />
