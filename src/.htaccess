@@ -108,7 +108,7 @@ RewriteRule ^robots.txt$ /backend/pages/robots.txt/index.php [L]
 # Sitemap
 RewriteRule ^sitemap.xml$ /backend/pages/sitemap.xml/index.php [L]
 # Yandex XML
-RewriteRule ^yandex/([a-zA-Z0-9-]+)/$ /backend/pages/yandex.xml/index.php?nal=$1 [L]
+RewriteRule ^yandex.xml$ /backend/pages/yandex.xml/index.php [L]
 # Blog API redirect
 #RewriteRule ^backend-blog/$ /backend/index.php [L]
 # Home redirect last
