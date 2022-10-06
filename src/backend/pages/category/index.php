@@ -10,8 +10,6 @@ $get_category = $_GET['category'];
 
 $current_car = $categoryModel->getCar($get_model);
 
-
-
 /**
  * Getting data from server 
  */
