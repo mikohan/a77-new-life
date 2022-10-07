@@ -1078,7 +1078,7 @@
                 </svg>
               </div>
               <div class="block-features__item-info">
-                <div class="block-features__item-title">Постянным клиентам</div>
+                <div class="block-features__item-title">Постоянным клиентам</div>
                 <div class="block-features__item-subtitle">Скидки %</div>
               </div>
             </li>
