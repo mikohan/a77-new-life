@@ -12,6 +12,8 @@ $current_page = $_GET['page'] ?? 1;
 
 $query = urldecode($_SERVER['QUERY_STRING']);
 
+session_destroy();
+
 $checked_car_model = [];
 $checked_brand = [];
 $checked_has_photo = [];

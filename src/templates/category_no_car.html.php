@@ -79,7 +79,7 @@
                 </li>
                 <?php foreach ($parents as $parent) : ?>
                   <li class="breadcrumb__item breadcrumb__item--parent">
-                    <a href="/category/<?= $parent['slug'] ?>/" class="breadcrumb__item-link"><?= $parent['name'] ?></a>
+                    <a href="<?= $u->category($parent['slug']) ?>/" class="breadcrumb__item-link"><?= $parent['name'] ?></a>
                   <li>
                   <?php endforeach ?>
                   <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
