@@ -1,4 +1,5 @@
 <?php
+session_start();
 require __DIR__ . '/../config.php';
 require __DIR__ . '/Connection.php';
 require __DIR__ . '/Url.php';

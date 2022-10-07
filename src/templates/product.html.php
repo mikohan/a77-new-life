@@ -56,9 +56,9 @@
                 </li>
                 <?php foreach ($product['category'] as $category) : ?>
                   <?php
-                  $mod_slug = $product['model'][0]['slug'] ?? null;
+
                   if ($check_model) {
-                    $link = $u->categoryCar($mod_slug, $category['slug']);
+                    $link = $u->categoryCar($current_car_slug, $category['slug']);
                   } else {
                     $link = $u->category($category['slug']);
                   }

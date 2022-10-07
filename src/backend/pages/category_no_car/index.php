@@ -88,6 +88,7 @@ $products_total_count = $remote_data['hits']['total']['value'];
 $aggregations = $remote_data['aggregations'];
 // Aggregations separeted
 $car_models = $aggregations['car_models'];
+
 $condition = $aggregations['condition'];
 $brands = $aggregations['brands'];
 $bages = $aggregations['bages'];

@@ -48,6 +48,9 @@ $has_photo = $aggregations['has_photo'];
 $max_price = $aggregations['max_price']['value'];
 $min_price = $aggregations['min_price']['value'];
 
+
+
+
 function findCurrent($val, $array)
 {
   foreach ($array as $item) {
@@ -105,6 +108,9 @@ $title_phone = TELEPHONE_FREE;
 $title = "Купить {$title_category} {$title_model} | Каталог {$title_make} - Ангара77.";
 $description = "{$title_category} {$title_model} в наличии и под заказ. Магазин №1 запчастей на {$title_make}. 100% Гарантия возврата. 20 лет на рынке.";
 $h1 = "{$title_category} {$title_model}";
+
+$_SESSION['current_car_slug'] = $get_model;
+
 
 require_once(__DIR__ . '/../../../templates/category.html.php');
 // require_once('./category.html.php');
