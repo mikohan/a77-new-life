@@ -17,6 +17,7 @@ $cdate = date("Y-m-d H:i", time());
 // Static pages
 $all_pages = $sm->makeMeHappy();
 
+
 $loc = '';
 foreach ($all_pages as $i => $page) {
   $loc .= '<url>' . $page . '<lastmod>' . $cdate . '</lastmod><priority>0.9</priority></url>';

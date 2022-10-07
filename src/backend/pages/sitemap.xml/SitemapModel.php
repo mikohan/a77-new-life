@@ -122,4 +122,21 @@ class SitemapModel extends Connection
 
     return $return;
   }
+
+  public function makeMeHappyCsv()
+  {
+    /**
+     * Combine all array together and than return it
+     */
+    $return = [];
+    $static_pages = $this->staticPages();
+    $blog_post_pages = $this->blogPostsPages();
+    $categories_pages = $this->categoriesPages();
+    $cars_categories_pages = $this->carsCategoriesPages();
+    $products_pages = $this->productsPages();
+    $return = array_merge($static_pages, $blog_post_pages, $categories_pages, $cars_categories_pages, $products_pages);
+    //$return = array_map(fn ($item) => "<loc>" . $item . "</loc>", $return);
+
+    return $return;
+  }
 }
