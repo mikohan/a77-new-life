@@ -47,6 +47,19 @@ class SitemapModel extends Connection
     return array_map(fn ($url) => $this->host . $url, $pages);
   }
 
+
+  private function homePage()
+  {
+    /**
+     * Return array of static pages
+     */
+    $u = new Url;
+    $pages =  [
+      $u->home()
+    ];
+    return array_map(fn ($url) => $this->host . $url, $pages);
+  }
+
   private function categoriesPages()
   {
     /**
@@ -112,13 +125,18 @@ class SitemapModel extends Connection
      * Combine all array together and than return it
      */
     $return = [];
+    $home_page = $this->homePage();
     $static_pages = $this->staticPages();
     $blog_post_pages = $this->blogPostsPages();
     $categories_pages = $this->categoriesPages();
     $cars_categories_pages = $this->carsCategoriesPages();
     $products_pages = $this->productsPages();
-    $return = array_merge($static_pages, $blog_post_pages, $categories_pages, $cars_categories_pages, $products_pages);
-    $return = array_map(fn ($item) => "<loc>" . $item . "</loc>", $return);
+    // $return = array_merge($static_pages, $blog_post_pages, $categories_pages, $cars_categories_pages, $products_pages);
+
+    $categories = array_merge($categories_pages, $cars_categories_pages);
+
+    $return = ['homePage' => $home_page, 'staticPages' => $static_pages, 'blogPages' => $blog_post_pages, 'categoriesPages' => $categories, 'productPages' => $products_pages];
+
 
     return $return;
   }
@@ -130,10 +148,12 @@ class SitemapModel extends Connection
      */
     $return = [];
     $static_pages = $this->staticPages();
+
     $blog_post_pages = $this->blogPostsPages();
     $categories_pages = $this->categoriesPages();
     $cars_categories_pages = $this->carsCategoriesPages();
     $products_pages = $this->productsPages();
+
     $return = array_merge($static_pages, $blog_post_pages, $categories_pages, $cars_categories_pages, $products_pages);
     //$return = array_map(fn ($item) => "<loc>" . $item . "</loc>", $return);
 
