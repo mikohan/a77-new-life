@@ -18,9 +18,9 @@
       "@context": "https://schema.org/",
       "@type": "Product",
       "mpn": "<?= $product['cat_number'] ?>",
-      "name": "<?= $product['name'] . ' ' . $product['name2'] ?>",
+      "name": "<?= $h1 ?>",
       "image": "<?= $product_tmb ?>",
-      "description": "<?= $product['name'] . ' ' . $product['name2'] ?> от производителя <?= $part_brand ?> для автомобиля <?= $make ?> <?= $model ?>. На все запчасти есть сертификат соответсвия.",
+      "description": "<?= $description ?>",
       "sku": "<?= $product['one_c_id'] ?>",
       "brand": "<?= $part_brand ?>",
       "offers": {

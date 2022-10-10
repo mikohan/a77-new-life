@@ -11,11 +11,11 @@ class ProductModel extends Connection
    * 5) Return that data to page 
    */
 
-  private function getDataFromAPI($slug)
+  private function getDataFromAPI($slug, $car_model_slug = '')
   {
 
     $server_url = PHOTO_API_URL;
-    $url = "{$server_url}/api/product/get-product-by-slug/{$slug}/";
+    $url = "{$server_url}/api/product/get-product-by-slug/{$slug}/?car_model={$car_model_slug}";
     //  Initiate curl
     $ch = curl_init($url);
     $options = array(
