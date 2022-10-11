@@ -71,7 +71,7 @@ if (!SHOW_PRICE) {
 
 $related = count($product['related']) ? $product['related'] : [];
 
-$slug = count($product['model']) ? $product['model'][0]['make_slug'] : null;
+$make_slug = count($product['model']) ? $product['model'][0]['make_slug'] : null;
 
 $name2 = ' ' .  $product['name2'] ?? ' ';
 
@@ -80,8 +80,8 @@ $name = mb_ucfirst($product['name']) . $name2 . ' ' .  mb_ucfirst($make) . ' ' .
 
 
 $all_cars = [];
-if ($slug) {
-  $all_cars = $product_model->GetCars($slug);
+if ($make_slug) {
+  $all_cars = $product_model->GetCars($make_slug);
 }
 
 // Making array of product images if product have not have images than make array from default image

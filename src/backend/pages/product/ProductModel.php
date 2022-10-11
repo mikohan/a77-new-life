@@ -16,6 +16,7 @@ class ProductModel extends Connection
 
     $server_url = PHOTO_API_URL;
     $url = "{$server_url}/api/product/get-product-by-slug/{$slug}/?car_model={$car_model_slug}";
+    // p($url);
     //  Initiate curl
     $ch = curl_init($url);
     $options = array(
@@ -80,7 +81,7 @@ class ProductModel extends Connection
     $t->execute(array($slug, $product_json, $updated));
   }
 
-  public function getProduct($slug)
+  public function getProduct($slug, $car_model_slug)
   {
     /**
      * Final function that returns product or raise error
@@ -94,12 +95,12 @@ class ProductModel extends Connection
       $past = new DateTime($mysql_data['updated'] ?? null);
       $interval = $today->diff($past)->days;
       // echo ('Getting from mysql');
-      if ($interval > PRODUCT_UPDATE_INTERVAL) {
+      if ($interval > PRODUCT_UPDATE_INTERVAL or PRODUCT_UPDATE_INTERVAL == 0) {
         // Call API
         // IF Api fail return result
         try {
           // echo ('Getting data from API Interval');
-          $data = $this->getDataFromAPI($slug);
+          $data = $this->getDataFromAPI($slug, $car_model_slug);
           // Save data to mysql
           $this->insertOrUpdateProduct($data);
           return json_decode($data, true);
@@ -114,7 +115,7 @@ class ProductModel extends Connection
     } catch (Throwable $t) {
       // Call Api Here
       // echo ("Data from API! Cause it not exists im mysql");
-      $data = $this->getDataFromAPI($slug);
+      $data = $this->getDataFromAPI($slug, $car_model_slug);
       $this->insertOrUpdateProduct($data);
       return json_decode($data, true);
     }
