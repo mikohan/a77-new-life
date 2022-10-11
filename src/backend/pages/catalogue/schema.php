@@ -36,5 +36,12 @@ $h3_table = $catalogue_model_refactor->getSchemaTitle($car_slug, $schema_id);
 $products_chunks = $catalogue_model_refactor->splitArray($products, 3);
 // page title assigning
 $page_title = !empty($h3_table) ? $h3_table['name'] : '';
+$schema_name = mb_ucfirst($h3_table['name']) ?? '';
+
+// h1 title and description formation
+$h1 = "{$schema_name}";
+$title = "{$schema_name} | Схема на {$make} {$model}.";
+$description = "{$schema_name} | Схема {$make} {$model}. Удобный поиск артикула запчасти. 100% гарантии возврата.";
+
 
 include __DIR__ . '/../../../templates/catalogue_schema.html.php';

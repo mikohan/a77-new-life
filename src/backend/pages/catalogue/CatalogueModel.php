@@ -22,7 +22,8 @@ class CatalogueModel extends Connection
      */
     $m = $this->db();
     $table = "ang_catalogue_" . $car_slug . "_h3";
-    $q = "SELECT * FROM " . $table . " WHERE id_h2 = ?";
+    $table_parent = "ang_catalogue_" . $car_slug . "_h2";
+    $q = "SELECT h3.*, h2.name FROM " . $table . " as h3 LEFT JOIN " . $table_parent . " as h2 ON h2.id = h3.id_h2 WHERE id_h2 = ?";
     $t = $m->prepare($q);
     $t->execute(array($parent));
     $result = $t->fetchAll(PDO::FETCH_ASSOC);
