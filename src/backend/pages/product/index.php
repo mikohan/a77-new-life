@@ -15,9 +15,10 @@ $slug = $_GET['slug'];
 $car_model_slug = $_SESSION['current_car_slug'] ?? false;
 // $id = 13;
 // $url = PHOTO_API_URL . "/api/product/onec/" . $id . "/";
+
 try {
 
-  $product = $product_model->getProduct($slug, $car_model_slug);
+  $product = $product_model->getProduct($slug);
 } catch (Throwable $t) {
 }
 // p($product);

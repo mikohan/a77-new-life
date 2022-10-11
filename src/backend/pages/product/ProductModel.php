@@ -11,12 +11,11 @@ class ProductModel extends Connection
    * 5) Return that data to page 
    */
 
-  private function getDataFromAPI($slug, $car_model_slug = '')
+  private function getDataFromAPI($slug)
   {
 
     $server_url = PHOTO_API_URL;
-    $url = "{$server_url}/api/product/get-product-by-slug/{$slug}/?car_model={$car_model_slug}";
-    // p($url);
+    $url = "{$server_url}/api/product/get-product-by-slug/{$slug}/";
     //  Initiate curl
     $ch = curl_init($url);
     $options = array(
@@ -81,7 +80,7 @@ class ProductModel extends Connection
     $t->execute(array($slug, $product_json, $updated));
   }
 
-  public function getProduct($slug, $car_model_slug)
+  public function getProduct($slug)
   {
     /**
      * Final function that returns product or raise error
@@ -100,7 +99,7 @@ class ProductModel extends Connection
         // IF Api fail return result
         try {
           // echo ('Getting data from API Interval');
-          $data = $this->getDataFromAPI($slug, $car_model_slug);
+          $data = $this->getDataFromAPI($slug);
           // Save data to mysql
           $this->insertOrUpdateProduct($data);
           return json_decode($data, true);
@@ -115,7 +114,7 @@ class ProductModel extends Connection
     } catch (Throwable $t) {
       // Call Api Here
       // echo ("Data from API! Cause it not exists im mysql");
-      $data = $this->getDataFromAPI($slug, $car_model_slug);
+      $data = $this->getDataFromAPI($slug);
       $this->insertOrUpdateProduct($data);
       return json_decode($data, true);
     }
