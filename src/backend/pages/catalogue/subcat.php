@@ -19,13 +19,14 @@ $first = $catalogue_model->getCatalogueSubcat($car_slug, $parent);
 
 $make = $car ? mb_ucfirst($car['make']['name']) : '';
 $model = $car ? mb_ucfirst($car['name']) : mb_ucfirst($car_slug);
-$schema_name = mb_ucfirst($first[0]['name']) ?? '';
+$schema_name = mb_ucfirst($first[0]['parent_name']) ?? '';
 
 
 $h1 = "Схема {$schema_name} {$make} {$model}";
 $title = "Схема {$schema_name} {$make} {$model}. | Купить в магазине Ангара77.";
 $description = "Схема {$schema_name} {$make} {$model}. Удобный поиск артикула запчасти. Пришлем фото и видео по запросу. 100% гарантии возврата. 20 лет на рынке.";
 
+$breadcrumb = "/catalogue/{$car_slug}/";
 
 
 

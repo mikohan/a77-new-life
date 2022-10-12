@@ -30,10 +30,13 @@
                 <a href="/" class="breadcrumb__item-link">Главная</a>
               </li>
               <li class="breadcrumb__item breadcrumb__item--parent">
-                <a href="<?= $u->catalogue($car_slug) ?>" class="breadcrumb__item-link">Каталог</a>
+                <a href="<?= $u->catalogue($car_slug) ?>" class="breadcrumb__item-link">Каталог <?= $model ?></a>
+              <li>
+              <li class="breadcrumb__item breadcrumb__item--parent">
+                <a href="<?= $bred_parent['url'] ?>" class="breadcrumb__item-link"><?= $bred_parent['name'] ?></a>
               <li>
               <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
-                <span class="breadcrumb__item-link"><?= $model ?></span>
+                <span class="breadcrumb__item-link"><?= $h1 ?></span>
               </li>
               <li class="breadcrumb__title-safe-area" role="presentation"></li>
             </ol>

@@ -43,5 +43,9 @@ $h1 = "{$schema_name}";
 $title = "{$schema_name} | Схема на {$make} {$model}.";
 $description = "{$schema_name} | Схема {$make} {$model}. Удобный поиск артикула запчасти. 100% гарантии возврата.";
 
+// $breadcrumb = "/catalogue/{$car_slug}/";
+$bread_parent = ['name' => $h3_table['parent_name'], 'url' => "/catalogue/{$car_slug}/{$h3_table['id_h2']}/"];
+$bread_model = "/catalogue/{$car_slug}/{$schema_id}/";
+
 
 include __DIR__ . '/../../../templates/catalogue_schema.html.php';

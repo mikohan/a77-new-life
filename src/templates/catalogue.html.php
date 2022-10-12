@@ -31,12 +31,14 @@
                 <a href="/" class="breadcrumb__item-link">Главная</a>
               </li>
               <li class="breadcrumb__item breadcrumb__item--parent">
-                <a href="" class="breadcrumb__item-link">Каталог</a>
+                <a <?php if ($breadcrumb) : ?> href="<?= $breadcrumb ?>" <?php endif ?> class="breadcrumb__item-link">Каталог <?= $model ?></a>
               <li>
+                <?php if ($parent) : ?>
               <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
-                <span class="breadcrumb__item-link"><?= $model ?></span>
+                <span class="breadcrumb__item-link"><?= $schema_name ?> <?= $model ?></span>
               </li>
               <li class="breadcrumb__title-safe-area" role="presentation"></li>
+            <?php endif ?>
             </ol>
           </nav>
           <div class="faq__header">
