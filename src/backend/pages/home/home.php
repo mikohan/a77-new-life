@@ -13,9 +13,9 @@ $features = $home_model->getProductsForHomePage();
 
 
 // Meta tags
-$h1 = "Интернет магазин автозапчастей и автотоваров - " . COMPANY_INFO['company_name'] . ".";
-$title = "Запчасти для автомобилей и спецтехники - " . COMPANY_INFO['company_name'] . ".";
-$description = "Купить запчасти для легковых, грузовых автомобилей и спецтехники в интернет магазиние - " . COMPANY_INFO['company_name'] . ". | тел - " . COMPANY_INFO['phone_free'][1] . ". Более 20 000 Запчастей и автотоваров в наличии на складе сегодня!";
+// $h1 = "Интернет магазин автозапчастей и автотоваров - " . COMPANY_INFO['company_name'] . ".";
+// $title = "Запчасти для автомобилей и спецтехники - " . COMPANY_INFO['company_name'] . ".";
+// $description = "Купить запчасти для легковых, грузовых автомобилей и спецтехники в интернет магазиние - " . COMPANY_INFO['company_name'] . ". | тел - " . COMPANY_INFO['phone_free'][1] . ". Более 20 000 Запчастей и автотоваров в наличии на складе сегодня!";
 
 // Gettting latest posts
 
@@ -27,6 +27,10 @@ $obj_lstest_post = new BlogModelHTTP($latest_post_get_url);
 $posts =  $obj_lstest_post->getAllArticlesBackend();
 // p($posts);
 
+
+$h1 = 'Запчасти для коммерческого и грузового транспорта';
+$title = 'Запчасти для коммерческого и грузового транспорта | Магазин Ангара 77';
+$description = 'Каталог запчастей для коммерческих и грузовых автомобилей. Наглядные схемы. 20 лет на рынке. Доставка по России. 100% гарантия возврата';
 
 // All cars we are getting from Header
 require_once __DIR__ . '/../../../templates/home.html.php';

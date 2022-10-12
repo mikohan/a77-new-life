@@ -121,7 +121,9 @@
         <div class="container">
           <div class="block-categories__header">
             <div class="block-categories__title">
-              Популярные категории
+              <h2 class="block-categories__title">
+                Популярные категории
+              </h2>
               <div class="decor block-categories__title-decor decor--type--center">
                 <div class="decor__body">
                   <div class="decor__start"></div>
@@ -718,7 +720,7 @@
                         <a href="<?= $link ?>">Запчасти</a>
                       </div>
                       <div style="width: 100%;" class="post-card__title">
-                        <h2>
+                        <h2 class="section-header__title">
                           <a href="<?= $link ?>"><?= $title ?></a>
                         </h2>
                       </div>
@@ -747,7 +749,9 @@
         <div class="container">
           <div class="row">
             <div class="col-4">
-              <div class="block-products-columns__title">Выбор Покупателей</div>
+              <div class="block-products-columns__title">
+                <h2 class="section-header__title">Выбор Покупателей</h2>
+              </div>
               <div class="block-products-columns__list">
                 <?php foreach ($features['top'] as $top) : ?>
                   <?php
@@ -808,7 +812,9 @@
               </div>
             </div>
             <div class="col-4">
-              <div class="block-products-columns__title">Спецпредложения</div>
+              <div class="block-products-columns__title">
+                <h2 class="section-header__title">Спецпредложения</h2>
+              </div>
               <div class="block-products-columns__list">
                 <?php foreach ($features['special'] as $spec) : ?>
                   <?php
@@ -867,7 +873,9 @@
               </div>
             </div>
             <div class="col-4">
-              <div class="block-products-columns__title">Бестселлеры</div>
+              <div class="block-products-columns__title">
+                <h2 class="section-header__title">Бестселлеры</h2>
+              </div>
               <div class="block-products-columns__list">
                 <?php foreach ($features['best'] as $best) : ?>
                   <?php
@@ -921,6 +929,29 @@
                 <?php endforeach ?>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="block-space block-space--layout--divider-nl"></div>
+
+      <div class="block-features block block-features--layout--bottom-strip">
+        <div class="container">
+          <div class="home-page-seo-text">
+            <p>
+              Интернет-магазин запчастей “Angara Parts”. Мы поставляем запасные части для автомобилей, коммерческого транспорта, грузовиков и спецтехники.
+            </p>
+            <p>
+              Мы работаем с 2003 года. За это время стали экспертами в подборе деталей, а также 50000 довольных клиентов и сотни отзывов на сторонних источниках. Главные критерии для оценки качества: доставка в срок, ответ на заказ с сайта не более 1 часа. Если запчасть не подойдет на авто, доступен возврат.
+            </p>
+            <p>
+              Наш склад насчитывает 20000 артикулов для автомобилей. Удобный каталог оригинальных запчастей, у каждого товара Вы всегда можете увидеть подходящие аналоги по более выгодной цене. Отмечаем товар в наличии, который можно забрать самовывозом в течении час для жителей Москвы и Московской области согласно режиму работы. Доставляем мелкогабаритный и крупногабаритный товар для авто по России используя самые распространенные транспортные компании.
+            </p>
+            <p>
+              В нашем блоге мы публикуем статьи по ремонту и эксплуатации машин, а также руководства и полезные советы для автовладельцев.
+            </p>
+            <p>
+              Ангара 77 - магазин с 20 летней историей и опытом, надежный партнер запчастей на ваш автомобиль.
+            </p>
           </div>
         </div>
       </div>

@@ -36,9 +36,9 @@ class BlogModelHTTP
 
     $matches1 = null;
     $matches2 = null;
-    preg_match('/X-WP-Total:\s+(\d+)/', $header, $matches1);
-    preg_match('/X-WP-TotalPages:\s+(\d+)/', $header, $matches2);
-    $pages_info = ['X-WP-Total' => $matches1[1], 'X-WP-TotalPages' => $matches2[1]];
+    preg_match('/x-wp-total:\s+(\d+)/', $header, $matches1);
+    preg_match('/x-wp-totalpages:\s+(\d+)/', $header, $matches2);
+    $pages_info = ['x-wp-total' => $matches1[1], 'x-wp-totalpages' => $matches2[1]];
     curl_close($ch);
     $mydata[0]['page_info'] = $pages_info;
     return $mydata;
