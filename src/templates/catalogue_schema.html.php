@@ -33,7 +33,7 @@
                 <a href="<?= $u->catalogue($car_slug) ?>" class="breadcrumb__item-link">Каталог <?= $model ?></a>
               <li>
               <li class="breadcrumb__item breadcrumb__item--parent">
-                <a href="<?= $bred_parent['url'] ?>" class="breadcrumb__item-link"><?= $bred_parent['name'] ?></a>
+                <a href="<?= $bread_parent['url'] ?>" class="breadcrumb__item-link"><?= $bread_parent['name'] ?></a>
               <li>
               <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
                 <span class="breadcrumb__item-link"><?= $h1 ?></span>
