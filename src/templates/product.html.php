@@ -489,7 +489,7 @@
                       </div>
                       <div class="product-tabs__pane" id="product-tab-opisanie">
                         <div class="typography">
-                          <h4>Описание <?= $product['name'] . ' ' . $product['name2'] . ' на ' . mb_ucfirst($make) . ' ' . mb_ucfirst($model) ?></h4>
+                          <h4>Описание</h4>
                           <div>
                             <?= $product['product_description']['text'] ?>
                           </div>
