@@ -434,7 +434,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div class=" product__tabs product-tabs product-tabs--layout--full d-md-block">
                     <ul class="product-tabs__list">
                       <li class="product-tabs__item product-tabs__item--active"><a href="#product-tab-description">
