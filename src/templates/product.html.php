@@ -139,12 +139,13 @@
                   <div class="product__main">
                     <div class="product__excerpt--side">
                       <div class="product__features ">
-                        <div class="product__features-title">Характеристики</div>
-                        <ul>
+                        <div class="product__features-title">Описание</div>
+                        <div><?= $product['product_description']['text'] ?? '' ?></div>
+                        <!--<ul>
                           <?php foreach ($attrs as $attribute) : ?>
                             <li><?= $attribute['name'] ?? ''  ?> <span><?= $attribute['value'] ?? '' ?></span></li>
                           <?php endforeach ?>
-                        </ul>
+                        </ul>-->
                       </div>
                       <?php if (!empty($analogs)) : ?>
                         <div class="product__features product__expert--side--item product__expert--side--item1">

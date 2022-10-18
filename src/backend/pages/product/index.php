@@ -130,6 +130,8 @@ $title = $product_name . ' на ' . trim(mb_ucfirst($models_name)) . ' - ' . tri
 $description = $product_name . ' ' . trim(mb_ucfirst($make)) . ' ' .  trim($models_name)  . ' в наличии и на заказ. Подберем оригинал и аналоги. Пришлем видео по запросу.';
 
 
+
+
 $current_car_slug = $_SESSION['current_car_slug'] ?? $slug;
 
 
