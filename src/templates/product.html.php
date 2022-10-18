@@ -147,7 +147,7 @@
                           <?php endforeach ?>
                         </ul>-->
                       </div>
-                      <?php if (!empty($analogs)) : ?>
+                      <?php if (!$analogs) : ?>
                         <div class="product__features product__expert--side--item product__expert--side--item1">
                           <table class="table table-sm" style="font-size: .9rem; color: #6c757d;">
                             <thead>
@@ -180,8 +180,6 @@
                             </tbody>
                           </table>
                         </div>
-                      <?php else : ?>
-                        <hr class="product__tabs--hr">
                       <?php endif ?>
                       <div class="product__tabs--hr--full product__expert--side--item2"></div>
                       <?php if (!empty($catalogue_new['data'])) : ?>
@@ -193,11 +191,11 @@
                         </div>
                       <?php endif ?>
                     </div>
-                    <div class="product__features">
+                    <!--<div class="product__features">
                       <div class="product__features-link">
                         <span>Гаранития и Доставка ...</span>
                       </div>
-                    </div>
+                    </div>-->
                   </div>
                   <div class="product__info">
                     <div class="product__info-card">
@@ -442,16 +440,16 @@
                       <li class="product-tabs__item product-tabs__item--active"><a href="#product-tab-description">
                           <h2>Гарантии</h2>
                         </a></li>
-                      <li class="product-tabs__item"><a href="#product-tab-opisanie">
+                      <!--<li class="product-tabs__item"><a href="#product-tab-opisanie">
                           <h2>Описание</h3>
-                        </a></li>
+                        </a></li>-->
                       <li class="product-tabs__item"><a href="#product-tab-specification">
                           <h2>Хар-ки</h2>
                         </a></li>
-                      <li class="product-tabs__item"><a href="#product-tab-analogs">
+                      <!--<li class="product-tabs__item"><a href="#product-tab-analogs">
                           <h2>Аналоги</h2>
                         </a>
-                      </li>
+                      </li>-->
                     </ul>
                     <div class="product-tabs__content">
                       <div class="product-tabs__pane product-tabs__pane--active" id="product-tab-description">
@@ -488,14 +486,14 @@
                           </div>
                         </div>
                       </div>
-                      <div class="product-tabs__pane" id="product-tab-opisanie">
+                      <!--<div class="product-tabs__pane" id="product-tab-opisanie">
                         <div class="typography">
                           <h4>Описание</h4>
                           <div>
                             <?= $product['product_description']['text'] ?>
                           </div>
                         </div>
-                      </div>
+                      </div>-->
                       <div class="product-tabs__pane" id="product-tab-specification">
                         <div class="spec">
                           <div class="spec__section">
@@ -516,7 +514,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="product-tabs__pane" id="product-tab-analogs">
+                      <!--<div class="product-tabs__pane" id="product-tab-analogs">
                         <table class="analogs-table">
                           <thead>
                             <tr>
@@ -554,7 +552,7 @@
                             <?php endif ?>
                           </tbody>
                         </table>
-                      </div>
+                      </div>-->
                     </div>
                   </div>
                 </div>
