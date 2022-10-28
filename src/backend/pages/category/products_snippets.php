@@ -16,7 +16,11 @@
   $make = count($part['model']) ? $part['model'][0]['make']['name'] : '';
   $name = $part['full_name'] ? $part['full_name'] : $part['name'];
   $name = $name . " " . mb_ucfirst($make) . " " . mb_ucfirst($model);
-  $rating = $part['rating']['ratingAvg'] ? $part['rating']['ratingAvg'] : 5;
+  $rating = 5;
+  if ($part['rating'] ?? false) {
+    $rating = $part['rating']['ratingAvg'] ? $part['rating']['ratingAvg'] : 5;
+  }
+
   $attributes = $part['attributes'] ? $part['attributes'] : array();
   $price = count($part['stocks']) ? $part['stocks'][0]['price'] : 'Звоните!';
   // If show price == false show default string freom config

@@ -37,7 +37,7 @@ $model = count($product['model']) ? mb_strtolower($product['model'][0]['name'], 
 $make = count($product['model']) ? mb_strtolower($product['model'][0]['make']) : '';
 
 $check_model = true;
-if ($model == "все модели" or !$model or !$_SESSION['current_car_slug']) {
+if ($model == "все модели" or !$model or !isset($_SESSION['current_car_slug'])) {
   $check_model = false;
 }
 

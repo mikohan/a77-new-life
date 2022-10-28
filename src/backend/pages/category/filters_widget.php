@@ -31,7 +31,7 @@
             <!-- Children cats start -->
             <?php foreach (findChildren($page_category, $categories) as $key => $ct) : ?>
               <li class="filter-categories__item filter-categories__item--child">
-                <a id="drils-<?= $key ?>" href="/car/<?= $_model ?>/<?= $ct['slug'] ?>/"><?= mb_ucfirst($ct['name']) ?></a>
+                <a id="drils-<?= $key ?>" href="/car/<?= $get_model ?>/<?= $ct['slug'] ?>/"><?= mb_ucfirst($ct['name']) ?></a>
                 <div class="filter-categories__counter"><?= $ct['count'] ?></div>
               </li>
             <?php endforeach ?>

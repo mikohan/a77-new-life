@@ -478,7 +478,7 @@
                 <a href="/login/">Создать Аккаунт</a>
               </div>
             </form>
-            <?php if ($_SESSION['logged_user']) : ?>
+            <?php if (isset($_SESSION['logged_user'])) : ?>
               <div class="account-menu__divider"></div>
               <a href="" class="account-menu__user">
                 <div class="account-menu__user-avatar">
