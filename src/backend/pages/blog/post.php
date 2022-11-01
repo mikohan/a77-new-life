@@ -44,7 +44,7 @@ $post_date = $post_raw_date->format('j F Y');
 // $prev_title = $prev['title'] ?? 'Блог';
 
 // $next_link = "blog/{$next['slug']}/" ?? '/blog/';
-// $next_title = $next['title'] ?? 'Блог';
+//$next_title = 'Скоро будет';
 // // Adding view when viewed
 // $blog_model->incrementView($slug);
 // // p($tags);

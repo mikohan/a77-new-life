@@ -6,7 +6,9 @@ import { displayCart } from './shoppingCart';
  * Vie file
  */
 //config part
-const server_url = 'https://angara77.ga';
+
+const server_url = PHOTO_API_URL;//'https://angara77.ru';
+
 var app = new Vue({
   el: '#app',
   data() {

@@ -583,6 +583,9 @@
   <!-- mobile-menu / end -->
   <!-- quickview-modal -->
   <div id="quickview-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+  <script>
+    const PHOTO_API_URL = `{<?= PHOTO_API_URL ?>}`
+  </script>
   <?php include __DIR__ . '/../backend/includes/header/mobileMenu.html.php'; ?>
 </body>
 

@@ -16,14 +16,11 @@ $header_categories = $apiHeader->getCategoriesFromMysql();
 // Getting all cars and stuff
 $get_all_cars = [];
 $all_cars = [];
-try {
-  $get_all_cars = $apiHeader->getCarsFromApi();
-  $all_cars = array_slice($get_all_cars, 0, 24);
-  usort($all_cars, function ($a, $b) {
-    return $b->priority <=> $a->priority;
-  });
-} catch (Exception $e) {
-}
+$get_all_cars = $apiHeader->getCarsFromApi();
+$all_cars = array_slice($get_all_cars, 0, 24);
+usort($all_cars, function ($a, $b) {
+  return $b->priority <=> $a->priority;
+});
 // p($all_cars[0]->categories);
 
 function makeSubCategoreies($car)

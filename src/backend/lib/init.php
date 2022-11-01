@@ -6,6 +6,7 @@ require __DIR__ . '/Url.php';
 
 if (MY_COOL_SITE_MODE == 'development') {
   error_reporting(E_ALL);
+  ini_set('display_startup_errors', 1);
   ini_set("display_errors", 1);
 }
 
