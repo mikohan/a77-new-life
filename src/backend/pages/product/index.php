@@ -58,7 +58,7 @@ if ($product['brand'] ?? false) {
 // Attribute rebuilding
 
 
-$product_tmb = count($product['product_image']) ? $product['product_image'][0]['img150'] : "/assets/images/product/product-default-160.jpg";
+$product_tmb = count($product['product_image']) ? $product['product_image'][0]['image150_webp'] : "/assets/images/product/product-default-160.jpg";
 
 $product_cross = count($product['product_cross']) ? $product['product_cross'] : [];
 
@@ -96,8 +96,8 @@ if (!count($product['product_image'])) {
   }
 } else {
   foreach ($product['product_image'] as $item) {
-    $product_images[] = $item['image'];
-    $product_tmbs[] = $item['img150'];
+    $product_images[] = $item['image500_webp'];
+    $product_tmbs[] = $item['image150_webp'];
   }
 }
 // Comment

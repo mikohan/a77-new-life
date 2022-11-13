@@ -31,6 +31,7 @@ class ProductModel extends Connection
       throw new Error("API not reacheble check it out!");
     }
     curl_close($ch);
+    p($mydata);
     return $mydata;
   }
 
