@@ -115,7 +115,7 @@
                       <?php foreach ($product['product_video'] as $video) : ?>
                         <div class="product-gallery__thumbnails product-gallery__video" style="margin-top: 1rem;">
                           <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?= $video['youtube_id'] ?>?rel=0" allowfullscreen></iframe>
+                            <iframe loading="lazy" class="embed-responsive-item" src="https://www.youtube.com/embed/<?= $video['youtube_id'] ?>?rel=0" allowfullscreen></iframe>
                           </div>
                         </div>
                       <?php endforeach ?>
