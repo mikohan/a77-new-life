@@ -86,7 +86,7 @@
                   <div class="product__card product__card--two"></div>
                   <div class="product-gallery product-gallery--layout--product-full product__gallery" data-layout="product-full">
                     <div class="product-gallery__featured">
-                      <button type="button" class="product-gallery__zoom">
+                      <!--  <button type="button" class="product-gallery__zoom">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                           <path d="M15,18c-2,0-3.8-0.6-5.2-1.7c-1,1.3-2.1,2.8-3.5,4.6c-2.2,2.8-3.4,1.9-3.4,1.9s-0.6-0.3-1.1-0.7
 	c-0.4-0.4-0.7-1-0.7-1s-0.9-1.2,1.9-3.3c1.8-1.4,3.3-2.5,4.6-3.5C6.6,12.8,6,11,6,9c0-5,4-9,9-9s9,4,9,9S20,18,15,18z M15,2
@@ -110,17 +110,42 @@
                         <?php endforeach ?>
                       </div>
                     </div>
-                    <!-- Video -->
-                    <?php if (!empty($product['product_video'])) : ?>
-                      <?php foreach ($product['product_video'] as $video) : ?>
-                        <div class="product-gallery__thumbnails product-gallery__video" style="margin-top: 1rem;">
-                          <div class="embed-responsive embed-responsive-16by9">
-                            <iframe loading="lazy" class="embed-responsive-item" src="https://www.youtube.com/embed/<?= $video['youtube_id'] ?>?rel=0" allowfullscreen></iframe>
-                          </div>
+                     Video -->
+
+                      <div id="product" class="product-total">
+                        <div class="product-left-row">
+
+                          <?php foreach ($ret_images as $tmb) : ?>
+                            <img width="150" height="100" data-key="0" class="sm-img" src="<?= $tmb['image150_webp'] ?>" alt="<?= $product['name'] ?>" title="<?= $product['name'] ?>" data-src="<?= $tmb['image500_webp'] ?>" />
+                          <?php endforeach ?>
                         </div>
-                      <?php endforeach ?>
-                    <?php endif ?>
-                    <!-- // Video -->
+                        <div class="product-right-row">
+                          <img width="500" height="333" class="some" id="big-image" src="http://0.0.0.0:8111/media/parts_webp/371104A010/%D0%B0%D0%B2%D1%81-%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD/tmb/IMG_1858.JPG_6g20tOp.webp" />
+                          <!-- Next and previous buttons -->
+                          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        </div>
+                        <div class="product-videos">
+                          <iframe class="video" loading="lazy" class="embed-responsive-item" src="https://www.youtube.com/embed/mtWddyFx79s?rel=0" allowfullscreen></iframe>
+
+                          <iframe class="video" loading="lazy" class="embed-responsive-item" src="https://www.youtube.com/embed/mtWddyFx79s?rel=0" allowfullscreen></iframe>
+                        </div>
+                      </div>
+
+
+
+
+                      <!-- <?php if (!empty($product['product_video'])) : ?>
+                        <?php foreach ($product['product_video'] as $video) : ?>
+                          <div class="product-gallery__thumbnails product-gallery__video" style="margin-top: 1rem;">
+                            <div class="embed-responsive embed-responsive-16by9">
+                              <iframe loading="lazy" class="embed-responsive-item" src="https://www.youtube.com/embed/<?= $video['youtube_id'] ?>?rel=0" allowfullscreen></iframe>
+                            </div>
+                          </div>
+                        <?php endforeach ?>
+                      <?php endif ?>
+                      // Video -->
+                    </div>
                   </div>
                   <div class="product__header">
                     <h1 class="product__title"><?= $h1  ?></h1>
