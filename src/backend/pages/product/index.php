@@ -61,10 +61,6 @@ if ($product['brand'] ?? false) {
 $product_tmb = count($product['product_image']) ? $product['product_image'][0]['image150_webp'] : "/assets/images/product/product-default-160.jpg";
 
 
-$ret_images = [];
-foreach ($product['product_image'] as $images) {
-  $ret_images[] = ["image150_webp" => $images['image150_webp'], "image500_webp" => $images['image500_webp'], "image_webp" => $images['image_webp']];
-}
 $product_cross = count($product['product_cross']) ? $product['product_cross'] : [];
 
 // Price 
