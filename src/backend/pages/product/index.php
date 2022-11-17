@@ -97,8 +97,18 @@ if (!count($product['product_image'])) {
   }
 } else {
   foreach ($product['product_image'] as $item) {
-    $product_images[] = $item['image500_webp'];
-    $product_tmbs[] = $item['image150_webp'];
+    if ($item['image_webp']) {
+      $product_images[] = $item['image_webp'];
+    } else {
+
+      $product_images[] = $item['img800'];
+    }
+    if ($item['image150_webp']) {
+      $product_tmbs[] = $item['image150_webp'];
+    } else {
+
+      $product_tmbs[] = $item['img150'];
+    }
   }
 }
 // Comment
