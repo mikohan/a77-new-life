@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no" />
   <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
-  <title>Статьи и мануалы компании Ангара.</title>
+  <title>Блог про авто запчасти и производителей | Магазин Ангара 77</title>
+  <meta name="description" content="Полезная информация про подбор запчастей для коммерческого транспорта. Все о производителях оригинальных и аналоговых запчастей." />
   <!-- fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
   <!-- css -->
@@ -74,7 +75,7 @@
                           <div class="post-card post-card--layout--grid-sm">
                             <div class="post-card__image">
                               <a href="/blog/<?= $article['id'] ?>/">
-                                <img src="<?= $article_img ?>" alt="<?= $article_title ?>" alt="<?= $article_title ?>" title="<?= $article_title ?>" >
+                                <img src="<?= $article_img ?>" alt="<?= $article_title ?>" alt="<?= $article_title ?>" title="<?= $article_title ?>">
                               </a>
                             </div>
                             <div class="post-card__content">

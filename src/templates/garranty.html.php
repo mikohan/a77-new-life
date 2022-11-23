@@ -6,7 +6,8 @@
   <?php include __DIR__ . '/../backend/includes/header/ga.php'; ?>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>Гарантии - <?= COMPANY_INFO['company_name'] ?></title>
+  <title>Гарантии и условия возврата | Магазин Ангара 77</title>
+  <meta name="description" content="100% гарантия возврата если запчасть не подошла. Легкий и быстрый возврат. Интернет магазин запчастей для коммерческих и грузовых автомобилей." />
   <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
   <!-- fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
@@ -35,7 +36,7 @@
                 <li class="breadcrumb__title-safe-area" role="presentation"></li>
               </ol>
             </nav>
-            <h1 class="block-header__title">Гарантии и условия возврата <?= COMPANY_INFO['company_name'] ?></h1>
+            <h1 class="block-header__title">Гарантии</h1>
           </div>
         </div>
       </div>
@@ -93,7 +94,7 @@
               <div class="faq__question faq__question_warratny">
                 <h5 class="faq__question-title"></h5>
                 <div class="faq__question-answer">
-                  <img src="/assets/images/testimonials/whatsup2.jpg" alt="Whatsup2" title="Whatsup2"  />
+                  <img src="/assets/images/testimonials/whatsup2.jpg" alt="Whatsup2" title="Whatsup2" />
                 </div>
               </div>
               <div class="faq__question faq__question_warratny">

@@ -137,8 +137,8 @@ $model = trim(preg_replace('/\s+/u', ' ', $model));
 $cat_number = $product['cat_number'];
 
 $h1 = $product_name . ' на ' . trim(mb_ucfirst($models_name)) . ', ' . trim(mb_strtoupper($part_brand)) . ', ' . trim(mb_ucfirst($cat_number));
-$title = $product_name . ' на ' . trim(mb_ucfirst($models_name)) . ' - ' . trim($cat_number) .  ' | Купить в Магазине Запчастей.';
-$description = $product_name . ' ' . trim(mb_ucfirst($make)) . ' ' .  trim($models_name)  . ' в наличии и на заказ. Подберем оригинал и аналоги. Пришлем видео по запросу.';
+$title = $product_name . ' на ' . trim(mb_ucfirst($models_name)) . ' - ' . trim($cat_number) .  ' - ' . trim(mb_ucfirst($part_brand)) . ' | Купить в Магазине Запчастей.';
+$description = $product_name . ' ** ' . trim(mb_ucfirst($part_brand)) . ' ** на ' . trim(mb_ucfirst($make)) . ' ' .  trim($models_name)  . ' в наличии и на заказ. Подберем оригинал и аналоги. Пришлем видео по запросу.';
 
 
 

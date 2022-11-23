@@ -6,7 +6,8 @@
   <?php include __DIR__ . '/../backend/includes/header/ga.php'; ?>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>Доставка и Оплата <?= COMPANY_INFO['company_name'] ?></title>
+  <title>Авторизация в личный кабинет | Магазин Ангара 77</title>
+  <meta name="description" content="Личный кабинет для получения информации о статусе заказа и доставки. Интернет магазин запчастей для коммерческих и грузовых автомобилей." />
   <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
   <!-- fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">

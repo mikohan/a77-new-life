@@ -6,7 +6,8 @@
   <?php include __DIR__ . '/../backend/includes/header/ga.php'; ?>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>Контакты Компании <?= COMPANY_INFO['company_name'] ?></title>
+  <title>Контакты и режим работы | Магазин Ангара 77</title>
+  <meta name="description" content="Мы на ходимся по адресу Москва, ул. Соловьиная Роща дом 8 корпус 2. Режим работы по будням с 09:00 до 19:00, по выходным с 09:00 до 18:00" />
   <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
   <!-- fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
@@ -41,7 +42,7 @@
                 <li class="breadcrumb__title-safe-area" role="presentation"></li>
               </ol>
             </nav>
-            <h1 class="block-header__title">Контакты компании <?= COMPANY_INFO['company_name'] ?></h1>
+            <h1 class="block-header__title">Контакты</h1>
           </div>
         </div>
       </div>
@@ -78,9 +79,6 @@
                       <p class="contacts__phones">
                         <a href="tel:<?= COMPANY_INFO['phone_free'][1] ?>"> <?= COMPANY_INFO['phone_free'][0] ?></a>
                         <a href="tel:<?= COMPANY_INFO['phone_one'][1] ?>"> <?= COMPANY_INFO['phone_one'][0] ?></a>
-                        <a href="tel:<?= COMPANY_INFO['phone_two'][1] ?>"> <?= COMPANY_INFO['phone_two'][0] ?></a>
-                        <a href="tel:<?= COMPANY_INFO['phone_mobile_one'][1] ?>"> <?= COMPANY_INFO['phone_mobile_one'][0] ?></a>
-                        <a href="tel:<?= COMPANY_INFO['phone_free'][1] ?>"> <?= COMPANY_INFO['phone_free'][0] ?></a>
                         Email: <a href="mailto:<?= COMPANY_INFO['email'] ?>"><?= COMPANY_INFO['email'] ?></a>
                       </p>
                       <p>

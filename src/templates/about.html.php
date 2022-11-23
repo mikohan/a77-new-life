@@ -6,7 +6,8 @@
   <?php include __DIR__ . '/../backend/includes/header/ga.php'; ?>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>О Компании Angara Parts</title>
+  <title>О компании Angara Parts | Магазин Ангара 77</title>
+  <meta name="description" content="Интернет магазин запчастей для коммерческих и грузовых автомобилей. 20 лет на рынке. более 20000 запчастей в наличии." />
   <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
   <!-- fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
