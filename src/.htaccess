@@ -14,8 +14,8 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 #RewriteCond %{HTTPS} off
 #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-ErrorDocument 404 /backend/pages/404/
-RewriteRule ^404/$ /backend/pages/404/index.php [L]
+#ErrorDocument 404 /backend/pages/404/
+#RewriteRule ^404/$ /backend/pages/404/index.php [L]
 
 ErrorDocument 500 /backend/pages/500/
 RewriteRule ^500/$ /backend/pages/500/index.php [L]
@@ -64,8 +64,8 @@ RewriteRule ^group-([0-9]+)-([0-9]+)-([0-9]+)-(.+)/$ /backend/pages/410/index.ph
 
 
 ##### Backup old urls 
-RewriteRule ^cars/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/cars/index.php?make=$1&model=$2 [L]
-RewriteRule ^car/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/$ /backend/pages/category/index.php?model=$1&category=$2 [L]
+RewriteRule ^cars/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)/$ /backend/pages/cars/index.php?make=$1&model=$2 [L]
+RewriteRule ^car/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)/$ /backend/pages/category/index.php?model=$1&category=$2 [L]
 RewriteRule ^search/$ /backend/pages/search/ [L]
 RewriteRule ^product/(.+)/$ /backend/pages/product/index.php?slug=$1 [L]
 
