@@ -7,8 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
   <title>Политика конфиденциальности | Магазин Ангара 77</title>
+
   <meta name="description" content="Интернет магазин запчастей для коммерческих и грузовых автомобилей. 20 лет на рынке. Доставка по России. 100% гарантия возврата" />
-  <meta <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?> <!-- fonts -->
+  <?php include __DIR__ . '/../backend/includes/header/favicon.php' ?>
+  <!-- fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
   <!-- css -->
 </head>
@@ -35,7 +37,7 @@
                 <li class="breadcrumb__title-safe-area" role="presentation"></li>
               </ol>
             </nav>
-            <h1 class="block-header__title">Политика</h1>
+            <h1 class="block-header__title">Политика конфиденциальности</h1>
           </div>
         </div>
       </div>
