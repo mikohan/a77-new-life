@@ -14,8 +14,8 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 #RewriteCond %{HTTPS} off
 #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-#ErrorDocument 404 /backend/pages/404/
-#RewriteRule ^404/$ /backend/pages/404/index.php [L]
+ErrorDocument 404 /backend/pages/404/
+RewriteRule ^404/$ /backend/pages/404/index.php [L]
 
 ErrorDocument 500 /backend/pages/500/
 RewriteRule ^500/$ /backend/pages/500/index.php [L]
