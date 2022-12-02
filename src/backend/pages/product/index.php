@@ -72,6 +72,7 @@ if (!SHOW_PRICE) {
 }
 
 $related = count($product['related']) ? $product['related'] : [];
+p($related);
 
 $make_slug = count($product['model']) ? $product['model'][0]['make_slug'] : null;
 
