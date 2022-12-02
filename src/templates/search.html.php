@@ -562,7 +562,7 @@
                       <?php foreach ($parts_array as $tmp) : ?>
                         <?php
                         $part = $tmp['_source'];
-                        $img = count($part['images']) ? $part['images'][0]['img245'] : "/assets/images/products/product-default-245.jpg";
+                        $img = count($part['images']) ? $part['images'][0]['img245'] : "/assets/images/products/product-default-245.webp";
                         $model = count($part['model']) ? $part['model'][0]['name'] : '';
                         $make = count($part['model']) ? $part['model'][0]['make']['name'] : '';
                         $name = $part['full_name'] ? $part['full_name'] : $part['name'];

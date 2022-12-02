@@ -3,17 +3,17 @@
 $name = $_GET['name'];
 $images = $_GET['images'];
 $images = explode(',', $_GET['images']);
-$images = count($images) ? $images : ['/assets/images/products/product-default-800.jpg'];
+$images = count($images) ? $images : ['/assets/images/products/' . PRODUCT_DEFAULT_IMAGE_800];
 // Tmb stuff
 $tmbs = explode(',', $_GET['tmbs']);
-$tmbs = count($tmbs) ? $tmbs : ['/assets/images/products/product-default-160.jpg'];
+$tmbs = count($tmbs) ? $tmbs : ['/assets/images/products/' . PRODUCT_DEFAULT_IMAGE_150];
 $catNubmer = $_GET['catNumber'];
 $rating = $_GET['rating'];
 $price = $_GET['price'];
 $brand = $_GET['brand'];
 $country = $_GET['country'];
 $sku = $_GET['sku'];
-$tmb = count($tmbs) ? $tmbs[0] : '/assets/images/products/product-default-160.jpg';
+$tmb = count($tmbs) ? $tmbs[0] : '/assets/images/products/' . PRODUCT_DEFAULT_IMAGE_150;
 ?>
 
 

@@ -49,7 +49,7 @@ shoppingCart.removeItemFromCartAll = function(sku) {
   this.saveCart();
 };
 shoppingCart.clearCart = function() {
-  if (confirm('Удалить все товары из корзины?')) {
+  if (confirm("Удалить все товары из корзины?")) {
     this.cart = [];
     this.saveCart();
   }
@@ -86,30 +86,30 @@ shoppingCart.listCart = function() {
   return cartCopy;
 };
 shoppingCart.saveCart = function() {
-  localStorage.setItem('shoppingCart', JSON.stringify(this.cart));
+  localStorage.setItem("shoppingCart", JSON.stringify(this.cart));
 };
 shoppingCart.loadCart = function() {
-  this.cart = JSON.parse(localStorage.getItem('shoppingCart'));
+  this.cart = JSON.parse(localStorage.getItem("shoppingCart"));
   //return this.cart;
 };
-$('.add-to-cart').on('click', function(event) {
+$(".add-to-cart").on("click", function(event) {
   // event.preventDefault();
-  var name = $(this).attr('data-name');
-  var price = Number($(this).attr('data-price'));
-  var image = $(this).attr('data-image');
-  var sku = $(this).attr('data-sku');
+  var name = $(this).attr("data-name");
+  var price = Number($(this).attr("data-price"));
+  var image = $(this).attr("data-image");
+  var sku = $(this).attr("data-sku");
   shoppingCart.addItemCart(name, price, 1, image, sku);
-  ym(20154349, 'reachGoal', 'add_to_cart_GA')
-  console.log('Added to cart');
+  ym(20154349, "reachGoal", "add_to_cart_GA");
+  console.log("Added to cart");
   displayCart();
 });
-$('.clear-cart').on('click', function(event) {
+$(".clear-cart").on("click", function(event) {
   shoppingCart.clearCart();
   displayCart();
 });
 function displayCart() {
   var cartArray = shoppingCart.listCart();
-  var output = '';
+  var output = "";
   for (var i in cartArray) {
     output += `
                   <tr class="cart-table__row">
@@ -118,13 +118,16 @@ function displayCart() {
                         <a href="" class="image__body">
                           <img class="image__tag" src="${cartArray[i].image
         ? cartArray[i].image
-        : '/assets/images/products/product-default-160.jpg'
-      }" alt="${cartArray[i].name}" title="${cartArray[i].name}">
+        : "/assets/images/products/product-default-150.webp"
+
+      }" alt="${cartArray[i].name}" title="${cartArray[i].name
+      }">
                         </a>
                       </div>
                     </td>
                     <td class="cart-table__column cart-table__column--product">
-                      <a href="" class="cart-table__product-name">${cartArray[i].name}</a>
+                      <a href="" class="cart-table__product-name">${cartArray[i].name
+      }</a>
                       <ul class="cart-table__options">
                       </ul>
                     </td>
@@ -134,10 +137,10 @@ function displayCart() {
                       <div class="cart-table__quantity input-number">
                         <input class="form-control input-number__input" type="number" min="1" value="${cartArray[i].count
       }">
-                        <div class="input-number__add plus-item" data-name="${cartArray[i].name}" data-sku="${cartArray[i].sku
-      }"></div>
-                        <div class="input-number__sub substract-item" data-name="${cartArray[i].name}" data-sku="${cartArray[i].sku
-      }"></div>
+                        <div class="input-number__add plus-item" data-name="${cartArray[i].name
+      }" data-sku="${cartArray[i].sku}"></div>
+                        <div class="input-number__sub substract-item" data-name="${cartArray[i].name
+      }" data-sku="${cartArray[i].sku}"></div>
                       </div>
                     </td>
                     <td class="cart-table__column cart-table__column--total" data-title="Всего">${cartArray[i].total
@@ -156,13 +159,15 @@ function displayCart() {
 `;
   }
 
-  let mini_out = '';
+  let mini_out = "";
   for (var i in cartArray) {
     mini_out += `
 							<li class="dropcart__item">
                 <div class="dropcart__item-image">
                   <a href="/cart/">
-                    <img style="width: 70px;" src="${cartArray[i].image ? cartArray[i].image : '/assets/images/products/product-default-70.jpg'
+                    <img style="width: 70px;" src="${cartArray[i].image
+        ? cartArray[i].image
+        : "/assets/images/products/product-default-70.webp"
       }" alt="${cartArray[i].name}" title="${cartArray[i].name}">
                   </a>
                 </div>
@@ -171,8 +176,10 @@ function displayCart() {
                     <a href="/cart/">${cartArray[i].name}</a>
                   </div>
                   <div class="dropcart__item-meta">
-                    <div class="dropcart__item-quantity">${cartArray[i].count}</div>
-                    <div class="dropcart__item-price">&#8381; ${cartArray[i].price}</div>
+                    <div class="dropcart__item-quantity">${cartArray[i].count
+      }</div>
+                    <div class="dropcart__item-price">&#8381; ${cartArray[i].price
+      }</div>
                   </div>
                 </div>
                 <button type="button" class="dropcart__item-remove delete-item" data-name="${cartArray[i].name
@@ -185,7 +192,7 @@ function displayCart() {
               </li>
 							`;
   }
-  let order_items = '';
+  let order_items = "";
   for (var i in cartArray) {
     order_items += `
 		<tr>
@@ -196,40 +203,40 @@ function displayCart() {
 		
 		`;
   }
-  $('.order-items').html(order_items);
-  $('#show-mini-cart').html(mini_out);
-  $('#mini-count').html(shoppingCart.countCart());
-  $('#mini-total').html(shoppingCart.totalCart());
-  $('.show-cart').html(output);
-  $('.count-cart').html(shoppingCart.countCart());
-  $('.total-cart').html(shoppingCart.totalCart());
-  $('.total-cart-input').val(shoppingCart.totalCart());
+  $(".order-items").html(order_items);
+  $("#show-mini-cart").html(mini_out);
+  $("#mini-count").html(shoppingCart.countCart());
+  $("#mini-total").html(shoppingCart.totalCart());
+  $(".show-cart").html(output);
+  $(".count-cart").html(shoppingCart.countCart());
+  $(".total-cart").html(shoppingCart.totalCart());
+  $(".total-cart-input").val(shoppingCart.totalCart());
 }
 
-$('.header').on('click', '.delete-item', function(event) {
-  var sku = $(this).attr('data-sku');
+$(".header").on("click", ".delete-item", function(event) {
+  var sku = $(this).attr("data-sku");
   shoppingCart.removeItemFromCartAll(sku);
   displayCart();
 });
-$('.show-cart').on('click', '.delete-item', function(event) {
-  var sku = $(this).attr('data-sku');
+$(".show-cart").on("click", ".delete-item", function(event) {
+  var sku = $(this).attr("data-sku");
   shoppingCart.removeItemFromCartAll(sku);
   displayCart();
 });
-$('.show-cart-menu').on('click', '.delete-item', function(event) {
-  var sku = $(this).attr('data-sku');
+$(".show-cart-menu").on("click", ".delete-item", function(event) {
+  var sku = $(this).attr("data-sku");
   shoppingCart.removeItemFromCartAll(sku);
   displayCart();
 });
-$('.show-cart').on('click', '.substract-item', function(event) {
-  var sku = $(this).attr('data-sku');
+$(".show-cart").on("click", ".substract-item", function(event) {
+  var sku = $(this).attr("data-sku");
   shoppingCart.removeItemFromCart(sku);
   displayCart();
 });
-$('.show-cart').on('click', '.plus-item', function(event) {
-  var name = $(this).attr('data-name');
-  var sku = $(this).attr('data-sku');
-  var image = $(this).attr('data-image');
+$(".show-cart").on("click", ".plus-item", function(event) {
+  var name = $(this).attr("data-name");
+  var sku = $(this).attr("data-sku");
+  var image = $(this).attr("data-image");
   shoppingCart.addItemCart(name, 0, 1, image, sku);
   displayCart();
 });

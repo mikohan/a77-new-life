@@ -69,7 +69,7 @@
                   </li>
                 <?php endforeach ?>
                 <li class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last" aria-current="page">
-                  <span class="breadcrumb__item-link"><?= mb_ucfirst($product['name']) ?></span>
+                  <span class="breadcrumb__item-link"><?= $prod_name_bread ?></span>
                 </li>
               </ol>
             </nav>
@@ -96,7 +96,7 @@
                       <div class="owl-carousel">
                         <?php foreach ($product_images as $img) : ?>
                           <a href="<?= $img ?>" target="_blank">
-                            <img src="<?= $img ?>" alt="<?= $product['name'] ?>" title="<?= $product['name'] ?>" />
+                            <img loading="lazy" src="<?= $img ?>" alt="<?= $product['name'] ?>" title="<?= $product['name'] ?>" />
                           </a>
                         <?php endforeach ?>
                       </div>
@@ -105,7 +105,7 @@
                       <div class="owl-carousel">
                         <?php foreach ($product_tmbs as $thumb) : ?>
                           <a href="<?= $thumb ?>" class="product-gallery__thumbnails-item" target="_blank">
-                            <img src="<?= $thumb ?>" alt="<?= $product['name'] ?>" title="<?= $product['name'] ?>" />
+                            <img loading="lazy" src="<?= $thumb ?>" alt="<?= $product['name'] ?>" title="<?= $product['name'] ?>" />
                           </a>
                         <?php endforeach ?>
                       </div>
@@ -186,7 +186,7 @@
                         <div class="product__expert--side--item product__expert--side--item3 d-none d-md-block">
                           <div class="product__features-title">Посмотреть на схеме</div>
                           <a href="/catalogue/schema/<?= $catalogue_new['prefix'] ?>/<?= $catalogue_new['data']['id'] ?>/">
-                            <img src="/catalogue_images/<?= $catalogue_new['prefix'] ?><?= $catalogue_new['data']['img2'] ?>" alt="<?= $catalogue_new['data']['name'] ?>" title="<?= $catalogue_new['data']['name'] ?>" class="img-responsive" style="width: 60%;">
+                            <img loading="lazy" src="/catalogue_images/<?= $catalogue_new['prefix'] ?><?= $catalogue_new['data']['img2'] ?>" alt="<?= $catalogue_new['data']['name'] ?>" title="<?= $catalogue_new['data']['name'] ?>" class="img-responsive" style="width: 60%;">
                           </a>
                         </div>
                       <?php endif ?>
@@ -617,9 +617,9 @@
                               <div class="product-card__image">
                                 <a href="<?= $u->product($related_product['slug']) ?>">
                                   <?php if (empty($related_product['images'])) : ?>
-                                    <img src="/assets/images/products/product-default-245.jpg" alt="<?= $related_product['name'] ?>" title="<?= $related_product['name'] ?>" />
+                                    <img loading="lazy" src="/assets/images/products/<?= PRODUCT_DEFAULT_IMAGE_245 ?>" alt="<?= $related_product['name'] ?>" title="<?= $related_product['name'] ?>" />
                                   <?php else : ?>
-                                    <img src="<?= count($related_product['images']) ? $related_product['images'][0]['image245_webp'] : '/assets/images/products/product-default-245.jpg' ?>" alt="<?= $related_product['name'] ?>" title="<?= $related_product['name'] ?>" />
+                                    <img loading="lazy" src="<?= count($related_product['images']) ? $related_product['images'][0]['image245_webp'] : '/assets/images/products/' . PRODUCT_DEFAULT_IMAGE_245 ?>" alt="<?= $related_product['name'] ?>" title="<?= $related_product['name'] ?>" />
                                   <?php endif ?>
                                 </a>
                                 <div class="status-badge status-badge--style--success product-card__fit status-badge--has-icon status-badge--has-text">
@@ -674,7 +674,7 @@
                                     ₽ <?= $related_price ?>
                                   </div>
                                 </div>
-                                <button class="product-card__addtocart-icon add-to-cart" type="button" aria-label="Add to cart" data-name="<?= $related_product['name'] ?>" data-price="<?= $related_product['price'] ?>" data-image="<?= count($related_product['images']) ? $related_product['images'][0]['img245'] : '/assets/images/products/product-default-245.jpg' ?>" data-sku="<?= $related_product['one_c_id'] ?>">
+                                <button class="product-card__addtocart-icon add-to-cart" type="button" aria-label="Add to cart" data-name="<?= $related_product['name'] ?>" data-price="<?= $related_product['price'] ?>" data-image="<?= count($related_product['images']) ? $related_product['images'][0]['img245'] : '/assets/images/products/' . PRODUCT_DEFAULT_IMAGE_245 ?>" data-sku="<?= $related_product['one_c_id'] ?>">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
                                     <circle cx="7" cy="17" r="2" />
                                     <circle cx="15" cy="17" r="2" />

@@ -12,7 +12,7 @@ class QuickView
      * Makes data for quick view
      */
     // p($this->product);
-    // $img = count($this->product['images']) ? $this->product['images'][0]['img245'] : "/assets/images/products/product-default-245.jpg";
+    // $img = count($this->product['images']) ? $this->product['images'][0]['img245'] : "/assets/images/products/product-default-245.webp";
     $model = count($this->product['model']) ? $this->product['model'][0]['name'] : '';
     $make = count($this->product['model']) ? $this->product['model'][0]['make'] : '';
     $name = $this->product['name'] . " " . mb_ucfirst($make) . " " . mb_ucfirst($model);

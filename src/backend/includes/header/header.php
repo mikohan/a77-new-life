@@ -1,4 +1,5 @@
 <?php
+header('Cache-Control: max-age=604800');
 require_once __DIR__ . '/../../lib/init.php';
 require_once __DIR__ . '/header.Model.php';
 

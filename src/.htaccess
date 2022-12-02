@@ -19,23 +19,16 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 #ErrorDocument 404 /backend/pages/404/
-ErrorDocument 404 /backend/pages/errors/404.php
-RewriteRule ^404/$ /backend/pages/404/index.php [L]
+ErrorDocument 404 /backend/pages/404/index.php
+#RewriteRule ^404/$ /backend/pages/404/index.php [L]
 
-ErrorDocument 410 /backend/pages/errors/410.php
-RewriteRule ^410/$ /backend/pages/410/index.php [L]
+ErrorDocument 410 /backend/pages/410/index.php
+#RewriteRule ^410/$ /backend/pages/410/index.php [L]
 
-ErrorDocument 500 /backend/pages/errors/500.php
-RewriteRule ^500/$ /backend/pages/500/index.php [L]
-
-
-
-
+ErrorDocument 500 /backend/pages/500/index.php
+#RewriteRule ^500/$ /backend/pages/500/index.php [L]
 
 # Old redircts starts here
-
-
-
 
 RewriteRule ^zapchasti-([a-zA-Z0-9]+)/([0-9]+).+$ /backend/pages/410/index.php [L,R=410]
 RewriteRule ^category-([0-9]+)-([0-9]+)-(.+).+$ /backend/pages/410/index.php [L,R=410]

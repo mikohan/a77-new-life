@@ -450,7 +450,7 @@
                           <div class="product-card__image">
                             <div class="image image--type--product">
                               <a :href="`/product/${product._source.slug}/`" class="image__body">
-                                <img class="image__tag" v-bind:src="product._source.images.length ? product._source.images[0].img245 : '/assets/images/products/product-default-245.jpg'" :alt="product._source.name">
+                                <img class="image__tag" v-bind:src="product._source.images.length ? product._source.images[0].img245 : '/assets/images/products/product-default-245.webp'" :alt="product._source.name">
                               </a>
                             </div>
                             <div class="status-badge status-badge--style--success product-card__fit status-badge--has-icon status-badge--has-text">
@@ -492,8 +492,8 @@
                               <div v-if="show_price" class="product-card__price product-card__price--current">&#8381; {{(product._source.stocks.length ? product._source.stocks[0].price : 'Звоните!') }}</div>
                               <div v-else class="product-card__price product-card__price--current">&#8381; {{'Звоните!' }}</div>
                             </div>
-                            <button class="product-card__addtocart-icon add-to-cart" @click="addToCart(product._source.name, (product._source.length ?? product._source.stocks[0].price), (product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-160.jpg'), product._source.one_c_id)" type="button" aria-label="Add to cart" id="add_to_cart_GA" :data-sku="product._source.one_c_id" :data-price="product._source.price" :data-name="product._source.name" :data-image="product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-160.jpg'">
-                              <svg width="20" height="20">
+                            <button class="product-card__addtocart-icon add-to-cart" @click="addToCart(product._source.name, (product._source.length ?? product._source.stocks[0].price), (product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-150.webp'), product._source.one_c_id)" type="button" aria-label="Add to cart" id="add_to_cart_GA" :data-sku="product._source.one_c_id" :data-price="product._source.price" :data-name="product._source.name" :data-image="product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-150.webp'">
+                              <svg width=" 20" height="20">
                                 <circle cx="7" cy="17" r="2" />
                                 <circle cx="15" cy="17" r="2" />
                                 <path d="M20,4.4V5l-1.8,6.3c-0.1,0.4-0.5,0.7-1,0.7H6.7c-0.4,0-0.8-0.3-1-0.7L3.3,3.9C3.1,3.3,2.6,3,2.1,3H0.4C0.2,3,0,2.8,0,2.6
@@ -501,7 +501,7 @@
 	C17.9,5.2,17.7,5,17.5,5H9.4C9.2,5,9,4.8,9,4.6V3.4C9,3.2,9.2,3,9.4,3h9.2C19.4,3,20,3.6,20,4.4z" />
                               </svg>
                             </button>
-                            <button class="product-card__addtocart-full add-to-cart" @click="addToCart(product._source.name, (product._source.length ?? product._source.stocks[0].price), (product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-160.jpg'), product._source.one_c_id)" type="button" id="add_to_cart_GA" :data-sku="product._source.sku" :data-price="product._source.price" :data-name="product._source.name" :data-image="product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-160.jpg'">
+                            <button class="product-card__addtocart-full add-to-cart" @click="addToCart(product._source.name, (product._source.length ?? product._source.stocks[0].price), (product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/product-default-150.webp'), product._source.one_c_id)" type="button" id="add_to_cart_GA" :data-sku="product._source.sku" :data-price="product._source.price" :data-name="product._source.name" :data-image="product._source.images.length ? product._source.images[0].img150 : '/assets/images/products/' . PRODUCT_DEFAULT_IMAGE_150">
                               Добавить в Корзину
                             </button>
                             <button class="product-card__wishlist" type="button">

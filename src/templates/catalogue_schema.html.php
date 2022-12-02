@@ -104,7 +104,7 @@
                         <div class="block-products-columns__list">
                           <?php foreach ($pc as $prod) : ?>
                             <?php
-                            $prod_image = count($prod['product_image']) ? $prod['product_image'][0]['img150'] : '/assets/images/products/product-default-160.jpg';
+                            $prod_image = count($prod['product_image']) ? $prod['product_image'][0]['img150'] : '/assets/images/products/' . PRODUCT_DEFAULT_IMAGE_150;
                             $chk_brand = $prod['brand'] ?? false;
                             $prod_brand = $chk_brand ? mb_strtoupper($prod['brand']['brand']) : '';
                             $chk_price = $prod['price'] ?? false;

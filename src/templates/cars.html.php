@@ -403,7 +403,7 @@
             <div class="owl-carousel">
               <?php foreach ($features['latest'] as $latest) : ?>
                 <?php
-                $img = count($latest['product_image']) ? $latest['product_image'][0]['img245'] : '/assets/images/products/product-default-245.jpg';
+                $img = count($latest['product_image']) ? $latest['product_image'][0]['img245'] : '/assets/images/products/'. PRODUCT_DEFAULT_IMAGE_245;
                 $link = $latest['slug'] ? "/product/{$latest['slug']}/" : '';
                 $brand = $latest['brand'] ? mb_strtoupper($latest['brand']['brand']) : 'ORIGINAL';
                 $quick = new QuickView($latest);
@@ -598,7 +598,7 @@
                 <div class="owl-carousel">
                   <?php foreach ($features['sale'] as $sale) : ?>
                     <?php
-                    $img = count($sale['product_image']) ? $sale['product_image'][0]['img245'] : '/assets/images/products/product-default-245.jpg';
+                    $img = count($sale['product_image']) ? $sale['product_image'][0]['img245'] : '/assets/images/products/' . PRODUCT_DEFAULT_IMAGE_245;
                     $brand = $sale['brand'] ? mb_strtoupper($sale['brand']['brand']) : 'ORIGINAL';
                     $sku = $sale['one_c_id'];
                     $sale_price = !SHOW_PRICE ? SHOW_PRICE_STRING : $sale['price'];
@@ -792,7 +792,7 @@
               <div class="block-products-columns__list">
                 <?php foreach ($features['top'] as $top) : ?>
                   <?php
-                  $img = count($top['product_image']) ? $top['product_image'][0]['img245'] : '/assets/images/products/product-default-245.jpg';
+                  $img = count($top['product_image']) ? $top['product_image'][0]['img245'] : '/assets/images/products/' . PRODUCT_DEFAULT_IMAGE_245;
                   $brand = $top['brand'] ? mb_strtoupper($top['brand']['brand']) : 'ORIGINAL';
                   $sku = $top['one_c_id'];
                   $top_price = !SHOW_PRICE ? SHOW_PRICE_STRING : $top['price'];
@@ -852,7 +852,7 @@
               <div class="block-products-columns__list">
                 <?php foreach ($features['special'] as $spec) : ?>
                   <?php
-                  $img = count($spec['product_image']) ? $spec['product_image'][0]['img245'] : '/assets/images/products/product-default-245.jpg';
+                  $img = count($spec['product_image']) ? $spec['product_image'][0]['img245'] : '/assets/images/products/' . PRODUCT_DEFAULT_IMAGE_245;
                   $brand = $spec['brand'] ? mb_strtoupper($spec['brand']['brand']) : 'ORIGINAL';
                   $sku = $spec['one_c_id'];
                   $spec_price = !SHOW_PRICE ? SHOW_PRICE_STRING : $spec['price'];
@@ -910,7 +910,7 @@
               <div class="block-products-columns__list">
                 <?php foreach ($features['best'] as $best) : ?>
                   <?php
-                  $img = count($best['product_image']) ? $best['product_image'][0]['img245'] : '/assets/images/products/product-default-245.jpg';
+                  $img = count($best['product_image']) ? $best['product_image'][0]['img245'] : '/assets/images/products/' . PRODUCT_DEFAULT_IMAGE_245;
                   $brand = $best['brand'] ? mb_strtoupper($best['brand']['brand']) : 'ORIGINAL';
                   $sku = $best['one_c_id'];
                   $best_price = !SHOW_PRICE ? SHOW_PRICE_STRING : $best['price'];

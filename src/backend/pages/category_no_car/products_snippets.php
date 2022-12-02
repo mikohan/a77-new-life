@@ -10,7 +10,7 @@
   } elseif (file_exists("/img/parts/{$sku}.jpg")) {
     $img = SERVER_ROOT_URL . "/img/parts/{$sku}.jpg";
   } else {
-    $img =  "/assets/images/products/product-default-245.jpg";
+    $img =  "/assets/images/products/product-default-245.webp";
   }
   $model = count($part['model']) ? $part['model'][0]['name'] : '';
   $make = count($part['model']) ? $part['model'][0]['make']['name'] : '';

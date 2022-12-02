@@ -21,6 +21,10 @@ try {
   $product = $product_model->getProduct($slug);
 } catch (Throwable $t) {
 }
+
+// Name for breadcurmbs
+$arr_bread = explode(' ', $product['name']);
+$prod_name_bread = mb_ucfirst($arr_bread[0]) . ' ' . $arr_bread[1];
 // p($product);
 
 $models = $product['model'];
@@ -58,7 +62,7 @@ if ($product['brand'] ?? false) {
 // Attribute rebuilding
 
 
-$product_tmb = count($product['product_image']) ? $product['product_image'][0]['image150_webp'] : "/assets/images/product/product-default-160.jpg";
+$product_tmb = count($product['product_image']) ? $product['product_image'][0]['image150_webp'] : "/assets/images/product/" . PRODUCT_DEFAULT_IMAGE_150;
 
 
 $product_cross = count($product['product_cross']) ? $product['product_cross'] : [];
@@ -72,7 +76,6 @@ if (!SHOW_PRICE) {
 }
 
 $related = count($product['related']) ? $product['related'] : [];
-p($related);
 
 $make_slug = count($product['model']) ? $product['model'][0]['make_slug'] : null;
 
@@ -93,8 +96,8 @@ $product_images = [];
 $product_tmbs = [];
 if (!count($product['product_image'])) {
   foreach (range(0, 5) as $i) {
-    $product_images[] = "/assets/images/products/product-default-800.jpg";
-    $product_tmbs[] = "/assets/images/products/product-default-160.jpg";
+    $product_images[] = "/assets/images/products/" . PRODUCT_DEFAULT_IMAGE_800;
+    $product_tmbs[] = "/assets/images/products/" . PRODUCT_DEFAULT_IMAGE_150;
   }
 } else {
   foreach ($product['product_image'] as $item) {
