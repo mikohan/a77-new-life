@@ -47,7 +47,7 @@
           <div class="faq__section" style="padding: 5px;">
             <div class="schema__item-container">
               <div id="schema-id" class="schema__item-item">
-                <img class="catalogue__schema-img" usemap="#schema" src="/catalogue_images/<?= $car_slug ?><?= $image ?>" alt="<?= $page_title ?>" title="<?= $page_title ?>" />
+                <img loading="lazy" class="catalogue__schema-img" usemap="#schema" src="/catalogue_images/<?= $car_slug ?><?= $image ?>" alt="<?= $page_title ?>" title="<?= $page_title ?>" />
                 <map name="schema">
                   <?php foreach ($schema as $item) : ?>
                     <?php
@@ -130,7 +130,7 @@
                                 <div class="product-card__image">
                                   <div class="image image--type--product">
                                     <a href="<?= $u->product($prod['slug']) ?>" class="image__body">
-                                      <img class="image__tag" src="<?= $prod_image ?>" alt="<?= $prod_name ?>" title="<?= $prod_name ?>">
+                                      <img loading="lazy" class="image__tag" src="<?= $prod_image ?>" alt="<?= $prod_name ?>" title="<?= $prod_name ?>">
                                     </a>
                                   </div>
                                 </div>

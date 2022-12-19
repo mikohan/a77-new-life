@@ -1,0 +1,4 @@
+node_modules
+.git
+blog_backend
+dist

@@ -56,7 +56,7 @@
                       $link = isset($_GET['parent']) ? "/catalogue/schema/{$car_slug}/{$f['id']}/" : "/catalogue/{$car_slug}/{$f['id']}/";
                       ?>
                       <a href="<?= $link ?>">
-                        <img src="/catalogue_images/<?= $car_slug ?><?= $f['img'] ?>" alt="<?= $f['name'] ?>" title="<?= $f['name'] ?>" />
+                        <img loading="lazy" src="/catalogue_images/<?= $car_slug ?><?= $f['img'] ?>" alt="<?= $f['name'] ?>" title="<?= $f['name'] ?>" />
                       </a>
                     </div>
                   </div>

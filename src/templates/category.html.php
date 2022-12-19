@@ -450,7 +450,7 @@
                           <div class="product-card__image">
                             <div class="image image--type--product">
                               <a :href="`/product/${product._source.slug}/`" class="image__body">
-                                <img class="image__tag" v-bind:src="product._source.images.length ? product._source.images[0].img245 : '/assets/images/products/product-default-245.webp'" :alt="product._source.name">
+                                <img loading="lazy" class="image__tag" v-bind:src="product._source.images.length ? product._source.images[0].img245 : '/assets/images/products/product-default-245.webp'" :alt="product._source.name">
                               </a>
                             </div>
                             <div class="status-badge status-badge--style--success product-card__fit status-badge--has-icon status-badge--has-text">

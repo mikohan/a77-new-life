@@ -68,7 +68,7 @@
       <div class="product-card__image">
         <div class="image image--type--product">
           <a href="<?= $link ?>" class="image__body">
-            <img class="image__tag" src="<?= $img; ?>" alt="<?= $name ?>" title="<?= $name ?>">
+            <img loading="lazy" class="image__tag" src="<?= $img; ?>" alt="<?= $name ?>" title="<?= $name ?>">
           </a>
         </div>
         <div class="status-badge status-badge--style--success product-card__fit status-badge--has-icon status-badge--has-text">
