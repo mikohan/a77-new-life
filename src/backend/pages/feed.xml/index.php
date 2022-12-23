@@ -140,7 +140,7 @@ foreach ($products['hits']['hits'] as $product_source) {
       <delivery>true</delivery>
       <pickup>true</pickup>
       <delivery-options>
-      <option cost="{$cost}" days="1" order-before="18" />
+      <option cost="{$cost}" days="1-3" order-before="18" />
       </delivery-options>
       <pickup-options>
       <option cost="0" days="1" />                        
