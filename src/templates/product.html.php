@@ -476,8 +476,8 @@
                             <ul>
                               <li>Если запчасть нужна срочно, приезжайте с 09:00 утра до 19:00 вечера в любой день
                                 недели.</li>
-                              <li>Доставка по Москве, при покупке на сумму от 8000 ₽ - <span class="product__tabs--free">Бесплатно!</span>.</li>
-                              <li>Если сумма заказа меньше 8000 ₽, доставка - <span class="product__tabs--free">290
+                              <li>Доставка по Москве, при покупке на сумму от <?=COMPANY_INFO['free_delivery_from']?> ₽ - <span class="product__tabs--free">Бесплатно!</span>.</li>
+                              <li>Если сумма заказа меньше <?=COMPANY_INFO['free_delivery_from']?> ₽, доставка - <span class="product__tabs--free"><?=COMPANY_INFO['delivery_rate']?>
                                   ₽</span>.</li>
                               <li>Клиентам из регионов, доставка до транспортной - <span class="product__tabs--free">Бесплатно!</span><a href="/delivery/" rel="nofollow">
                                   Подробнее здесь...</a></li>
