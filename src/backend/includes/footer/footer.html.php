@@ -23,26 +23,22 @@
                 </dl>
                 <dl class="d-sm-block d-none">
                   <dt>Email</dt>
-                  <dd>angara77@gmail.com</dd>
+                  <dd><?= COMPANY_INFO['email'] ?></dd>
                 </dl>
                 <dl>
                   <dt>Адрес</dt>
-                  <dd>Москва, ул. Соловьиная Роща д 8 корпус 2</dd>
+                  <dd><?= COMPANY_INFO['address'] ?></dd>
                 </dl>
                 <dl>
                   <dt>Рабочие часы</dt>
-                  <dd>Каждый день 9:00 - 19:00</dd>
+                  <dd>Каждый день <?= COMPANY_INFO['working_hours_weekdays'][0] ?> - <?= COMPANY_INFO['working_hours_weekdays'][1] ?></dd>
                 </dl>
               </address>
             </div>
 
             <div style="padding-top: 2rem;" class="site-footer__widget footer-contacts d-sm-block d-none">
               Реквизиты:
-              ИНН 7733607590
-              КПП 773301001
-              БИК 044525555
-              ОГРН 5077746795418
-              Номер счета 40702810170030424301
+              <?= COMPANY_INFO['company_details'] ?>
             </div>
 
           </div>
