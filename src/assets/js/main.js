@@ -1351,7 +1351,7 @@ import PhotoSwipeUI_Default from '../vendor/photoswipe/photoswipe-ui-default.min
 
 
   $(function() {
-    $('#whatsup-button').click(function() {
+    $('#whatsup-button').on('click', function() {
       const text = $(this).attr('data-url');
 
       try {
@@ -1360,7 +1360,7 @@ import PhotoSwipeUI_Default from '../vendor/photoswipe/photoswipe-ui-default.min
       } catch {
         console.error('Yandex goal not working');
       }
-      window.open("https://api.whatsapp.com/send?phone=79197703953&text=" + text, '_blank');
+      window.open("https://api.whatsapp.com/send?phone=79998582658&text=" + text, '_blank');
 
     });
   });
